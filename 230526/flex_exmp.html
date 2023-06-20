@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+
+    <link rel = "stylesheet" href ="./style/css/default.css">
+</head>
+<body> 
+    <!-- Flex , 플랙서블 박스- 플랙서블 박스 - 부모/ 플랙서블 박스 -자식 ,flex 주축과 교차축으로 이루어져있다. 
+        주축은 중심이 되는 축, 주축을 따라 아이템들이 배치된다.
+        주축이 가로일경우 왼쪽에서 오른쪽, 주축이 세로일경우 위에서 아래쪽
+        교차축은 주축에 교차되는 축이다.
+        flex-wrap : nowrap : 한줄배치 wrap 여러줄배치 wrap reverse 여러줄 배치 하되 역순으로 
+         flex-direction : row 박스에서 왼쪽에서 오른쪽, 주축은 가로, 교차축은 세로
+         row reverse : 오른쪽에서 왼쪽으로 배치 , 주축은 가로, 교차축은 세로
+         :column 위에서 아래쪽으로 배치, 주축은 세로, 교차축은 가로 
+         :column-reverse 아래에서 위로 배치, 주축은 세로, 교차축은 가로-->
+    <h3>flex direction-row, wrap</h3>
+    <div id = "flex1">
+        <div class = "red"></div>
+        <div class = "yellow"></div>
+        <div class = "green"></div>
+        <div class = "blue"></div>
+    </div>
+    <br>
+    <h3>주축 방향 justify-content : space-between</h3>
+    <div id = "flex2" class = "flexshape">
+        <div class = "red"></div>
+        <div class = "yellow"></div>
+        <div class = "green"></div>
+        <div class = "blue"></div>
+    </div>
+    <!--flex의 교차축
+    align-items 
+    stretch : flex 아이템을 확장해서배치
+             확장해서 배치는 아이템들을
+             부모의 크기 만큼 늘려준다는것
+    flex-start : 아이템들을 교차축의 
+            시작점에 배치
+    flex-end : 교차축의 끝점에 배치
+    center: 교차축의 중앙에 배치-->
+    <br>
+    <h3>교차축</h3>
+    <div id = "flex5" class = "flexshape">
+        <div class = "red"></div>
+        <div class = "yellow"></div>
+        <div class = "green"></div>
+        <div class = "blue"></div>
+    </div>
+    <!--flex-direction:column 일경우 각 아이템들에  order를 적용할수있다.
+    order의 값이 작을수로 위에 배치 order이 적용되지않은 아이템들은
+    html태그 작성 순서대로 위쪽에 배치된다.-->
+    <br>
+    <h3>direction column</h3>
+    <div id = "flex7" class="flexshape">
+        <div class = "red"></div>
+        <div class = "yellow"></div>
+        <div class = "green"></div>
+        <div class = "blue"></div>
+    </div>
+    <!--flex 아이템 크기 변경 flex: flex-grow  flex-shrink  flex-basis; flex-grow는 flex박스내부에서 공간분할-->
+    <br>
+    <h3>flex 아이템 크기 변경</h3>
+    <div id ="flex8" class = "flexshape">
+        <div class = "red"></div>
+        <div class = "yellow"></div>
+        <div class = "green"></div>
+        <div class = "blue"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 마지막</title>
+</head>
+<style>
+    #cross{border-collapse : collapse;}
+    .top, .bottom{width : 100px; height : 200px; border: 1px solid black;}
+    .left, .right{width : 200px; height : 100px; border : 1px solid black;}
+    .top:hover{
+        background-color : pink;
+    }
+    .left:hover{ /*왼쪽마우스올릴때 노랑색으로 변함*/
+        background-color : yellow;
+    }
+    .rightMemo{ /*오른쪽 마우스 올리면 메모가 보임*/
+        display:none; /*화면표시:없음*/
+    }
+    .right:hover .rightMemo{ /*커셔를 가져가면 글자가 보인다. . 부모자식관계*/
+        display:block;
+    }
+    .brother2{ opacity: 0;} 
+    /*화면표시는 보이지 않음 그러나 존재함, 투명도 0,*/
+    .brother1:hover ~ .brother2{ /*~ 형제관계*/
+        opacity:1;
+    }
+
+</style>
+<body>
+    <table id = "cross">
+        <tr>
+            <td></td>
+            <td class = "top"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class = "left"></td>
+            <td></td>
+            <td class = "right">
+                <p class = "rightMemo">
+                    나는 오른쪽입니다. 
+                    오른쪽은 오른손잡이가 밥먹을때 수저를 사용하는 손 입니다.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class = "bottom">
+                <h3 class = "brother1">여기에 마우스 놔보라고!</h3>
+                <!--td안에 형제관계-->
+                <h5 class = "brother2">
+                    그냥 아무말이나 적어!!
+                    그냥 쓰라고 따라쓰지말라고!!
+                    그냥 아무말이나 적어!!
+                    그냥 쓰라고 따라쓰지말라고!!
+                </h5>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>

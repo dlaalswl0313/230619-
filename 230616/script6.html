@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randomdice</title>
+<link rel="stylesheet" href="./static/css/script.css">
+<script src = "./static/js/script6.js"></script>    
+</head>
+<body>
+    <!--주사위 게임>>
+
+        1. 컴퓨터와 주사위 게임을 한다.
+        2. 컴퓨터의 주사위 이미지와 내 주사위 이미지가 화면에 나타난다.
+        3. start 버튼을 누르면 컴퓨터 주사위를 랜덤값에 따라 맞는 숫자의 이미지가 나와야합니다.
+        4. 내 주사위 이미지를 클릭하면 랜덤값에 따라 맞는 숫자의 이미지가 나와야한다.
+        5. 결과는 주사위 숫자가 큰쪽이 승리합니다. 
+        6. 결과는 텍스트 출력 아래쪽에는 그동안 진행한 결과가 출력됩니다. 예시 : 3승 0패 1무  
+        반드시 사용되어야하는 함수 : Math.floor(), Math.random() / setInterval 안해도 된다. 
+    -->
+    <div class="game">
+     <div class ="com_image_box">
+        <p onclick="select('1')"><img src="./static/image/2.png" id="2"></p>
+
+    </div>
+     <div class="button_box">
+        <b>주사위 게임</b>
+        <button onclick="start()">START</button>
+        <b id="start"> </b>
+    </div>
+     <div class ="user_image_box">
+        <p onclick="select('1')"><img src="./static/image/1.png"></p>
+    </div>
+    <div class="res"></div>
+  </div>
+</body>
+</html>

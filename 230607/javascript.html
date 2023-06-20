@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //"" '' 는 문자열을 뜻한다. 문자열은 숫자가 아니다.
+        /*''는 암묵적으로 고유 대명사를 사용할때(즉, 변하지 않는 문자열을 사용할때)*/ 
+
+        /*var number=10; /*저장된10을 브라우저에 출력한다면?var number(변수이름)을 적으면 된다=변수호출*/
+        //document.write("<b>"+number+"</b><br>"); + 결합 : 10이라는 넘버에 br명령어를 합쳐라
+        
+        /*var width=40;
+        var height=60;
+        var height="60"; 이렇게 지정해줘도 가능하다, 
+        단 문자열이 숫자로 이뤄진 경우
+        document.write(width*height);*/
+        
+       
+        
+        
+        /*document.write("안녕 나는 자바스크립트야 반가워<br>");
+        //자바스크립트 화면에서 변수는 출력하지 않음
+        document.write("1+1");
+        document.write("사과먹었다");
+        document.write('고유대명사');
+          
+         다른 언어와 차이점->타입 지정 안 해도 된다.
+          variable(변수) = var
+          변수는 데이터가 저장되어있는 메모리공간이다. 자바스크립트에서 변수의 공간에 어떠한 데이터라도 지정 할 수 있다.
+          var number=10; number라는 수에 10을 대입 했다. 
+          number='aaa';
+
+          = 대입 연산자 (저장) : 오른쪽에 있는 값을 왼쪽에 저장하는 연산자
+          ==, === 같다 (비교 연산자)
+
+        
+        var number='aaa';
+        var a; 변수 이름은 마음대로 지정해도 된다. 단, 이름은 영어로!
+                var 1bb->첫번째 글자는 반드시 영어로 시작해야한다.
+        var A; //대소문자 구분!
+        var apple=1;  예를 들어 사과농장을 할것이다, 의미있는 이름으로 만드는 것이 좋다.
+        var div_child; div안에 있는 자식에게 줄것이다, 의미있는 이름으로 만드는 것이 좋다.*/
+        
+
+        /* 순향이가 사과 10개, 순호가 딸기 5개, 순겸이가 배 15개 있다. 
+           세 사람이 가지고 있는 과일은 총 몇개인지 출력하시오.
+           각 사람마다 변수 지정해주기
+        */
+        var apple=10;
+        var berry=5;
+        var pear=15;
+        document.write("과일은 총 :" +(apple*berry*pear)+"개 이다.<br>");
+        
+        /* 밑변 15, 높이 20을 가지는 삼각형의 넓이를 구하시오
+           출력결과는 -> 밑변:15 높이:20 삼각형의 넓이:150
+        */
+        var width=15; 
+        var height=20;
+        document.write("<br>밑변:"+width+"&nbsp&nbsp&nbsp높이:"+height+"<br>삼각형의 넓이:"+(width*height/2));
+        //var는 같은 이름의 변수를 써도 된다. 계산순서는 작성한 순서대로 된다.
+
+        var tall=180;
+        var my_tall="<br><br>나의 키는"+tall; 
+        document.write(my_tall);
+
+        my_tall="<br>예림이 키는"+160; //기존의 180 값은 성립 안됨.
+        document.write(my_tall);
+
+        document.write("<br><br>");
+        var num1=10;
+        var num2=30;
+        document.write(num1/num2+"<br>"); //몫
+        document.write(num1%num2+"<br>"); //나머지
+
+        /*230607 오늘의 숙제 : 반지름이 r인 원이 있다. 이 원의 넓이와 둘레를 구하시오.
+        원의 둘레 = 반지름*2*3.14, 원의 넓이=반지름*반지름*3.14 */
+        document.write("<br><br>");
+        var r=25;
+        document.write("원의 둘레:"+(r*2*3.14));
+        document.write("<br>");
+        document.write("원의 넓이:"+(r*r*3.14)); //출력과 변수
+
+        /*입력하는 방법 : 결과창에 표시된 안내창에 숫자를 입력하면된다.
+          var r=prompt("");
+          prompt 함수는 브라우저에서 입력창을 제공하는 기능을 가지고 있다.
+          prompt로 입력한 내용은!!반드시!!무조건!! "문자열"이다.*/
+          
+         var r=Number(prompt("반지름을 입력하시오."));
+         /*문자열 -> 숫자 변환 : Number(), parseInt()
+           Number : 숫자만 있는 문자열인 경우 변환 가능
+           parseInt : 숫자와 문자가 섞여있어도 변환 가능
+           parseInt의 변환 조건은_문자열의 앞쪽에만 있는 숫자만 변환 해준다.(ex)"34" "34abc"*/
+         documnet.write( typeof(r) );
+         //현재 변수안에 저장되어있는 데이터의 타입 
+         var r=(prompt("반지름을 입력하시오."));
+         var r = parseInt(prompt("반지름을 입력하시오."));
+        
+
+    </script>  
+</head>
+<body>
+    
+</body>
+</html>

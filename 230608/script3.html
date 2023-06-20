@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script3</title>
+</head>
+<script>
+// /*조건 연산자 ( 조건식 ) ? 참 : 거짓 ;
+//   바이킹 탑승 조건 : 키 150이상
+// var tall = parseInt(prompt("나의 키는"));
+// var result = (tall >= 150) ? "탑승가능" : "탑승불가능";
+// document.write(result);
+// tall >= 150 이라는 조건식이 참이면 ? 뒤에 값이 result에 저장 , 거짓이면 : 뒤에 값이 저장*/
+
+// //내 시력이 1.0 이상이면 "좋은 눈을 가지고 있군요" 라고 출력 1.0 미만이면 "검사를 보는게..."라고 출력
+// var eyes = 1.2;
+// var eyes2 =(prompt("내 시력은?"));
+// var result=(eyes >= 1.0 ) ? "좋은 눈을 가지고 있군요" : "검사를 보는게...";
+// document.write(result);
+
+// var time = 120; //120분
+// var cost = 1000; //기본요금
+// result=( time >120 ) ? cost*1000 : cost;
+// document.write("물품 보관료 :" +result+"원");
+
+// //주차장 기본요금이 1000원 1시간 지나면 500원추가, 2시간 지나면 1000원 추가
+// var price =parseInt(prompt("이용시간:"));
+// var cost = 1000;
+
+// result1=(time > 60) ? cost+500 : cost;
+// price = (time > 120)? price+1000: price;
+// document.write("주차장 이용요금:"+ price +"원");
+
+// var price = (time > 120)? cost+1500 : (time > 60)? cost+500 : cost;
+
+//alert("나 알림창이야!!");
+//var num = parseInt(Math.random()*10);//*10 = 0.0000~0.99999
+
+// /*Math.floor() 내림 하면서 주어진 숫자보다 적거나 같은 정수 값 변환*/
+// var num = Math.floor(Math.random()*10)+1;//1 ~ 11 난수범위, 최대값이 0~10,+1로 인해 최소,최대값모두변함
+// var num = Math.floor(Math.random()*5)+1;//1 ~ 5난수
+// var num = Math.floor(Math.random()*10)+10;//10 ~ 20 난수
+// var num = Math.floor(Math.random()*45)+79;//79 ~ 124 난수
+// alert(num);//난수 발생 
+
+/*/동전 앞면 뒷면 맞추기
+var coin = Math.floor(Math.random()*2); //동전 앞, 뒤
+var choice = parseInt(prompt("0 앞면, 1 뒷면"));
+var result = ( coin == choice ) ? "맞다" : "다시";
+document.write(result);*/
+
+// /*주사위를 던진다. 주사위의 값이 5보다 크면 승리, 아니면 패배 */
+// var dice = Math.floor(Math.random()*6)+1;
+// var result = (dice > 5)? "승리" : "패배";
+// document.write(result);
+// //var result = (dice ==6) ? "승리" : "패배"
+
+// //두 개의 주사위를 던졌다. 두 개의 주사위의 합이 9보다 크면 승리, 아니면 패배 
+// var dice1 = Math.floor(Math.random()*6)+1;
+// var dice2 = Math.floor(Math.random()*6)+1;
+// var result = ((dice1+dice2) > 9)? "승리" : "패배";
+// /*document.write("주사위합은 : <b style='font-size:30px;'>"+sum+"</b><br>" +result)
+// var sum = dice1+dice2 , var result = (sum > 9) ? "승리" : "패배"*/
+
+
+/* 230608 오늘의 과제 : 가위바위보 문제(A유형)
+   1. 가위 2. 바위 3. 보 
+   컴퓨터 랜덤 값으로 1~3 중에 나오는 값과 내가 입력한 값을 비교하여
+   내가 이겼는지 비겼는지 패배하였는지 출력하기
+----코드를 작성 시 가정(if)을 해야한다. ----
+*/
+var com = Math.floor(Math.random()*3)+1; //컴퓨터의 가위 바위 보 결과
+var user = parseInt(prompt("가위바위보 게임 : 1. 가위 2. 바위 3.보"));//나의 입력값
+var calc = user - com;
+var rel = (calc==0)? "비김" : (calc==1 || calc ==-2)? "이김" : "패배";
+document.write("너는"+rel);
+
+var res=(user==com)?"비김":"패배";
+res =((user==1&&com==3)||(user==2&&com==1)||(user==3&&com==2))? "이김":res;
+document.write("너는"+rel);
+
+/* 230608 오늘의 과제 : 주사위 문제(B유형)
+   주사위 2개를 던진다. 주사위의 합이 7이상이면 승리, 아니면 패배 
+   (단, 주사위 2개의 숫자가 모두 같은 숫자라면 승리,
+    주사위 2개가 1,1 나온다면 승리, 2,2 나와도 승리) */
+
+var dice1 = Math.floor(Math.random()*6)+1; 
+var dice2 = Math.floor(Math.random()*6)+1;
+
+var result1 = ((dice1+dice2)>=7)? "승리":"패배";
+var result2 = (dice1==dice2)? "승리": result1; 
+document.write("주사위 결과 :" +result2);
+</script>
+<style>
+    .red_txt{color:red;}
+</style>
+<body>
+</body>
+</html>

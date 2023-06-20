@@ -1,0 +1,91 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<body><!--브라우저의 전체-->
+   <table border="1" width = "900"><!--전체 900이라는 크기 안에 각 칸이 300-->
+    <!--브라우저 크기로 인해 테이블 크기가 변하지않게하려면?_너비의 총 합계산해서 너비값에 적용하면 됨
+        --높이도 영향을 받지만 너비를 고정했기때문에 영향을 안받는것처럼 보인다.-->
+    <tr height = "80"><!--width은 안됨-->
+        <td width = "300">1-0</td><!--너비는 가장 큰 너비로 들어감, 그래서 한줄만 작성-->
+        <td width = "300" colspan="3">1-1</td><!--가로방향,셀 병합, 3은 3칸 합한다-->
+        <td width = "300">1-2</td>
+    </tr>
+    <tr><!--rowspan 2번쨰 줄 2번째 칸과 3번째줄 2번째칸과 4번째줄 2번째칸을 합치려면
+    3,4번째 줄의 2번째 td들을 지우고 2번째줄의 2번쨰 td에 rowspan="3"을 넣어준다-->
+        <td height = "80">2-0</td>
+        <td rowspan="2">2-1</td><!--세로방향병합은 아랫줄에있는 같은 열td 삭제-->
+        <td>2-2</td>
+    </tr>
+    <tr>
+        <td height = "80">3-0</td>
+        <!--<td>3-1</td>-->
+        <td rowspan="2">3-2</td>
+    </tr>
+   </table> <br><br>
+   <table border="1" width = "900"> 
+    <tr>
+        <td colspan="3">1-1</td>   
+    </tr>
+    <tr>
+        <td rowspan="2">2-1</td>
+        <td>2-2</td>
+        <td>2-3</td>
+    </tr>
+    <tr>
+        <td colspan="2">3-2</td>
+    </tr>
+   </table><br><br>
+   <table border="1" width = "50">
+    <tr>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>0</td> <!--칸을 지우면 빈칸으로만 되니까 꼭 병합명령어를 줘야 병합 결과값이 나온다-->
+    </tr><br><br>
+   </table><br><br>
+   <table border="1" width = "500" height = "250">
+    <tr><!--너비 100 , 높이 50-->
+        <td width ="100" height = "50">0-0</td>
+        <td width ="100" height = "50">0-1</td>
+        <td width ="100" height = "50">0-2</td>
+        <td width ="100" height = "50">0-3</td>
+        <td width ="100" height = "50">0-4</td>
+    </tr>
+    <tr height = "50">
+        <td >1-0</td>
+        <td colspan="4">1-1</td>
+        <!--<td>1-2</td>
+        --<td>1-3</td>
+        --<td>1-4</td>-->
+    </tr>
+    <tr height = "50">
+        <td colspan="2">2-0</td>
+        <!--<td>2-1</td>-->
+        <td>2-2</td>
+        <td>2-3</td>
+        <td rowspan="3">2-4</td>
+    </tr>
+    <tr height = "50">
+        <td >3-0</td>
+        <td colspan="3">3-1</td>
+        <!--<td>3-2</td>
+        <td>3-3</td>
+        <td>3-4</td>-->
+    </tr>
+    <tr  height = "50">
+        <td>4-0</td>
+        <td>4-1</td>
+        <td>4-2</td>
+        <td>4-3</td>
+        <!--<td>4-4</td>-->
+    </tr>
+   </table>
+</body>
+</html>

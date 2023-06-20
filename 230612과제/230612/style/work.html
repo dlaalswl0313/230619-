@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+   /*230612 up&down 게임 만들기 
+     내가 제시한 값을 컴퓨터가 맞추는 게 조건임; 사람처럼 범위를 좁혀가면서 컴퓨터가 해야해 
+     무작위로 랜덤값이 아니라 사람처럼 범위가 좁혀지도록,..,,
+     숫자 제시는 한 번 입력 ex)범위는 1~50, 37입력 -> up -> 아 38~50인가봐 
+     랜덤범위 22~50인 경우_범위 중 최소값이 +22_범위 중 최대값50-최소값22빼고 +1 
+     50-22+1=29 (Math.floor(Math.random()*29)+22)
+
+   -이 문제는 매 수업 때마다 하는 문제인데 완성 할 확률은 10%...*/
+   
+   var i=50, k=1, max=50;
+   var user=parseInt(prompt("1~50중 정수 하나 입력"));
+   while(true){
+    var com = Math.floor(Math.random()* i )+k ;
+    if( user==com){
+        document.write("정답"); break;
+    }
+    if(user<com){
+        document.write("DOWN "+com+" (범위 : "+k+"~"+max+") <br>");
+        max = com -1;
+        i = max-k+1;
+    }
+    if(user > com){
+        document.write("UP "+com+" (범위 : "+k+"~"+max+") <br>");
+        k = com+1;
+        i = max-k+1;
+    }
+}
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

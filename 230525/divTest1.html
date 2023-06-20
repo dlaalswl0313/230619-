@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div</title>
+    <link rel ="stylesheet" href="./style/css/default.css">
+    <!--연결할문서 , 문서경로(css확장자)-->
+</head>
+<body>
+    <!--아이디를 가지는 div태그만들기 : div#wrap하고 tap누르기 
+        클래스를 가지는 태그만들기 : p.item하고 tab키!-->
+    <div id = "wrap">
+        <div id = "header"><!--부모헤더-->
+             <div>메뉴1</div> <!--div{메뉴$}*5 + tab 버튼 : 5개 연속으로나옴-->
+             <div>메뉴2</div>
+             <div>메뉴3</div>
+             <div>메뉴4</div>
+             <div>메뉴5</div>  <!--메뉴일자로 float : left-->
+        </div>
+        <div id = "section"><!--child1의 부모-->
+            <div id = "child1"><!--mainImage부모, id인지class인지잘살펴-->
+                <div class = "mainImage">
+                    <img src ="./style/image/wave.jpg">
+                </div>
+                <div class ="notice_adImg"><!--notice_adImg 부모-->
+                    <div class = "notice_box"><!--notice_adImg자식1-->
+                        <h3 class = "notice_title">공지사항</h3>
+                        <h5 class = "notice_more">more</h5>
+                        <ul class = "notice_list">
+                            <ul class="notice_list"><!--자식2 ul.notice_list>li{공지글}*5 + tap : 5개 연속, 공지사항-->
+                                <li>공지글1</li>
+                                <li>공지글2</li>
+                                <li>공지글3</li>
+                                <li>공지글4</li>
+                                <li>공지글5</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class = "adImg_box"><!--공지사항 옆으로 와야한다 css파일 display : flex;-->
+                        <img src ="./style/image/black.jpg">
+                    </div>
+                </div>
+                <div class = "coop_box"><!--이미지 6개-->
+                    <div class="image_list">
+                        <img src ="./style/image/mgm.jpg">
+                        <img src = "./style/image/desert.jpg">
+                        <img src = "./style/image/camera.jpg">
+                        <img src = "./style/image/sky.jpg">
+                        <img src = "./style/image/nol.jpg">
+                        <img src = "./style/image/whale.jpg">
+                    </div>
+                </div>
+            </div>
+            <div id = "child2"><!--section right-->
+             <div class = "login_wrap"><!--로그인-->
+                <h1>로그인 부분</h1>
+             </div>
+             <div class = "subMenu_wrap"><!--서브메뉴-->
+              <ul class="subMenu_list">
+                <li class="list">서브메뉴1</li>
+                <li class="list">서브메뉴2</li>
+                <li class="list">서브메뉴3</li>
+                <li class="list">서브메뉴4</li>
+                <li class="list">서브메뉴5</li>
+                <li class="list">서브메뉴6</li>
+              </ul>
+             </div>
+            </div>
+        </div>
+        <div id = "footer">
+           <div class = "ft_menu">
+            <ul class="ft">
+                <li>회사소개</li>
+                <li>이용약관</li>
+                <li>운영정책</li>
+                <li>커뮤니티 운영정책</li>
+                <li>개인정보 처리방침</li>
+            </ul>
+           </div>
+           <div class = "address">
+             상호: (주)지구살리기 | 대표:임민지 | 주소 : 대전 중구 선화동 | 전화: 042-111-1111 | E-mail : earth@save.com
+           </div>
+           <div class = "copyright">
+              Earth Co.,ALL rights reserved
+           </div>
+        </div>
+    </div>
+</body>
+</html>

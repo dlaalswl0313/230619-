@@ -1,0 +1,179 @@
+/*#header div{
+    float:left;
+    padding : 20px 40px;
+}메뉴에 넣은 리스트 가로로 만들기*/
+body{
+    /*body에 여백을 제거하여 화면에 꽉 채워서 사용하려고 합니다.*/
+    padding:0;
+    margin:0;
+    background-color : #2e313d;
+    color:#e6e6e6;
+    position:relative;
+}
+#wrap{
+    position : relative;
+    width:100%; /*브라우저너비에맞춰서자동설정*/    
+}
+#header{
+    width:1200px;
+    margin : 0 auto;
+    background-color :#878c9e;
+    position : relative;
+    /*overflow:hidden;*/
+    display: flex ;/*현재 사용하는 방식 float과 비슷한정렬, 부모쪽에 할당,display : flex, grid인 경우가능*/
+    padding : 20px 0;
+    font-size : 25px;
+    justify-content : space-between;
+    /* justify-content : start; 왼쪽으로 붙기
+    : end 오른쪽으로 붙음 : between 양쪽끝에 붙이고 간격일정
+    display : flex, grid인 경우가능 :space-around 간격이 일정하게 벌어짐*/
+}
+#section{ /*전체크기*/
+    width : 1200px; 
+    margin : 0 auto;
+    display : flex;
+    margin-top:15px;
+}
+#child1{
+    width : 80%; /*전체크기의 15%*/
+    height : 800px;
+}
+#child2{
+    width:20%; /*전체크기의 60%*/
+    height:800px;
+}
+#child1 .mainImage{
+    width:100%;
+    height:400px;
+    overflow:hidden;
+}
+#child1 .mainImage img{
+    width:100%;
+}
+#header{
+    position : sticky;/*스크롤 시 메뉴창 따라오기*/
+    top:0;
+    z-index:10; /*공지사항, 공지글이 스크롤 시 메뉴창 뒤로*/
+}
+.notice_adImg{
+    width : 100%;
+    display : flex;
+    position : relative;
+}
+.notice_adImg .notice_box{
+    /*공지사항 옆에 사진이 와야함/ 부모확인!*/
+    width : 70%; /*7:3비율*/  
+    position : relative; 
+}
+.notice_adImg .notice_box .notice_list{
+    /*공지사항 ul태그*/
+    list-style-type: circle; 
+    list-style-type: none;
+    /*리스트모양을 이미지로 바꾸고싶을때 사용 
+    list-style-image :url(이미지링크넣기 (예)'../image/listIcon.png';) */
+}
+.notice_adImg .notice_box .notice_list li::before{
+    /*공지사항 li태그*/
+    content:'';
+    display:inline-block;
+    height:15px;
+    width:15px;
+    background-image:url('../image/listIcon.png');
+    background-size:15px;
+    background-repeat:no-repeat;/*이미지를 반복하지 않고 하나만 나오게 repeat 하면 배경화면을 바둑판처럼생성*/
+    margin-right:5px; 
+}
+.notice_adImg .notice_box .notice_list li {
+    /*공지사항 li태그*/ 
+    padding:5px 0; /*공지글 목록 위 아래 여백*/   
+ }
+.notice_adImg .notice_box .notice_more{
+    /*공지사항에 more텍스트에 있는 h5*/
+    position : absolute;
+    top : 0; /*좌표*/
+    right :20px; /*위치 : 공지사항 ---- more , 왼쪽은 left하면 ----간격을 계산해야해*/
+}
+.subMenu_wrap{ /*로그인 부분과 서브메뉴랑 간격벌림*/
+    margin-top : 50px;
+    padding : 10px; /*안쪽여백 ul부분이 들여씀*/
+}
+.subMenu_list{
+    padding : 0;
+    margin : 0;
+    list-style-type : none;
+    font-size : 20px;
+    font-weight : 700;
+    text-align : center;
+}
+.list:hover { /*class = list*/
+    padding : 5px;
+    background-color : black; 
+}
+/*.subMenu_wrap .subMenu_list{
+    padding : 5px 0;
+    list-style-type : none;
+    font-size : 18px;
+    text-align : center;
+
+}.subMenu_wrap .subMenu_list li{
+    padding : 5px;
+}
+.subMenu_wrap .subMenu_list li:hover{
+    background-color : black; 
+}*/
+.notice_adImg .adImg_box{
+    width : 30%;
+    overflow:hidden;
+    display : flex;/*열*/
+    align-items : center;/*  /*이미지 위치 : 가운데, display : flex 설정 시 */
+
+}
+.notice_adImg .adImg_box img{
+    width : 100%; /*black 이미지 크기조정*/
+}
+.coop_box {  /*div는 먼저 큰 공간을 만들어주고 내용div을 만든다*/
+    width : 100%;
+}
+.coop_box .image_list{
+    width : 100%;  
+    height : 80px; 
+    display : flex;
+    justify-content : space-between;
+    /* justify-content : start; 왼쪽으로 붙기
+    : end 오른쪽으로 붙음 : between 양쪽끝에 붙이고 간격일정
+    display : flex, grid인 경우가능 :space-around 간격이 일정하게 벌어짐*/
+}
+.coop_box .image_list img{
+    width : 140px;
+}
+.login_wrap{ /*로그인부분 설정*/
+    text-align : center;
+    border : 1px solid #cbcbcb;
+    height : 120px;
+}
+#footer{
+    width : 1200px;
+    margin : 0 auto;
+}
+.ft_menu{
+    width : 100%;
+    padding : 30px;
+}
+.ft{
+    list-style-type : none;
+    padding : 0;
+    margin : 0;
+    display : flex;/*기본 한 줄로 나열*/
+}
+.ft li{
+    padding-right : 30px;
+}
+.address{
+    padding : 0 30px;
+}
+.copyright{
+    padding : 5px 30px;
+}
+
+
+

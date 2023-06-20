@@ -1,0 +1,160 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Serif+KR&display=swap');*/
+
+body,ul,p,h1,h2,h3,h4,h5{
+    padding: 0;
+    margin: 0;
+}
+#wrap{
+    width:100%;
+    position:relative;
+    top:0;
+    left:0;
+}
+#header, #section_wrap, #footer{
+    width:100%;
+    max-width:1200px;
+    min-width:800px;
+    margin:0 auto;
+    position:relative;
+}
+#header{
+    display:flex;
+    background:black;
+    color:whitesmoke;
+    align-items: center;
+    padding: 10px 0;
+}
+.logo{width:140px;}
+.logo img{width:100%;}
+.menu{
+    flex-grow:1;
+    /*width:calc( 100% - 140px );*/
+}
+.menu ul{
+    font-size : 25px;
+    list-style-type:none;
+    display:flex;
+    justify-content: space-around;
+}
+#section_wrap{
+    display:flex;
+    flex-direction:column;/*밑으로 나열*/
+}
+#section_top{
+    display: flex;
+    order: 1; /*첫번째*/
+}
+.slider{width:400px;}
+.slider img{width:100%;}
+.gallery{
+    width:500px;
+    padding:10px;
+    box-sizing:border-box;
+    /*너비와 높이를 균일하게 유지해주는 속성 */
+}
+.gallery_box{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    row-gap:10px;/*레이아웃 행 사이 지정*/
+}
+.thumbnail{
+    width:30%;
+    height:100px;
+    overflow:hidden;
+}
+.thumbnail img{
+    width:100%;
+}
+.popularSearch{
+    background:#6F496A;
+    flex-grow:1;
+    /*남는 행 여백을 분배해서 채우는 방법*/
+}
+#section_bottom{
+    order:2; /*순서를 정해주는 것! 2번째*/
+    display:flex;
+}
+ul{list-style-type:none;}
+.latest_post{
+    padding : 20px;
+    width:25%;
+    box-sizing:border-box;
+    background:blueviolet;
+}
+.latest_post .latest{
+    cursor : pointer;
+    padding : 5px 0;
+}
+.popular_post{
+    padding:20px;
+    width:25%;
+    box-sizing:border-box;
+    background:#CB6CFF;
+}
+.popular_post .populat_list{
+    cursor:pointer;
+    padding:5px 0;
+}
+.social{
+    flex-grow:1; /*현재부모의크기대로달라짐*/
+    background:#6F496A;
+    font-size:40px;
+    display: flex;/*이것이 있어야*/
+    align-items:center;/*align-items를 쓴다*/
+    justify-content: space-around;
+}
+@font-face /*인터넷무료폰트사용*/
+{
+   src:url('https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2');
+   font-family:'Meta';/*폰트이름*/
+   font-style:normal;/*폰트스타일 (기본, 기울기글자)*/
+   font-weight:normal; /*폰트굵기*/   
+}
+.banner{
+    box-sizing:border-box;
+    justify-content:space-evenly;/*간격이 동일하게 들어감*/
+    flex-grow:1;/*남은 여백 메우기*/
+    display:flex;/*글자가운데보낼때flex쓰면간편*/
+    align-items: center;
+    background-color : black;
+}
+.banner main{ /*메인 안에 있는 BANNER 글자 효과 주기*/
+    font-size:60px;
+    font-family: 'Meta', sans-serif;
+    text-align:center;
+    font-variation-settings: 'wght' 900, 'ital' 1;
+    /*font-feature-settings 폰트와 설정을 일괄적으로 할 수 있다
+      폰트 두께, 폰트 기울기, 폰트 너비를 설정할 수 있다. 
+      wght는 폰트 두께, ital은 이텔릭체, wdth는 너비, */
+    color:transparent; /*투명도 설정*/
+    -webkit-text-stroke:4px #B2EBF4;
+    /*webkit => 구글, 사파리 브라우저에만 적용
+      moz=>파이어폭스 브라우저에 적용 
+      ms=>익스플로어, 엣지적용
+      o=>오페라 브라우저에 적용
+      접두어_text-stroke=> 글씨 외곽선*/
+      transition: all 2s;
+    /*transition : css의 속성을 변경 할 때 속도 조절(단위는 초, 표기는 S)
+        width=>2는 2초 동안
+        all=>전체(배너메인안이니까 배너메인안을뜻하겠지,..)*/
+        text-shadow: 5px 5px 0px #07bccc, 8px 8px 0px #e601c0,
+        11px 11px 0px #e9019a, 14px 14px 0px #f40468,34px 34px 10px #482896;
+    /*text-shadow => 1.수평거리 2.수직거리 3.흐림정도 4.색(4가지 속성을 준다)*/
+}
+.banner main:hover{
+    font-variation-settings: 'wght' 100, 'ital' 0;
+    text-shadow:none;
+}
+#footer{
+    display:flex;
+    justify-content: space-between;
+    background:lightblue;
+    padding:10px;
+    box-sizing:border-box;/*align-items는 부모에게*/
+}
+#footer div{
+    align-self: flex-end;/*align-self는 자식*/
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지난수업복습문제</title>
+    <link rel="stylesheet" href ="static/css/reveiw.css">
+    <script src ="static/js/reveiw.js"></script>
+</head>
+<body>
+   <!--
+    문제. 국어,수학,영어,점수 input을 입력받기 
+    입력받은 점수에 각 과목마다 등급 출력하기 
+    세 과목의 평균에도 등급 출력하기 
+    100~90 이면 A, 89~80 B , 79~70 C , 나머지는 F ,출력 내용은 알아서 
+   --> 
+   <div class ="score">
+     <div class = "subject">
+        <label>국어</label>
+        <input type="number" id="lang" min="0" max="100">
+     </div>
+     <div class = "subject">
+        <label>수학</label>
+        <input type="number" id="math" min="0" max="100">
+     </div>
+     <div class = "subject">
+        <label>영어</label>
+        <input type="number" id="english" min="0" max="100">
+     </div>
+     <div id ="result">
+        <button onclick ="score_calc()">계산하기</button>
+     </div>
+   </div>
+</body>
+</html>

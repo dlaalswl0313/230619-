@@ -1,0 +1,11 @@
+.score{
+    display:inline-block;
+    justify-content: center;
+    border:1px solid black;
+}
+.subject{
+    margin: 8px;
+}
+#result{
+    margin: 5px;
+}

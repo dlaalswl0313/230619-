@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script_if</title>
+    <script>
+         /* 제어문 (조건문, 반복문)
+           1.조건문(if, switch)>>코드의 흐름을 점프해서 동작시키기때문에 순차적 실행이 아니다.
+           -if문 : 조건식의 결과가 참이냐 거짓이냐에 따라 코드를 실행시켜주는 제어문,분기문 이라고도 한다.
+                
+           |1-1| 조건식이 참 
+           if(조건식){
+              조건식이 참 이면 실행 할 코드 , 지역변수는 중괄호 안에서만 사용가능하다.(if문예시참조)
+           }
+           |1-2| 조건식이 참, 거짓
+           if(조건식){
+              조건식이 참 이면 실행 할 코드 , 지역변수는 중괄호 안에서만 사용가능하다.(if문예시참조)
+           }else{
+               조건식이 거짓인 경우 실행 하는 코드
+           }
+           제어문은 공통적으로 조건(참,거짓)에 의하여 동작한다. 
+        */
+       var age = 26;//1-1 예시
+
+       if(age>=20){ 
+        document.write("성인이다."); //참 일 때 나오는 결과값
+        /*지역변수=중괄호 안에 만들어진 변수*/
+        var temp =123; //변수1
+        temp = 2345; //변수2
+        const pi =3.14; //상수
+        document.write("<br>");
+       }
+
+       var age = 26;//1-1 예시2-지역변수인 tmp를 중괄호 밖 범위에서 사용하고 싶을때
+       var temp =0; //변수를 따로 설정해주면 지역변수를 사용할 수 있다.
+       
+       if(age>=20){ 
+       document.write("성인이다."); //참 일 때 나오는 결과값
+       /*지역변수=중괄호 안에 만들어진 변수*/
+       var temp =123; //변수1
+       temp = 2345; //변수2
+       const pi =3.14; //상수
+       document.write("<br>");
+       }
+
+       var age = 19;//1-2 예시
+       
+       if(age >=20){
+        document.write("성인이다.");
+       }else{
+        document.write("성인이 아니다.");
+        document.write("<br><br>");
+       }
+
+       //바이킹 탑승 조건 키가 150이상인 사람만 탈 수 있다. 
+       var tall = 161;
+       
+       if(tall>=150){
+        document.write("탑승 가능 합니다.");
+       }else{
+        document.write("탑승 불가능 합니다.");
+       }
+
+       //동전 앞면, 뒷면 맞추기 1. 앞면 2. 뒷면
+       document.write("<br><br>");
+       var coin = Math.floor(Math.random()*2)+1;
+       parsesInt=prompt("동전의 앞면 뒷면 중 선택하시오 : 1.앞면 2.뒷면");
+       
+       if(coin==1){
+        document.write("앞면입니다.");
+       }else{
+        document.write("뒷면입니다.");
+       }
+       
+       //주사위 1개를 던진다. 2의 배수가 나올 경우에만 승리, 아니면 패배 출력
+       document.write("<br><br>");
+       var dice = Math.floor(Math.random()*6)+1;
+       if(dice%2==0){
+        document.write("승리");
+       }else{
+        document.write("패배");
+       }
+
+       //가위바위보를 if문으로 만드시오.
+       document.write("<br><br>");
+       var com = Math.floor(Math.random()*3)+1;
+       var user = parseInt(prompt("가위바위보 게임을 시작하지 1.가위 2.바위 3.보"));
+       //세 개의 조건식 중 하나만 작동
+       if(com==user){
+        document.write("비겼다");
+       }if((user==1 && com==3) || (user==2&&com==1) || (user==3&&com==2)){
+        documnet.write("이겼다");
+       }
+       if((user==1&&com==2)|| (user==2&&com3)||(user==3&&com==1)){
+        document.write("졌다");
+       }
+       
+       //else안에 if문을 만들어서 사용하는 상태 
+       if(com==user){
+        document.write("비김");
+       }else{
+        if((user==1 && com ==3) || (user==2&&com==1)||(user==3&&com==2)){
+            document.write("승리");
+        }else{
+            document.write("패배");
+        }
+       }
+       //if else if문 형태 - 조건에 따른 결과가 3개이상인경우
+       if(com == user){
+        document.write("비김");
+       }else if((user==1 && com ==3)|| (user==2 && com ==1) || (user==3&&com==2)){
+        document.write("승리");
+       }else{
+        document.write("패배");
+       }
+       /*주사위와 컴퓨터의 대결
+         주사위는 각각 2개를 던진다. 
+         승리 조건은 두 주사위의 합이 큰 쪽이 이긴다.
+         같은 숫자가 나오는 경우에도 승리
+         내가 지는 경우 - 나는 같은 숫자가 아니고 컴퓨터는 같은 숫자일 경우
+       */
+       var com1 = Math.floor(Math.random()*6)+1;
+       var com2 = Math.floor(Math.random()*6)+1;
+
+       var user1 = Math.floor(Math.random()*6)+1;
+       var user2 = Math.floor(Math.random()*6)+1;
+
+       var com_sum = com1+com2;
+       var user_sum = user1+user2;
+
+       if(user_sum > com_sum){//나의 주사위 합 > 컴퓨터 주사위 합
+        if(com1==com2){//내 합이 크지만 컴퓨터 주사위 숫자가 같은 경우 
+            if(user1==user2){//컴퓨터 주사위의 숫자가 같지만 나도 주사위의 숫자가 같은 경우
+                alert("나의 승리");
+            }else{ 
+                alert("나의 패배");
+            }
+        }else{ 
+            alert("나의 승리");
+        }
+       }else if(user_sum < com_sum){ //컴퓨터의 합이 다른경우
+        if(user1==user2){//내 주사위숫자가 같은경우
+            if(com1==com2){//컴퓨터 합이 크고 난 숫자가 같은 경우에 컴퓨터도 같은 숫자라면?
+                alert("나의 패배");
+            }else {
+                alert("나의 승리");
+            }
+        }else{ 
+            alert("나의 패배");
+        }
+       }else{ //주사위 합이 컴퓨터와 내가 같은 경우 
+         if(user1==user2 && com1==com2){//둘 다 같은 숫자고, 합이 같아 = 비김;
+            alert("비김");
+         }else if(user1==user2){
+            alert("나의 승리");
+         }else if(com1==com2){
+            alert("나의 패배");
+         }else{
+            alert("비김");
+         }
+       }
+
+       //점수가 100~90 A,89~80 B,79~70 C,나머지는 F
+       var score = 91;
+       if(score <= 100 && score >=90)//내용이 하나 밖에 없다면 {} 생략 가능
+         alert("A등급"); 
+       else if(score < 90 && score >= 80)
+         alert("B등급");
+       else if(score < 80 && score >= 70)
+         alert("C등급");
+       else
+         alert("F등급");
+
+       //조건의 값이 큰 것 부터 만들어주면된다.
+       var score = 91;
+       if(score >= 90)//내용이 하나 밖에 없다면 {} 생략 가능
+         alert("A등급"); 
+       else if(score >= 80)
+         alert("B등급");
+       else if(score >= 70)
+         alert("C등급");
+       else
+         alert("F등급");
+       
+       //100m 달리기, 10초 이하는 매우 빠름, 10~12초는 빠름, 13~17초 보통, 18이상 느림
+       var run_time = 12;
+       if(run_time <= 10)
+         alert("매우 빠름");
+       else if(run_time <=12) 
+         alert("빠름");
+       else if(run_time <=17)
+         alert("보통");
+       else
+         alert("느림");
+
+       var run_time = 12;
+       if(run_time >= 18)
+         alert("느림");
+       else if(run_time >=13) 
+         alert("보통");
+       else if(run_time >10)
+         alert("빠름");
+       else
+         alert("매우 빠름"); 
+        
+       var run_time = 12;
+       if(run_time >= 0 && run_time <=10)
+         alert("매우빠름");
+       else if(run_time >=10 && run_time <=12) 
+         alert("빠름");
+       else if(run_time >=13 && run_time <=17)
+         alert("보통");
+       else
+         alert("느림");
+    
+       /*주차장의 기본 요금이 1000원이다.
+       1000원에 기본 주차 시간은 30분이다. 
+       10분 초과시 100원의 추가 요금이 발생한다.
+       
+       2시간 이상 주차 시 기본 요금은 1500원이다. 120
+       4시간 이상 주차 시 기본 요금은 2500원이다. 240
+       8시간 이상 주차 시 요금은 추가요금없이 무조건 10000원 이다. 480
+       주차시간을 입력해서 주차요금에 얼마인지 출력하기, 주차시간은 분 단위
+       
+       (예시) 61분 주차 시 요금은 1300원(기본요금 1000원에 30분 초과 300원)
+       119분 주차 시 요금은 1800원(기본요금 1000원에 80분 초과 800원)
+       134분 주차 시 요금은 1600원(2시간 이상 주차이기때문에)
+       기본요금은 1500원이고 10분 초과 100원*/
+       var time = 150;
+       var pay = 1000;
+
+       if(time >=480){
+        var pay = 10000;
+        alert("주차요금 :"+(pay+100*Math.floor((time-480)/10)) + "원");
+       }
+       else if(time >= 120 && time < 240){
+        var pay=1500;
+        alert("주차요금 : "+ (pay+100*Math.floor((time-240)/10)) +"원");
+       }
+       else{
+        var pay=1000;
+        alert("주차요금 : "+(pay+100*Math.floor((time-10)/10))+"원");
+       }
+       
+       var time = parseInt(prompt("주차시간을 입력하세요:"));
+       var cost = 1000;
+
+       if(time>=480){ //8시간 이상이면
+        cost=10000;
+        time=0;
+       }
+       else if(time>=240){ //4시간 이상이면
+        cost = 2500; //기본 요금이 2500으로 변경
+        time -=240; //총 주차시간에서 4시간에 대해서 빼기
+       }
+       else if(time>=120){//2시간 이상이라면
+        cost = 1500;//기본요금이 1500으로 변경
+        time -= 120; //총 주차시간에서 2시간에 대해서 빼기 왜? 2시간 제외 시간에 대한 초과 금액 계산
+       }
+       else if(time>=40){//40분 이상이라면
+        time -= 30; //기본시간이 30분이니까
+       }
+       else{
+        time=0;
+       }
+       var price = cost +(parseInt(time/10)*100);
+       document.write("요금:"+price);
+
+       /*숫자를 하나 입력 받는다.
+       숫자는 1~3 중 하나만 입력
+       1을 입력하면 빨간색 사각형
+       2를 입력하면 노랑색 사각형
+       3을 입력하면 핑크색 사각형이 화면에 나오게 하시오
+       사각형의 크기-너비(200) 높이(100)*/
+       var choice = parseInt(prompt("원하는 색깔의 사각형을 고르시오 1. 빨간색 2. 노랑색 3. 핑크색"));      
+
+       if(choice ==1){
+        document.write("<div class = 'red'></div>");
+       }else if(choice ==2){
+        document.write("<div class = 'yellow'></div>");
+       }else if(choice ==3){
+        document.write("<div class = 'pink'></div>");
+       }
+
+       /*빨간색이라고 입력하면 빨간색 사각형
+         노란색이라고 입력하면 노란색 사각형
+         파랑색이라고 입력하면 파랑색 사각형이 그려지게 만드시오
+         사각형 너비 높이는 위와 동일, 영어로 입력*/
+         var choice = prompt("사각형을 고르시오 red yellow blue"); 
+         //document.write("<div class="+color+"></div>");if문 없이 사용하는 방법
+
+         if(choice == "red"){
+          document.write("<div class = 'red'></div>");
+         }else if(choice == "yellow"){
+          document.write("<div class = 'yellow'></div>");
+         }else if(choice == "blue"){
+          document.write("<div class = 'blue'></div>");
+         }
+
+        /*주사위 게임 문제 
+          주사위 3개 , 3개의 주사위를 굴렸을때 나온 숫자를 각각 a,b,c 라고 한다면
+          세 숫자가 모두 다른 경우 a+b+c의 값을 출력
+          두 숫자가 같고 나머지가 다른 숫자라면 a*a+b*b+c*c값 출력
+          세 숫자가 모두 같다면 a*b*c의 값 출력
+        */
+        var a = Math.floor(Math.random()*6)+1;
+        var b = Math.floor(Math.random()*6)+1;
+        var c = Math.floor(Math.random()*6)+1;
+        
+        if(a != b && a!=c && b!=c ){
+        document.write("모두 다르다면 : "+(a+b+c) );
+        }else if( (a==b && a!=c) || (a==c && a!=b) || (b==c && b!=a)){
+        document.write("두숫자가 같다면 : "+ (a*a+b*b+c*c) );
+        }else if(a==b && a==c && b==c){
+        document.write("모두 같다면 : "+(a*b*c));
+        }
+        
+    </script>
+    <style>
+      /*숫자 1~3 골라서 입력하면 해당하는 사각형이 나옴*/
+      div{
+        width : 200px;
+        height: 100px;
+      }
+      .red{
+        background:red;
+      }
+      .yellow{
+        background:yellow;
+      }
+      .pink{
+        background:pink;
+      }
+      /*사각형의 이름을 입력하면 해당하는 사각형이 나옴*/
+      div{
+        width : 200px;
+        height : 100px;
+      }
+      .red{background:red;}
+      .yellow{background:yellow;}
+      .blue{background: blue;}
+
+ 
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

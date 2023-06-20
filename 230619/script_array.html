@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열1</title>
+    <script>
+        /*
+            배열(array) 
+            -데이터를 연속적으로 저장할 수 있는 메모리 공간
+            -변수도 배열과 같이 데이터를 저장할 수 있는 공간이지만, 변수는 단일 데이터이다(1만 저장 가능)->변수에 비해 여러 개의 자료를 만들수있다.
+            -메모리 공간 안에 힙(동적할당_데이터 삽입시 데이터의 공간에 따라 데이터만큼의 공간을 만들어준다)영역에 저장된다.
+            
+            1. 배열의 각각의 공간은 변수와 같은 공간이다.즉 배열의 공간 하나는 변수와 같은 방식으로 사용할 수 있다.
+            2. 자바스크립트에서 배열은 동적이다. 공간의 개수가 늘어나기도 줄어들기도 한다.(변수는 정적할당)
+        ------------------------------------------------------------------------------------------------------------------------------------------
+            배열을 만드는 방법
+            1. var a = [1,2,3]; //자바스크립트에서 배열은 [] 대괄호 , a에 3개의 데이터 저장
+                [] 안에는 서로 다른 데이터를 저장할 수 있다. 예를 들어  문자열과 숫자 혼합사용가능 ["문자열", 1,3]; 그러나 사용할때는 불편함
+            2. var c ="let's have a lunch time";
+               var d = [...c];  
+            -> c 변수의 문자열을 문자하나하나 나눠서, [l,e,t,',s,h,a,v,e,a,l,u,n,c,h,t,i,m,e] d배열에 저장 
+            3. var arr = new array(); -> 배열의 정석, 자바스크립트의 array 생성자를 통해 배열을 생성한다. array생성자는 배열을 생성하기 위한 녀석이다. 
+            4. 배열을 잘 사용하기 위해서는 알아둬야 할 것들
+              -배열의 인덱스는 0부터 시작한다 -> 인덱스를 활용해서 출력한다. -> [1 2 3] 저장소 3개의 값 중 2를 출력하고싶다. -> a[1]=2 -> 명령어는 alert(a[1]);
+            5. 배열 사용 시 반복문으로 써야 편하다. -> 대표적으로 for문 사용한다. 
+                var good_student=["두루미","거북이,"홍길동","수한무","너구리","구지가"]{
+                   for(i=0;i<6;i++) -> 배열은 0부터 시작이니까 6(0~5)까지
+        */
+        /*
+        //6명의 학생출력
+        var good_student=["안지영","박수호","송은선","임민지","정길원","김승겸"];
+
+        for(var i=0; i<6; i++){
+            document.write( good_student[i]+"<br><br>");
+        }
+        //  배열에 저장된 총 데이터가 몇개냐?  length 
+        for(var i=0; i<good_student.length; i++){
+            document.write( good_student[i]+"<br>");
+        }*/
+
+        // //한 줄에 하나씩 출력하시오
+        // var bad_student=["이준혁","마동석","장첸","손현우","채형원","고윤정","이재욱"];
+        //  for (i=0; i<bad_student.length; i++){
+        //     document.write(bad_student[i]+"<br>");
+        //  }
+
+        /*배열의 입력 - 배열에 데이터를 넣어주기
+        bad_student.push("김수로");
+        push 함수를 사용하면  배열에 새로운 데이터를 추가한다. (배열에 끝에 추가된다.)*/
+        
+        /*
+         웹 브라우저의 동작순서
+          1. 작성된 순서대로 실행된다 (html -> head -> script -> body -> div 순)
+          2. script가 실행되고 그 다음 div가 실행되기때문에 출력되지 못한다. 
+                var num = new Array();
+                document.write(" 현재 배열의 크기 : "+ num.length);
+                num.push(10);
+                document.write("<br> 현재 배열의 크기 : "+ num.length);
+                num.push(Math.floor(Math.random()*1000));
+                document.write("<br> 현재 배열의 크기 : "+ num.length);
+                num.push(Math.floor(Math.random()*1000));
+                document.write("<br> 현재 배열의 크기 : "+ num.length);
+
+                var out= document.getElementById("num_output");
+                ->div부분이 아직 생성안됐는데 호출하면 출력화면에 안나옴;;
+                ->이런 경우 script위치를 끝으로 배치해주면 웹 브라우저의 동작순서에 맞게 실행된다.
+
+                for( var i=0; i< num.length; i++){
+                    out.innerHTML=num[i] ;
+                }
+        */
+            var num = new Array();
+            document.write(" 현재 배열의 크기 : "+ num.length);
+            num.push(10);
+            document.write("<br> 현재 배열의 크기 : "+ num.length);
+            num.push(Math.floor(Math.random()*1000));
+            document.write("<br> 현재 배열의 크기 : "+ num.length);
+            num.push(Math.floor(Math.random()*1000));
+            document.write("<br> 현재 배열의 크기 : "+ num.length);
+
+            
+            window.onload=function(){ 
+            //브라우저에 모든 내용을 출력한 뒤에 실행하는 함수 , load 함수
+            var out= document.getElementById("num_output");
+
+            for( var i=0; i< num.length; i++){
+                out.append(num[i]+" ");
+                /*
+                    document.write(" 현재 배열의 크기 : "+ num.length)를 세 개 작성해서 
+                    결과가 세개로 나와야하는데 <div id="num_output"></div>태그에 덮어쓰이게된것.
+                    이 경우 아래 명령어 사용하여 수정하면 된다.
+                    append() 콘텐츠를 선택된 요소 내부의 끝 부분에서 삽입->기존에 있던 내용에 따라 추가해주겠다는 것
+                */
+            }
+        };        
+    </script>
+</head>
+<body>
+    <div id="num_output"></div>
+</body>
+</html>

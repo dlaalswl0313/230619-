@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>230609과제_me</title>
+<script>
+        /*230609 
+    
+        1. 도형 입력하기(정사각형, 직각 사각형, 원형) 
+        정사각형, 직각 사각형, 원형 중 선택
+    
+        2. 배경색 입력하기 (빨강, 파랑, 노랑, 핑크)*
+        정사각형, 직각 사각형, 원형 중 선택하고 배경색은 빨강,파랑,노랑,핑크색중 선택
+        
+        3. 너비 크기 입력하기 (100px 이상 입력, 원형을 선택한 경우 너비는 반지름) 단, 원형은 높이x
+        
+        4. 높이 입력하기 (100px 이상 입력, 원형을 선택한 경우 높이는 패스-px입력x)단, 원형은 높이x
+    
+        5. 정사각형이라고 도형 입력했을경우 너비와 높이는 같아야한다.
+    
+        6. 화면에 도형 출력하기 
+    
+        hint>>
+        var shape = "border-radius : 100%; 
+        if(){shape=shape + "width:100px; height:100px; background:red;"}
+        document.write("<div style="+shape+"></div>");
+        */    
+        var dist;
+        var width;
+        var height;//null값이 포함되면서 실행된다. 초기화가 안된다는 거같아
+        //var shape="";
+    
+        var choice = parseInt(prompt("도형을 선택해주세요 1. 정사각형 2. 직각 사각형 3. 원형")); //도형 선택 및 너비와 높이 지정
+        if(choice == "1"){
+            document.write("정사각형"); 
+            width === height;
+            var equal = prompt("정사각형의 너비와 높이가 같나요?");
+        }
+        if(choice == "2"){
+            document.write("직각 사각형");
+            var width = parseInt(prompt("너비를 입력해주세요(100px 이상):"));
+             if(width>=100){ 
+             document.write("<br>너비:"+width);
+             var height = parseInt(prompt("높이를 입력해주세요(100px 이상):"));
+             if(height>=100){ 
+             document.write("<br>높이:"+height);
+           }
+         } 
+        } 
+        if(choice == "3"){
+            document.write("원형"); 
+            var circle = parseInt(prompt("원형의 반지름을 입력해주세요(100px 이상):")); //원형 반지름 입력
+            var dist = circle*2*3.14; //오 ,,접근 좋았어..
+            document.write("<br>원형의 너비:"+dist);
+        }
+        var color =prompt("배경색을 선택해주세요: red blue yellow pink");//배경색 입력하기 (빨강, 파랑, 노랑, 핑크)    
+        if(color == "red"){ 
+            document.write("<div class ="+color+"></div>");
+        }else if(color == "blue"){
+            document.write("<div class ="+color+"></div>");
+        }else if(color == "yellow"){
+            document.write("<div class ="+color+"></div>");
+        }else if(color == "pink"){
+            document.write("<div class ="+color+"></div>");   
+        }
+             //document.write('<div class="pink" style="' + shape + ' width:' + width + '; height:' + height + ';"></div>');
+            //shape = 'width:' + (2 * radius) + 'px; height:' + (2 * radius) + 'px; border-radius: 100%;';
+        
+</script>
+<style>
+        div{width:100px; height:100px;}
+        .red{background: red; }
+        .blue{background:blue;}
+        .yellow{background:yellow;}
+        .pink{background:pink;}
+</style>
+</head>
+
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+#main_top{
+    display: flex;
+}
+.top_left{ 
+    width:500px;
+    padding:20px;
+}
+.top_left img{ /*실사용영역:460px, 반응형으로 만들기때문에*/
+    width:460px;
+}
+.top_right{
+    width:500px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.item_title{
+    padding-bottom:30px;
+    border-bottom:1px solid moccasin;
+}
+.item_price{
+    flex-grow: 1;
+    padding-top:30px;
+    /*margin  : 밀어내기(거리두기)
+      padding : 몸집키우기
+      flex에서는 padding을 주는 것이 좋다!*/
+}
+.item_button button:first-child{
+    border:1px solid blue;
+    color:blueviolet;
+    background:white;
+    width:200px;
+    height:50px;
+}
+.item_button button:last-child{
+    background:blue;
+    color:white;
+    width:200px;
+    height:50px;
+    border:1px solid blue;
+}
+#main_content{ /*먼저 메뉴랑 목록이 들어갈 공간생성*/
+    width:1080px; /*여기 1000px 기준으로 공간분배*/
+}
+.tab_title ul{ 
+    /*위 왼쪽 선 설정 ,여기서 다 설정하면 전체가 둘러쌓여*/
+    list-style-type:none;
+    width:100%;
+    border-top:2px solid black;
+    border-left:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+.tab_title ul li{ /*오른쪽 선 설정*/
+    width:24.61%;
+    display: inline-block;
+    border-right:1px solid #ccc;
+    text-align:center;
+    padding:15px 20px 14px 0; /*칸 크기 커짐 4개를 설정했으니까*/
+}
+.tab_title ul li:first-child{ /*자식은 부모의 소스를 수정할 수 없음 왜냐고 트리구조잖아*/
+    border-bottom : 1px solid white;
+    margin-bottom :-2px; /*칸이 나눠지고, 마치 누른것처럼보이네*/
+}
+/*이미지는 큰거쓰면 조정이 필요없는데 조정한다면 width 700~800px 정도*/
+.detail_img{
+    width :780px;
+    margin:0 auto; 
+    /*margin=>auto 주려면 
+     1) 너비를 설정해야하고 2) display=>block 이어야 가능*/
+}
+#main_bottom{
+    margin-top : 100px;/*위에 있는 섹션과 거리두기*/
+    margin-bottom:100px;
+    width:1080px;
+    border-top:2px solid #555;
+    padding-top:50px;/*상품평과 선 거리두기(내자신이니까 패딩)*/
+    position:  relative;
+}
+#main_bottom h3{
+    font-size : 25px;
+    margin:10px 0; /*상품평과 동일한~ 간의 거리두기*/
+}
+.review_guide{
+    margin-bottom:20px; /*밑에 별 다섯개와 거리두기*/
+}
+.star_rating{
+    width:304px;
+}
+.star_rating, .star_rating span{
+    /*두 군데 설정시 , . 찍고 다른 설정이름*/
+    display : inline-block;
+    height:55px;/*이미지 안보이게 하기 위해 크기 설정, 혹시몰라 밑에 명령어도 줌*/
+    overflow:hidden; /*이미지에 별이 두가지 있는데 밑에 있는 별은 숨겨짐*/
+    background:url(../image/star.png);
+}
+.star_rating span{
+    background-position : left bottom;/*별 색 채우기 :: 왼쪽부터 색이 채워지게하도록, 즉 시작점*/
+    line-height:0; /*사이간격벌림기능,이미지상에 들어간 간격은 없다고 쳐야해*/
+    vertical-align:top;
+    /*위에 백그라운드 이미지만 변경하려고 아래명령참조*/
+    width : 100%; /*30%줬는데 색이 나오는 이유는? 304픽셀에서 30프로가 출력*/
+}
+/*상품평 운영정책은 상품평 옆*/
+.guide_btn{
+    position:absolute;
+    /*main_bottom 기준으로 상품평 운영정책은 얼만큼 떨어져있니? 
+    margin=>10 , padding-top=>50 총 60*/
+    top: 70px; /*상품평 글씨와 겹쳐짐, 왜 포지션 앱숄루트 때문, top이라고 써도가능하넵*/
+    right:0;/*오른쪽으로 이동시킬거야*/
+    color:blue;
+}

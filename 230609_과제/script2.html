@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>230609_과제 해설</title>
+<script>
+        /* 1. 도형 입력하기(정사각형, 직각 사각형, 원형) 
+        정사각형, 직각 사각형, 원형 중 선택
+    
+        2. 배경색 입력하기 (빨강, 파랑, 노랑, 핑크)*
+        정사각형, 직각 사각형, 원형 중 선택하고 배경색은 빨강,파랑,노랑,핑크색중 선택
+        
+        3. 너비 크기 입력하기 (100px 이상 입력, 원형을 선택한 경우 너비는 반지름) 단, 원형은 높이x
+        
+        4. 높이 입력하기 (100px 이상 입력, 원형을 선택한 경우 높이는 패스-px입력x)단, 원형은 높이x
+    
+        5. 정사각형이라고 도형 입력했을경우 너비와 높이는 같아야한다.
+    
+        6. 화면에 도형 출력하기 
+        */
+        var shape = prompt("정사각형, 직각 사각형, 원형"); //1번
+        var bg = prompt("빨강 파랑 노랑 핑크");//2번
+        
+        
+        var width = parseInt(prompt("너비 100px 이상 값 입력"));//3번
+        if (shape ==="원형"){ //문자열 비교 
+            width = width*2; //원형의 너비 구하기 
+        }
+        var height = 0; //null 포함이 안되게 하도록 var height;하면 코드 실행이 null부터 실행된다ㅏ. 초기화가 안된다는 거같아
+        if(shape!="원형"){//4번
+            height = parseInt(prompt("높이 100px 이상 값 입력, 원형을 선택했다면 pass"));
+        }
+        if(shape==="정사각형" && (width!=height) ){ //5번_&&만들어도되고,따로 만들어도 된다.
+            alert("정사각형을 만들기 위해서는 너비와 높이가 같아야합니다.");
+            width = parseInt(prompt("너비 100px이상 입력하세요."));
+            height = parseInt(prompt("높이 100px이상 입력하세요."));
+        }
+        //도형 그리기
+        var styles=""; //styles = 는 하나의 문자열로 들어간다.
+
+        if(shape == "원형"){ //원형+둥글게
+            styles+="border-radius:100%;"; // 복합 대입 연산자,styles = styles+"dsadsadas";
+        }
+        if(bg==="빨강"){  //원형+둥글게+빨강
+            styles+="background:red;"; 
+            /*+= 할당 연산자 : 오른쪽 피연산자의 값을 변수에 더한 결과를 다시 변수에 할당
+              두 피연산자의 타입이 더하기 할당 연산자의 동작을 결정한다.
+            */
+        }else if(bg==="파랑"){//원형+둥글게+파랑
+            styles+="background:blue;";
+        }else if(bg==="노랑"){//원형+둥글게+노랑
+            styles+="background:yellow;";
+        }else if(bg==="핑크"){//원형+둥글게+핑크
+            styles+="background:pink;";
+        }
+        styles+="width:"+width+"px;"; //원형+둥글게+(빨, 파, 노, 핑크) +너비값
+
+        if(shape==="원형"){
+            styles+="height:"+width+"px;";//원은 너비와 높이가 같으니까
+        }else {
+            styles+="height:"+height+"px;";//원형이 아닌경우 높이값을 입력해야하니까
+        }
+        document.write("<div style="+styles+"></div>");//최종결과값
+</script>
+</head>
+<body> 
+</body>
+</html>

@@ -1,0 +1,107 @@
+#main_top{
+    display: flex;
+}
+.top_left{ 
+    width:500px;
+    padding:20px;
+}
+.top_left img{ /*실사용영역:460px, 반응형으로 만들기때문에*/
+    width:460px;
+}
+.top_right{
+    width:500px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.item_title{
+    padding-bottom:30px;
+    border-bottom:1px solid moccasin;
+}
+.item_price{
+    flex-grow: 1;
+    padding-top:30px;
+    /*margin  : 밀어내기(거리두기)
+      padding : 몸집키우기
+      flex에서는 padding을 주는 것이 좋다!*/
+}
+.item_button button:first-child{
+    border:1px solid blue;
+    color:blueviolet;
+    background:white;
+    width:200px;
+    height:50px;
+}
+.item_button button:last-child{
+    background:blue;
+    color:white;
+    width:200px;
+    height:50px;
+    border:1px solid blue;
+}
+#main_content{
+    display: flex;/*이것만 쓰지말고,다른것도 활용하렴*/
+    flex-direction: column;
+    border-top: 2px solid black;
+    /*width를 리스트에다가 줬..네 자리는 리스트 아니고 여기야...
+      앉을 자리가 있어야 앉지 , 없으면..더보기*/  
+}
+#list{
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 20px 14px; /*여기가 칸 크기 키운것*/
+    width:100%; /*여기가아냐*/
+}
+.list_m{
+    border-right:1px solid black; 
+    /*오른쪽에만 주는게 아니고 전체주고 없앨건 없애거나 숨기기*/
+    width:30%; 
+    /*너비 계산시, 넣을 콘텐츠 개수생각해서 전체크기에서 나눠서 넣기*/
+    text-align: center;
+}
+.duck_image{ /*이미지 넣고 크기만 조절하는게 맞았당_<*/
+    padding: 0 80px; 
+    /*padding은 내 크기를 키워서 거리를 두는것
+      margin은 다른녀석과 거리를 두는 것 
+      굳이 나를 키워서 거리를 두는것보단 margin이 더 좋지*/
+    /*이미지의 크기가 커지는 거지*/
+    /*margin=>auto 주려면 
+     1) 너비를 설정해야하고 2) display=>block 이어야 가능*/
+}
+#main_bottom{ /*상품평~*/
+    width:100%;
+    display: inline-block;
+    border-top : 1px solid black;
+    padding-top:30px; 
+    /*padding은 내 크기를 키워서 거리를 두는것
+      margin은 다른녀석과 거리를 두는 것 
+      굳이 나를 키워서 거리를 두는것보단 margin이 더 좋지*/
+    box-sizing: border-box;
+}
+.opinion{
+   font-size: 18px;
+   padding: 10px;
+}
+#plan{
+    font-size:13px;
+    color : blue;
+    float:right;
+}
+.star{
+    font-size: 40px;
+    font-weight:bold;
+    color: red;   
+}
+.star span{
+    color:black;
+}
+#closer{
+    font-size: 12px;
+    color: black; 
+    float: right;
+    margin-right:700px;
+    margin-top:20px ;
+}

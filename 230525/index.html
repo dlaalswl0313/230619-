@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #First{
+            height : 300px;
+            width : 100px;
+            display: inline-block; /*위에 지정한 크기만큼*/
+            float: right; /*오른쪽에 차례로 붙음*/
+        }
+        #parent{
+            width : 300px;/*원형이 되려면 너비,높이 같게만들어주고 radius 100*/
+            height : 200px;
+            border : 4px solid red;
+            border-radius : 0px; /*도형 테두리를 둥글게 만듦, 단위 :px,% */
+            position:relative; /*검정색블록이 다시 빨간사각형안으로 들어옴,부모가 바뀜*/
+        }
+        #child1, #child2, #child3, #child4{
+            width : 100px;
+            height : 35px;
+        }/*개별 child1234안에 설정22, #parent div {}parent안에 모든 child1234 설정22*/
+        #child1{
+            background : blue;           
+        }
+        #child2{
+            background : black;
+        }
+        #child3{
+            background : olive;
+            position: relative;
+            top:0;
+            left:0;
+        }
+        #child4{
+            background : purple;
+            position : absolute;/*parent 쪽에 지정을해둬서안에들어가고 붙어서출력*/
+            top:0;
+            left:0;
+        }
+        #parent{
+            height : 1300px; /*스크롤해주기위해크기늘림*/
+        }
+        #parent2{
+            width : 100px;
+            height : 50px;
+            background : yellow; 
+            margin-top : 50px;
+
+            z-index:100;/*수직위치*/
+
+            position : fixed; /*브라우저크기기준_브라우저축소시안보임*/ 
+            top:200px;/*x축*/
+            left:400px;/*y축*/
+        }
+        #two{
+            margin-bottom : 100px;
+        }
+        #stk{
+            position:sticky;/*스크롤시 메뉴 고정*/
+            top:0;
+            
+            height:50px;
+            background : khaki;
+        }
+        #stk ul{ list-style-type : none;
+            height: 50px;          
+        }
+        #stk ul li{
+            padding-left : 10px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id ="First">
+        나 div입니다. <!--틀 만들기-->
+    </div>
+    <div id = "two">
+        나는 두번째 div입니다.
+    </div>
+    <div id="stk">
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+    </div>
+    <div id = "parent">
+        <div id = "child1"></div>
+        <div id = "child2"></div>
+        <div id = "child3"></div>
+        <div id = "child4"></div><!--< 만들지 말고, div#child4+enter-->
+    </div>
+
+    <div id = "parent2">
+
+    </div>
+</body>
+</html>

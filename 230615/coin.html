@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동전의 앞면 뒷면 맞추기</title>
+    <link rel ="stylesheet" href ="./static/css/coin.css">
+    <script src = "./static/js/coin.js"></script>
+</head>
+<body>
+    <button onclick="start()">START</button>
+    <!--누르면 계속 이미지가 앞-뒤 교차-->
+    <div class ="coin">
+        <img id="오백원" src="./static/image/coin_front.png">
+        <!--src의 이미지를 전환시켜야하니까 img태그에 id부여-->
+    </div>
+    <div class="select">
+        <!--앞면, 뒷면 클릭하면 이미지 전환-->
+        <b onclick="결과(0)">앞면</b>
+        <b onclick="결과(1)">뒷면</b>
+    </div>
+    <div id="출력"></div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!--main.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+<!--html 문서에서 css의 선언 위치는 <head>태그 내부에 선언하는것이 정석!, style은 css를 사용하기위한 태그 
+    style 안에는 html 명령어가 안먹힘(html영역이 아님)-->
+    <style>  
+       /*css주석*/
+       body{
+        background-color: pink; /*백그라운드 바디영역 : 분홍색~*/
+       }
+       table{
+        width: 1200px;
+       }
+       table tr td{ /*여기에 높이를 주면 전체로 감*/
+        border: 1px solid#fff;
+        color: blue;
+       }
+       .top{
+        height: 50px;
+        text-align: center;
+       }
+        #logo-location{
+            width: 250px;
+        }
+        #search-location{
+            width: 650px;
+        }
+        #login-location{width: 300px;}  
+        #menu-location{
+            height: 700px;
+            vertical-align: top;
+        }
+
+        #logo-location img{ 
+            /*width: 250px;*/
+            height: 50px; /*이미지의 높이가 더 큰 경우 height조정, 이미지알아서 조정은 자바스크립트*/
+        }  
+        .loginButton{
+            background: white;/*대표색은 중요한 곳, 나머지부분은 대비되거나 어울리는 색 사용*/
+            width: 200px;
+            height: 30px;
+            display: inline-block;/*내가 설정한 값만큼 지정*/
+            line-height: 30px;
+        }
+        #menuList{
+            list-style-type:none;
+            padding: 0%;/*안쪽여백(x), padding(내부여백),margin(외부여백)*/
+            text-align: center;
+            font-size: 25px;
+        }
+        #menuList li:hover{ /*메뉴에있는리스트, 마우스를 가져가면 색이변함*/
+             color :black;
+             background-color: #fff;
+        }
+        .content{
+            width: 700px;
+            margin: auto;
+        }
+        .content tr td{ border: 0;}
+        .content-location{ 
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <h2>block</h2>
+   <table>
+    <tr>
+        <!--각각의 태그별로 고유한 이름을 가지게 하려면 id를 준다(중복x), id입력하면 각각 설정가능-->
+        <td id="logo-location" class="top">
+           <img src="logo.jpg"><!--다른 태그는 넣을수없다-->
+        </td>
+        <td id="search-location" class="top">검색위치</td>
+        <td class="login-location" class="top">
+            <b class="loginButton">로그인</b><!--글씨있는영역만-->
+        </td>
+    </tr>
+    <tr>
+        <!--class는 중복(o) 같은이름으로 준다면 그룹이 된다, 동일한 효과를 주고싶다면-->
+        <td id="menu-location"> <!--ul의 위치를 바꿀 수 있는 부분-->
+            <ul id="menuList"><!--메뉴목록-->
+                <li>회사소개</li><!--hover기능 참조해야하는 부분, 메뉴안에 리스트를바꾸고싶으니까-->
+                <li>연혁</li>
+                <li>오시는길</li>
+                <li>채용정보</li>
+                <li>공지사항</li>
+                <li>사이트맵</li>
+            </ul>
+        </td>
+        <td colspan="2" class="content-location">
+             <table class="content">
+                <tr>
+                    <td>
+                        <h4>공지사항</h4>
+                        <ul>
+                            <li>집에 가고 싶으신가요?</li>
+                            <li>가실 수 없습니다.</li>
+                            <li>왜냐고요?</li>
+                            <li>아직 수업이 안끝났거든요</li>
+                        </ul>
+                    </td>
+                    <td>
+                         <h4>채용공고</h4>
+                         <ol>
+                                <li>무기계약직상시채용</li>
+                                <li>개발자 계약직 채용공고</li>
+                                <li>연구소 정규직 신입/경력 채용공고</li>
+                                <li>AS사원 채용공고</li>
+                         </ol>                       
+                   </td>
+                </tr>
+             </table>
+        </td>       
+    </tr>
+   </table>
+</body>
+</html>

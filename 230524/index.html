@@ -1,0 +1,160 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실내동물원</title><!--화면구성=검색-->
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        font-family : 'Impact';
+        list-style-type:none;      
+    }
+    #wide{
+        width: 1000px;
+        list-style-type:none;
+    }
+    .p{
+        background-image:url('../image/color.jpg');
+        height: 80px;
+        width: 150px;
+    }
+    .p img{
+        width : 150px; 
+        height: 80px;
+        cursor : pointer;
+    }
+    .t{
+        text-align : center;
+        list-style-type : none;
+        font-size : 18px; 
+        background-color: bisque;
+    }
+    .head{
+        width: 1200px;
+        height : 50px;
+        text-align : right;
+        font-size : 10px;
+        color : black;
+        background-color:beige;
+        cursor : pointer;
+    }  
+    .menu_impo_t{
+        float : left;
+        padding : 0 24px;
+        font-weight : 700;
+        font-size : 18px;
+        list-style-type : none;
+        cursor : pointer;
+    }
+    .logo_wp{
+        width : 150px;
+        cursor : pointer;
+        background-color : bisque;
+    }      
+    .logo_wp img{
+        width: 150px; 
+        height: 80px;
+    }
+    .menu{
+        list-style-type:none;
+        padding : 0;
+        margin : 0;
+        background-color:bisque;
+    }
+    #enjoy{
+        text-align:center;
+    }
+</style>
+<body>
+    <table id="wide">
+        <tr>
+            <td colspan = "2" class="head"> 
+                로그인 / 회원가입 
+            </td>
+        </tr>
+        <tr>
+            <td class = "logo_wp">
+                <a herf="">
+                <img src="../image/zoo.jpg" alt="로고이미지">
+                </a>
+            </td>
+            <td class="menu">
+                <ul class = "menu_impo">
+                    <li class = "menu_impo_t">이용정보</li>
+                    <li class = "menu_impo_t">요금&프로모션</li>
+                    <li class = "menu_impo_t">즐길거리</li>
+                    <li class = "menu_impo_t">시설안내</li>
+                    <li class = "menu_impo_t">멤버십</li>                  
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td id = enjoy colspan="2">
+                <ul>
+                <li>즐길거리</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="t"> 
+                <ul class = "p">             
+                <li>판다월드
+                    <img src="../image/panda.jpg">  
+                </li>                
+            </ul>       
+            </td>
+            <td class="t">
+                <ul class = "p"> 
+                <li>동물들의 생태환경과 유사하게 자연 친화적으로 조성된 판다가 살고 있는 집<br>
+                    국내 최초로 태어난 아기판다 '푸바오'를 만나러오세요!</li>
+            </ul>
+                </td>           
+            </tr>
+        <tr>
+            <td class="t">
+                <ul class ="p">
+                <li>앵무새집
+                <img src="../image/laura.jpg">
+                </li>
+            </ul>
+            </td>
+            <td class ="t">
+                <ul class = "p">
+                <li>나무와 꽃으로 둘러 쌓여 있는 자연 속에서<br>
+                    작고 귀여운 앵무새들을 만나보실 수 있습니다.<br>
+                    자유롭게 비행하는 사랑앵무들이 나에게 날아오는 특별한 체험을 해보세요!</li>
+                 </ul>
+                </td>
+        </tr>
+        <tr>        
+            <td class="t"> 
+                <ul class ="p">
+                <li>뿌빠타운
+                    <img src ="../image/lacon.jpg">
+                </li>
+                </ul>
+                
+            </td>
+            <td class = "t">
+                <ul class="p">
+                <li>특별한 동물 친구들이 살고 있는 숲 뿌빠타운<br>
+                    새로운 친구 카피바라와 왈라비를 가까이에서 볼 수 있는 카피바라 동산과<br>
+                    야외 놀이터에서 놀고 있는 나무늘보와 라쿤의 모습까지 만나보세요!</li>
+                </ul>
+                </td>
+        </tr>
+        <tr>
+            <ul class ="p">
+            <td colspan = "2" class = "head">
+                손님상담센터 : 031-1234-4565 / 개인정보처리방침 /사이트 맵
+            </td>
+        </ul>
+        </tr>
+    </table>
+</body>
+</html>

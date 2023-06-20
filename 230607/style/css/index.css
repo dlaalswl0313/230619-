@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#wrap{
+    width:100%;
+    position:relative;
+}
+#header{ /* id => # */
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    height:94px;
+    align-items:center;
+}
+.top_image{ /*이미지 전체 크기*/
+    width:225px;
+    height:37px;
+}
+.top_image a{
+    background:url(../image/logo.png);
+    width:100%;
+    height:100%;
+    display:block;
+}
+.header_menu{
+    flex-grow:1;
+}
+ul{ list-style: none;}
+.menu_list{
+    display: flex;
+    height:100%;
+    justify-content:flex-end; /*리스트 위치 조정*/
+    position:relative;
+}
+.menu_list>li{ 
+    /*menu_list>li메뉴리스트바로밑에있는li에만적용
+     *menu_list li 전체li적용*/
+    padding:20px 30px;
+    font-size:20px;
+    position:relative;
+}
+.menu_list>li>ul{
+    position:absolute; /*부모는 li기준 top:0을 주면 글자가 겹침*/
+    top:20px;
+    /*동물보호센터소개와 겹치지 않고 그 위에 놓게 하고싶다면?
+     menu_list>li : padding:20px<--20줬으니 
+     그만큼 벌려줘야 같은위치에 올 수 있다*/
+    height:0;
+    width:0; 
+    /*여기0 줘서 작은메뉴가 한 군데로몰림 -> 들어갈공간이 없으니까*/
+    opacity: 0; 
+    /*대표메뉴를 눌렀을 때 작은메뉴가 나오도록 하고싶다면?
+      먼저 투명도 설정해줌*/
+}
+.menu_list>li>ul>li{ 
+    position:relative;
+    line-height:0;
+}
+.menu_list>li:hover ul{
+    opacity:1; 
+    /*대표메뉴에 마우스를 가져가면 글자가 나오도록*/
+    width:100%;
+    /*여기0 줘서 작은메뉴가 한군데로 몰림 -> 100을 줌으로써 
+    공간이 생겨 작은메뉴가펼쳐짐*/
+    left:0;
+    top:67px;
+    /* top:67px 개발자 도구를 실행하여 대표메뉴의 크기가 얼마인지 보고 
+    작은메뉴와 대표메뉴 사이의 간격을 결정해주면 된다
+    position:absolute 부모의 높이만큼 내려야한다. 
+    혹은 relative로 바꿔야한다. relative하면 메뉴가 밀려 그러면 고정을 해줘야해*/
+}
+.menu_list>li:hover ul>li{
+    line-height: 1; /*작은메뉴간격1*/
+    padding:10px 0; /*작은메뉴간격2*/
+    text-align:center;/*마우스 올렸을 때 작은메뉴위치*/
+    font-size:16px;
+}
+#section{ /*이미지가 들어갈 공간생성*/
+    width: 1200px;
+    height:0 auto;
+}
+#imag1{ /*이미지가 들어갈 공간에 공간생성*/
+    width:100px;
+}
+#img1 img{ /*이미지 크기 조정*/
+    width:100%;
+    transition : all ease 1s
+    /*이미지가 돌아가는 걸 부드럽게, ease 점점빨라지는단위*/
+}
+#img1 img:hover{
+    transform : rotateY(180deg); 
+    /*회전,음수는 반시계방향, 이미지에 마우스를 가져가면 사진이 돌아감
+     이미지만 되는 것이 아닌 텍스트(글씨를 가지고 있는 태그에 명령어적용)도 가능하다.
+     ratateX => x축 기준으로 회전, rotateY => y축 기준으로 회전*/
+    /* tranform => 기울기, 확대, 축소,이동효과, 회전할때 사용
+       회전 - rotate 단위 - deg(각도) turn(n바퀴) rad(radian(1rad=180/3.14))*/
+}
+#move_box{ /*이동*/
+    width:100px;
+    height:100px;
+    background-color:yellow;
+    transition:all 1s;
+}
+#move_box:hover{
+    /*transform: translate(50px,50px);
+    이동_translate,좌표(현재위치에서 이동거리 x축 y축)설정
+    음수로 주면 반대로 이동한다 
+    translateX(x축 이동), translateY(y축 이동),translate3d(x축,y축,z축)*/
+    transform:translate3d(50px,100px,30px);
+}
+#zoom_box{ /*확대,축소*/
+    width:100px;
+    height:100px;
+    background:red;
+    transition:all 1s;
+    border-right:3px solid black;
+}
+#zoom_box:hover{
+    transform:scale(2,15);
+    /*1을 기준으로 1보다 크면 확대, 1보다 작으면 축소
+      transform:scale(2) 2배 확대, 
+      transform:scale(0.5) 0.5배 축소
+      transform:scale(0)변화없음
+      transform:scale(-1)0으로 갔다가 -1로 돌아오는 대신 방향이 바뀜(거울모드)
+      transform:scale(가로, 세로) 가로만 세로만 도 가능*/
+    /*scale(1.5) 가로 세로 크기 1.5 확대 scale(0.7) 가로 세로 크기 0.7 축소 scale(2,1.2) 가로 2 세로 크기 1.2확대 scale(3) 가로만 3배 확대 scale(2.3) 세로만2.3확대*/
+}
+#skew_box{ /*기울기*/
+    width:100px;
+    height:200px;
+    background:pink;
+    transition:all 1s;
+}
+#skew_box:hover{
+    transform:skew(30deg,20deg);
+    /*transform:skew(45deg)가로방향,45도 기운다
+      transform:skew(40deg)세로방향,40도 기운다
+      transform:skew(30deg,20deg)가로30 세로20도로 기운다*/
+}
+#metrix_box{ /*이동,확대&축소,기울기를 다 사용(행렬)*/
+    width:100px;
+    height:100px;
+    background:black;
+    transition:all ease 1s;
+}
+#metrix_box:hover{
+    transform:matrix(2.1, 1.4, -2.1, 1.4,0,0);
+    /*2개 이상의 효과를 주고 싶다면 -> matrix
+      transform:matrix(a,b,c,d,e,f(scaleX, skewY, skewX, scaleY, translateX, translateY))6개의 값이 기본적으로 들어간다
+      matrix에 회전 적용시transform:matrix(cos, sin, -sin, cos, 0, 0) (0,0은 이동좌표(움직이지않겠다))
+      (ex)45도 회전 transform:matrix(cos45, sin45, -sin45, cos45, 0, 0)->이렇게 할 바엔rotate이 더 효율적
+      (ex)45도 회전,3배 확대 transform:matrix(3con45, 3sin45, -3sin45, 3con45, 0, 0)->이렇게 할 바엔rotate이 더 효율적
+       자바스크립트에서는 tan sin cos 넣으면 계산 해준다.   
+    */    
+}
