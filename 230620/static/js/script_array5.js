@@ -76,7 +76,7 @@
 let num = new Array(); //화면에 표시되는 숫자 저장 배열
 let board=new Array(); //숫자가 출력될 위치 저장 배열
 
-let show=false; //start 버튼 클릭 유무-start 버튼을 누르면 기능이 작동하도록
+let show=false; //start 버튼 클릭 유무-> start 버튼을 누르면 기능이 작동하도록
 let cmp_num=new Array();//1번 숫자와 그 다음 숫자를 클릭했을때 비교하기위한배열
 let choice=new Array(); //클릭한 숫자가 서로 같지않을때 숫자가 사라지는데 알맞은 숫자도 함께 사라진다. 그걸 해결하려고 하는 변수임.(숫자가 출력될 위치 저장배열)
 let end=0;   //4가 되면 게임 끝내기
@@ -123,7 +123,7 @@ function init(){ //초기화
     function play(){ //버튼을 누르면 적용되는 함수 
     let pic = document.getElementsByClassName("back");
     for( var i=0; i<pic.length; i++){
-        pic[board[i]].innerHTML = num[i%4];
+        pic[board[i]].innerHTML = num[i%4];//pic1
     }
     setTimeout(function(){
         let pic = document.getElementsByClassName("back");//숫자를 숨겨준다
