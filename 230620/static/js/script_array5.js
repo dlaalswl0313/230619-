@@ -79,7 +79,8 @@ let board=new Array(); //숫자가 출력될 위치 저장 배열
 let show=false; //start 버튼 클릭 유무-start 버튼을 누르면 기능이 작동하도록
 let cmp_num=new Array();//1번 숫자와 그 다음 숫자를 클릭했을때 비교하기위한배열
 let choice=new Array(); //클릭한 숫자가 서로 같지않을때 숫자가 사라지는데 알맞은 숫자도 함께 사라진다. 그걸 해결하려고 하는 변수임.(숫자가 출력될 위치 저장배열)
-
+let end=0;   //4가 되면 게임 끝내기
+let step=0; //클릭횟수제한을 위한 변수
 
 function init(){ //초기화
     //중복없이 랜덤값 넣기
@@ -98,13 +99,15 @@ function init(){ //초기화
     board.push(Math.floor(Math.random()*8) ); //board는 랜덤한 숫자가 들어오게 하는 부분 
     for(var i=1; i<=7; i++){ //8인 이유는 최대값이 7까지 나옴
         var temp = Math.floor(Math.random()*8);
-        if ( board.indexOf(temp) == -1){
+         if ( board.indexOf(temp) == -1){
             board.push(temp);
-        }else{
-            i--;
-        }
-    }   
-}
+         }else{
+             i--;
+         }
+      }   
+      var count = document.getElementById("count");//클릭횟수제한표시
+      count.innerText=0;//start버튼 누르면 클릭횟수적립시작
+    }
     window.onload=function(){
     init(); //초기화 함수 실행
     //id가 start인 버튼 태그 가져오기
@@ -133,9 +136,18 @@ function init(){ //초기화
     }
     function  same_search(){ //칸을 눌러도 알림창이 뜨고, 숫자를 눌러도 알림창이 뜬다 , 그러나 start 버튼을 누르면 알림창이 뜨지 않는다. 
     if(!show){ //show 변수가 false라면 not연산에 의해 true가 작동, show변수가 true라면 not연산에 의해 false가 작동한다.
-        alert("start 버튼을 클릭해주세요.");
+        alert("start 버튼을 클릭해주세요."); //show함수로 인해 버튼이 눌렀는지 아닌지 확인가능
         return; //start 버튼을 클릭하지 않았으면 same_search함수를 실행시키지않는다.
     }
+    //클릭횟수 증가시키기
+    if(step == 20){//20번 클릭하면 더 이상 진행불가
+        alert("다음기회에 도전하세요");
+        show=false;//show 변수가 false라면 not연산에 의해 true가 작동, show변수가 true라면 not연산에 의해 false가 작동한다. 즉, 동작하지않게하기위해
+        return;
+    }
+    var count = document.getElementById("count");
+    count.innerText = ++step;
+   
     /*
         this.style.background="red"; td를 클릭하면 칸 색이 빨강으로 변한다. 
         getElementById, getElementsClassName 등을 사용하면, 태그의 객체라는 것이 반환된다. 
@@ -165,13 +177,14 @@ function init(){ //초기화
             if(span[i] === child){ //각각의 태그마다 고유한 명칭을 가짐 그러니 서로 비교가 가능하다
                 choice.push(i); //클릭한 td의 span태그 인덱스를 배열에 저장한다. 
             }
-    }
+        }
     cmp_num.push(parseInt(child.innerText)); //배열에 숫자 2개가 저장되어있다면 비교, 클릭한 숫자 배열에 저장
     
     if(cmp_num.length == 2){
         if(cmp_num[0] == cmp_num[1]){
         cmp_num = new Array();//숫자가 같은 것도 배열초기화
         choice = new Array();//같은 숫자 나와도 초기화
+        end++; //두 개 비교해서 같으면 end 변수 1씩 증가
      }else{ 
         setTimeout(function(){
          cmp_num = new Array();//숫자가 달라도 배열초기화
@@ -180,7 +193,11 @@ function init(){ //초기화
             pic[choice[i]].style.display="none"; //index=choice에 있는걸 없애라.
          }
          choice= new Array();
-      },500); //0.5s,한 번 실행
+       },500); //0.5s,한 번 실행
      }                                  
+   }
+   if(end==4){
+     alert("게임 종료");
+     show=false;
    }
 }
