@@ -73,7 +73,7 @@
     
 // }
 
-let num = new Array(); //화면에 표시되는 숫자 저장 배열
+let num = new Array(); //화면에 표시되는 숫자 저장 배열 
 let board=new Array(); //숫자가 출력될 위치 저장 배열
 
 let show=false; //start 버튼 클릭 유무-> start 버튼을 누르면 기능이 작동하도록
@@ -181,7 +181,7 @@ function init(){ //초기화
     cmp_num.push(parseInt(child.innerText)); //배열에 숫자 2개가 저장되어있다면 비교, 클릭한 숫자 배열에 저장
     
     if(cmp_num.length == 2){
-        if(cmp_num[0] == cmp_num[1]){
+        if(cmp_num[0] == cmp_num[1]){//같은 숫자인지 
         cmp_num = new Array();//숫자가 같은 것도 배열초기화
         choice = new Array();//같은 숫자 나와도 초기화
         end++; //두 개 비교해서 같으면 end 변수 1씩 증가

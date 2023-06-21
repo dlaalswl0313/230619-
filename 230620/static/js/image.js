@@ -20,9 +20,9 @@ function play(){
         return; 
     }
     setTimeout(function(){
-        let pic = document.getElementsByClassName("back");
-        for(var i=0; i<pic.length; i++){
-            pic[i].style.display="none";
+        let block = document.getElementsByClassName("block");
+        for(var i=0; i<block.length; i++){
+            block[i].style.display="none";
         }
         show = true; 
       },2000);
