@@ -111,7 +111,7 @@ window.onload=function(){
 
    let pic = document.getElementsByClassName("picture");//클래스이름이picutre인것을 가져와서 
    for( var i=0; i<pic.length; i++){ //각각의 태그에 숫자를 넣어준다 
-        pic[i].addEventListener("click",same_search);//board는 위치 지정
+        pic[i].addEventListener("click",same_search);//board는 위치 지정, td객체에 클릭을 하면 same_search 함수 실행하라.
     }
 }
 function play(){ //버튼을 누르면 적용되는 함수 
@@ -127,9 +127,23 @@ function play(){ //버튼을 누르면 적용되는 함수
         show = true; //start 버튼 클릭 했다는 의미 <->false 면 start 버튼을 클릭하지 않았다. 
      },2000);//2초 뒤, 한 번만 실행하라.
 }
-function  same_search(){ //칸을 눌러도 알림창이 뜨고, 숫자를 눌러도 알림창이 뜬다 , start 버튼을 누르면 알림창이 뜨지 않는다. 
+function  same_search(){ //칸을 눌러도 알림창이 뜨고, 숫자를 눌러도 알림창이 뜬다 , 그러나 start 버튼을 누르면 알림창이 뜨지 않는다. 
     if(!show){ //show 변수가 false라면 not연산에 의해 true가 작동, show변수가 true라면 not연산에 의해 false가 작동한다.
         alert("start 버튼을 클릭해주세요.");
         return; //start 버튼을 클릭하지 않았으면 same_search함수를 실행시키지않는다.
-    } 
+    }
+    /*
+        this.style.background="red"; td를 클릭하면 칸 색이 빨강으로 변한다. 
+        getElementById, getElementsClassName 등을 사용하면, 태그의 객체라는 것이 반환된다. 
+        태그의 객체를 변수에 담아서 사용해왔다. 
+        자바스크립트에서는 html태그를 element 요소 또는 객체라고 한다. 
+        객체를 표현하는 방법 중에 자기 자신을 의미하는 this가 있다.
+        same_search함수를 실행 시킨건 td태그이다.
+        즉 td라는 객체에 의해 same_search함수가 실행 된 것이다. 
+        same_search 함수 안에서 this(자기자신)이라고 사용하면 same_search함수를 실행시킨 td태그를 의미한다.
+    */
+    //td안에있는 span 태그를 제어해야한다. td 태그의 자식은 span이다.
+    //var child = this.firstChild;자바스크립트에서 자식을 데려오는 방법
+    var child =this.childNodes[0]; //결과값 [object NodeList], td태그 밑에 있는 모든 자식들을 배열로 저장한다. td의 첫번째 자식은 0번 인덱스
+      child.style.display="inline";//var child =this.childNodes[0]->결과값[object HTMLSpanElement]\var child = this.firstChild->결과값 [object HTMLSpanElement]                                    
 }
