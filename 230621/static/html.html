@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제</title>
+    <script>
+        // const str = "123456789";
+        // const arr = str.split("");//문자열을 구분자로 잘라서 각각의 잘라진 조각들을 배열에 저장하여 리턴합니다.
+        // document.writeln(arr); // a,p,p,l,e, ,b,a,n,a,n,a, ,o,r,a,n,g,e
+        // window.onload=function(){} //웹브라우저 표시 기능은 없이 그냥 보여주기
+
+        function start(){
+            var num=1;
+            var result=""; //결과 출력용 변수
+            var flag=false; //31이되면 종료 시키기 위한 용도
+
+             while(true){
+              var user=parseInt(prompt("1~3 입력"));
+              result+="\n유저\n";
+              for(var i=1; i<=user; i++){
+                  result+=num+" ";
+                  if(num==31){
+                    flag=true;
+                    break;
+                }
+                  num++;
+                }
+                alert(result);
+                if(flag){
+                    document.write("사용자 패배");
+                    break;
+                }
+                var com=Math.floor(Math.random()*3)+1;
+                result+="\n컴퓨터\n";
+                for(var i=1; i<=com; i++){
+                    result+=num+" ";
+                    if(num==31){
+                        flag=true;
+                        break;
+                    }
+                    num++;
+                }
+                alert(result);
+                if(flag){
+                    document.write("컴퓨터 패배");
+                    break;
+                }
+            } 
+        }
+    </script>
+    <style>
+        body{
+            margin:20px auto;
+            display: flex;
+            justify-content: center;
+        }
+        label{
+            font-size: 20px;
+            text-align: center;
+        }
+        #st_bt{
+            width: 150px;
+            height:75px;
+            font-size:20px;
+            margin-top: 40px;
+        }
+        #result{
+            margin-top:100px;
+        }
+    </style>
+    
+</head>
+<body>
+    <!--
+       - 베스킨 라빈스 31 만들기
+            숫자를 1~3개 입력 하세요
+            내가 입력 한 숫자 다음 숫자부터 컴퓨터가 숫자를 불러야 합니다.
+            내가 입력하는 숫자예시 -  1,2,3  반드시 이런식으로 입력하기 
+            숫자 사이에, 넣어서 입력
+            - split 이라는함수를 찾아보세요 그래야 문제를 해결할수 있습니다.
+            (이 문제는 배열 문제입니다.)   
+            
+            컴퓨터와 나의 대결
+            컴퓨터는 랜덤 나는 입력값으로 입력시 1,2,3
+            나의 입력값은 화면으로 보여질때 1,2,3
+
+    -->
+    <div><label><b>베스킨라빈스31게임</b></label></div>
+    <div id="st_bt"><button onclick="start()">게임 시작>></button></div>
+    <div id="result"></div>
+    
+</body>
+</html>

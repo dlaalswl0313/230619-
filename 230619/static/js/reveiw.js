@@ -42,3 +42,36 @@ function score(grade){
         return "f";
     }
 }
+function score(lang){
+    if(lang>=100){
+        return "A";
+    }else if(lang>=80){
+        return "B";
+    }else if(lang>=70){
+        return "C";
+    }else{
+        return "f";
+    }
+}
+function score(math){
+    if(math>=100){
+        return "A";
+    }else if(math>=80){
+        return "B";
+    }else if(math>=70){
+        return "C";
+    }else{
+        return "f";
+    }
+}
+function score(english){
+    if(english>=100){
+        return "A";
+    }else if(english>=80){
+        return "B";
+    }else if(english>=70){
+        return "C";
+    }else{
+        return "f";
+    }
+}

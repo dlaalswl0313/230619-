@@ -86,10 +86,10 @@ function init(){ //초기화
     //중복없이 랜덤값 넣기
     //indexOf를 이용해서 -1이 나오면 일치하는게 없다ㅏ.
     //  즉 중복되는 숫자가 없다는 뜻이니까  배열에저장
-    num.push(Math.floor(Math.random()*10)+1 );
-    for(var i=1; i<=3; i++){
+    num.push(Math.floor(Math.random()*10)+1);
+    for(var i=1; i<=3; i++){//num.push(Math.floor(Math.random()*10)+1); num.push로 인해 1개의 데이터가 이미 들어간것
         var temp = Math.floor(Math.random()*10)+1;
-        if ( num.indexOf(temp) == -1){
+        if ( num.indexOf(temp) == -1){ //위에 랜덤숫자 중 문자열 비교해서 감소시키고 나옴
             num.push(temp);
         }else{
             i--;
@@ -97,11 +97,11 @@ function init(){ //초기화
     }
 
     board.push(Math.floor(Math.random()*8) ); //board는 랜덤한 숫자가 들어오게 하는 부분 
-    for(var i=1; i<=7; i++){ //8인 이유는 최대값이 7까지 나옴
+    for(var i=1; i<=7; i++){ //board라는 값이 이미 들어왔으니까 최소값은 1부터 시작
         var temp = Math.floor(Math.random()*8);
-         if ( board.indexOf(temp) == -1){
-            board.push(temp);
-         }else{
+         if ( board.indexOf(temp) == -1){ //문자열이 -1이면 
+            board.push(temp);//위 조건이 맞으면결과값나와야해
+         }else{ //아니면 1씩 감소해서 
              i--;
          }
       }   
