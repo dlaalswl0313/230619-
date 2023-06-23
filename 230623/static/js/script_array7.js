@@ -76,11 +76,11 @@ function make_num(){ //번호생성부분, 랜덤숫자이용해서번호등장
      //산술적 복합성 값 구하기 
      for(i=lucky_num.length-1;i>=1;i++){ 
           for(var k=i-1; i>=0; i--){
-            lucky_num[i] - lucky_num[k];
+            ac.push(lucky_num[i] - lucky_num[k]);
         }
      }
      out += "<td colspan='7'>"+
-     "총합: "+total+"   "+
+     "총합: "+total+"   "+//띄어쓰기를 위한 ""
      "홀/짝:"+odd+"/"+even+"</td>";
 
     }//변수 n 5번 반복하는 for문 끝
