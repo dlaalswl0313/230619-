@@ -62,13 +62,35 @@ function make_num(){ //번호생성부분, 랜덤숫자이용해서번호등장
         out += "<td class='numTd'>"+lucky_num[i]+"</td>";
     }
     out += "</tr>";
+    //짝수, 홀수 개수, 총합 출력
+    var even=0; odd=0; //even 짝 odd 홀
+    var total=0;
+     for(var i=0; i<lucky_num.length; i++){
+         total += lucky_num[i];
+         if(lucky_num[i]%2===0){
+            even++;
+         }else{
+            odd++;
+         }
+     }
+     //산술적 복합성 값 구하기 
+     for(i=lucky_num.length-1;i>=1;i++){ 
+          for(var k=i-1; i>=0; i--){
+            lucky_num[i] - lucky_num[k];
+        }
+     }
+     out += "<td colspan='7'>"+
+     "총합: "+total+"   "+
+     "홀/짝:"+odd+"/"+even+"</td>";
+
     }//변수 n 5번 반복하는 for문 끝
-    out += "</table>";
-    content.innerHTML=out;
+     out += "</table>";
+    
+     content.innerHTML=out;
 }
 
 function num_count(){
-    alert("인");
+
 }
 //배열, 실행할 함수 내용을 직접 써서 사용가능 -> 기존에는("사용하고자하는기능",사용하고자하는기능의 함수)
 /*
