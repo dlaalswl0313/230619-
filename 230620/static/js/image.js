@@ -8,12 +8,20 @@ let choice=new Array();
 
 window.onload=function(){ //주기능
     let start = document.getElementById("start");
-    start.addEventListener("click", play); 
+    start.addEventListener("click", play);
+}  
+function image_init(){
+    image.push(Math.floor(Math.random()*12));
+    for(var i=1; i<12; i++){
+        var temp=Math.floor(Math.random()*12);
+        if(image.indexOf(tmp)==-1){
+            image.push(tmp);
+        }else{
+            --i;
+        }
+    }
+}  
 
-    let block = document.getElementsByClassName("block");  
-    block.addEventListener("block", play);
-
-}    
 function play(){
     if(!show){ 
         block.innerHTML=images[i];
