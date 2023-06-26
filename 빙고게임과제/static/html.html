@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빙고게임</title>
+    <script src="./js/js.js"></script>
+    <style>
+      body{
+         background:#D4F4FA;
+      }   
+      #wrap{
+         width:80%;
+         max-width:1000px;
+         min-width:650px;
+         margin:50px auto;
+     }
+     #start{
+         margin:0 auto 50px auto; 
+         display:block;
+         font-size:20px;
+         border:0;
+         background:white;
+         color:black;
+         padding:10px;
+         border-radius: 10px;
+     }
+     #start:hover{
+         background:purple;
+         color:white;
+     }
+     #game_table{
+         border-spacing: 0;
+         margin:0 auto;
+     }
+     .bg_box{
+         border:3px dashed black;
+         width:80px;
+         height:80px;
+         font-size:30px;
+         text-align: center;
+     } 
+     h1{
+         text-align: center;
+     }
+         </style>
+ </head>
+ <body>
+     <div id="wrap">
+         <h1>BINGO GAME</h1>
+         <button id="start">시작>></button>
+         <div><span id="count"></span>/25</div>맞힌 숫자
+         <table id="game_table">
+             <tr>
+                 <td id="bg1" class="bg_box"><span class="back"></span></td>
+                 <td id="bg2" class="bg_box"><span class="back"></span></td>
+                 <td id="bg3" class="bg_box""><span class="back"></span></td>
+                 <td id="bg4" class="bg_box"><span class="back"></span></td>
+                 <td id="bg5" class="bg_box"><span class="back"></span></td>
+             </tr>
+             <tr>
+                 <td id="bg6" class="bg_box"><span class="back"></span></td>
+                 <td id="bg7" class="bg_box"><span class="back"></span></td>
+                 <td id="bg8" class="bg_box"><span class="back"></span></td>
+                 <td id="bg9" class="bg_box"><span class="back"></span></td>
+                 <td id="bg10" class="bg_box"><span class="back"></span></td>
+             </tr>
+             <tr>
+                 <td id="bg11" class="bg_box"><span class="back"></span></td>
+                 <td id="bg12" class="bg_box"><span class="back"></span></td>
+                 <td id="bg13" class="bg_box"><span class="back"></span></td>
+                 <td id="bg14" class="bg_box"><span class="back"></span></td>
+                 <td id="bg15" class="bg_box"><span class="back"></span></td>
+             </tr>
+             <tr>
+                 <td id="bg16" class="bg_box"><span class="back"></span></td>
+                 <td id="bg17" class="bg_box"><span class="back"></span></td>
+                 <td id="bg18" class="bg_box"><span class="back"></span></td>
+                 <td id="bg19" class="bg_box"><span class="back"></span></td>
+                 <td id="bg20" class="bg_box"><span class="back"></span></td>
+             </tr>
+             <tr>
+                 <td id="bg21" class="bg_box"><span class="back"></span></td>
+                 <td id="bg22" class="bg_box"><span class="back"></span></td>
+                 <td id="bg23" class="bg_box"><span class="back"></span></td>
+                 <td id="bg24" class="bg_box"><span class="back"></span></td>
+                 <td id="bg25" class="bg_box"><span class="back"></span></td>
+             </tr>
+         </table>
+     </div>
+ </body>
+ </html>
