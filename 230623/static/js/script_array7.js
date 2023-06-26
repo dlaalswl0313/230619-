@@ -1,9 +1,12 @@
+let lotto=new Array(); //역대 당첨 번호 저장 될 배열
+
 window.onload=function(){
     // 화면이 전부 로딩 되면 시작하는 함수
         var icon = document.getElementsByClassName("strapIcon");    
         icon[0].addEventListener("click", open_close);
     
         content= document.querySelector("#content");
+        
         //파일 선택한걸 화면에 불러오기
         var file = document.querySelector("#lotto"); //css에서의 id가 lotto인걸 가져오기
         file.addEventListener("input", function(e){
@@ -13,7 +16,16 @@ window.onload=function(){
             //alert(files[0]); 파일선택하면 알림창이 뜬다.
             let reader=new FileReader();
             reader.addEventListener("load", function(e){
-                alert(reader.result);
+                var str = reader.result;
+                //alert(reader.result); txt파일 내용이 알림창에 뜬다.
+                var temp=str.split("\n");// split("\n") \n(new line -> enter) 분리하라. 
+
+                for(var i in temp){//for(var i=0; i<temp.length;i++)과 같은 조건
+                    //배열을 사용할 때 더 유용한 for문
+                    lotto.push(temp[i].split("\t"));//tab을 분리하라.
+                }
+                //alert(str.split("\n")[0]); 인덱스 0인 자료 출력 -> 1073회차 당첨번호만 알림창에 뜬다.
+                alert(lotto[0][3]); //1073회차 2번째 당첨번호(18), lotto는 2차원 배열
             });
             reader.readAsText(files[0]);
         });
@@ -49,10 +61,14 @@ function open_close(){
 let content=null;
 
 function win_confirm(){//당첨확인 버튼을 누르면 자바스크립트 내 해당하는 함수로 이동한다
-    alert("당첨확인 클릭");
+    alert("당첨 확인 클릭");
 }
 
 function make_num(){ //번호생성부분,랜덤숫자이용해서번호등장
+    if(lotto.length==0){
+        alert("로또 파일을 먼저 열어주세요"); //파일 선택 안하고, 출현횟수 클릭 시 알림창
+        return;
+    }
 
     var out="<table class='makeTable'>";
 
@@ -91,19 +107,34 @@ function make_num(){ //번호생성부분,랜덤숫자이용해서번호등장
                 odd++;
         }
 
-        // 산술적 복합성 값 구하기
+        // 산술적 복합성 값 구하기 (ac)
         var ac = new Array();
         for(var i=lucky_num.length-1; i>=1; i--){
-            for(var k=i-1; i>=0; i--){ 
+            for(var k=i-1; k>=0; k--){ 
                 var tmp = lucky_num[i]-lucky_num[k];
                 if(ac.indexOf(tmp) == -1) //중복숫자제외
                     ac.push(tmp);
             }
         }
         //역대 당첨 번호와 비교하기
-
-        
+        for(var i in lotto){//당첨번호는 총 6개 보너스번호 1 , 0~1072의 인덱스를 가진다.
+            for(var k=2; k<=7; k++){ //6 18	28	30	32	38	15은 k배열
+                //1073	2023.06.24	6	18	28	30	32	38	15 에서 (6 18 28 30 32 38)까지 구하기
+                if(ac.indexOf(lotto[i][k])!= -1){ //lotto는 2차원 배열 , 이 당첨 번호가 ac와 같냐....
+        /*
+         역대 당첨번호와 같은 숫자가 ac 배열에 있다면 ac배열에서 삭제하기    
+         배열에 저장 되어 있는 데이터를 삭제하는 방법
+         1. 배열이름.pop() - 맨 끝에 있는 마지막 인덱스를 삭제해준다.
+         2. 배열이름.splice(인덱스,개수) - 특정 위치의 데이터 삭제, 
+            삭제할 데이터의 인덱스와 해당 인덱스부터 몇 개 삭제 할 것인지 개수
+        */        
+                   var index=ac.indexOf(lotto[i][k]);
+                   ac.splice(index,i); 
+                }
+            }
+        }
         out += "<td colspan='7'>"+
+        "AC:"+ (ac.length - 5) +' '+ 
         "총합 : "+total+"  "+
         "홀/짝 : "+odd+"/"+even+"</td>";
 
@@ -114,7 +145,7 @@ function make_num(){ //번호생성부분,랜덤숫자이용해서번호등장
     content.innerHTML = out;
 }
 
-function num_count(){   
+function num_count(){ 
     alert("출현횟수");
 }
 
@@ -181,7 +212,9 @@ function num_count(){
      window.outerHeight - 브라우저의 전체 높이
 
      브라우저의 크기가 변경되면 동작하는 함수  -> resize()
-
+    
+    lotto는 2차원 배열 - 1차원 배열이 두 개 있기 때문에 인덱스도 두 개이다.
+    i 변수에는 첫번째 인덱스를 k 변수에는 두번째 인덱스를 표현한다.    
     
 */
 
