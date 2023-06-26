@@ -129,7 +129,7 @@ function make_num(){ //번호생성부분,랜덤숫자이용해서번호등장
             삭제할 데이터의 인덱스와 해당 인덱스부터 몇 개 삭제 할 것인지 개수
         */        
                    var index=ac.indexOf(lotto[i][k]);
-                   ac.splice(index,i); 
+                   ac.slice(index,i); 
                 }
             }
         }
