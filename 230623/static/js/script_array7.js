@@ -60,10 +60,6 @@ function open_close(){
 
 let content=null;
 
-function win_confirm(){//당첨확인 버튼을 누르면 자바스크립트 내 해당하는 함수로 이동한다
-    alert("당첨 확인 클릭");
-}
-
 function make_num(){ //번호생성부분,랜덤숫자이용해서번호등장
     if(lotto.length==0){
         alert("로또 파일을 먼저 열어주세요"); //파일 선택 안하고, 출현횟수 클릭 시 알림창
@@ -143,10 +139,6 @@ function make_num(){ //번호생성부분,랜덤숫자이용해서번호등장
 
     //출력
     content.innerHTML = out;
-}
-
-function num_count(){ 
-    alert("출현횟수");
 }
 
 //배열, 실행할 함수 내용을 직접 써서 사용가능 -> 기존에는("사용하고자하는기능",사용하고자하는기능의 함수)
