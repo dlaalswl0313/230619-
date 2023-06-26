@@ -29,3 +29,22 @@
     text-align: center;
     height:34px;
 }
+#btn_submit{
+    width:20px 0;
+    text-align: center;
+}
+#btnDefault, #btnSearch{
+    height:40px;
+    line-height: 36px;
+    padding:0 29px;
+    font-size:500;
+}
+#btnDefault{
+    background:#8C8C8C;
+    border: 1px solid #8C8C8C;
+}
+#btnSearch{
+    background: #487BE1;
+    border: 1px solid #487BE1;
+    color: #00005D;
+}
