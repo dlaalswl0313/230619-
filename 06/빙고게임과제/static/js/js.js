@@ -51,20 +51,20 @@ function color(){ //칸을 눌러도 알림창이 뜨고, 숫자를 눌러도 �
     return; 
   }
 }
-// function All_bingo(){
-//     var row =0 ;
-//     var col =0;
+function All_bingo(){
+    var row =0 ;
+    var col =0;
     
-//     for(i=0;i<board.length;i++){
-//         if(!show){
-//             for(var j=0; j<board[i].length; j++){
-//                 if(board[i][j]==0){
-//                     console.log(board[i][j]);
-//                 }else{                 
-//                     row++;
-//                     break;
-//                 }    
-//             }
-//         }
-//     }
-// }
+    for(i=0;i<board.length;i++){
+        if(!show){
+            for(var j=0; j<board[i].length; j++){
+                if(board[i][j]==0){
+                    console.log(board[i][j]);
+                }else{                 
+                    row++;
+                    break;
+                }    
+            }
+        }
+    }
+}
