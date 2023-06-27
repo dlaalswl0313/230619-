@@ -1,3 +1,4 @@
+
 window.onload=function(){
    var num645 =document.getElementsByClassName("num_645");
    for(var i=0; i<num645; i++){
@@ -93,6 +94,15 @@ function data_search(){
               }
            }
         }
+        switch(win_cnt){
+            case 6 : rank=1; break; //당첨번호일치가 6개 ,1등
+            case 5 : if(isBonus) rank=2; //당첨번호일치 5개+보너스,2등
+                     else rank=3; break; //당첨번호일치 5개,3등
+            case 4 : rank=4; break;//당첨번호일치 4개,4등
+            case 3 : rank=5; break;//당첨번호일치 3개,5등
+            default:
+                rank="X"; //당첨번호가 2개 이하면 X         
+        }
         if(isBonus){
             bonus_str = "<strong class='red'>"+lotto[sel_count][8]+"</strong>";
             win_cnt = win_cnt!=6 ? win_cnt+"+Bonus" : win_cnt;
@@ -106,7 +116,10 @@ function data_search(){
             bonus[line-1].innerHTML=bonus_str;
             //여기에 일치 갯수 출력코드 작성  resultNumberSu
             var NumberSu = document.getElementsByClassName("resultNumberSu");
-            NumberSu[line-1].innerText=win_cnt;    
+            NumberSu[line-1].innerText=win_cnt;  
+            var grade = document.getElementsByClassName("resultNumberGrade");
+            grade[line-1].innerText=rank;  
+
         }   
     }
 }
