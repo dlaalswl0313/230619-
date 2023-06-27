@@ -1,4 +1,22 @@
 window.onload=function(){
+   var num645 =document.getElementsByClassName("num_645");
+   for(var i=0; i<num645; i++){
+     num645[i].addEventListener("keyup",function(e){ //입력한것바로출력
+         
+         if(e.keyCode<48 || (e.keyCode >57 && e.keyCode<97)||e.keyCode>105){
+            //숫자키빼고 다른 숫자는 무시하겠다.
+            return;
+         }
+         var n = parseInt(this.value);
+         if( !(1<=n && n<=45) ){//1~45가 아니라면
+            alert("1~45 숫자만 입력하세요.");
+            this.value='';
+            this.focus();
+         }
+     });
+  }
+//키보드로 입력 이벤트를 등록 시키기ㅡ키보드 이벤트는 press가 일반적인데, 모든 input에 이벤트 등록해야한다.
+
     var drwNo = document.querySelector("#drwNo");//지금 게시물로부터~~~
     var btnDefault = document.querySelector("#btnDefault");//초기화버튼js로불러오기
     var btnSearch = document.querySelector("#btnSearch");//결과확인버튼js로불러오기
@@ -88,10 +106,7 @@ function data_search(){
             bonus[line-1].innerHTML=bonus_str;
             //여기에 일치 갯수 출력코드 작성  resultNumberSu
             var NumberSu = document.getElementsByClassName("resultNumberSu");
-            NumberSu[line-1].innerText=win_cnt;
-            
-        }
-        
-        
+            NumberSu[line-1].innerText=win_cnt;    
+        }   
     }
 }
