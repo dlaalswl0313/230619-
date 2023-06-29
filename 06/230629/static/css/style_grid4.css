@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 body{
-    background:#353535;
-    color:#B4B4B4;
+    background:#EAEAEA;
+    color:black;
 }
 #wrap{
     width:90%;
@@ -15,4 +15,56 @@ body{
     display: flex;
     align-items: center;
     gap:20px;
+}
+/*grid*/
+#article{
+    display:grid;
+    grid-template-columns : repeat(3,1fr);/*1줄에 3개 씩 동일한 너비*/
+    gap:20px;
+    margin-top: 50px;
+}
+#article section{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(125px,auto));
+    grid-template-rows:40px 80px 200px;
+    gap:10px;
+    /*align-items:center;모든 자식태그들을 가운데로*/
+    /*
+      1줄40 - item title, item progress long, item progress short
+      2줄80 
+      3줄200만큼의 높이
+    */
+}
+.title{
+    grid-column:1/4; /*title 혼자 1번부터 4번까지 사용하겠다.*/
+    align-self:center;
+}
+.progress_long{/*2칸 차지*/
+    grid-column:1/3;
+    background:#909090;
+    border-radius: 8px;
+    display:flex;/*p태그 위치조정,flex는 부모한테줘야햅*/
+    padding:10px;
+    justify-content:space-between;/*p와b간격조정*/
+}
+.progress_long p{ 
+    align-self:end;
+}
+.progress_long b{
+    font-size: 30px;
+}
+.bi-caret-up-fill{
+    color:#670000;
+}
+.bi-caret-down-fill{
+    color:#000054;
+}
+.progress_short{/*1칸 차지*/
+    background:#909090;
+    border-radius: 8px;
+}
+.grape{/*1줄 차지*/
+    grid-column: 1/4;
+    background:#909090;
+    border-radius: 4px;
 }

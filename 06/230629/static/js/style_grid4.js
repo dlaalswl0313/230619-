@@ -9,7 +9,7 @@ window.onload=function(){
         const hour = String(now.getHours()).padStart(2,"0");//시간
         const minute = String(now.getMinutes()).padStart(2,"0");//분
         const sec = String(now.getSeconds()).padStart(2,"0");//초
-        dt.innerHTML=`${year}.${month}.${date}.${hour}.${minute}.${sec}`;//~ 키를 그냥눌러
+        dt.innerHTML=`${year}.${month}.${date}.${hour}:${minute}:${sec}`;//~ 키를 그냥눌러
         // dt.innerHTML=year+"."+month+"."+date+"."+hour+"."+minute+":";
     },1000); //익명 함수,시간은 1초씩
 }

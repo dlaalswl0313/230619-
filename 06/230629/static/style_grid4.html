@@ -6,6 +6,7 @@
     <title>style_grid4</title>
     <link rel="stylesheet" href="./css/style_grid4.css">
     <script src="./js/style_grid4.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
     <div id="wrap">
@@ -15,42 +16,60 @@
         </header>
         <article id="article">
         <!--
-            article 문서 내에서 그룹화해서 분리하는 역할
-            section 부분,구역,영역을 그룹화해서 분리하는 역할
+            article 문서 내에서 그룹화해서 분리하는 역할 ,독립적,재사용가능
+            section 부분,구역,영역을 그룹화해서 분리하는 역할, 주제별
         -->
             <section id="section1">
                 <h3 class="item title">외래 운영현황</h3>
-                <div class="item progress_long"></div>
+                <div class="item progress_long">
+                    <h4>외래진행률</h4>
+                    <p><b>90%</b><i class="bi bi-caret-down-fill"></i></p>
+                </div>
                 <div class="item progress_short"></div>
                 <div class="item grape"></div>
             </section>
             <section id="section2">
                 <h3 class="item title">병상 운영현황</h3>
-                <div class="item progress_long"></div>
+                <div class="item progress_long">
+                    <h4>병상 가동률</h4>
+                    <p><b>78%</b><i class="bi bi-caret-up-fill"></i></p>
+                </div>
                 <div class="item progress_short"></div>
                 <div class="item grape"></div>
             </section>
             <section id="section3">
                 <h3 class="item title">수술 운영현황</h3>
-                <div class="item progress_long"></div>
-                <div class="item progress_short"></div>
-                <div class="item grape"></div>
+                <div class="item progress_long">
+                    <h4>수술실 가동률</h4>
+                    <p><b>96%</b><i class="bi bi-caret-up-fill"></i></p>
+                </div><!--2칸 차지-->
+                <div class="item progress_short"></div><!--1칸 차지-->
+                <div class="item grape"></div><!--1줄차지-->
             </section>
             <section id="section4">
-                <h3 class="item title"></h3>
-                <div class="item progress_long"></div>
+                <h3 class="item title">CT 운영현황</h3>
+                <div class="item progress_long">
+                    <h4>CT검사 진행률</h4>
+                    <p><b>80%</b><i class="bi bi-caret-up-fill"></i></p>
+                </div>
                 <div class="item progress_short"></div>
                 <div class="item grape"></div>
             </section>
             <section id="section5">
-                <h3 class="item title"></h3>
-                <div class="item progress_long"></div>
+                <h3 class="item title">MRI 운영현황</h3>
+                <div class="item progress_long">
+                    <h4>MRI 진행률</h4>
+                    <p><b>60%</b><i class="bi bi-caret-up-fill"></i></p>
+                </div>
                 <div class="item progress_short"></div>
                 <div class="item grape"></div>
             </section>
             <section id="section6">
-                <h3 class="item title"></h3>
-                <div class="item progress_long"></div>
+                <h3 class="item title">채혈 운영현황</h3>
+                <div class="item progress_long">
+                    <h4>검사 환자수</h4>
+                    <p><b>12,945</b><i class="bi bi-caret-up-fill"></i></p>
+                </div>
                 <div class="item progress_short"></div>
                 <div class="item grape"></div>
             </section>
