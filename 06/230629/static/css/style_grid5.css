@@ -1,78 +1,85 @@
 :root{
-    --bs-green:#27a776; /*가상의 변수생성 :root{ --변수이름: } (ex)--title-size:20px; */
-    --bsgray:#e9ecef;
+    --bs-green:#27a776;
+    --bs-gray:#aaaaaa;
 }
+
 *{
     padding:0;
     margin:0;
-    color:white;
-    background:black;
+    color:#fff;
+    background:#000;
 }
+
 #wrap{
-    margin: 0 auto;
+    margin:0 auto;
     width:1680px;
-    display:grid; /*display: flex가 맞는데 grid 연습*/
+    display:grid;
     justify-content: center;
     gap:20px;
-    grid-template-columns:1rf;
-    grid-template-rows:450px 1450px 100px;
+    grid-template-columns: 1fr;
+    grid-template-rows:450px 1280px 100px;
 }
-ul{list-style-type: none;}
+
+ul{ list-style-type: none;}
 #nav{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display:grid;
+    grid-template-columns: repeat(3,1fr) ;
     padding:15px;
     align-items: center;
-    position:sticky;/*스크롤 시 다른콘텐츠와 어울리게 하려면 sticky*/
+    position:sticky;
     top:0;
+    z-index:10;
 }
 .webTitle{
     font-size:30px;
 }
-.webTitle i{color:var(--bs-green);}
+.webTitle i{ color:var(--bs-green);}
+
 .menu ul{
     display:grid;
-    grid-template-columns: repeat(5,1rf);
+    grid-template-columns: repeat(5, 1fr);
 }
 .sns{
-    justify-content: end;
+    justify-self: end;
     display:grid;
-    grid-template-columns:repeat(4,1rf);
+    grid-template-columns: repeat(4,1fr);
     column-gap: 15px;
 }
-.sns i::before{color:var(--bsgray);}
+.sns i::before{color:var(--bs-gray);}
+
 #main_text{
-    margin-top: 50px;
-    display:grid;/*그리드 수평*/
-    justify-content:center;
-    height:150px;
+    margin-top:50px;
+    display:grid;
+    justify-content: center;
+    height:250px;
     grid-template-rows: auto;
 }
 #main_text h2{
     font-size:40px;
 }
 #main_text p{
-    justify-self: center;/*각 아이템*/
+    justify-self: center;
 }
 #main_text a{
-    justify-self:center;/*각 아이템*/
+    justify-self: center;
     background:var(--bs-green);
-    align-self:center;/*각 아이템*/
-    padding:10 30px;
+    align-self:center;
+    padding:10px 30px;
     border-radius: 5px;
 }
+
 #section{
-    /*1줄 4개 씩*/
-    display:flex;
-    grid-template-columns: repeat(4,400px);
-    /*너비가 같은경우에 repeat 너비가 다를 경우에는 따로 지정 400 500 600 200px 이런식으로*/
+    display:grid;
+    grid-template-columns: repeat(4, 400px);
     grid-template-rows: repeat(4,300px);
     gap:20px;
 }
 .picture{
     border-radius: 5px;
-    overflow:hidden;
+    overflow: hidden;
+   
 }
+
 .picture:nth-child(1){
     background: url(../image/1.jpg);
     background-size:cover;
