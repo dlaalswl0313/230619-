@@ -17,14 +17,15 @@ body{
     원래크기보다 3배 더 크게 나타난다.*/
 }
 .item:nth-child(2){
-    grid-column: auto/span 3;
+    grid-column: auto/span 3;/*즉, 그리드 항목이 그리드 컨테이너 내에서 
+    3개의 그리드 열을 차지하도록 자동으로 확장됩니다.*/
     align-self: start;
 }
 .item:nth-child(5){
-    grid-column:  auto/ span 3;
+    grid-column:  auto/ span 3;/*3개의 열*/
 }
 .item:nth-child(7){
-    grid-column: auto/ span 2;
+    grid-column: auto/ span 2; /*2개의 열*/
 }
 .item{
     border:1px solid yellow;
