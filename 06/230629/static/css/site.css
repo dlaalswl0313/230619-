@@ -12,12 +12,44 @@
     grid-template-columns: 1fr;
     grid-template-rows: 100px;
 }
+#nav{
+    width:1300px;
+    display: grid;
+    justify-self:center;
+}
+#main_text{
+    width:1120px;
+    display: grid;
+    justify-content: center;
+}
+#nav i{ 
+    display: grid;
+    justify-content:end;
+
+}
+#main_text h2{ 
+    margin-right: 20px;
+} 
+#menu_list{
+    display: grid;
+    justify-content: end;
+}
+#menu_list ul{
+    display: grid;
+    justify-content:center;
+    grid-template-rows: repeat(1,60px);
+    grid-template-columns: repeat(5,60px);
+    width:1200px;
+    gap: 17px;
+}
+#menu_list ul li:nth-child(1){text-decoration:underline;}
 ul{list-style-type: none;}
 #section{
     display: grid;
     grid-template-columns: repeat(3,400px);
     grid-template-rows:repeat(2,400px);
     gap: 20px;
+    justify-content: center;
 }
 .picture{
     border-radius:5px;
@@ -61,15 +93,40 @@ ul{list-style-type: none;}
 }
 #footer{
     margin-top: 50px;
+    display: grid;
+    justify-content: center;
 }
-#footer h1{font-size: 20px;}
-#footer p{font-size: 13px;}
+#myclient{
+    display: grid;
+    justify-content:space-around;
+    grid-template-rows: repeat(1,150px);
+    grid-template-columns: repeat(6,150px);
+}
+#myclient h6{
+    text-align:center;
+    margin:20px;
+    font-size: 30px;
+    color:gray;
+}
+#footer h1{
+    font-size: 40px;
+    text-align: center;
+}
+#footer p{
+    font-size: 25px;
+    text-align: center;
+}
+#footer a{
+    font-size: 20px;
+    text-align: left;
+}
 #news_p{
     display: grid;
     margin-top: 80px;
     grid-template-rows: repeat(1,400px);
     grid-template-columns: repeat(4,300px);
     gap:20px;
+    justify-content: center;
 }
 .news{
     border:1px solid black;
@@ -81,6 +138,16 @@ ul{list-style-type: none;}
     font-size: 45px;
 }
 .news h2, p{ margin: 20px;}
-.sns{
-    margin:10px;
+
+#copyright{
+    display:grid;
+    justify-content: left;
+    margin-top: 50px;
+}
+.sns{ /*여기 간격이랑 일자로 나열*/
+    display: grid;
+    justify-content:end;
+    grid-template-rows: repeat(1,10px);
+    grid-template-columns: repeat(4,10px);
+    gap:15px;
 }
