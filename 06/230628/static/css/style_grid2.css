@@ -13,7 +13,8 @@ body{
 }
 .item:nth-child(6){
     z-index: 1;
-    transform: scale(3);
+    transform: scale(3);/*요소가 3배로 확대된다. 
+    원래크기보다 3배 더 크게 나타난다.*/
 }
 .item:nth-child(2){
     grid-column: auto/span 3;

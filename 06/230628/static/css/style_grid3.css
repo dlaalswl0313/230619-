@@ -1,4 +1,3 @@
-
 *{
     padding:0;
     margin:0;
@@ -6,21 +5,21 @@
     font-size:30px;
 }
 #container{
-    display:grid;
-    grid-template-columns:repeat(5, 300px);
-    grid-template-rows:50px  100px  150px  300px 500px;
-    gap:24px;
+    display:grid;/*그리드 컨테이너 생성*/
+    grid-template-columns:repeat(5, 300px); /*열*/
+    grid-template-rows:50px  100px  150px  300px 500px;/*행*/
+    gap:24px;/*간격*/
 }
 
-.item{
+.item{ /*각 칸 클래스*/
     border:1px solid #888;
     border-radius: 10px;
 }
 .item:nth-child(1){
-    grid-row:1/6;
+    grid-row:1/6;/*행(세로방향), 1부터6까지 길이가 길어짐*/
 }
 .item:nth-child(2){
-    z-index:1;
+    z-index:1;/*결과화면에서 1번 컨테이너랑 2번이랑 겹친이유*/
     transform : translate( -163px,  0px)  scaleX(1.254);
 }
 .item:nth-child(2) , .item:nth-child(3), .item:nth-child(10){

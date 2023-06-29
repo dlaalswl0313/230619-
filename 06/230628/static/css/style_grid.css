@@ -11,14 +11,17 @@
     border:1px solid black;
 } */
 #parent{
-    /* display:grid;
+    /*display:grid;
      grid-template-columns: repeat(5, minmax(150px ,auto));
-     grid-template-rows: repeat(3, minmax(200px,auto));
+     /*열 패턴을 5번 반복한다. */
+     /*grid-template-rows: repeat(3, minmax(200px,auto));
+     최소너비 150이고 최대너비는 자동
+     코드는 5개의 열이 있는 그리드 레이아웃을 만들고, 각 열의 최소 너비는 150이지만 콘텐츠에 맞게 확장할수 있다.
      */
      display:flex;
      flex-wrap:wrap;
      width:100%;
-     min-width:750px;
+     min-width:750px; 
  }
  .child{
      width:20%;
