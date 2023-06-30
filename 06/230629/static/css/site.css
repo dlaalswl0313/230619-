@@ -12,7 +12,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 100px;
 }
-#nav{
+#nav{ /*여기에 한번에 주면 i태그 따로 안줘도 간격나열할수있었엉...*/
     width:1300px;
     display: grid;
     justify-self:center;
@@ -25,7 +25,6 @@
 #nav i{ 
     display: grid;
     justify-content:end;
-
 }
 #main_text h2{ 
     margin-right: 20px;
@@ -144,7 +143,7 @@ ul{list-style-type: none;}
     justify-content: left;
     margin-top: 50px;
 }
-.sns{ /*여기 간격이랑 일자로 나열*/
+.sns{ /*여기 간격이랑 일자로 나열하려면 부모태그에 했어야했어...*/
     display: grid;
     justify-content:end;
     grid-template-rows: repeat(1,10px);
