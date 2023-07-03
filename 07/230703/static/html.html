@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지하철</title>
+    <style>
+        #wrap{
+            width:1200px;
+            height: 1000px;
+        }
+        table tr td{
+            width:50px;
+            height:40px;
+            border: 1px solid black;
+            text-align: center;
+            background:#FFD8D8;
+        }
+        td:hover{
+            background: #B75F5F;
+            color:white;
+        }
+        .train{
+            display: flex;
+            gap:20px;
+            font-weight: 900;
+
+        }
+        #train1{
+            width:50px;
+            height:20px;
+            background: red;
+        }
+        #train2{
+            width:50px;
+            height:20px;
+            background: yellow;
+        }
+        #train3{
+            width:50px;
+            height:20px;
+            background: blue;
+        }
+        #train4{
+            width:50px;
+            height:20px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+   <div class="wrap">
+        <table id="line">
+            <tr>
+                <td class="info">1</td>
+                <td class="info">2</td>
+                <td class="info">3</td>
+                <td class="info">4</td>
+                <td class="info">5</td>
+                <td class="info">6</td>
+                <td class="info">7</td>
+                <td class="info">8</td>
+                <td class="info">9</td>
+                <td class="info">10</td>
+            </tr>
+            <tr>
+                <td class="info">11</td>
+                <td class="info">12</td>
+                <td class="info">13</td>
+                <td class="info">14</td>
+                <td class="info">15</td>
+                <td class="info">16</td>
+                <td class="info">17</td>
+                <td class="info">18</td>
+                <td class="info">19</td>
+                <td class="info">20</td>
+            </tr>
+            <tr>
+                <td class="info">21</td>
+                <td class="info">22</td>
+                <td class="info">23</td>
+                <td class="info">24</td>
+                <td class="info">25</td>
+                <td class="info">26</td>
+                <td class="info">27</td>
+                <td class="info">28</td>
+                <td class="info">29</td>
+                <td class="info">30</td>
+            </tr>
+            <tr>
+                <td class="info">31</td>
+                <td class="info">32</td>
+                <td class="info">33</td>
+                <td class="info">34</td>
+                <td class="info">35</td>
+                <td class="info">36</td>
+                <td class="info">37</td>
+                <td class="info">38</td>
+                <td class="info">39</td>
+                <td class="info">40</td>
+            </tr>
+        </table>  
+        <div class="train">  
+          <div id="train1">1호차</div>
+          <div id="train2">2호차</div>
+          <div id="train3">3호차</div>
+          <div id="train4">4호차</div>
+        </div> 
+   </div>
+</body>
+</html>

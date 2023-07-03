@@ -51,22 +51,27 @@ function final(id ,nid){//결승전에서 선택 시 최종 선택한 한 장만
 function 선택(){
     if(this==태그선택("left")){
         토너먼트2.push(토너먼트1[순서[count*2-2]]);//왼쪽 이미지 선택함
-         if(round==2)final("left");
+         
     }else{
         토너먼트2.push(토너먼트1[순서[count*2-1]]);//오른쪽 이미지 선택함
     }
-    if(count==round/2){
-        round=round/2;//32/2=16, 16강에서 선택한 이미지가 랜덤하게 나와야햅
-        count=0;
-        순서=new Array();//순서 초기화
-        순서섞기();
-        토너먼트1 = 토너먼트2.map((i)=>i);
-        토너먼트2=new Array();
-       
+    if(round==2){
+        final("left","right");
+        var title =태그선택("title");
+        title.innerHTML="최종선택  ";
+    }else{
+        if(count==round/2){
+            round= round/2; //
+            count=0;
+            순서=new Array();
+            순서섞기();
+            토너먼트1 = 토너먼트2.map((i)=>i);
+            토너먼트2=new Array();
+        }
+        count++;
+        var title =태그선택("title");
+        title.innerHTML=round+"강  "+count+"/"+(round/2);
     }
-    count++;//다음 사진보여줌
-    var title =태그선택("title");//타이틀 설정
-    title.innerHTML=round+"강 "+count+"/"+(round/2);
     show();
 }
 function show(){
