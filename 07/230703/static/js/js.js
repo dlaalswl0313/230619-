@@ -64,26 +64,7 @@ const station = ["까치산", "신정네거리", "양천구청", "신도림", "�
 const number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
   "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40"];
 
-window.onload = function () {
-  var stationElements = document.querySelectorAll(".info");
-  for (var i = 0; i < stationElements.length; i++) {
-    stationElements[i].addEventListener("click", train);
-  }
-}
-
-function train() {
-  // 현재위치정보가화면에 나와야한다.
-  var train1 = document.getElementById("train1");
-  var train2 = document.getElementById("train2");
-  var train3 = document.getElementById("train3");
-  var train4 = document.getElementById("train4");
-
-  train1.innerText = "1호차 현재위치:"; // 배열에서 찾아서 표시해줘야하지않냐?
-  train2.innerText = "2호차 현재위치:";
-  train3.innerText = "3호차 현재위치:";
-  train4.innerText = "4호차 현재위치:";
-}
-
+//배열사용해서 탐색해서 나오게 하도록 
 // Add event listeners to table cells
 var cells = document.querySelectorAll("#line td");
 for (var i = 0; i < cells.length; i++) {
