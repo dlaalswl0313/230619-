@@ -27,6 +27,7 @@ var staystation=-1;
 setInterval(function subwaylocation(){//지하철 위치
     var number=document.querySelectorAll(".info");
     staystation++;
+    //staystation--; 첫칸만 색깔이 칠해짐
     if (staystation>number.length) {
       staystation = 0;
     }
@@ -34,9 +35,10 @@ setInterval(function subwaylocation(){//지하철 위치
       if(n === staystation){
         number[n].style.background="red";
         number[n].style.color="white"; //여기만 남기고 실행하면 빨강색이 3번부터 40까지 3초씩색칠한다.
-      }else if(){
+      }else if(staystation>n){
         number[n].style.background="yellow";
         number[n].style.color="white";
+        
       }
      }return;
 },3000);//3초 뒤에 화면에 표시 되는데 ,4개의 색칸들을 움직이려면???
