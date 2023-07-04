@@ -15,38 +15,24 @@ const station = ["까치산", "신정네거리", "양천구청", "신도림", "�
 const number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
   "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40"];
 
-// window.onload=function(){//디스플레이화면출력
-//   var station = document.querySelectorAll(".info");
-//   station[i].addEventListener("click",역이름); //td를 눌렀을때 역이름이 나오도록
-
-//   var res=documnet.querySelector(".result");//결과창에 넣고싶다.
-//   res.innerHTML=result();
-// }
 //지하철위치 3초마다 4개의 기차가 움직이는부분
 var staystation=-1;
+
 setInterval(function subwaylocation(){//지하철 위치
     var number=document.querySelectorAll(".info");
     staystation++;
-    //staystation--; 첫칸만 색깔이 칠해짐
-    if (staystation>number.length) {
-      staystation = 0;
+   //staystation--; 첫칸만 색깔이 칠해짐
+   for(var n=0; n<number.length; n++){
+    if(n===staystation){
+      number[n].style.background="red";
+      number[n].style.color="white"; //여기만 남기고 실행하면 빨강색이 3번부터 40까지 3초씩색칠한다.
+    }else if(staystation>n){ //현재 노랑색이 1~40까지 칠해짐 3초마다;
+      number[n].style.background="yellow";
+      number[n].style.color="white"; 
     }
-    for(var n=0; n<number.length; n++){
-      if(n === staystation){
-        number[n].style.background="red";
-        number[n].style.color="white"; //여기만 남기고 실행하면 빨강색이 3번부터 40까지 3초씩색칠한다.
-      }else if(staystation>n){
-        number[n].style.background="yellow";
-        number[n].style.color="white";
-        
-      }
-     }return;
+  }return;  
 },3000);//3초 뒤에 화면에 표시 되는데 ,4개의 색칸들을 움직이려면???
 
-function 역이름(){
-     //만약에 클릭했다면?->결과가 이게 나와야한다는 조건을 줘야겟지;;
-     alert("수박주스");
-}
 function result(){
   var res1=document.getElementById("train1");
   res1.innerHTML="1호차의 현재위치는";
@@ -58,8 +44,15 @@ function result(){
   res4.innerHTML="4호차의 현재위치는"; //여기에 위치정보를 넣는 함수이름넣으면 출력가능
 }
 
+// window.onload=function(){//디스플레이화면출력
+//   var station = document.querySelectorAll(".info");
+//   station[i].addEventListener("click",역이름); //td를 눌렀을때 역이름이 나오도록
 
+//   var res=documnet.querySelector(".result");//결과창에 넣고싶다.
+//   res.innerHTML=result();
+// }
 
+ 
 
 
 
