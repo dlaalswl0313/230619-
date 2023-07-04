@@ -4,48 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>지하철</title>
+    <script src="./js/subway.js"></script>
     <style>
+        *{
+            margin:0 auto;
+            padding:0;
+        }
         #wrap{
             width:1200px;
             height: 1000px;
         }
         table tr td{
-            width:50px;
-            height:40px;
-            border: 1px solid black;
+            width:70px;
+            height:35px;
             text-align: center;
             background:#FFD8D8;
         }
         td:hover{
             background: #B75F5F;
             color:white;
+            cursor: pointer;
         }
         .train{
+            width:300px;
+            height:20px;
             display: flex;
-            gap:20px;
+            flex-direction: row;
+            margin-top: 20px;
             font-weight: 900;
-
         }
-        #train1{
-            width:50px;
-            height:20px;
-            background: red;
+        #train1{ background: red;}
+        #train2{ background: yellow;}
+        #train3{background: #7484dd;}
+        #train4{background: #88e288;}
+        
+        .result{
+            width:700px;
+            height:150px;
+            margin-top: 40px;
+            text-align: center;
+            background:#FFE7BA;
+            border-radius:20px;
         }
-        #train2{
-            width:50px;
-            height:20px;
-            background: yellow;
-        }
-        #train3{
-            width:50px;
-            height:20px;
-            background: blue;
-        }
-        #train4{
-            width:50px;
-            height:20px;
-            background: green;
-        }
+    
     </style>
 </head>
 <body>
@@ -106,6 +107,7 @@
           <div id="train3">3호차</div>
           <div id="train4">4호차</div>
         </div> 
+        <div class="result"></div>
    </div>
 </body>
 </html>
