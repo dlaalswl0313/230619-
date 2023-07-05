@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a = new Array();
+        input();
+        show();
+
+        function input(){
+            for(var i=1; i<=20; i++){
+                a.push(Math.floor(Math.random()*100)+1);
+            }
+        }
+        function show(){
+            for( var i=0;i<=a.length;i++ ){
+                b3(a[i]);
+                b5(a[i]);
+                b35(a[i]);
+            }
+        }
+        function b3(num){
+            if(num%3==0){
+                document.write("선향<br>");
+                return true;
+            }
+            return false;
+        }
+        function b5(num){
+            if(num%5==0){
+                document.write("상수<br>");
+                return true;
+            }
+            return false;
+        }
+        function b35(num){
+            if(num%3==0 ||num%5==0 ){
+                document.write("선향,상수");
+                return true;
+            }
+            return false;
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
