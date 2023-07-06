@@ -12,7 +12,7 @@
     <meta property="og:description" content="네이버 회원가입 페이지"/>
 </head>
 <body>
-    <form action="join.jsp" method="get" enctype="multipart/form-data">
+    <form id="joinform" action="join.jsp" method="get" enctype="multipart/form-data">
         성명 : <input id="userName" type="text" name="userName"/><br />
         생년월일 : <!--select안에 많은 소스를 넣기위해 다음줄에 적음-->
         <!-- 생년월일 : <input id="userYear" type="text" name="userYear" placeholder="(예) 1980년"/> -->
@@ -64,6 +64,7 @@
         <button id="sign" type="button">가입</button>
      </form> 
      <script>
+        //---유효성 검사---     
         //아이디가 sign인 녀석을 눌렀을 때
         //다음과 같은 일이 벌어질 것이다.
             //이름 체크 통과 여부 nameChk, 처음에는 통과하지 못한것으로 간주한다.
@@ -79,9 +80,16 @@
                 //birthChk의 값을 false로 바꾸기(통과하지 못한 것으로 간주)
             //그게 아니라면
                 //birthChk의 값을 true로 바꾸기(통과하지 못한 것으로 간주) 
-            //
-             
+            //만약 name의 값이 gender인 녀석의 값이 비어있는 경우라면
+                //genderChk의 값을 false로 바꾸기(통과하지 못한 것으로 간주)
+            //그게 아니라면
+                //genderChk의 값을 true로 바꾸기(통과한 것으로 간주)  
 
+
+            //만약 nameChk가 참, birthChk가 참, genderChk도 참이라면
+                //id가 joinform을 submit 
+              //그게 아니라면
+                //경고창 : 입력요소를 모두 채워주세요.
     </script>
     <!--
         enctype="multipart/form-data"첨부파일사용 시
