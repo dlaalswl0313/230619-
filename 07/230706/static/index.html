@@ -10,6 +10,9 @@
     <meta property="og:title" content="네이버 회원가입"/>
     <meta property="og:url" content="http://naver.com"/>
     <meta property="og:description" content="네이버 회원가입 페이지"/>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        //jquery cnd ->minified -> 복사 
+    </script>
 </head>
 <body>
     <form id="joinform" action="join.jsp" method="get" enctype="multipart/form-data">
@@ -66,30 +69,60 @@
      <script>
         //---유효성 검사---     
         //아이디가 sign인 녀석을 눌렀을 때
-        //다음과 같은 일이 벌어질 것이다.
+        $("#sign").click(function(){//jquery
+            //다음과 같은 일이 벌어질 것이다.
             //이름 체크 통과 여부 nameChk, 처음에는 통과하지 못한것으로 간주한다.
             //생년월일 체크 통과 여부 birthChk, 처음에는 통과하지 못한것으로 간주한다.
             //성별 체크 통과 여부 genderChk, 처음에는 통과하지 못한것으로 간주한다.
+            var nameChk=false;
+            var birthChk=false;
+            var genderChk=false; //var nameChk,birthchk,genderChk = false;
+
             //만약 이름쓰는 칸 (즉 아이디가) userName이라는 칸의 값의 글자수가 0초과라면
                 //nameChk의 값을 true로 바꾸기 (통과한것으로 인정)
             //그게 아니라면
                 //nameChk의 값을 false로 바꾸기(통과하지 못한것으로 다시 간주)
+            if($("#userName").val().length>0){
+                nameChk = true;
+            }else{
+                nameChk = false;
+            }
             //만약 (현재연도-이름쓰는 칸 (즉 아이디가) userYear라는 칸의 값)이 80이상이라면
-                //경고창 : 신중년 우선선발 대상자 입니다.        
+            //경고창 : 신중년 우선선발 대상자 입니다.  
+            var nowYear = new Date();
+            nowYear=nowYear.getFullYear();
+            if(nowYear - $("#userYear".val()>=80)){
+                window.alert("신중년 우선선발 대상자 입니다.");
+            }    
             //만약 #userYear의 값이 비어있거나 #userMonth의 값이 비어있거나 #userDate의 값이 비어있다면
                 //birthChk의 값을 false로 바꾸기(통과하지 못한 것으로 간주)
             //그게 아니라면
                 //birthChk의 값을 true로 바꾸기(통과하지 못한 것으로 간주) 
+            if($("#userYear").val()==''|| $("#userMonth").val()==''|| $("#userYear").val()==''){
+                birthChk=false;
+            }else{
+                birthChk=true;
+            }
             //만약 name의 값이 gender인 녀석의 값이 비어있는 경우라면
                 //genderChk의 값을 false로 바꾸기(통과하지 못한 것으로 간주)
             //그게 아니라면
                 //genderChk의 값을 true로 바꾸기(통과한 것으로 간주)  
-
-
+            if($("[name='gender']:checkbox").length==0){
+                genderChk=false;
+            }else{
+                genderChk=true;
+            }
+                
             //만약 nameChk가 참, birthChk가 참, genderChk도 참이라면
-                //id가 joinform을 submit 
-              //그게 아니라면
-                //경고창 : 입력요소를 모두 채워주세요.
+                 //id가 joinform을 submit 
+                      //그게 아니라면
+                        //경고창 : 입력요소를 모두 채워주세요.
+            if(nameChk && birthChk && genderChk){
+                $("#joinform").submit();
+            }else{
+                alert("입력요소를 모두 채워주세요/");
+            }         
+        }); 
     </script>
     <!--
         enctype="multipart/form-data"첨부파일사용 시
