@@ -12,21 +12,18 @@
         */
         function tall(){ //키 체크하는 함수 
             var t= Number(document.getElementsByClassName("high").value);
-
-            if(t>=150){
-            document.write("탑승 가능");
-            }else{
-            document.write("탑승 불가능");
-            }
-
-          
+            alert("알림창");
+            
+            // if(t>=150){
+            //  document.write("탑승가능");
+            // }    
         }
         function result(){//버튼누르면,결과 출력하는 함수
-            
-
+            var res = document.getElementById("bt");
+            res.addEventListener("click",tall);
         } 
         function input(){//키 입력값을 가져오는 함수
-             tall();
+             
         }
             
          
@@ -43,7 +40,7 @@
         }
         .tall{
             width:500px;
-            height:300px;
+            height:400px;
             border: 1px solid black;
         }
         .high{
@@ -54,6 +51,8 @@
         #bt{
             margin:15px;
             cursor: pointer;
+            height: 50px;
+            width:100px;
         }
     </style>
 </head>
