@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+         input 태그와 버튼 만들기 
+         3명의 키를 입력받아 키가 150이상이면 바이킹 탑승가능이라고 출력
+         키 입력값을 가져오는 함수 , 키 체크하는 함수, 결과 출력하는 함수
+        */
+        function result(){ //결과
+            var bt = document.getElementById("bt");
+            bt.addEventListener("click",input);
+        } 
+        function tall(){ //키에 따른 탑승여부 확인
+            var t1= Number(document.getElementById("high1").value); //1번 값
+            var t2= Number(document.getElementById("high2").value); //2번 값
+            var t3= Number(document.getElementById("high3").value); //3번 값
+           
+           var result =document.getElementById("result");//결과값
+
+            if(t1>=150){ //1번비교
+              result.innerHTML="탑승가능";
+            }if(t2>=150){//2번비교
+              result.innerHTML="탑승가능";
+            }if(t3>=150){//3번비교
+              result.innerHTML="탑승가능";
+            }else{ //그 외 
+              result.innerHTML="탑승불가";
+            }
+        }
+        function input(){ //키의 입력값을 가져와라
+           tall(); //결과값을 1번,2번,3번 각각 주고 싶은데 html에 +헤ㅐ서따로줘도 안나왓음;;
+                   //세개중하나만맞아도 탑승가능;;
+        }  
+    </script>
+    <style>
+        *{
+            margin:0 auto;
+            padding:0;
+            text-align: center;
+        }
+        #wrap{
+            width:1000px;
+            height:500px;
+        }
+        .tall{
+            width:500px;
+            height:400px;
+            border: 1px solid black;
+        }
+        .high{
+            width:100px;
+            height:30px;
+            margin:10px;
+        }
+        #bt{
+            margin:15px;
+            cursor: pointer;
+            height: 50px;
+            width:100px;
+        }
+        p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="tall">
+            신장을 입력해주세요  1번 : <input type="text" id="high1" class="high"><br>
+            신장을 입력해주세요  2번 : <input type="text" id="high2" class="high"><br>
+            신장을 입력해주세요  3번 : <input type="text" id="high3" class="high"><br>
+         <button onclick="result()" id="bt">탑승여부확인</button>
+         <p id="result"></p>
+        </div>
+       
+    </div>
+</body>
+</html>
