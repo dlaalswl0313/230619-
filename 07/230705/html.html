@@ -10,20 +10,20 @@
          3명의 키를 입력받아 키가 150이상이면 바이킹 탑승가능이라고 출력
          키 입력값을 가져오는 함수 , 키 체크하는 함수, 결과 출력하는 함수
         */
-        function tall(){ //키 체크하는 함수 
-            var t= Number(document.getElementsByClassName("high").value);
-            alert("알림창");
-            
-            // if(t>=150){
-            //  document.write("탑승가능");
-            // }    
-        }
         function result(){//버튼누르면,결과 출력하는 함수
             var res = document.getElementById("bt");
-            res.addEventListener("click",tall);
+            res.addEventListener("click",input);
         } 
-        function input(){//키 입력값을 가져오는 함수
-             
+        function tall(){ //키 체크하는 함수 
+            var t= Number(document.getElementsByClassName("high").value);
+
+            if(t>=150){
+            document.write("탑승가능");
+            }    
+        }
+        
+        function input(){//키 입력값을 가져오는 함수 
+            alert("알림창");
         }
             
          
