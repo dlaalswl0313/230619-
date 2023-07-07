@@ -10,23 +10,93 @@ const st_name=["상수역","은선역","예림역","향숙역","영주역","선�
 "월컵역","지족역","계림역","천안역","대동역"];//이름출력배열
 
 const train=[0,0,0,0];//기차 4대
-const train_color=["t-orange","t-red","t-blue","t-pink"];//css에서 사용한 기차4대 이름
+const train_color=["","t-orange","t-red","t-blue","t-pink"];//css에서 사용한 기차4대 이름
 
 function train_active(){//역의배치는 index 순서대로 이동하게만든다.
+    station[0]=1;//1번기차
+    map_draw();
+
+    setInterval(function(){
+        map_draw();
+    },3000);
+
+    setInterval(
+        function(){//기차4대가 움직임, 점점 증가한다. 
+            station[Math.abs(train[0]++)]=0; 
+            station[Math.abs(train[0])]=1;
+            //map_draw();
+            if(train[0]==39){
+                    station[Math.abs(train[0])]=0;
+                    //map_draw();
+                    setTimeout(function(){
+                        train[0]=-40;//기차가 거꾸로 올라오도록
+                    },400);
+            }
+        }
+    ,400); 
+    setTimeout(train2,1000);
+    setTimeout(train3,2500);
+    setTimeout(train4,3500);
+} 
+function train2(){
+    station[0]=2;
     setInterval(
         function(){
-            station[train[0]++]=0; //기차4대가 움직임, 점점 증가한다. 
-            station[train[0]]=1;
-            map_draw();
-      }
-    ,4000);//4초에 한 번 움직인다.
-    
-} 
+            station[Math.abs(train[1]++)]=0;
+            station[Math.abs(train[1])]=2;
+            if(train[1]==39){ // 마지막역 도착
+                station[Math.abs(train[1])]=0;
+                setTimeout(function(){
+                    train[1]=-40;
+                },400);
+            }
+        }
+    ,400);
+}
+function train3(){
+    station[0]=3;
+    setInterval(
+        function(){
+            station[Math.abs(train[2]++)]=0;
+            station[Math.abs(train[2])]=3;
+            if(train[2]==39){ // 마지막역 도착
+                station[Math.abs(train[2])]=0;
+                setTimeout(function(){
+                    train[2]=-40;
+                },400);
+            }
+        }
+    ,400);
+}
+function train4(){
+    station[0]=4;
+    setInterval(
+        function(){
+            station[Math.abs(train[3]++)]=0;
+            station[Math.abs(train[3])]=4;
+            if(train[3]==39){ // 마지막역 도착
+                station[Math.abs(train[3])]=0;
+                setTimeout(function(){
+                    train[3]=-40;
+                },400);
+            }
+        }
+    ,400);
+}
 window.onload=function(){
     //station[0]=1;1번차량 잘들어갔는지 실험용 station[인덱스숫자]넣으면 그자리에 아이콘나옴, 시간함수는 주석처리하고
     map_draw();//지도의 최대너비 1000px, 1-line : 100px    
     train_active();//지하철 차량 움직이기
 }
+function info(idx){
+   // alert("idx");역 누르면 알림창 등장
+   var id = document.getElementById("bg");
+   bg.innerHTML="<div class='info'>"+
+   "<div><b>의 역 명: "+st_name[idx]+"</b></div>"+
+   "<div><b>진입차량 : "+idx+"번차량</b></div>"+
+   "</div>"; 
+    
+ }
 function map_draw(){ //지도 그리기
     var map=document.querySelector("#map"); //$("map")::jquery
     var out=""; 
@@ -41,13 +111,12 @@ function map_draw(){ //지도 그리기
             while(t<=line*10+9) //3,4번 줄, st_name[29]가 세번째줄 1번으로 
                 out += make(t++);
         }
- 
     }
     map.innerHTML=out;
 }
 function make(t){//매개변수 t=0~39
     var w95="";
-    if((t%10==9 || t%10==0) && t!=0)
+    if((t%10==9 || t%10==0) && t!=39)
         w95="w95";
     if(t==9 || t==29||t==19)
         w95+="w95-top";    
@@ -56,25 +125,15 @@ function make(t){//매개변수 t=0~39
     if(t==19 || t==20)
         w95+="-right";  
 
-    var out="";
-    out += "<div class='station'>";
-    out += "<div class='train "+(station[t]==1?'t-orange':'')+"'><i class='fa-solid fa-train'></i></div>";//기차아이콘
-    out += "<div class='mark'><div class='rail "+w95+"'></div>"+
-            "<span class='stop'><i class='fa-regular fa-square'></i></span>";
-    out += "</div>";
-    if(t%10==9 && t!=39)
-        out+="<div class='rad "+(t==19?'right':'left')+"'></div>";
-    out += "<div class='name'>" +st_name[t]+ "</div></div>";
-    return out;
-}
-
-// .t-orange/*1번차량*/
-// .t-red{/*기차 들어오면 다시 나타남*/
-//     color:#C90000;/*2번차량*/
-// }
-// .t-blue{/*기차 들어오면 다시 나타남*/
-//     color:#0000A5;/*3번차량*/
-// }
-// .t-pink{/*기차 들어오면 다시 나타남*/
-//     color:#EB53D7;/*4번차량*/
-// }
+        var out="";
+        out += "<div class='station'>";
+        out += "<div class='train "+(train_color[station[t]])+"'>  <i class='fa-solid fa-train'></i>  </div>";
+        out += "<div class='mark' onclick='info("+t+")'><div class='rail "+w95+"'></div>"+
+                "<span class='stop '><i class='fa-regular fa-square "+(train_color[station[t]])+"'></i></span>";
+         out += "</div>";
+        if(t%10==9 && t!=39)
+            out+="<div class='rad "+(t==19?'right':'left')+"'></div>";
+        out += "<div class='name'>" +st_name[t]+ "</div></div>";
+        return out;
+ }
+ 
