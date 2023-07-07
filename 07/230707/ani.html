@@ -6,7 +6,7 @@
     <title>animation __ghost</title>
     <style>
         body{
-            background: #FFD8D8;
+            background: black;
         }
         #ghost{
             width:200px;
@@ -27,7 +27,7 @@
         #ball{
             width:100px;
             height:100px;
-            background:black;
+            background:skyblue;
             border-radius: 50%;
             position:absolute;
             top:0;
@@ -39,11 +39,19 @@
             height: 300px;
             border-radius: 50%;
             position:absolute;
+            top: 300px;
             box-shadow:
              0 0 20px white,
-             -20px 0 80px red,
-             20px 0 80px green,
-             inset 50px;
+             -20px 0 80px #f0f,
+             20px 0 80px #0ff,
+             inset 0 0 50px white,
+
+             inset 50px 0 80px  #f0f,
+             inset -50px 0 80px #0ff,
+
+             inset 50px 0 300px #f0f,
+             inset -40px 0 300px #0ff;
+             animation: 찬란 6s linear infinite;
         }
         @keyframes move{
             /*move==변수이름,함수이름처럼 정함*/
@@ -62,6 +70,21 @@
                 top:300px;
                 height:50px;
                 background: url("./image/2.jpg");
+            }
+        }
+        @keyframes 찬란{
+            50%{
+             box-shadow:
+             0 0 20px white,
+             -20px 0 80px #f0f,
+             20px 0 80px #0ff,
+             inset 0 0 50px white,
+
+             inset 50px 0 80px  #f0f,
+             inset -50px 0 80px #0ff,
+
+             inset -50px 0 300px #f0f,
+             inset 40px 0 300px #0ff;
             }
         }
 
