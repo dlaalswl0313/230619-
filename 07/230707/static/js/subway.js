@@ -92,8 +92,8 @@ function info(idx){
    // alert("idx");역 누르면 알림창 등장
    var modal=document.querySelector("#modal");//역 누르면 창위에 창 등장
    modal.style.display="block";
-   var train_num=find_train();//현재 정거장에 가장 가까이 있는 차량 찾기 
-   var bg = document.getElementById("bg");
+   var train_num=find_train(idx);//현재 정거장에 가장 가까이 있는 차량 찾기 
+   var bg = document.querySelector("#bg");
    bg.innerHTML="<div class='info'>"+
    "<div><b>의 역 명: "+st_name[idx]+"</b></div>"+
    "<div><b>진입차량 : "+idx+"번차량</b></div>"+
