@@ -54,3 +54,18 @@
 }
 .left{border-style:none solid none none;}
 .right{border-style:none none none solid;}
+.train{
+    color:white;/*기차아이콘숨기기*/
+}
+.t-orange{/*기차 들어오면 다시 나타남*/
+     color:#FF7012;/*1번차량*/
+}
+.t-red{/*기차 들어오면 다시 나타남*/
+    color:#C90000;/*2번차량*/
+}
+.t-blue{/*기차 들어오면 다시 나타남*/
+    color:#0000A5;/*3번차량*/
+}
+.t-pink{/*기차 들어오면 다시 나타남*/
+    color:#EB53D7;/*4번차량*/
+}
