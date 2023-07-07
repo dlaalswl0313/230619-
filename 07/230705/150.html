@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>바이킹</title>
     <script>
         /*
          input 태그와 버튼 만들기 
@@ -23,7 +23,7 @@
 
             if(t1>=150){ //1번비교
               result.innerHTML="탑승가능";
-            }if(t2>=150){//2번비교
+            }if(t2>=150){//2번비교 ,else if로 했더니 위에 1번 결과값만 나오고 나머지(2~4) 안나옴ㅡ,,ㅡ
               result.innerHTML="탑승가능";
             }if(t3>=150){//3번비교
               result.innerHTML="탑승가능";
@@ -32,8 +32,9 @@
             }
         }
         function input(){ //키의 입력값을 가져와라
-           tall(); //결과값을 1번,2번,3번 각각 주고 싶은데 html에 +헤ㅐ서따로줘도 안나왓음;;
+           tall(); 결과값을 1번,2번,3번 각각 주고 싶은데 html에 +헤ㅐ서따로줘도 안나왓음;;
                    //세개중하나만맞아도 탑승가능;;
+                   //tall로 내용전체를 불러와서 그런거같아...?!
         }  
     </script>
     <style>
