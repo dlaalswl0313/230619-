@@ -34,6 +34,17 @@
             left:550px;
             animation:zombie 1s ease-in infinite alternate;
         }
+        #space{
+            width:300px;
+            height: 300px;
+            border-radius: 50%;
+            position:absolute;
+            box-shadow:
+             0 0 20px white,
+             -20px 0 80px red,
+             20px 0 80px green,
+             inset ;
+        }
         @keyframes move{
             /*move==변수이름,함수이름처럼 정함*/
             from{left: 0px;}/*처음모습*/
@@ -50,6 +61,7 @@
                 width:115px;
                 top:300px;
                 height:50px;
+                background: url("./image/2.jpg");
             }
         }
 
@@ -58,6 +70,6 @@
 <body>
     <div id="ghost"></div>
     <div id="ball"></div>
-    <div id=""></div>
+    <div id="space"></div>
 </body>
 </html>
