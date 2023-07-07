@@ -39,7 +39,7 @@ function train_active(){//역의배치는 index 순서대로 이동하게만든�
     setTimeout(train4,3500);
 } 
 function train2(){
-    station[0]=2;
+    station[0]=2;//2번기차존재
     setInterval(
         function(){
             station[Math.abs(train[1]++)]=0;
@@ -54,7 +54,7 @@ function train2(){
     ,400);
 }
 function train3(){
-    station[0]=3;
+    station[0]=3;//3번기차존재
     setInterval(
         function(){
             station[Math.abs(train[2]++)]=0;
@@ -69,7 +69,7 @@ function train3(){
     ,400);
 }
 function train4(){
-    station[0]=4;
+    station[0]=4;//4번기차존재
     setInterval(
         function(){
             station[Math.abs(train[3]++)]=0;
@@ -77,7 +77,7 @@ function train4(){
             if(train[3]==39){ // 마지막역 도착
                 station[Math.abs(train[3])]=0;
                 setTimeout(function(){
-                    train[3]=-40;
+                    train[3]=-40;//음수는 역방향, 정수는 정방향
                 },400);
             }
         }
@@ -90,12 +90,28 @@ window.onload=function(){
 }
 function info(idx){
    // alert("idx");역 누르면 알림창 등장
-   var id = document.getElementById("bg");
+   var modal=document.querySelector("#modal");//역 누르면 창위에 창 등장
+   modal.style.display="block";
+   var train_num=find_train();//현재 정거장에 가장 가까이 있는 차량 찾기 
+   var bg = document.getElementById("bg");
    bg.innerHTML="<div class='info'>"+
    "<div><b>의 역 명: "+st_name[idx]+"</b></div>"+
    "<div><b>진입차량 : "+idx+"번차량</b></div>"+
    "</div>"; 
-    
+ }
+ function find_train(idx){//현재 정거장에 가장 가까이 있는 차량 찾기 
+    if(train[0]<0){//음수는 역방향
+        for(var i=idx+1; i<station.length; i++){
+            if(station[i]!=0){
+                return station[i];//기차번호
+            }
+        }
+    }else{//정수는 정방향
+        for(var i=idx-1; i>=0; i--){
+            if(station[i]!=0)
+                return station[i];
+        }
+    }
  }
 function map_draw(){ //지도 그리기
     var map=document.querySelector("#map"); //$("map")::jquery

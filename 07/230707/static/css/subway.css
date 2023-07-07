@@ -70,7 +70,7 @@
     color:#EB53D7;/*4번차량*/
 }
 #modal{
-    display:none;
+    display:none;/*역을 눌러도 정보x*/
     position:fixed;
     width:100%;
     height:100vh;
@@ -82,10 +82,15 @@
     width:100%;
     height: 100%;
     background:black;
-    opacity: 0.3;
+    opacity: 0.7;
 }
-#bg{
+#bg{/*bg의 부모==modal*/
     position:relative;
+    width:300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
