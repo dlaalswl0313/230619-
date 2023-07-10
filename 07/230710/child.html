@@ -18,6 +18,15 @@
         <div class="input">
             <input type="text" id="name">
         </div>
+        <div>
+            <button onclick="getParent">부모값 가져오기</button>
+        </div>
     </div>
 </body>
 </html>
+<script>
+    function getParent(){ // 새 창에서 opener는 자신을 열어준 브라우저
+        var animal=opener.document.getElementById("animal").value;
+        document.getElementById("name").value=animal;
+    }
+</script>

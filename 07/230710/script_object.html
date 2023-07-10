@@ -27,12 +27,29 @@
             window 객체 
                 1. 브라우저 전체를 window 객체라고 한다.
                 2. window 라는 용어는 탐색창, 그림판, 한글, 엑셀 ...과 같이 프로그램이 실행 되는 창을 의미한다.
+        
+        window.close() : 현재 브라우저 닫기
+        window.open() : 새 창 열기 
+
+            1. 새 창은 부모창에 의해 자식창이 열리게 된다.
+            2. 부모 입장에서 자식 창을 제어하려면 var a = window.open()
+                위와 같이 open 함수의 결과를 변수에 저장해두면 부모가 자식창을 제어할 수 있다.      
+                a.document.getElementById("bb") 자식페이지에 id가 bb인 태그를 부모가 가져온다.
+            3. opener는 자식 입장에서 부모를 사용한다.  
+                opener.document.getElementByClassName("ddd")는 부모페이지의 class 가 ddd 인 태그를 자식이 가져온다.
+
     -->
     <button onclick="exit()">브라우저 닫기</button>
-    <button onclick="winopen()">새 창 열기</button>
-    <button onclick="child_close()">자식창닫기</button><!--자식창(child.html)-->
+    <button onclick="winopen()">새 창(자식창) 열기</button>
+    <button onclick="child_close()">자식창 닫기</button><!--자식창(child.html)-->
     <button onclick="child_write()">자식창 쓰기</button>
     <button onclick="child_getName()">자식창 인풋 이름 가져오기</button>
+
     <div id="name"></div>
+
+    <div>
+        <input type="text" id="animal">
+    </div>
+    
 </body>
 </html>

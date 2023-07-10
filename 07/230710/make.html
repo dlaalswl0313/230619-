@@ -1,0 +1,33 @@
+<!--make.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::make</title>
+</head>
+<body>
+    <div class="input">
+        줄:<input type="number" id="row">
+        칸:<input type="number" id="col">
+    </div>
+    <button onclick="send()">만들기</button>
+</body>
+</html>
+<script>
+   function send(){
+    var row=document.getElementById("row").value;
+    var col=document.getElementById("col").value;
+    var out="<table>";//table 태그 열기
+        for(var line=1; line<=row; line++){//줄
+            out+="<tr>";//out=out+"<tr>"
+                for(var cell=1; cell<=col; cell++){//칸
+                    out+="<td></td>";  //out=out+"<td></td>"
+                }
+                 out+="<tr>";//out=out+"<tr>"
+        }
+    out+="</table>"//table 태그 닫기
+    opener.document.getElementById("myTable").innerHTML=out;
+
+}
+</script>
