@@ -13,6 +13,7 @@ window.onload=function(){
     node.appendChild(text);//위치 ,node.appendChild(변수명)
     node.addEventListener("click",function(){alert("이벤트출력");})
 }
+
 //<button onclick()="exit()">브라우저 닫기</button>
 function exit(){
     //브라우저 객체
@@ -20,6 +21,8 @@ function exit(){
 }
 
 // <button onclick="winopen()">새 창 열기</button>
+let child="";//전역변수
+
 function winopen(){ //윈도우 객체 생성
     // // window.open(); 새 탭 생김
     // window.open("http://www.naver.com","_blank","width:200, height=300 top=400,left=500");
@@ -28,6 +31,18 @@ function winopen(){ //윈도우 객체 생성
     // "새 창의 이름 또는 타깃(어디에?)" 원하는 방향으로 창을 띄울수있음, (ex)회원가입/인증 창
     //  ex) "_parent","_self" : 부모창(현재창)  |  "_blank" ,"" : 새 창이 뜬다(너비,높이 지정해야한다//너비,높이 지정안하면 새창으로안뜸) 
     // */
-    window.open("./child.html","_blank","width:100, height:200");
+    // window.open("./child.html","_blank","width:100, height:200");
     //script_html에서 golive-> 새 창 열기 버튼->child.html 창이 뜬다.-> hey ghost show yourself
+    child = window.open("./child.html","_blank","width:100, height:200");//왜 여기함수에 들어가냐면? 새창열기 버튼을 누르면 생성되기에 여기에 넣어주는거야..
+    //부모가 자식을 제어할 수 있다, child 변수에 hey ghost show yourself이 들어있음
+}
+
+// <button onclick="child_close()">자식창(child.html)닫기</button>
+function child_close(){//let child="", child = window.open("./child.html","_blank","width:100, height:200")설정해서 부모가 자식을 제어가능하다.
+    child.window.close();//child->window->close()함수실행
+}
+
+//<button onclick="child_write()">자식창 쓰기</button>
+function child_write(){
+    
 }
