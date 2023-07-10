@@ -44,5 +44,14 @@ function child_close(){//let child="", child = window.open("./child.html","_blan
 
 //<button onclick="child_write()">자식창 쓰기</button>
 function child_write(){
-    
+    child.document.getElementById("message").innerText="흔들리는 꽃들 속에서 네 샴푸향이 느껴진거야"; 
+    // <div id="message">여기에 글자를 띄울거야</div>
+    // 결과창 - hey ~ 밑 줄에 흔들리는~ 이 문장이 뜬다.
+}
+//<div class="input"><input type="text" id="name"></div> ~ <div id="name"></div> ~ <button onclick="child_getName()">이름 가져오기</button>
+function child_getName(){
+    //자식창의 id ==name 인 input 값 가져오기
+    var name=child.document.getElementById("name").value;
+    //부모창에 div 출력
+    document.getElementById("name").innerHTML=name;
 }

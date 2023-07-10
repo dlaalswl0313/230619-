@@ -7,12 +7,16 @@
 </head>
 <body>
     <!--
-    script_object.html이 child.html의 부모html이다.
+    script_object.html은 child.html의 부모html이다.
     그래서 결과물을 보고 싶을때 script_object.html에서 열어야 한다.
     -->
     <div id="wrap">
         <div id="title">
-            <h2>Hey ghost show yourself</h2>
+            <h2>Hey ghost show yourself</h2><!--<button onclick="child_close()">자식창(child.html)닫기</button>-->
+        </div>
+        <div id="message"></div><!--<button onclick="child_write()">자식창 쓰기</button>-->
+        <div class="input">
+            <input type="text" id="name">
         </div>
     </div>
 </body>
