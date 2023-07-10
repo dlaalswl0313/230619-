@@ -48,7 +48,7 @@ function child_write(){
     // <div id="message">여기에 글자를 띄울거야</div>
     // 결과창 - hey ~ 밑 줄에 흔들리는~ 이 문장이 뜬다.
 }
-//<div class="input"><input type="text" id="name"></div> ~ <div id="name"></div> ~ <button onclick="child_getName()">이름 가져오기</button>
+//<div class="input"><input type="text" id="name"></div> ~ <div id="name"></div> ~ <button onclick="child_getName()">자식창 인풋 이름 가져오기</button>
 function child_getName(){
     //자식창의 id ==name 인 input 값 가져오기
     var name=child.document.getElementById("name").value;
