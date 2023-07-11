@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0;
+        }
+        #wrap{
+            display: flex;
+            flex-direction: column;
+            margin:10px;
+        }
+        .title{
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid black;
+            width:100px;
+            gap:10px;
+        } 
+        .input_box{
+            display: flex;
+            flex-direction: column;
+        }
+        .button a{
+            text-decoration: none;
+            background: black;
+            color: white;
+            border-radius: 3px;
+            font-size: 15px;
+            padding:10px;
+            margin:10px;
+        }
+        .button a:nth-child(1){
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+    <form name="joinf" id="joinf" method="get" action="join_save.html">
+        <!--
+            method="get or post" 
+            중요한 자료는 post(보안성좋음,변환하여통신)
+        -->
+        <div id="wrap">
+            <div class="title">
+                <label>아이디</label>
+                <label>비밀번호</label>
+                <label>이메일</label>
+                <label>연락처</label>
+                <label>생년월일</label>
+            </div>
+            <div class="input_box">
+                <input type="text" name="id" id="id">
+                <input type="text" name="pw" id="pw">
+                <input type="email" name="email" id="email">
+                <input type="text" name="tel" id="tel">
+                <input type="date" name="birth" id="birth" value="2000-01-01">
+            <!--input태그에 name이 없으면 값이 전달이 안된다.주소에서 ? 는 여기서부터 파라미타다 -->
+            </div>
+        </div>
+            <div class="button">
+                <a href="javascript:cancel();">취소</a>
+                <a href="javascript:check();">회원가입</a>
+            </div>
+    </form>
+</body>
+</html>
+    <script>
+        function cancel(){
+            location.href="script3.html";
+            //loaction 객체는 주소를 담당한다.
+            //location 객체를 통해 현재 주소를 변경 할 수 있다.
+        }
+        function check(){//입력할 내용 다 입력했는지 확인작업
+            var fm=document.joinf;// form으로 묶은부분 불러오기 form name="joinf"
+            if(fm.id.value==""){//만일 아이디 창에 아무것도 안써있다면?!
+                alert("아이디를 입력해주세요");//아이디 입력안하고 회원가입하면 알림창이 뜬다.
+                id.focus();//아이디 창으로 커서가 자동으로 간다.
+            }else if(fm.pw.value==""){
+                alert("비밀번호를 입력해주세요");
+                pw.focus();
+            }else if(fm.email.value==""){
+                alert("이메일을 입력해주세요");
+                email.focus();
+            }else if(fm.tel.value==""){
+                alert("연락처를 입력해주세요");
+                tel.focus();
+            }else if(fm.birth.value==""){
+                alert("생년월일을 입력해주세요");
+            }else{
+                //form태그를 이용하여 데이터전송
+                fm.submit();//action="join.html"로 이동한다.
+            }
+        }
+    </script>

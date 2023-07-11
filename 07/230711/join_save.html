@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join_save</title>
+<script>
+    const id_list=["aa","god","sky","note","skyblue","abcd","ksh","s3","gold1234"];
+
+    //실제 주소와 파라미터를 구분한다. 
+    var url=location.href;//현재 브라우저의 주소 전체를 가져와라
+    var params = url.split("?");//현재 주소에서 파라미터 부분을 분리, ? 기준으로 (앞 ? 뒤) 
+    //개발자가 생각해둔 순서대로 사용자가 사용하지 않을테니, 경우의 수를 많이 만들어서 ....더보기
+
+    if(params.length==2){//만일 parmas길이가 2라면?!
+        params=params[1];//배열로줘서 찾도록
+        id= getParam("id",params);//id찾아오기
+        password=getParam("pw",params);//pw찾아오기
+        if(id_list.indexOf(id)!=-1)//값이 있는경우 없는경우
+        {
+            alert("중복된 아이디 입니다.");//아이디가 중복인 경우
+            history.back(); //이전페이지로돌아간다.
+            // 웹페이지에서 <- 모양 , 이전페이지 이동 history.back(-2)면 이전+이전 페이지
+            // location.herf="join.html"그전에 사용했던 링크걸어주는거
+            // history 객체는 브라우저에서 방문한 페이지를 기록해두는 객체이다.
+        }
+        document.write("아이디:"+id+"  비밀번호:"+password);
+    }
+    function getParam(name,parameter){//name,parameter 값을 가져올거야
+        var temp=parameter.split("%");
+        for(var i=0; i<temp.length; i++){
+            if(temp[i].split("=")[0] === name)
+                return temp[i].split("=")[1];
+        }
+         /*
+        id=향수&pw=1&email=2&123 인 경우 &기준으로 분리된다.
+         결과값:
+            id=향수
+            pw=1
+            email=2
+            123
+        */
+    }
+    // 230712 배울 내용은 screen, navigatior 
+</script>
+</head>
+<body>
+    
+</body>
+</html>
