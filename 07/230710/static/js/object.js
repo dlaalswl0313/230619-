@@ -57,3 +57,4 @@ function child_getName(){
     document.getElementById("name").innerHTML=name;
 }
 
+

@@ -15,9 +15,9 @@
 </body>
 </html>
 <script>
-   function send(){
-    var row=document.getElementById("row").value;
-    var col=document.getElementById("col").value;
+   function send(){//만들기 버튼에 적용
+    var row=document.getElementById("row").value;//행 값 입력(줄)
+    var col=document.getElementById("col").value;//열 값 입력(칸)
     var out="<table>";//table 태그 열기
         for(var line=1; line<=row; line++){//줄
             out+="<tr>";//out=out+"<tr>"
@@ -28,6 +28,9 @@
         }
     out+="</table>"//table 태그 닫기
     opener.document.getElementById("myTable").innerHTML=out;
+    //자식 입장에서 부모를 사용한다, id는 myTable를 가져와 출력해준다. 
+
+    
 
 }
 </script>
