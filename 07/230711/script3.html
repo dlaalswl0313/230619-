@@ -8,11 +8,11 @@
         *{
             padding:0; 
             margin:0;
+            box-sizing: border-box;
         }
         #wrap{
             width:900px;/*사용자의 편의를 위함(900~1200사이), 해상도*/
             margin:0 auto;
-            box-sizing: border-box;
             /*요소의 전체 너비와 높이는 지정된 값을 초과하지 않고 콘텐츠 너비와 높이에 패딩과 테두리를 더한 합계가 됩니다. */
         }
         #header{
@@ -92,6 +92,7 @@
             display: flex;
             font-size: 7px;
             justify-content: space-between;/*회원가입 아이디/비밀번호찾기 간격*/
+            padding:10px 0;
         }
         .join_find a{
             text-decoration: none; 
