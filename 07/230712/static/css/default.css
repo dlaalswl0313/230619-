@@ -1,0 +1,25 @@
+/*default.css 메인--웹 페이지 화면 위치 설정*/
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+ul,ol{list-style-type:none;}
+input{outline:none; border:0;}
+a{text-decoration: none;}
+a:visited{color:transparent;}/*색상과 투명도*/
+
+#wrap{
+    position:relative;
+    max-width:1600px;
+    margin:0 auto;
+    background: white;
+}
+#header{
+    position:absolute;
+    top:0;
+    width:100%;
+}
+#banner{
+    
+}
