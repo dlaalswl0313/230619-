@@ -19,6 +19,56 @@ a:visited{color:transparent;}/*색상과 투명도*/
     position:absolute;
     top:0;
     width:100%;
+    z-index: 10;
+}
+#logo{
+    position:absolute;
+    width:200px;
+    top:48px;
+    left:10%;
+}
+#logo a{
+    width:100%;
+}
+#logo a img{
+    width:100%;
+}
+#navigation{
+    position:absolute;
+    top:0;
+    width:100%;
+    overflow:hidden;
+}
+#top_menu{
+    background:rgba(0,0,0,0.7);/*반투명 검정,배경색 70%*/
+    font-size:17px;
+    padding:2px 0 4px 0;
+}
+.top_wrap{
+    max-width:1180px;
+    width:96%;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+}
+.top_wrap .hours{
+    display: flex;
+    color:white;
+    align-items: center;
+}
+.top_wrap .hours a{
+    display: block;
+    color:white;
+    background: #558000;
+    padding:8px 12px;
+    margin-left:10px;
+    text-shadow: -1px -1px 1px #230;
+}
+.top_wrap .top_links{
+    
+}
+#nav{
+
 }
 #banner{
     
