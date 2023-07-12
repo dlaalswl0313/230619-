@@ -29,7 +29,7 @@
                             </p>
                             <a href="#">입장권 구매</a><!--웹페이지로이동한다 # : 아무것도 실행하지 않지만 페이지 최상단으로 이동 -->
                         </div>
-                        <div class="top_likes">
+                        <div class="top_linkes">
                             <a href="">
                                 <i class="bi bi-camera2"></i>
                                 ZOO CAMS
@@ -41,7 +41,17 @@
                         <div class="search_button">
                             <i class="bi bi-search"></i>
                         </div>
-                        <div class="search_bar"></div>
+                        <div class="search_bar" style="display: none;">
+                            <div class="search_close">
+                                <i class="bi bi-x-lg"></i>
+                            </div>
+                            <form id="searchform" name="searchform" method="get" action="index.html">
+                                <div>
+                                    <input type="text" id="s" placeholder="검색입력"></input>
+                                    <button class="srh_button">검색</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div id="nav">
@@ -51,7 +61,7 @@
                             <div class="sub-block">
                                 <div class="sub-item">
                                     <a href="">
-                                        <img src="https://loremflickr.com/210/140/animal">
+                                        <img src="https://loremflickr.com/210/140/wolf,lion">
                                         <p>
                                             <h3>동물원의 미래</h3>
                                             더 큰 공간, 웃는 얼굴<br>
