@@ -38,7 +38,6 @@ a:visited{color:transparent;}/*색상과 투명도*/
     position:absolute;
     top:0;
     width:100%;
-    overflow:hidden;
 }
 #top_menu{
     background:rgba(0,0,0,0.7);/*반투명 검정,배경색 70%*/
@@ -138,8 +137,51 @@ a:visited{color:transparent;}/*색상과 투명도*/
     justify-content: end;
     cursor: pointer;
 }
-#nav{
+.sub-block{ /* <div class="sub-block"> 이미지 네 장있는곳*/
+    display: none; 
+    position:absolute;
+    display: flex;
+    top:40px;
+    width:1000px;
+    background:white;
+    justify-content: space-between;
+}
+.sub-block .sub-item{
+    padding:10px;
+    width:230px;
+}
+.main_menu .toplink .sub-block a{
+    color:rgba(0,0,0,0.7);
+    display:block;
+}
+.main_menu .toplink .sub-block .sub-item h3{
+    color:#558000;
+    
+}
+.main_menu .toplink a:hover ~ .sub-block{
 
+}
+#nav{
+    background:linear-gradient(rgba(0,0,0,0.6)20%,rgba(0,0,0,0)100%);/*그라데이션 효과 : 시작색, 끝나는 색 지정*/
+    height:80px;
+    
+}
+.main_menu{
+    display: flex;
+    color:white;
+    max-width: 1000px;
+    margin:0 auto;
+    justify-content: space-between;
+    height:80px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 800;
+}
+.main_menu .toplink{
+    position:relative;
+}
+.main_menu .toplink a{
+    color: white;
 }
 #banner{
     
