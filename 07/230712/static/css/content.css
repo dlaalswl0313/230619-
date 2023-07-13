@@ -1,0 +1,21 @@
+#content{
+    background:white;
+    position:relative;
+    width:100%;
+}
+#main{
+    position:relative;
+    width:100%;
+    color:#333;
+}
+.happening{
+    width:98%;
+    margin:0 auto;
+    position:relative;
+    z-index:999;
+    padding-bottom: 30px;
+    background: white;
+    margin-top:-90px;
+}
+.homebottom{}
+.homesocial{}
