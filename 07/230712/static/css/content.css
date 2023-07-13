@@ -15,7 +15,41 @@
     z-index:999;
     padding-bottom: 30px;
     background: white;
-    margin-top:-90px;
+    top:-90px;
+}
+.happening .headline{
+    background: #690;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:white;
+}
+.happening .headline h2{
+    font-size: 37px;
+    padding: 5px 35px;
+}
+.happening .headline .email_buttom{
+    padding-right: 30px;
+}
+.happening .headline .email_buttom a{
+    color:white;
+    background: black;
+    display: inline-block;
+    padding: 3px 10px;
+    margin-left: 15px;
+    font-weight: 900;
+}
+#slider{
+    margin:15px 14px;
+    position:relative;
+    min-height: 200px;
+}
+#slider .viewport{
+    overflow:hidden;
+    position:relative;
+}
+#slider .viewport .eventslide{
+    display: flex;
 }
 .homebottom{}
 .homesocial{}
