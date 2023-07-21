@@ -101,3 +101,25 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".chat-box").style.display = "none";
     });
 });
+
+function hidePopupForOneDay() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+}
+
+function hidePopupday() {
+    var popup_1 = document.getElementById("popup_1");
+    popup_1.style.display = "none";
+}
+
+function closePopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+}
+
+function closePopup_1() {
+    var popup_1 = document.getElementById("popup_1");
+    popup_1.style.display = "none";
+}
+
+
