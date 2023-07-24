@@ -11,19 +11,20 @@
         button.addEventListener('click', changeCenter);
         }
         function changeCenter(){ /*버튼 누르면 현위치로 이동할수있는*/
-            var here = {  lat: 36.328725, lng: 127.422993 };/*(위도,경도 순)*/
+            var here = {  lat: 36.328725, lng: 127.422993 };/*(위도(latitude),경도(longitude) 순) */
             map = new google.maps.Map( 
                document.getElementById('map'), {
                 zoom: 20,
                 center: here
                 });
                 
-                new google.maps.Marker({ /*위치표시*/
+                
+                new google.maps.Marker({ /*위치표시*/ 
                 position: here, 
                 map: map,
                 label: "현위치" /*위치표시이름*/
                 
-             
+                
             }); 
             for (var i = 0; i < locations.length; i++) {
                 var marker = new google.maps.Marker({
@@ -47,7 +48,7 @@
                 });
             }
         }
-        const locations = [
+        const locations = [/*지도에 표시할 위치 목록, 배열로 묶음*/
             { place:"cu", lat: 36.328507, lng: 127.422820 },
             { place:"아임일리터", lat: 36.328365, lng: 127.422950 },
             { place:"세븐일레븐", lat: 36.328993, lng: 127.422560},
