@@ -94,6 +94,10 @@ label{display: inline-block;}
     justify-content: space-around;
     padding:10px 0;
 }
+.text{width:90%;}
+.text span{display: inline-block;}
+.text input{border-bottom:1px solid #acacac; margin-right: 10px;}
+
 .place_vw{width:25%; overflow:hidden;}
 .money_vw{width:25%;}
 .period_vw{width:15%;}
@@ -106,3 +110,4 @@ label{display: inline-block;}
 .hide{display:none;} 
 .save_again{width:5%;}
 .save_again:hover{color:pink;}
+
