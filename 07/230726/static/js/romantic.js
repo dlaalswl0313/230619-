@@ -59,7 +59,7 @@ function screen_show(){
     }
 }
 function resave_list(){
-
+    
 }
 function update_list(){
     var sibling = this.nextSibling;//뒤에 있는 형제태그
