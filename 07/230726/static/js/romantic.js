@@ -10,10 +10,10 @@ function date_list(place, money, period, satisfaction){
     this.satisfaction=satisfaction;
 }
 date_list.prototype.view=function(){
-    return "<span class='place_vw'>"+this.place+"</span>"+
+    return "<div class='text'><span class='place_vw'>"+this.place+"</span>"+
     "<span class='money_vw'>"+this.money+"</span>"+
     "<span class='period_vw'>"+this.period+"</span>"+
-    "<span class='stf_vw'>"+this.satisfaction+"</span>"+
+    "<span class='stf_vw'>"+this.satisfaction+"</span></div>"+
     "<b class='update'><i class='bi bi-wrench'></i></b>"+
     "<b class='save_again hide'><i class='bi bi-box-arrow-in-down-left'></i></b>"+
     "<b class='del'><i class='bi bi-trash3'></i></b>";
@@ -66,22 +66,21 @@ function update_list(){
     this.classList.add("hide");//수정아이콘 감추기
     sibling.classList.remove("hide");//저장아이콘 보이기
     var idx = this.parentNode.dataset.idx;//현재 수정할 배열의 인덱스 찾기 
-    var parent = this.parentNode;
+    var pre_sibling = this.previousSibling;
+
     parent.innerHTML="<input type='text' id='re_place' value='"+list[idx].place+"'>"+
     "<input type='text' id='re_money' value='"+list[idx].money+"'>"+
-    "<input type='text' id='re_parent' value='"+list[idx].period+"'>"+
+    "<input type='text' id='re_period' value='"+list[idx].period+"'>"+
     "<select id='re_satisfaction'><option value='1'>1</option><option value='2'>2</option>"+
-    "<option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>;"
-   
-    
+    "<option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>";//innerHTML해서 이전 아이콘도 사라진다.
 }
 function delete_list(){
-    var del_idx = this.parentNode.dataset.idx;
-    //this는 b 태그
-    //list.splince(2,2): 2번 인덱스 부터 2개 추출 하기
-    //부모태그는 parentNode, 부모태그의 dataset 값 가져오기
+     var del_idx = this.parentNode.dataset.idx;  
+    // 현재클릭한 태그는 b태그이고 b태그의 부모인 li태그 찾기
+    //  부모태그는  parentNode 라고 하면된다.  부모태그의 dataset 값 가져오기
+    //list.splice(2,2);  2번인덱스 부터 2개 추출 하기
     list.splice(del_idx,1);
-    screen_show(); 
+    screen_show();
 }
 
 function init(input){ // input을 초기화
