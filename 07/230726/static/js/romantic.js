@@ -12,12 +12,12 @@ function date_list(place, money, period, satisfaction){
     this.satisfaction=satisfaction;
 }
 date_list.prototype.view=function(){
-    return"<li><span class='place_vw'>"+this.place+"</span>"+
+    return "<li class='Dlist'><span class='place_vw'>"+this.place+"</span>"+
     "<span class='money_vw'>"+this.money+"</span>"+
     "<span class='period_vw'>"+this.period+"</span>"+
     "<span class='stf_vw'>"+this.satisfaction+"</span>"+
     "<b class='update'><i class='bi bi-wrench'></i></b>"+
-    "<b class='del'><i class='bi bi-trash3'></i></b></li>";
+    "<b class='del'><i class='bi bi-trash3'></i></b> </li>";
 }
 //datelist 객체를 저장할 배열 객체 생성
 const list = new Array();  // date_list 객체를 저장할 배열 객체 생성
