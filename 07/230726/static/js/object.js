@@ -107,6 +107,7 @@ const baby={
     이를 해결하기 위해
     -메서드를 하나만 생성 되도록 만든다. 
     -객체를 1000개 생성해도 메서드는 1개만 존재하게 된다.
+    @자바스크립트를 다른 말로 프로토타입 기반안이라고 한다.
 */
 
 //익명함수
@@ -128,10 +129,11 @@ window.onload=function(){
     document.write(p[1].name);
     p[0].output();
 }
-//prototype
+//prototype 이름의 객체가 만들어짐::객체안에객체
 person.prototype.output=function(){ 
     document.write("<br>"+this.name+"너는 할 수 있다.");
 }
+person.prototype.group="201호";//모든 객체는 그룹이라는 속성의 동일한 값을 사용할 수 있음.
 var div = document.getElementById("box");//prototype은 어떤 객체든 가능하다.
 div.prototype.out=function(){
 
