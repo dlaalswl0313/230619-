@@ -97,6 +97,16 @@ const baby={
     함수 ---> 메서드
     함수 ---> 독립적으로 실행되는 코드의 집합체
     메서드 ---> 객체에 구속되어 객체에 의해 실행되는 코드의 집합체
+
+    메서드의 문제점
+    -모든객체의 속성 값은 다르지만 메서드의 내용은 동일하다.
+    -동인한 내용의 메서드를 다수 생성하여 사용하는 방법은 비효율적이다.
+    -컴퓨터의 메모리 공간만 쓸데없이 차지한다.
+    .
+    .
+    이를 해결하기 위해
+    -메서드를 하나만 생성 되도록 만든다. 
+    -객체를 1000개 생성해도 메서드는 1개만 존재하게 된다.
 */
 
 //익명함수
@@ -109,12 +119,20 @@ function person(name,age,addr){ //생성자 함수 ,정의(설계),모든 객체
     this.name=name; 
     this.age=age;
     this.addr=addr;
-    this.output=function(){ //모든 객체에 생성된다.
-        document.write("나는 익명함수 출력값");
-    }
+    // this.output=function(){ //모든 객체에 생성된다.
+    //     document.write("나는 익명함수 출력값");
+    // }
 }
 window.onload=function(){
     document.write(p[0].name);
     document.write(p[1].name);
     p[0].output();
+}
+//prototype
+person.prototype.output=function(){ 
+    document.write("<br>"+this.name+"너는 할 수 있다.");
+}
+var div = document.getElementById("box");//prototype은 어떤 객체든 가능하다.
+div.prototype.out=function(){
+
 }
