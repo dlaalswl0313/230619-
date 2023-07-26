@@ -63,5 +63,58 @@ window.onload=function(){
    //split(",") 3가지 색이니까. ""기준으로 분리해라 
 };
 
-/*객체를 만드는 여러가지 방법 >> 2. */
+/*객체를 만드는 여러가지 방법 >> 2. function 함수생성방법을 이용하여 객체를 만든다. */
+function person(name,age,addr){ //생성자 함수 ,정의(설계)
+    this.name=name; 
+    this.age=age;
+    this.addr=addr;
+}
+//호출
+const p = new Array(); 
+p.push(new person("신상수",27,"동구"));
+p.push(new person("송선",37,"서구"));
+p.push(new person("윤상",17,"서구"));
 
+// let p1 = new person("신상수",27,"동구");//객체생성
+// let p2 = new person("송선",37,"서구");//객체생성
+// let p3 = new person("윤상",17,"서구");//객체생성
+
+window.onload=function(){
+    // document.write(p1.name);
+    // document.write(p2.name);
+    // document.write(p3.name);
+    document.write(p[0].name);
+    document.write(p[1].name);
+}
+/*객체를 만드는 여러가지 방법 >> 3. */
+const baby={
+    firstname : "선",
+    lastname: "차훈",
+    age: 8
+};
+
+/*
+    함수 ---> 메서드
+    함수 ---> 독립적으로 실행되는 코드의 집합체
+    메서드 ---> 객체에 구속되어 객체에 의해 실행되는 코드의 집합체
+*/
+
+//익명함수
+var func = function(){
+    alert("나는 익명함수야");
+}
+func(); //func => (alert(););
+
+function person(name,age,addr){ //생성자 함수 ,정의(설계),모든 객체에 생성된다.
+    this.name=name; 
+    this.age=age;
+    this.addr=addr;
+    this.output=function(){ //모든 객체에 생성된다.
+        document.write("나는 익명함수 출력값");
+    }
+}
+window.onload=function(){
+    document.write(p[0].name);
+    document.write(p[1].name);
+    p[0].output();
+}
