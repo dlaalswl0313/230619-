@@ -18,21 +18,22 @@
         <header id="header">
             <div id="hold_input">
                 <div class="item">
-                    <input type="datetime-local" name="wDate" id="wDate">
+                    <input type="datetime-local" name="wdate" id="wdate">
                 </div>
                 <div class="item">
-                    <label>금액</label>
-                    <input type="text" name="money" id="money">
+                    <label class="item_title" for="wmoney">금액</label>
+                    <input type="text" name="wmoney" id="wmoney">
                 </div>
                 <div class="item">
-                    <label>분류</label>
+                    <label class="item_title">분류</label>
                     <select id="wcategory"></select>
                 </div>
                 <div class="item">
-                    <label>내용</label>
-                    <input type="text" name="wDetail" id="wDetail">
+                    <label class="item_title" for="wdetail">내용</label>
+                    <input type="text" name="wdetail" id="wdetail">
                 </div>
                 <div class="item getcome">
+                    
                     <div class="expense">
                         <label class="getcome_title">결제방법</label>
                         <input type="radio" name="payment" id="Scash"><label for="Scash">현금</label>
@@ -43,24 +44,25 @@
                         <label class="getcome_title">수입</label>
                         <input type="radio" name="income_method" id="income_bank"><label for="income_bank">계좌</label>
                         <input type="radio" name="income_method" id="income_cash"><label for="income_cash">현금</label>
-                        <select class="hide" id="mybank"></select>
+                        <select id="mybank" class="hide"></select>
                     </div>
                 </div>
             </div>
+            
         </header>
         <section id="hold_bt_wrap">
-            <button id="income_bt">수입</button><button id="expense_bt">지출</button>
+            <button id="income_bt">수입</button> <button id="expense_bt">지출</button>
             <br>
             <button id="write_bt">등록</button>
         </section>
         <section id="hold_list_wrap">
 
-
         </section>
-        <section id="loan_wrap">    <!-- 대출 내역 -->
+        <section id="loan_wrap">  <!-- 대출 내역-->
 
         </section>
     </div>
+
 
 </body>
 </html>
