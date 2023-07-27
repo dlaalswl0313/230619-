@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    font-size: 15px;
+    margin: 5px;
+}
+#header{
+    display: flex;
+    justify-content: center;
+}
+
+.item:nth-child(1){
+    text-align: center;
+}
+#wcategory{
+    width:100px;
+    margin-left: 96px;
+}
+#hold_bt_wrap{
+    display: flex;
+    justify-content:center;
+    gap:20px;
+}
+#income_bt{
+    background:navy;
+    color:white;
+    border:none;
+    width:50px;
+    height:25px;
+}
+#expense_bt{
+    background:#670000;
+    color:white;
+    border:none;
+    width:50px;
+    height:25px;
+}
+
+
