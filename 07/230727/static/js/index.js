@@ -1,9 +1,5 @@
 let keep = new Array();
 
-const bank=[{name:"우리은행",bank:'woori'},
-{name:"농협은행",bank:'nh'},
-{name:"카카오뱅크",bank:'kakao'}];
-
 window.onload=function(){
     document.querySelector("stored_bt").addEventListener("click",keep);
 }
