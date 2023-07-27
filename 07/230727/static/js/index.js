@@ -1,22 +1,19 @@
 let keep = new Array();
 
-window.onload=function(){
-    document.querySelector("stored_bt").addEventListener("click",keep);
-}
-function keep(bank_name, money,account_num){
+function keep(){
     this.bank_name=bank_name; 
     this.money=money;
     this.account_num=account_num;
-    
 }
-function bank_name(){
-    var bank = document.querySelector("#bank").value;
-    var money = document.querySelector("#money").value;
-    var account = document.querySelector("#account").value;   
-}
-
-function money(){
-}  
-function account_num(){
-    
-}
+var income_method = document.getElementsByName("income_method");
+    income_method[0].addEventListener("click",function(){
+        document.querySelector('#bank');
+});
+var income_method = document.getElementsByName("income_method");
+    income_method[0].addEventListener("click",function(){
+        document.querySelector('#money');
+});
+var income_method = document.getElementsByName("income_method");
+    income_method[0].addEventListener("click",function(){
+        document.querySelector('#account');
+});

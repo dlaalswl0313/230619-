@@ -23,13 +23,14 @@ window.onload=function(){
     var wdate = document.querySelector("#wdate");
     wdate.value=year+"-"+month+"-"+date+" "+hour+":"+minute;
 
-    var cate = document.querySelector("#wcategory");
+    var cate = document.querySelector("#wcategory"); 
+    //분류 (카테고리 배열)
 
     for(var i=0; i<category.length; i++){
         var opt = document.createElement("option");
         opt.setAttribute("value",category[i]);
         opt.innerText=category[i];
-        cate.appendChild(opt);
+        cate.appendChild(opt);  //카테고리배열끝
     }
 
     var mycard= document.querySelector("#mycard");
@@ -37,7 +38,7 @@ window.onload=function(){
         var opt = document.createElement("option");
         opt.setAttribute("value",card[i].bank);
         opt.innerText=card[i].name;
-        mycard.appendChild(opt);
+        mycard.appendChild(opt); //카드 종류 선택
     }
 
     var mybank= document.querySelector("#mybank");
@@ -47,7 +48,7 @@ window.onload=function(){
         opt.innerText=bank[i].name;
         mybank.appendChild(opt);
     }
-//결제방법 중에서  카드 선택이냐 현금 선택이냐
+   //결제방법 중에서  카드 선택이냐 현금 선택이냐
     var payment = document.getElementsByName("payment");
     payment[0].addEventListener("click",function(){
         way="현금";
@@ -57,7 +58,7 @@ window.onload=function(){
         document.querySelector('#mycard').classList.remove("hide");
         way="카드";
     });
-// 수입 중에서  은행 입금이냐 현금 받았냐
+    // 수입 중에서  은행 입금이냐 현금 받았냐
     var income_method = document.getElementsByName("income_method");
     income_method[0].addEventListener("click",function(){
         document.querySelector('#mybank').classList.remove("hide");
@@ -68,7 +69,7 @@ window.onload=function(){
         way="현금";
     });
 
- //수입 버튼클릭시
+    //수입 버튼클릭시
     var income_bt = document.querySelector("#income_bt");
     income_bt.addEventListener("click",function(){
         var ex = document.getElementsByClassName("expense")[0];
