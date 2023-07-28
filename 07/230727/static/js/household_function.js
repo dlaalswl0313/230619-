@@ -126,9 +126,9 @@ function add(){
     var td ="<td>"+keep[index].date+"</td><td>"+(keep[index].getcome=='수입'?keep[index].won():'')+"</td>"+
     "<td>"+(keep[index].getcome=='지출'?keep[index].won():'')+"</td><td>"+keep[index].detail+
     "</td><td>"+keep[index].category+"</td><td>"+keep[index].getWay()+"</td>";
-
-    tr.innerHTML=td;
-    tbody.appendChild(tr);
+    //위에 문자형식은 append로 저장이 안됨 그래서 
+    tr.innerHTML=td; //여기에 담아두고
+    tbody.appendChild(tr);//이걸 사용한것
 }
 
 function account_update(money){

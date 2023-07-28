@@ -3,28 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>등록하고출력하고</title>
     <script src="./static/js/index.js"></script>
 </head>
 <body>
     <!--은행,돈,계좌-->
-    <div>
-        <div>
-            <label>은행</label>
-            <input type="text" id="bank" name="income_method">
-        </div>
-        <div>
-            <label>금액</label>
-            <input type="text" id="money" name="income_method">
-        </div>
-        <div>
-            <label>계좌</label>
-            <input type="text" id="account" name="income_method">
-        </div>
-        <div>
-            <button id="stored_bt">등록</button>
-            <button id="output_bt">출력</button>
-        </div>
-    </div>
+     <div id="input">
+            은행<input type="text" id="name" >
+            금액<input type="text" id="money">
+            계좌<input type="text" id="account_num">
+            <br>
+            <button onclick="save()">등록</button>
+     </div>
+     <div id="output"></div>
+     
 </body>
 </html>
