@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" 
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        /*window.onload=function(){}를 jqeury로 표현하면?
+             $(document).ready(function(){}) : $(현재html문서가 준비되었는지) 이거 인데 요즘은 잘 안써*/
+        $(function(){
+            /*document.getElementById().innerHTML()를 jquery로 표현하면? 
+            css선택자 방식으로 작성 #box1, innerHTML == html("dkssud") 로 작성*/
+            $("#box1").html("dkdkdkdk");
+            //click event : var d = document.querySelector("#box1") d.addEventListener("click",function(){})
+            $("#box1").click(function(){
+                //클릭하면 div모양을 바꿀거야
+                $("#box1").css("width","200px");
+            })
+            $("#bt_hide").click(function(){
+                //버튼을 누르면 안 보이게 할거야
+                $("#box1").hide(2000);//hide(2000):2초 동안 사라짐, display:none
+            });
+            $("#bt_show").click(function(){
+                $("#box1").show();
+            })
+            //감추고 보이고를 하나로 만들기
+            $("#bt3").click(function(){
+                $("#box1").toggle();
+            })
+
+            /*<button id="fade_bt1">FadeOut</button> <div id="box2"></div>*/
+            $("#fade_bt1").click(function(){
+                $("#box2").fadeOut();//fadeOut(fast:빠르게, slow:느리게, 2000:2초)
+            })
+        });
+    </script>
+    <style>
+        #box1{width:100px; height:100px;background: pink;}
+    </style>
+</head>
+<body>
+    <button id="bt_hide">hide</button>
+    <button id="bt_show">show</button>
+    <button id="bt3">toggle</button>
+    <div id="box1"></div>
+ <br><br>
+    <button id="fade_bt1">fadeOut</button>
+    <button id="fade_bt2">fadeIn</button>
+    <button id="fade_bt3">toggle</button>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>   
+    <style>
+        #box2{width:100px; height:100px;background: red;}
+        #box3{width:100px; height:100px;background: blue;}
+        #box4{width:100px; height:100px;background: green;}
+    </style>
+    <script>
+        $("#fade_bt1").click(function(){
+            $("#box2").fadeOut();
+            $("#box3").fadeOut("fast");
+            $("#box4").fadeOut(3000);
+        })
+        $("#fade_bt2").click(function(){
+            $("#box2").fadeIn();
+            $("#box3").fadeIn("slow");
+            $("#box4").fadeIn(2000);
+        })
+        $("#fade_bt3").click(function(){
+            $("#box2").toggle();
+            $("#box3").toggle(4000);
+            $("#box4").toggle("slow");
+        })
+    </script>
+    <div id="bar">
+        <button id="s1">down</button>
+        <button id="s2">up</button>
+        <button id="s3">toggle</button>
+        <div id="green"></div>
+    </div>
+    <style>
+        #bar{
+            position:absolute;
+            left:50%;
+            top:200px;
+            width:300px;
+        }
+        #green{
+            height:200px;
+            display:none;
+            background:#B2CCFF;
+        }
+    </style>
+    <script>
+        $("#s1").click(function(){
+            $("#green").slideDown(); //스윽ㅡ펼쳐지는 효과
+        })
+        $("#s2").click(function(){
+            $("#green").slideUp(); //스윽ㅡ올라가는 효과
+        })
+        $("#s3").click(function(){
+            $("#green").slideToggle();//스윽ㅡ펼쳐지고 올라가는 효과
+        })
+    </script>
+</body>
+</html>
