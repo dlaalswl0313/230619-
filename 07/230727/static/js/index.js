@@ -14,6 +14,7 @@ function save(){//입력한내용을 다 가져와야한다. 1번
     money.value="";
     account_num.value="";
     name.focus();
+    
     //출력 4번
     var out = document.getElementById("output");
     // //문자열 방식 
