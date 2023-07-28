@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery_tag</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" 
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        #text1{font-size: 20px;}
+    </style>
+    <button id="bt1">버튼1</button>
+    <p id="text1"><b>선향이는 말했다. 어떻게 하면 잘할 수 있는지</b></p>
+    <input type="text" id="name">
+<br><br>
+    <button id="bt2">버튼2</button>
+    <a id="naver">네이버 이동</a>
+    
+    <img class="image">
+    <img class="image">
+    <img class="image">
+<br><br>
+    <button id="bt3">버튼3</button>
+    <div id="box1">
+        <p id="p1">괴로워한다.</p>
+    </div>
+    <script>
+        //추가
+        $("#bt1").click(function(){
+            alert($("#text1").html());
+            // alert($('#text1').html()); 하면 <b>선향이는 말했다. ~ </b>로 나옴
+            alert($("#name").val()); 
+            //value (x) ---> val(o)
+            $("#name").val("알려줘야되나?");
+        });
+
+        $("#bt2").click(function(){
+            //$("#naver").attr("href","https://www.naver.com");//<button id="bt2">버튼2</button> a id="naver">네이버 이동</a>
+            $(".image").attr("src","https://loremflickr.com/200/200/alcoholic?random=1");
+        });
+
+        $("#bt3").click(function(){
+            $("#p1").append("<p>인생을</p>"); 
+            //<button id="bt3">버튼3</button><div id="box1"><p id="p1">괴로워한다.</p> ,괴로워한다. 뒤(append)에 인생을 이렇게 붙는다.//현재 선택된 태그 다음에 추가-after()
+            $("#p1").prepend("<p>선향이는</p>");
+            //앞쪽에 추가(prepend) 결과값은 선향이는 괴로워한다. 인생을 //이전에 추가 - before()
+            
+            var i=0;
+            $("#p1").append("<p>인생을"+i+"</p>"); 
+            $("#p1").prepend("<p>선향이는"+i+"</p>");
+        });
+        /* 
+            append 와 prepend의 차이점! 
+            *잘 알고 써야해요
+            append() : 맨 뒤에 추가
+            prepend() : 맨 앞에 추가
+            after() : 바로 앞에 추가
+            before() : 바로 뒤에 추가
+        */
+    </script>
+<br><br>
+    <!--삭제-->
+    <button id="bt4">버튼4</button>
+    <div id="box2" style="border: 1px solid black; height:150px;">
+        <div id="list1">승겸이 사용설명서</div>
+        <div id="list2">1. 게임 시간을 넉넉히 주면 말 잘들음</div>
+        <div id="list3">2. 노담은 노</div>
+        <div class="list">3. 칭찬하면 웨이브춤</div>
+        <div class="list">4. 재채기는 두번만할게</div>
+    </div>
+    <script>
+        $("#bt4").click(function(){
+            $("#list1").remove(); //list1이 진짜 지워진것, 존재하지 않음 != display: none
+            $("#box2").empty(); //선택한 태그를 비워준다. box2안에 있는 내용들이 지워진다.
+            $("div").remove(".list, #box2");//현재 있는 모든 div를 삭제하겠다  //.remove(".list")면 list만 지우겠다.
+        });
+        /*
+            $("#list1").remove(): 선택한 태그 삭제
+             $("#box2").empty() : 선택한 태그의 하위 요소들 삭제
+        */
+    </script>
+</body>
+</html>
