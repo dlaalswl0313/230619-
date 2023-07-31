@@ -20,6 +20,7 @@ $(function(){
             $("#gallery").addClass("grid-4n");
         });
        
+       
     });
     //https://loremflickr.com/1200/400?cat
 });

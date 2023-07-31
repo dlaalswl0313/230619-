@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./static/css/input.css">
     <script src="./static/js/input.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
     <div class="input_wrap">
@@ -18,6 +19,11 @@
             <button id="slide">slide</button>
         </div>
     </div>
-    <div id="gallery" class="grid-4n"></div>
+    <div id="gallery" class="grid-4n slide-active">
+        <div id="slide_bt">
+            <p id="left_bt"><i class="bi bi-caret-left"></i></p>
+            <p id="right_bt"><i class="bi bi-caret-right"></i></p>
+        </div>
+    </div>
 </body>
 </html>
