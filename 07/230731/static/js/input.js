@@ -40,8 +40,12 @@ $(function(){
             //슬라이드박스안에추가된다, 3n,4n버튼누르면 이미지가 안보임
             var len =$(".img_box").length;
             $("#slide_box").css("width",len*1200+"px");
-        });
-        
+        }); 
+        //removeClass : 선택한 태그에 지정한 클래스 삭제
+        //addClass : 선택한 태그에 지정한 클래스 추가
+
+        //remove : 선택한 태그를 삭제
+        //empty : 선택한 태그안에 삭제 
     });
-    //https://loremflickr.com/1200/500/paris,girl/all
 });
+//https://loremflickr.com/1200/500/paris,girl/all
