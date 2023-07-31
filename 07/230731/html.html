@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1~100까지 숫자 출력
+         for(var i=1;i<=100;i++){
+            document.write("<div>"+i+"</div>");
+         }
+         //1~9 중에서 숫자 하나를 입력받아 입력한 숫자에 맞는 구구단이 출력되게 하시오.
+         var num=parseInt(prompt("1~9중에 숫자하나를 선택해주세요"));
+         for(var i=1; i<=9; i++){
+            document.write("<div>"+num+"*"+i+"="+(i*num)+"</div>");
+         }
+         //1~77까지출력하기
+         for(var i=1; i<=77; i++){
+            document.write("<div>"+i+"</div>");
+         }
+        //1~120까지 3씩 증가해서 출력하시오
+        for(var i=1; i<=120; i=i+3){
+            document.write("<div>"+i+"</div>");
+        }
+        //점수 하나를 입력하고, 입력한 숫자를 시작값으로 하여 12번 반복하는 반복문 만들기
+        var num=parseInt(prompt("점수를 입력하시오"));
+        for(var i=num; i<num+12; num++){
+            document.write("<div>"+i+"</div>");
+        }
+        for(var i=0; i<12; i++){
+            document.write("<div>"+(num+i)+"</div>");
+        }
+
+        
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
