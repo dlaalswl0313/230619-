@@ -10,7 +10,7 @@
     padding: 3px 10px;
 }
 #setImage{
-    width:300px;
+    width:100px;
     padding:10px 5px;
     margin-top:10px;
     background:deepskyblue;
@@ -40,20 +40,34 @@
 }
 .slide-active{
     position:relative;
+    overflow:hidden;
+}
+.slide-active #slide_box{
+    display:flex;
+
+}
+.slide-off #slide_box{
+    display:none;
 }
 .slide-active #slide_bt{
     position:absolute;
+    width:100%;
     top:50%;
 }
 .slide-active #slide_bt #left_bt{
-    left:-10px;
-    background:white;
+    position:absolute;
+    left:0;
+    background:#fff;
     font-size:30px;
     border-radius: 10px;
 }
 .slide-active #slide_bt #right_bt{
-    right:-10px;
-    background:white;
+    position:absolute;
+    right:0;
+    background:#fff;
     font-size:30px;
     border-radius: 10px;
+}
+.slide-off #slide_bt{
+    display:none;
 }
