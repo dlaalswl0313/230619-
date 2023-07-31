@@ -39,5 +39,23 @@
             $(this).animate({width:"+=20px"}); 
         });
     </script>
+    <fieldset>
+        <legend>jquery애니메이션4-여러 개 순차적용</legend>
+        <button id="ani3">적용</button>
+        <div id="box4"></div>
+    </fieldset>
+    <style>#box4{width:100px;height:100px;background:green;position:relative;}</style>
+    <script>
+        $("#ani3").click(function(){
+            var box= $("#box4");//변수지정이유? 여러개 지정해줄거니까 편하게 사용하려고
+            box.animate({width:"300px", opacity:"0.5"},2000);//너비 300증가, 투명도 50% 2초
+            box.animate({left:"200px", width:"100px"},1000);//왼쪽으로 200이동 너비 100증가 1초
+            box.animate({height:"300px",opacity:"1"},"slow");//높이 300증가, 투명도 1이면 그대로, 느리게
+            box.animate({top:"200px", height:"100px"},"fast");//위에서 아래로 200이동 높이 100증가,빠르게
+            box.animate({left:"0"},4000);//왼쪽, 처음으로 이동, 4초
+            box.animate({top:"0"});//원위치
+
+        });
+    </script>
 </body>
 </html>
