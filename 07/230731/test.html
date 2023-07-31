@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_jq</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--
+        *주메뉴 : html,css,javascript
+        **각 주메뉴의 서브 메뉴 
+        html -> div, form, input, legend,fieldset
+        css -> position, background, opacity, transform
+        javascript -> 변수, 함수, 배열 , 제어문
+
+        처음 화면에는 주메뉴만 보인다.
+        각 주메뉴를 클릭하면 해당 메뉴의 서브 메뉴가 펼쳐져서 보여야 한다.
+        (배경색 각각 다르게 줘서 만들고 최대한 css 적용해보기)
+    -->
+    <div id="wrap">
+     <div id="side">
+        <div id="html">html</div>
+            <div id="html_list">
+                <ul>
+                    <li>div</li>
+                    <li>form</li>
+                    <li>input</li>
+                    <li>legend</li>
+                    <li>fieldset</li>
+                </ul>
+            </div>
+        <div id="css">css</div>
+            <div id="css_list">
+                <ul>
+                    <li>position</li>
+                    <li>background</li>
+                    <li>opacity</li>
+                    <li>transform</li>
+                </ul>
+        </div>   
+        <div id="js">javascript</div>
+            <div id="js_list">
+                <ul>
+                    <li>변수</li>
+                    <li>함수</li>
+                    <li>배열</li>
+                    <li>제어문</li>
+                </ul>
+        </div>
+       </div>
+    </div>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        #wrap{
+            width:1200px;
+            margin:0 auto;
+            display: flex;
+        }
+        ul{list-style-type:none;}
+        #side{
+            width:300px;
+            padding:100px 10px;
+        }
+        #html{
+            background: #9D3636;
+            color:white;
+            text-align: center;
+            font-size:20px;
+        }
+        #html_list{
+            background:#8B2424;
+            color:white;
+            text-align: center;
+            font-size:15px;
+            display: none;
+            opacity: 0.5;
+        }
+        #css{
+            background: #BC2424;
+            color:white;
+            text-align: center;
+            font-size:20px;
+        }
+        #css_list{
+            background:#AA1212;
+            color:white;
+            text-align: center;
+            font-size:15px;
+            display: none;
+            opacity: 0.5;
+        }
+        #js{
+            background: #CC3D3D;
+            color:white;
+            text-align: center;
+            font-size:20px;
+        }
+        #js_list{
+            background:#DE4F4F;
+            color:white;
+            text-align: center;
+            font-size:15px;
+            display: none;
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#html").click(function(){
+                $("#html_list").slideToggle();
+            });
+            $("#css").click(function(){
+                $("#css_list").slideToggle();
+            });
+            $("#js").click(function(){
+                $("#js_list").slideToggle();
+            });
+            
+            /*$("#html").mouseover(function(){
+                $("#html_list").slideToggle();
+            });
+            $("#css").mouseover(function(){
+                $("#css_list").slideToggle();
+            });
+            $("#js").mouseover(function(){
+                $("#js_list").slideToggle();
+            });
+            $("#html").mouseleave(function(){
+                $("#html_list").slideToggle();
+            });
+            $("#css").mouseleave(function(){
+                $("#css_list").slideToggle();
+            });
+            $("#js").mouseleave(function(){
+                $("#js_list").slideToggle();
+            });*/
+            
+        });
+        
+    </script>
+</body>
+</html>
