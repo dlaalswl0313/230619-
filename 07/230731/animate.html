@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>jquery애니메이션-크기변형</legend>
+        <button id="ani1">적용</button>
+        <div id="box1"></div>
+    </fieldset>
+    <style>#box1{width:100px;height:100px;background:darkred;}</style>
+    <script>
+        $("#ani1").click(function(){
+            $("#box1").animate({width:"300px"});
+        });
+    </script>
+    <fieldset>
+        <legend>jquery애니메이션2-위치이동</legend>
+        <button id="ani2">이동</button>
+        <div id="box2"></div>
+    </fieldset>
+    <style>#box2{width:100px;height:100px;background:pink;position:relative;}</style>
+    <script>
+        $("#ani2").click(function(){
+            $("#box2").animate({width:"200px", left:"300px"}); //위치가 왼쪽으로 이동하면서 너비가 커진다.
+        });
+    </script>
+    <fieldset>
+        <legend>jquery애니메이션3-증가</legend>
+        <div id="box3"></div>
+    </fieldset>
+    <style>#box3{width:100px;height:100px;background:black;position:relative;}</style>
+    <script>
+        $("#box3").mouseover(function(){
+            $(this).animate({width:"+=20px"}); 
+        });
+    </script>
+</body>
+</html>

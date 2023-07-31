@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            //$("#box1").html("<b>감추기</b>");
+            $("#box1").html("<b>보이기</b>");
+            $("#box1").click(function(){
+                //$("#box2").hide(3000);
+                //$("#box2").show(5000);
+                $("#box2").toggle(5000);
+            });
+            //많이 사용하는 경우는 on을 쓴다 =>  $("#box1").on("click",function(){});
+            
+        })
+    </script>
+</head>
+<body>
+    <style>
+        #box1{width:100px;height:100px;background: gray;}
+        #box2{width:100px;height:100px;background: purple; display:none;}
+    </style>
+    <div id="box1"></div>
+    <div id="box2"></div><br>
+    <style>#box3{width:100px;height:100px;background:yellow;}</style>
+    <fieldset>
+        <legend>fade</legend>
+        <button id="fade_out">out</button>
+        <button id="fade_in">in</button>
+        <button id="fade_toggle">toggle</button>
+        <div id="box3"></div>
+    </fieldset>
+    <script>
+        $("#fade_out").click(function(){
+            $("#box3").fadeOut(3000);
+        });
+        $("#fade_in").click(function(){
+            $("#box3").fadeIn();
+        });
+        $("#fade_toggle").click(function(){
+            $("#box3").toggle();
+        });
+    </script>
+    <fieldset>
+        <legend>slide</legend>
+        <button id="slide_down">펼쳐라</button>
+        <button id="slide_up">닫아라</button>
+        <button id="slide_toggle">열닫</button>
+        <div id="box4"></div>
+    </fieldset>
+    <style>#box4{width:300px;height:400px;background:olive;display:none;}</style>
+    <script>
+        $("#slide_down").click(function(){
+            $("#box4").slideDown(3000);
+        });
+        $("#slide_up").click(function(){
+            $("#box4").slideUp(3000);
+        });
+        $("#slide_toggle").click(function(){
+            $("#box4").slideToggle(3000);
+            //toggle(); 하면 왼쪽 처음 모서리부터 시작해서 등장함
+        });
+    </script>
+</body>
+</html>
