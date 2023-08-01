@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery_family</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+    // //부모찾기
+    // $(function(){ 
+    //       /* 
+    //         parent() : 상위 태그(부모)선택 ()이면 모든 부모를 찾아라
+    //         parents() : 상위 모든 태그(html태그까지 선택)
+    //         parents("p") : 상위 태그들 중에서 p태그만 선택
+    //         parents("#i") : 상위 태그들 중에서 i태그만 선택
+    //         parentUntil("#div") : 현재 태그와 div태그 사이의(until)부모들 선택
+        
+    //      */
+    //     // var parent = $("#child1_1").parent();//child1_1의 부모를 찾아 가져와라
+    //     // parent.css("background","pink"); //부모를 찾았다면 배경색이 분홍색으로 된다
+
+    //     // var parent = $("#child1_1").parent().parent();//부모의 부모를 찾아 가져와라
+    //     // parent.css("background","pink"); //부모를 찾았다면 origin안에 있는 자식들이 배경색이 분홍색으로 된다
+
+    //     // var parent = $("#child1_1").parents();//전체부모를 찾아 가져와라 
+    //     // parent.css("background","pink"); //부모들를 찾았다면 배경색전체가 분홍색으로 된다.
+
+    //     // var parent = $("#child1_1").parents("div");//div부모를 찾아 가져와라 
+    //     // parent.css("background","pink"); //부모들를 찾았다면 배경색전체가 분홍색으로 된다.
+
+    //     var parent = $("#child1_1").parents("#origin");//특정부모를 찾아 가져와라 
+    //     parent.css("background","pink"); //부모들를 찾았다면 origin안에 있는 자식들이 배경색이 분홍색으로 된다.
+      
+    //      $(".grandchild").parentsUntil("div").css("background","white"); //div 사이의 부모들 선택 -> child1_2를 찾아서 색칠하겠지
+    // });
+</script>
+</head>
+<body>
+    <div id="origin">
+        <div id="parent1" style="font-size: 50px;">
+            <b id="child1_1">child1_1</b>
+            <p id="child1_2">
+                <span class="grandchild">나 증손이야(딸)</span>
+                <span class="grandchild">나 증손이야(아들)</span>
+            </p>
+        </div>
+        <div id="parent2" style="font-size: 50px;">
+            <div id="child2_1">어디갔어?</div>
+              <ul id="child2_2">
+                 <li class="child_li">공부공부공부</li>
+                 <li class="child_li">공부해서 남주나</li>
+                 <li class="child_li">방법이 잘못이면 다른방법으로...</li>
+                 <li class="child_li">아무거나</li>
+                 <li class="child_li">추가함</li>
+              </ul>
+        </div>
+            <div id="parent3">
+
+            </div>
+    </div>
+</body>
+</html>
+<script>
+    //자식태그찾기 : 손자는 제외 , 내가 낳은게 아니니까.--> 나의 자식만 찾는다.
+    /*
+        children() : 자식태그를 선택, ()이면 모든 자식을 찾아라
+        children("p") : 자식태그들 중에서 p태그만 선택
+        children(":first"), children().first() : 첫번째 자식 선택
+        children(":eq(3)") , children().eq(3) : 세번째 자식 선택
+        children().last() : 마지막 자식 선택
+
+        클래스든 아이디든 찾을 수 있다.
+    */
+    $(function(){
+        //$("#parent2").children().css("font-size","20px");
+        //$("#parent2").children("#child2_2").css("font-size","20px"); //어디갔어 에 css 적용
+        //$("#parent2").children(":eq(0)").css("font-size","20px"); //첫번째 자식:eq(0) 찾기
+        $("#parent2").children(":eq(1)").css("font-size","20px"); //두번째 자식:eq(1) 찾기
+
+    });
+    //하위 태그 찾기 find() , 자식의 자식의 자식..까쥐.,...!!!!!!누구를 찾을 건지 정해야한다.!!!!!!
+    /*
+        find("ul") : 하위 태그 중에서 ul만 선택
+        find("*") : 하위 태그 전체 선택
+        find("li:eq(2)") : 하위 태그 중에서 li 중에서 세번째 li태그만 선택
+
+    */
+    // $(function(){
+    //     //$("#parent2").find("li").css("background","lightblue"); //li(공부~다른방법으로...) 쪽에 하늘색으로 배경색이 들어간다.
+    //     //$("#parent2").find("*").css("background","lightblue"); //*은 전체, 어디갔어부터 방법이 잘못이면~ 까지 하늘색으로 배경색이 들어간다.
+    //     //$("#parent2").find(".child_li").css("background","lightblue"); //li부분만(공부~다른방법으로...) 하늘색으로 배경색이 들어간다. 
+    //     $("#child1_1").click(function(){
+    //         //$(this).siblings();//현재 선택한 곳에 형제들를 찾아라
+    //         //$(this).siblings("#child1_2").children("span:eq(1)").css("display","block");//child1_1를 클릭하면 나 증손이야(딸) 나증손이야(아들)이 한줄에서 두줄로 
+    //         //$(this).next().children("span:eq(1)").css("color","red");//나 증손이야(아들)을 찾아서 빨강색으로변경
+    //         $(this).next().children("span:eq(1)").css("color","red");//나 증손이야(아들)을 찾아서 빨강색으로변경
+    //         /*
+    //             siblings() : 형제(자매)를 선택
+    //             next() : 다음 형제 태그 선택
+    //             prev() : 이전 형제 태그 선택
+    //             nextAll() : 뒤에 있는 모든 형제 태그 선택
+    //             preAll() : 앞에 있는 모든 형제 태그 선택
+    //             nextUntil("a") : 뒤에 있는 형제들 중 a태그와 나 사이의 모든 형제
+    //             prevUntil("a") : 앞에 있는 형제들 중 a태그와 나 사이의 모든 형제
+    //         */
+    //     });
+    // });
+        $(function(){
+            $("li").first().css("color","red");//공부공부공부
+            $("li").last().css("color","blue");//추가함
+            $("li").eq(2).css("color","yellow");//방법이 잘못되면 다른 방법으로....
+            
+            $("li").filter(".child_li").css("background","orange"); //li인것만 선택해라, li목록의 배경색이 오렌지
+            $("li").not(".child_li").css("background","brown"); //li제외하고 선택해라
+        });
+</script>
