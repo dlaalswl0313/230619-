@@ -1,5 +1,18 @@
 {
-    "name" : "이상준",
-    "notebook" : "mac",
-    "age" :20
+    "person":
+    [
+        {
+            "name" : "이상준",
+            "notebook" : "mac",
+            "age":20
+        }
+    
+    ,
+    
+        {
+            "name1" : "김선향",
+            "notebook1" : "삼성",
+            "age1" : 20
+        }
+    ]
 }
