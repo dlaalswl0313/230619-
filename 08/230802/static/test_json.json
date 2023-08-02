@@ -1,0 +1,32 @@
+{
+    "person":
+    [
+        {
+            "name" : "이상중", "notebook" : "mac", "age":20
+        }
+        ,
+        {
+            "name" : "김선향","notebook" : "삼성", "age" : 20
+        }
+        ,
+        {
+            "name" : "이순신", "notebook" : "LG", "age":30
+        }   
+        ,   
+        {
+            "name" : "김유신","notebook" : "mac", "age" : 20
+        }
+        ,
+        {
+            "name" : "장보고", "notebook" : "LG", "age":20
+        }
+        ,   
+        {
+            "name" : "최무선","notebook" :"삼성", "age" : 20
+        }
+        ,
+        {
+            "name" : "이상중", "notebook" : "삼성", "age":20
+        }
+    ]
+}
