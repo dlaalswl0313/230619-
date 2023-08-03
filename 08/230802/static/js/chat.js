@@ -37,8 +37,7 @@ function chat_show(data){
     var out="";
     $.each(data,function(i,item){
         out += "<li class=chat><div class='write_info'><b class='name'>"+item.writer+
-        "</b><span class='date'>"+item.date+"</span></div><div class='content'>"+item.content+
-        "</div></li>";
+        "</b><span class='date'>"+item.date+"</span></div><div class='content'>"+item.content+"</div></li>";
     });
 
     $("#chat_list").html(out);
