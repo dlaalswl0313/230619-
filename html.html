@@ -20,6 +20,7 @@
         table tr td:nth-child(5){background:black;color:white;}
         table tr td:nth-child(6){background:green;}
         table tr td:nth-child(7){background:orange;}
+        #list{display: flex;}
     </style>
 </head>
 <body>
@@ -52,28 +53,24 @@
     const color =["빨강","파랑","노랑","흰색","검정","초록","주황","하늘","분홍","회색"];
     $(function(){
         $("#list").text(color);
-        
         $(".cell").click(function(){
-            $.each(color,function(i,data){
-                $("#list").append("<div>" + data + "<b onclick='del("+i+")'></b></div>");
-                //$("#list").append("<div>"+data+"<item onclick='del(this)'> 삭제</item></div>"); //삭제 버튼이 추가됨
+            $.each(color,function(i,data){  
+                $("#list").empty(); 
             });
-            // if (index !== -1) {
-            //     color.splice(index, 1);
-            //     updateList();
-            // }
-            del(); //이걸 넣으니까 리스트가 파랑부터 시작하넹
-        });
+            $.each(color, function (i, data) {
+                $("#list").append("<div id=list>" + data + "</div>");
+            });
+            del();
+            //item.splice(i,1);
+         });
     });
     function del(obj){
+        
         $.each(color,function(i,data){
-            $("#list div").eq(i).remove(); //리스트에있는게 지워지고..
+            //$("#list div").eq(i).remove(); //리스트에있는게 지워지고..
            // $(".cell").eq(i).remove(); //표td가 지워지고,, 
-            if( document.getElementsByTagName("b")[b]==obj)
-           {
-                i=b; 
-           }
-           item.splice(i,1);
-        });
+           color.splice(i,1);
+        });  
     }
+    
 </script>
