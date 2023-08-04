@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    $.getJSON("./전국건강증진센터표준데이터.json",function(data){
+        // console.log(data.fields);//키 값이 나온다.
+        // console.log(data.records);//실제 데이터 값이 나온다.
+        // console.log(data.fields[0].id);//키 값의 0번 인덱스 결과가 나온다.
+        console.log(data);
+
+        var keySet = Object.keys(data.records[0]);//키만 빼오기
+        console.log(keySet);
+
+        console.log(data.records[0][keySet[0]]);//센터이름이나온다. data.records[0].건강증진센터명
+
+        // var search = data.records.filter(item => item[keySet[1]]==="건강증진");
+        //var search = data.records.filter(item => item[keySet[14]]>=3); //영양사 찾기
+        var search = data.records.filter(item => item[keySet[2]].indexOf("충청북도")!=-1); //충청북도 찾기
+        console.log(search);
+        
+    });
+</script>

@@ -2,8 +2,10 @@ $(function(){
     $.getJSON("https://jsonplaceholder.typicode.com/users",function(data){
         $.each(data,function(i,item){
             $(".name").eq(i).data('id',item.id);
+            //인덱스 i 에서 클래스 name을 가진 요소를 선택하고 
+            //data-id 속성을 현재 item의 id 속성에 추가한다.
             $(".name").eq(i).text(item.name);
-            // $("#person_wrap").append("<div class='name' data-id='"+item.id+"'>"+item.name+"</div>");
+            //$("#person_wrap").append("<div class='name' data-id='"+item.id+"'>"+item.name+"</div>");
         });   
     });    
      $(".name").click(function(){
