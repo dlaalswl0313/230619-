@@ -25,6 +25,7 @@ function send(){
         if(data==="fail")
             alert("다시 입력하세요");
         else  chat_show(JSON.parse(data));    
+        
     };
     xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlHttp.send("x="+send_data);
