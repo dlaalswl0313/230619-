@@ -12,27 +12,7 @@
 </body>
 </html>
 <script>
-    //배열일때 정렬하는 방법
-    const arr = ["정예림","신상수","김승겸","임민지","이상준","김선향","송은선"];
-
-    $.each(arr,function(i,data){ //$.each(배열이름, function(index, 각각의 data(arr배열의 요소들이 들어옴)){동작시킬내용})
-        $("#before").append("<div>"+data+"</div>");
-    });
-
-    arr.sort(); //기본 오름차순 정렬
-
-    $.each(arr,function(i,data){
-        $("#after").append("<div>"+data+"</div>");
-    });
-
-    /*arr.sort(function(a,b){
-        if(a<b) return 1; 
-        if(a>b) return -1;
-        if(a===b) return 0;
-
-    });//내림차순 정렬 : 문자열인 경우, 단 영어일경우는 대소문자구분*/
-
-    //arr.sort(function(a,b){return b-a;})정렬 할 내용이 숫자인 경우 
+    
     
     $.getJSON("./전국건강증진센터표준데이터.json",function(data){
         // console.log(data.fields);//키 값이 나온다.
