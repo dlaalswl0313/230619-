@@ -23,7 +23,7 @@
         console.log(data.records[0][keySet[0]]);//센터이름이나온다. data.records[0].건강증진센터명
 
         // var search = data.records.filter(item => item[keySet[1]]==="건강증진");
-        //var search = data.records.filter(item => item[keySet[14]]>=3); //영양사 찾기
+        // var search = data.records.filter(item => item[keySet[14]]>=3); //영양사 찾기
         var search = data.records.filter(item => item[keySet[2]].indexOf("충청북도")!=-1); //충청북도 찾기
         console.log(search);
         
