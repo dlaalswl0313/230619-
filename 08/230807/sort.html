@@ -12,57 +12,78 @@
 </body>
 </html>
 <script>
-// const arr = [["정예림",24,"중리동"],["신상수",29,"대흥동"],["김승겸",30,"은행동"],["임민지",28,"문화동"]
-// ,["이상준",38,"선화동"],["김선향",25,"기장동"],["송은선",22,"태평동"]]; //배열 안에 배열 ,0번인덱스의 0번 = 정예림
+    // //배열일때 정렬하는 방법
+    // const arr = ["정예림","신상수","김승겸","임민지","이상준","김선향","송은선"];
 
-// $.each(arr,function(i,data){ //$.each(배열이름, function(index, 각각의 data(arr배열의 요소들이 들어옴)){동작시킬내용})
-//     $("#before").append("<div>"+data+"</div>");
-// });
+    // $.each(arr,function(i,data){ //$.each(배열이름, function(index, 각각의 data(arr배열의 요소들이 들어옴)){동작시킬내용})
+    //     $("#before").append("<div>"+data+"</div>");
+    // });
 
-// arr.sort(); //기본 오름차순 정렬, 이름기준
+    // arr.sort(); //기본 오름차순 정렬
 
-// $.each(arr,function(i,data){
-//     $("#after").append("<div>"+data+"</div>");
-// });
+    // $.each(arr,function(i,data){
+    //     $("#after").append("<div>"+data+"</div>");
+    // });
 
-// const arr =[5,4,3,12,7,1,9];
+    // arr.sort(function(a,b){
+    //     if(a<b) return 1; 
+    //     if(a>b) return -1;
+    //     if(a===b) return 0;
 
-// for(var i=1; i<arr.length-1; i++){//버블정렬, 총 데이터 개수의 (n-1)반복 
-//     for(var k=0; k<arr.length-i; k++){//2개씩비교해서뒤쪽으로위치변경 , 인덱스 0~5 까지 비교
-//         if(arr[k] > arr[k+1]){//인접한 인덱스끼리 비교하기위함
-//             var temp = arr[k];//5와 4를 비교해서 5도 남고 4도 남아야하니, 임시저장소를 만든것
-//             arr[k] = arr[k+1];
-//             arr[k+1]=temp;
-//         }
-//     }
-// }
-// console.log(arr); //오름차순1
+    // });//내림차순 정렬 : 문자열인 경우, 단 영어일경우는 대소문자구분
 
-const arr =[5,4,3,12,7,1,9];
+    //arr.sort(function(a,b){return b-a;})정렬 할 내용이 숫자인 경우 
+    // const arr = [["정예림",24,"중리동"],["신상수",29,"대흥동"],["김승겸",30,"은행동"],["임민지",28,"문화동"]
+    // ,["이상준",38,"선화동"],["김선향",25,"기장동"],["송은선",22,"태평동"]]; //배열 안에 배열 ,0번인덱스의 0번 = 정예림
 
-for(var i=1; i<arr.length-1; i++){
-    for(var k=0; k<arr.length-i; k++){
-        if(arr[k] - arr[k+1]>0){//오름차순 정렬2
-            var temp = arr[k];
-            arr[k] = arr[k+1];
-            arr[k+1]=temp;
+    // $.each(arr,function(i,data){ //$.each(배열이름, function(index, 각각의 data(arr배열의 요소들이 들어옴)){동작시킬내용})
+    //     $("#before").append("<div>"+data+"</div>");
+    // });
+
+    // arr.sort(); //기본 오름차순 정렬, 이름기준
+
+    // $.each(arr,function(i,data){
+    //     $("#after").append("<div>"+data+"</div>");
+    // });
+
+    // const arr =[5,4,3,12,7,1,9];
+
+    // for(var i=1; i<arr.length-1; i++){//버블정렬, 총 데이터 개수의 (n-1)반복 
+    //     for(var k=0; k<arr.length-i; k++){//2개씩비교해서뒤쪽으로위치변경 , 인덱스 0~5 까지 비교
+    //         if(arr[k] > arr[k+1]){//인접한 인덱스끼리 비교하기위함
+    //             var temp = arr[k];//5와 4를 비교해서 5도 남고 4도 남아야하니, 임시저장소를 만든것
+    //             arr[k] = arr[k+1];
+    //             arr[k+1]=temp;
+    //         }
+    //     }
+    // }
+    // console.log(arr); //오름차순1
+
+    const arr =[5,4,3,12,7,1,9];
+
+    for(var i=1; i<arr.length-1; i++){
+        for(var k=0; k<arr.length-i; k++){
+            if(arr[k] - arr[k+1]>0){//오름차순 정렬2
+                var temp = arr[k];
+                arr[k] = arr[k+1];
+                arr[k+1]=temp;
+            }
         }
     }
-}
-console.log(arr); //오름차순2
+    console.log(arr); //오름차순2
 
-// const arr =[5,4,3,12,7,1,9];
+    // const arr =[5,4,3,12,7,1,9];
 
-// for(var i=1; i<arr.length-1; i++){/
-//     for(var k=0; k<arr.length-i; k++){
-//         if(arr[k] < arr[k+1]){//오름차순정렬에서 연산자만 바꾸면 내림차순
-//             var temp = arr[k];
-//             arr[k] = arr[k+1];
-//             arr[k+1]=temp;
-//         }
-//     }
-// }
-// console.log(arr); //내림차순
+    // for(var i=1; i<arr.length-1; i++){/
+    //     for(var k=0; k<arr.length-i; k++){
+    //         if(arr[k] < arr[k+1]){//오름차순정렬에서 연산자만 바꾸면 내림차순
+    //             var temp = arr[k];
+    //             arr[k] = arr[k+1];
+    //             arr[k+1]=temp;
+    //         }
+    //     }
+    // }
+    // console.log(arr); //내림차순
 
 
 </script>
