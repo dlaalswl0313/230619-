@@ -11,24 +11,21 @@
     <script src="./static/js/health.js"></script>
 </head>
 <body>
-    <div id="wrap">
+    <div id="Hwrap">
         <header id="header">
             <div id="defaultSearch">
-                <div class="searchinput">
+                <div class="searchInput">
                     <input type="text" name="searchWord" id="searchWord">
                     <i class="bi bi-search"></i>
                 </div>
             </div>
             <div id="searchFilter">
-                <div class="filterMore">
-                    <i class="bi bi-chevron-compact-down"></i>
-                </div>
                 <div class="filterDetail hide">
                     <h3>상세검색</h3>
                     <div id="detailBox" class="detailContainer">
                         <dl class="detailList">
                             <dt class="itemDt">센터구분</dt>
-                            <dd class="itemDt">
+                            <dd class="itemDd">
                                 <input type="checkbox" name="classify" value="보건증진">
                                 <label>정신보건</label>
                                 <input type="checkbox" name="classify" value="건강증진">
@@ -37,7 +34,7 @@
                         </dl>
                         <dl class="detailList">
                             <dt class="itemDt">지역</dt>
-                            <dd class="itemDt">
+                            <dd class="itemDd">
                                 <input type="checkbox" name="location" value="경기도">
                                 <label>경기도</label>
                                 <input type="checkbox" name="location" value="충청북도">
@@ -72,13 +69,13 @@
                             <dt class="itemDt">
                                 업무
                             </dt>
-                            <dd class="itemDt" id="business">
+                            <dd class="itemDd" id="business">
                                 <!--js로 추가-->
                             </dd>
                         </dl>
                         <dl class="detailList">
                             <dt class="itemDt">간호사 수</dt>
-                            <dd class="itemDt">
+                            <dd class="itemDd">
                                 <input type="radio" name="nurse" value="5">
                                 <label>5명 이상</label>
                                 <input type="radio" name="nurse" value="10">
@@ -87,7 +84,7 @@
                         </dl>
                         <dl class="detailList">
                             <dt class="itemDt">사회 복지사 수</dt>
-                            <dd class="itemDt">
+                            <dd class="itemDd">
                                 <input type="radio" name="nurse" value="5">
                                 <label>5명 이상</label>
                                 <input type="radio" name="nurse" value="10">
@@ -95,6 +92,10 @@
                             </dd>
                         </dl>
                     </div>
+                </div>
+                <div class="filterMore moreDown">
+                    <i class="bi bi-chevron-compact-down"></i>
+                    <i class="bi bi-chevron-compact-up"></i>
                 </div>
             </div>
         </header>

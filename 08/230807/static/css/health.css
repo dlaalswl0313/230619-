@@ -3,7 +3,7 @@
     margin:0;
     box-sizing: border-box;
 }
-#wrap{
+#Hwrap{
     width:800px;
     margin:0 auto;
     position:relative;
@@ -17,70 +17,71 @@
     width:100%;
     padding:0 50px;
     padding-bottom:10px;
-    border-bottom: 2px solid #888;
+    border-bottom:2px solid #888;
 }
-#defaultSearch .searchinput{
-    display: flex;
-    height: 30px;
-    padding-bottom:10px;
+#defaultSearch .searchInput{
+    display:flex;
     width:100%;
+    height:30px;
+    font-size:17px;
     border:1px solid #bbb;
-    border-radius: 10px;
-    padding: 0 10px;
+    border-radius:10px;
+    padding:0 10px;
     justify-content: space-between;
-    align-items: center;
+    align-items:center;
 }
 #searchWord{
     border:0;
-    outline:none;
-    height: 100%;
+    outline:0;
+    height:100%;
     width:100%;
-}   
+}
 #searchFilter{
-    position: relative;
+    position:relative;
     width:100%;
     padding:20px 50px;
-    border-radius: 2px solid #999;
 }
 #searchFilter .filterMore{
     text-align: center;
     position:relative;
-    top:-20px;
-    font-size:25px;
+    font-size: 25px;
     cursor:pointer;
 }
-#searchfilter .filterDetail{
+#searchFilter .moreUp{border-bottom:2px solid #888;}
+#searchFilter .moreDown{top:-20px;}
+#searchFilter .moreUp .bi-chevron-compact-down{
+    display:none;
+}
+#searchFilter .moreDown .bi-chevron-compact-up{
+    display:none;
+}
+#searchFilter .filterDetail{
     width:100%;
     position:relative;
 }
-#searchfilter .filterDetail h3{
-    font-size: 20px;
+#searchFilter .filterDetail h3{
+    font-size:20px;
     margin-bottom:10px;
 }
 #detailBox{
     width:100%;
     position:relative;
-    border : 1px solid #444;
+    border:1px solid #444;
 }
 #detailBox .detailList{
     border:1px solid #999;
-    display: flex;
-    align-items: center;
+    display:flex;
+    align-items:center;
 }
 #detailBox .detailList .itemDt{
     padding:13px 0;
     padding-left:10px;
     width:140px;
-    background:black;
-    color:#fff;
+    background:#FFF4EB;
+    color:#FFB888;
 }
-#detailBox .detailList .itemDt{
-    width:500px;
-    padding:5px 8px;
+#detailBox .detailList .itemDd{
+    width:560px;
+    padding:0 8px;
 }
-#detailBox .detailList:nth-child(2) .itemDt{
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 10px;
-}
-.hide{display: none;}
+.hide{display:none;}
