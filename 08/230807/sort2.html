@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<style>
+    #option{
+        display: flex;
+        width:400px;
+        justify-content: space-around;
+        margin:0 auto;
+    }
+    #list{
+        width:400px;
+        margin:0 auto;
+    }
+    .asc .bi-sort-down{display: none;}
+    .desc .bi-sort-up{display: none;}
+    
+</style>
+</head>
+<body>
+    <div id="option">
+        <div id="sort_age" class="asc">나이<i class="bi bi-sort-up"></i><i class="bi bi-sort-down"></i></div>
+        <div id="sort_addr" class="asc">사는 곳<i class="bi bi-sort-up"></i><i class="bi bi-sort-down"></i></div>
+    </div>
+    <table id="list">
+        <thead>
+            <th>이름</th><th>나이</th><th>주소</th>
+        </thead>
+        <tbody id="person"></tbody>
+    </table>
+</body>
+</html>
+<script>
+    const arr = [["정예림",24,"중리동"],["신상수",29,"대흥동"],["김승겸",30,"은행동"],["임민지",28,"문화동"]
+    ,["이상준",33,"선화동"],["김선향",34,"기장동"],["송은선",21,"태평동"]]; //배열 안에 배열 ,0번인덱스의 0번 = 정예림  
+    /*
+        1. 아이콘은 오름차순만 표시하기 
+        2. 나이 또는 사는 곳을 클릭하면 현재 아이콘이 반대 아이콘으로 표시하기 
+        3. 현재 화면에 표시하는 아이콘에 맞춰서 정렬된 데이터들이 화면에 출력될 수 있게 만들기
+    */
+    data_view(); //정렬 할 때 마다 실행
+
+    function data_view(){
+        $("#person").empty(); //person안에 있는 것만 지움 
+
+        $.each(arr,function(i,data){
+          $("#person").append("<tr><td>"+data[0]+"</td><td>"+data[1]+"</td><td>"+data[2]+"</td></tr>");
+        });
+    }
+    
+    $("#sort_age").click(function(){//나이 클릭 시
+      //toggleClass : 선택한 요소에 클래스(Class) 값을 넣었다 뺐다 할 수 있습니다.
+        $(this).toggleClass("asc");//오름차순 아이콘 표시
+        $(this).toggleClass("desc");//내림차순 아이콘 표시
+
+        var has = -1;
+        if($(this).hasClass("asc")) has=1;
+        arr.sort(function(a,b){
+            return (a[1]-b[1]) * has; //오름차순
+        });
+        data_view();     
+    });  
+
+    $("#sort_addr").click(function(){//주소 클릭
+        $(this).toggleClass("asc");//오름차순 아이콘 표시
+        $(this).toggleClass("desc");//내림차순 아이콘 표시
+
+        if($(this).hasClass("asc")) has=1;
+        arr.sort(function(a,b){ //문자열인 경우
+            if(a[2]<b[2]) return 1 *has; 
+            if(a[2]>b[2]) return -1 *has;
+            if(a[2]===b[2]) return 0 *has;
+        });
+        data_view();  
+    });   
+</script>
