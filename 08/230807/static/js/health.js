@@ -14,12 +14,34 @@ $(function(){
             "<li>"+item.운영기관명+"</li><li>"+item.운영기관전화번호+"</li></ul></div></div>");
         });
     });
-    
-    $("#searchWord").on("keyup",function(){
-         const word=$(this).val();
 
+//검색
+    $("#searchWord").on("keyup",function(){ 
+         const word=$(this).val();
+        //  소재지주소와 업무내용에 한해서만  검색이 가능하게 변경하시오
          $(".item_short").filter(function(){
-               $(this).toggle($(this).text().indexOf(word) > -1); 
+            var addr = $(this).find(".item_detail").children("li:eq(1)");
+            var task = $(this).find(".item_detail").children("li:eq(2)");
+            var hasAddr = addr.text().indexOf(word) > -1;
+            var hasTask = task.text().indexOf(word) > -1;
+            $(this).toggle( hasAddr || hasTask );
         });
     });    
+    
+    $(".centerName").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    });
+    $(".addr").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    });
+    $(".nurseCount").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    });
+    $(".doctorCount").click(function(){
+        $(this).toggleClass("asc");
+        $(this).toggleClass("desc");
+    });
 });
