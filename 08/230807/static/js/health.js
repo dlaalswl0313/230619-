@@ -15,10 +15,11 @@ $(function(){
         });
     });
     
-     $("#searchWord").on("keyup",function(){
-         var word=$(this).val();
-         $("#section li").filter(function(){
+    $("#searchWord").on("keyup",function(){
+         const word=$(this).val();
+
+         $(".item_short").filter(function(){
                $(this).toggle($(this).text().indexOf(word) > -1); 
-           });
-        });    
+        });
+    });    
 });
