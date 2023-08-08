@@ -14,7 +14,7 @@
     (1)콜백함수 : 무한콜백, callback hell(해결못하는상황)--> 잘 안씀
     (2)promise :
 
-    비동기 : setTimeout , setInterval , 외부에서 자료를 가져올때
+    비동기 : setTimeout , setInterval , 외부에서 자료를 가져올때    =======>setTimeout으로 연습해보기(사용했을때와 아닐때를 비교해가면서 해야한다.)
     근데 꼭 외부에서 가져온다고 해서 비동기인 상황이아님 <- 전역변수로 적용하는 경우
 */
 
