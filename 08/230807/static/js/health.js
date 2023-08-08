@@ -18,6 +18,7 @@
     근데 꼭 외부에서 가져온다고 해서 비동기인 상황이아님 <- 전역변수로 적용하는 경우
 */
 
+//정렬과 검색이 같이 된다.
 let data_list=new Object(); //json 데이터 저장할 전역변수
 
 // function getData(call){
@@ -41,20 +42,19 @@ async function getData(){
         //     d = data.records; //function(data)여기를 끝내는 역할
         // });  
         // return d;
-        var data = await fetch("./전국건강증진센터표준데이터.json").then(function(res){return res,json();}).then(function(r){return r;});
+        var data = await fetch("./전국건강증진센터표준데이터.json").then(function(res){ return res.json();}).then(function(r){return r;});
         //fetch로 json 파일 가져옴, 
         console.log(data.records);
         return data.records;
 }
 $(async function(){
     $(".filterMore").click(function(){
-        $(".filterDetail").slideToggle();
         $(this).toggleClass("moreDown");
         $(this).toggleClass("moreUp");
-        $(".fliterDetail").slideToggle();
-    });      
-    data_list = await getData();
-    view(data_list);
+        $(".filterDetail").slideToggle();
+    });
+   data_list = await getData();
+   view(data_list);
         
 
 
@@ -83,18 +83,16 @@ $(async function(){
     // });
 
 //검색
-    $("#searchWord").on("keyup",function(){ 
-         const word=$(this).val();
-        //  소재지주소와 업무내용에 한해서만  검색이 가능하게 변경하시오
-         $(".item_short").filter(function(){
-            var addr = $(this).find(".item_detail").children("li:eq(1)");
-            var task = $(this).find(".item_detail").children("li:eq(2)");
-            var hasAddr = addr.text().indexOf(word) > -1;
-            var hasTask = task.text().indexOf(word) > -1;
-            $(this).toggle( hasAddr || hasTask );
-        });
-        view(data_list);
-    });    
+$("#searchWord").on("keyup",function(){
+    const word = $(this).val();
+    $(".item_short").filter(function(){
+        var addr = $(this).find(".item_detail").children("li:eq(1)");
+        var task = $(this).find(".item_detail").children("li:eq(2)");
+        var hasAddr = addr.text().indexOf(word) > -1;
+        var hasTask = task.text().indexOf(word) > -1;
+        $(this).toggle( hasAddr || hasTask );
+    });
+}); 
     
     $(".sort_obj").click(function(){
         $(this).toggleClass("asc");
@@ -118,16 +116,16 @@ $(async function(){
             });
             view(data_list);
             
-            $("#section").empty();
+            // $("#section").empty();
 
-            var task = new Array();//임시 저장소
+            // var task = new Array();//임시 저장소
 
-            $.each(data_list, function(i,item){
-                $("#section").append("<div class='item_short'><div class='item_image'><img src='https://loremflickr.com/200/200/health?random="+i+"'></div>"+
-                "<div class='item_detail_box'><ul class='item_detail'>"+"<li>"+item.건강증진센터명+"</li><li>"+item.소재지도로명주소+"</li>"+
-                "<li>"+item.건강증진업무내용+"</li><li>"+item.건강증진센터구분+"</li>"+
-                "<li>"+item.운영기관명+"</li><li>"+item.운영기관전화번호+"</li></ul></div></div>");
-            });
+            // $.each(data_list, function(i,item){
+            //     $("#section").append("<div class='item_short'><div class='item_image'><img src='https://loremflickr.com/200/200/health?random="+i+"'></div>"+
+            //     "<div class='item_detail_box'><ul class='item_detail'>"+"<li>"+item.건강증진센터명+"</li><li>"+item.소재지도로명주소+"</li>"+
+            //     "<li>"+item.건강증진업무내용+"</li><li>"+item.건강증진센터구분+"</li>"+
+            //     "<li>"+item.운영기관명+"</li><li>"+item.운영기관전화번호+"</li></ul></div></div>");
+            // });
         });
     });   
 });
