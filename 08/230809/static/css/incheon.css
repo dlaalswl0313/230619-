@@ -1,0 +1,29 @@
+*{padding:0; margin:0; box-sizing: border-box;}
+#wrap{
+    width:1000px;
+    margin:0 auto;
+}
+#wrap fieldset{
+    width:100%;
+    margin-top: 30px;
+    padding:20px;
+}
+.search_box{
+    width:100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.search_title{
+    width:150px;
+}
+.search_title ~ div{
+    display: flex;
+    flex-wrap: wrap;
+    width:810px;
+    padding:10px 0;
+    gap:15px;
+}
+.chk{
+    display:inline-block;
+}
