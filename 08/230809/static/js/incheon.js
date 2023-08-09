@@ -39,7 +39,7 @@ $(async function(){
     make_checkbox(fish_amount,"#fish_amount", "amount");
     make_checkbox(fish_kind, "#fish_kind","kind");
 
-
+    $("input[type=checkbox]").change(search);
     
     //console.log(fish_amount);
 
@@ -51,11 +51,35 @@ $(async function(){
     // st.clear();// 셋 비우기
     // console.log(st);
 });
+function search(){
+    let kind = new Array();
+    let amount = new Array();
+    let year = new Array();
+    $("input[name=kind]:checked").each(function() {kind.push($(this).val());});
+    $("input[name=amount]:checked").each(function() {amount.push($(this).val());});
+    $("input[name=year]:checked").each(function() {year.push($(this).val());});     
 
+    $(".fish_item").filter(function(){
+        
+        var isShow=true;
+        var idx = $(this).index();
+        
+        if(kind.length!=0 && isShow){  
+            if (kind.indexOf(fish[idx].어초종류) == -1) isShow=false;
+        }
+        if(amount.length!=0 && isShow){  
+            if (Number(fish[idx].어초확인수량) >= Number(Math.min(...amount))) isShow=true;
+            else isShow=false;
+        }
+        if(year.length!=0 && isShow){  
+            if (year.indexOf(fish[idx].설치년도) == -1) isShow=false;
+        }
+        $(this).toggle(isShow);
+    });
+};
 function make_checkbox(arr, id, name){
     $.each(arr,function(i,data){
         $(id).append("<span class='chk'>"+
-        "<input type='checkbox' name='"+name+"' value='"+data+"'>"+
-        "<label>"+data+"</label></span>");
+        "<input type='checkbox' name='"+name+"' value='"+data+"'>"+"<label>"+data+"</label></span>");
     });
 }
