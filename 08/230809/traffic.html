@@ -8,13 +8,19 @@
     <link rel = "stylesheet" href="./static/css/traffic.css">
     <script src="./static/js/traffic.js"></script>
 </head>
-<div id="view">
-    <table id="gp">
-        <tbody id="figure"></tbody>
-        <tbody id="name">
-            <tr></tr>
-        </tbody>
-
-    </table>
-</div>
+    <button id="rect">사각형</button>
+    <button id="circle">원</button>
+    <button id="move">이동</button>
+    <div id="board">
+        <canvas id="Canvas" width="500" height="500">
+            <!--canvas에 사용할 해상도, 크면클수록그릴수있는영역이커짐
+            실제 화면의 영역은 css에서 설정해준값-->
+        </canvas>
+    </div>
+    <div id="view">
+        <table id="gp">
+            
+        </table>
+    <!--  소방서 별  총 출동건수는 몇건,  이송환자수는 총몇명 인지 출력 -->    
+    </div>
 </html>
