@@ -3,8 +3,9 @@
     width: 1000px;
     margin:50px auto;
 }
-#love{
+#spring, #summer, #fall, #winter{
     width:1000px;
     height:700px;
     box-shadow:1px 1px 5px #333;
+    margin-bottom:20px;
 }
