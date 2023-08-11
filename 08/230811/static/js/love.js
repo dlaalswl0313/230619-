@@ -54,6 +54,33 @@ $(async function(){
        var ctx = $("#"+id)[0].getContext("2d");
        //범례
        make_legend(id,ctx);
+       //월 출력
+       print_Month(ctx,month);
+       draw_axis(ctx,month[0]);
+       draw_data(ctx,month);
+    }
+    function draw_data(ctx,month){
+        
+    }
+    function draw_axis(ctx,month){
+        ctx.moveTo(150,120);
+        ctx.lineTo(800,120);
+        ctx.stroke();
+        var n = month==3? -1 :  month==6? 20 :month==9?20:-7;
+        for(var i=0; i<13; i++){
+            ctx.moveTo(150*50*i,120);
+            ctx.lineTo(150*50*i,120);
+            ctx.stroke();
+            ctx.font="10px Airal";
+            ctx.fillText(n,147+50*i,139);
+            n++
+        }
+    }
+    function print_Month(ctx,month){
+        $.each(month,function(i,m){
+            ctx.font="20px Airal";
+            ctx.fillText(m+"월",50,150+100*i);
+        });
     }
     function make_legend(id,ctx){
         //제목
@@ -71,9 +98,7 @@ $(async function(){
             ctx.fillText(year[i]+"년",210+50*x ,yp+3);
             x++;
         }
-    
     }
-
     function keyIn(날짜){
             if( ! (날짜[0] in tmp_data) ) { // tmp_data 객체에 해당 년도가 키로 존재 하냐?
                 tmp_data[날짜[0]]=new Object();
