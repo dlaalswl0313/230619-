@@ -14,7 +14,29 @@ $(async function(){
    $("#result_box").click(function(){
         $(this).toggle();
    });
+   draw_GO();
 });
+function draw_GO(){
+    var ctx = $("#mbti")[0].getContext("2d");
+    var keys = Object.keys(data);
+    $.each(keys,function(i,k){
+        draw_text(i,k,ctx);
+        draw_rect(i,k,ctx,keys);
+    });
+}
+function draw_text(i,k,ctx){
+    ctx.font="15px Arial";
+    ctx.fillText(k,75+50*i,50);
+    ctx.fillText(k,10,95+50*i);
+}
+function draw_rect(i,k,ctx,keys){
+    $.each(keys,function(a,b){
+        console.log(color[data[k][b]-1]);
+        ctx.fillStyle=color[data[k][b]-1];
+        ctx.fillRect(50+50*a,50+50*i,50,50);
+        ctx.strokeRect(50+50*a,50+50*i,50,50);
+    });
+}
 function result(){
     var me = $("#me").val().toUpperCase();
     var you = $("#you").val().toUpperCase();
