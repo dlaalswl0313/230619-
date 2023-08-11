@@ -27,5 +27,12 @@ function result(){
 
     $(".left_img").attr("src","./static/image/"+me+".jpg");
     $(".right_img").attr("src","./static/image/"+you+".jpg");
+
+    $("#left_detail").text(detail[me]);
+    $("#right_detail").text(detail[you]);
     //console.log(state[n-1]);
 }
+const detail={
+    ISTJ:"소금형",ESTP:"활동가형",ESFP:"사교형",ENFP:"스파크형", INFJ:"예언자형",ENTP:"발명가형",INTJ:"과학자형",ESTJ:"사업가형",
+    ISTP:"백과사전형",ESFJ:"친선도모형",ESFJ:"언변능숙형",ISFP:"성인군자형",ENTJ:"지도자형",INFP:"잔다르크형",INTP:"아이디어형"
+};
