@@ -1,0 +1,42 @@
+*{
+    margin:0 auto;
+    padding:0;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+#wrap{
+    width:1200px;
+    margin:20px auto;
+    border: 1px solid #eee;
+}
+#header{
+    margin:0;
+    padding:0;
+    border: 1px solid #eee;
+}
+.select_box{
+    display: flex;
+    justify-content: space-around;
+    column-gap: 20px;
+}
+.select_box label{
+    margin-right:10px;
+}
+.select_box select{
+    width:200px;
+    height:30px;
+    border-radius: 5px;
+}
+.check_wrap .check_box{ 
+    display: flex;
+    justify-content: space-around;
+}
+.search_wrap{display: flex; margin: 20px; }
+#search_result{
+    margin:10px; 
+    background: #eee;
+}
+label{font-weight: 900;}
+
+
+
