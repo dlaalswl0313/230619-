@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chart.js</title>
+   
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <style>
+        #board{ /*원하는 크기 조정, 해상도와 똑같이 안그러면 깨져나옴*/
+            width:500px;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="board">
+        <canvas id="chart1" width="500" height="500"></canvas>
+    </div>  
+</body>
+</html>
+<script>
+    const ctx = $("#chart1")[0];
+
+    new Chart(ctx,{ //chart.js 가 있어야 가능함
+        type:'bar', //막대그래프
+        data:{//범례(막대그래프를 그리기 위한 정보)
+            labels:['영희','철수','민수','은정'],
+            datasets:[{//배열과 객체의 구조 , 그래프 색, 너비 설정
+                labels : '성적표',
+                data:[78,45,98,81],
+                backgroundColor:["red","rgba(255,193,158,0.6)","#eee","blue"], //막대그래프 색깔 , 축의 개수 만큼 배열의 형태로 넣으면 각각 색 지정
+                borderColor:["yellow","black","green","purple"], //막대그래프 선 색깔
+                borderWidth:1
+            }]
+        },
+        options:{
+            scales:{
+                y:{
+                    beginAtZero:true
+                    /*beginAtZero: y축이 0에서 시작해야 하는지 여부를 나타냅니다. true로 설정하면 y축이 0에서 시작합니다. 
+                    이는 차트의 막대가 기준선 아래에서 시작하지 않도록 하여 
+                    데이터 값을 보다 명확하게 표시하는 데 유용할 수 있습니다.
+                    전반적으로 제공되는 옵션 구성은 차트의 y축이 0에서 시작하도록 하여 
+                    차트의 데이터를 더 쉽게 해석할 수 있도록 합니다. */
+                }
+            }
+        }
+    });
+</script>
