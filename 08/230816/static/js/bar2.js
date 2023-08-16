@@ -46,7 +46,7 @@ new Chart(ctx,{
             }
         },
         scales:{
-            x:{ stacked:true},
+            x:{stacked:true},
             y:{stacked:true}
         }
     }
