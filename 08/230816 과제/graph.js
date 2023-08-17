@@ -8,8 +8,8 @@ const nlove =[8,43,100,100,100];
 const hlove =[0,5,70,89,94,14];//선
 
 const chartData = {
-    labels: day,
-    datasets: [
+    labels: day, //축 제목
+    datasets: [ //각 축에 들어갈 데이터, 꾸밈요소 지정가능
         {
             label: "hlove",
             data: hlove,
@@ -42,10 +42,11 @@ const chartData = {
 };
 
 const chartOptions = {
-    scales: {
+    scales: { //차트의 척도(x축,y축)
         y: {
             min:0,
-            max:120
+            max:120,
+            //stacked:true
         },
 
     },
