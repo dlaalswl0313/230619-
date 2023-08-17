@@ -8,6 +8,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script> 
+
     <link rel="stylesheet" href="./static/css/pi.css">
     <script src="./static/js/pi.js"></script>
 </head>
@@ -22,7 +24,7 @@
                 <input type="number" id="income_money" class="money">
                 <button id="income_bt" class="bt">등록</button>
             </div>
-            <div id="expen_wrap" class="input_wrap">
+            <div id="expen_wrap" class="input_wrap" style="display:none">
                 <select id="expen_category" class="category"></select>
                 <input type="number" id="expen_money" class="money">
                 <button id="expen_bt" class="bt">등록</button>

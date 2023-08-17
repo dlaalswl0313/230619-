@@ -14,12 +14,40 @@
 }
 #data_input .labels{
     display: inline-block;
-    border:1px solid #26D8ED;
+    border:1px solid #F2E5CE;
     padding:5px 30px;
     border-radius: 5px;
 }
 #data_input .choice{
-    background:#26D8ED;
+    background:#F2E5CE;
     color:white;
     font-weight: 800;
+}
+.input_wrap{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding:10px 0;
+    column-gap:10px;
+}
+.category, .money{
+    width:150px; height:25px; border-color:#E3C0A7;
+    border-radius: 5px; padding:0 5px;
+}
+.money{
+    outline: none;
+    border:1px solid #E3C0A7;
+}
+.bt{
+    height: 25px; padding: 0 20px;
+    background: #E3C0A7; color:white; border:0;
+    border-radius: 5px; font-size: 17px;
+}
+#chart_board{
+    display: flex; 
+    justify-content: space-evenly;
+}
+#chart1 , #chart2{
+    width:600px; 
+    height:600px;
 }
