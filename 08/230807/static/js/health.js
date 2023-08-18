@@ -46,8 +46,7 @@ $(async function(){
         $(this).toggleClass("asc");
         $(this).toggleClass("desc");
         var name = $(this).data("name");
-        const sort_type= { centerName:"건강증진센터명" ,
-addr:"소재지도로명주소" , nurseCount:"간호사수", doctorCount:"의사수"};
+        const sort_type= { centerName:"건강증진센터명" ,addr:"소재지도로명주소" , nurseCount:"간호사수", doctorCount:"의사수"};
         var has = -1;
         if( $(this).hasClass("asc") ) has=1;
         

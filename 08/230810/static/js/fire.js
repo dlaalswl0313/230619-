@@ -11,16 +11,19 @@ async function getData(){
 
 $(async function(){
     data = await getData();
-    var total=bike=0;
+    var total=bike=0;//변수 초기화
     $.each(data,function(i,item){
-        total+=Number(item.gutCo);// 전체 사고건수
+        total+=Number(item.gutCo);// 전체 사고건수 계산
         bike+=item.rlifAcdAsmCdNm==="오토바이사고"?Number(item.gutCo):0;
+        //오토바이와 관련된 사고,오토바이사고"이면 현재 항목에서 gutCo출동건수 값만큼 증가하고, 그렇지 않으면 0만큼 증가합니다. 
         if( item.rsacGutFsttOgidNm in fire_stat ){
+            //rsacGutFsttOgidNm 속성 값이 fire_stat 객체에 키로 존재하는지 여부를 확인합니다.
+            //fire_stat에 존재하는 경우 코드는 키에 해당하는 fire_stat 개체 내의 값을 증가시켜 "출동건수" 및 "환자수" 속성을 모두 증가시킵니다.
             fire_stat[item.rsacGutFsttOgidNm].출동건수 += item.gutCo;
             fire_stat[item.rsacGutFsttOgidNm].환자수 += item.trnfPcnt;
         }else{
-            fire_stat[item.rsacGutFsttOgidNm] = { 출동건수:Number(item.gutCo),
-                                                  환자수:Number(item.trnfPcnt)};
+            //fire_stat에 키가 없으면 현재 항목의 값으로 초기화된 "출동건수" 및 "환자수" 속성과 함께 fire_stat 개체에 새 항목이 생성됩니다.
+            fire_stat[item.rsacGutFsttOgidNm] = { 출동건수:Number(item.gutCo),환자수:Number(item.trnfPcnt)};
         }
     });
 

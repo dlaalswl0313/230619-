@@ -1,0 +1,11 @@
+#board{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width:700px;
+    height: 700px;
+}
+#car{
+    width:1000px;
+    height:700px;
+}
