@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>store</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<style>
+    #wrap{width:800px;margin:0 auto;}
+    #in_box{width:800px; margin:10px auto;}
+    #in_box input{width:300px;}
+    #store{width:800px;border-collapse: collapse;}
+    #store th{border: 1px solid black; background: aliceblue;}
+    #store td{border:1px solid #aaa;}
+    #result{text-align: center;font-size: 20px; color:#aaa;}
+   
+</style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="in_box">
+            <input type="text"  name="keyword" id="keyword">
+            <button id=" bt">검색</button>
+        </div>
+        <div id="list">
+            <table id="store">
+                <thead>
+                    <th>상호명</th><th>메뉴</th>
+                </thead>
+                <tbody id="result">
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $.getJSON("./data/store.json",function(data){
+        //console.log(data);
+
+        var st_arr = Object.keys(data);
+        //$("#result").append("<tr><td>"+st_arr[0]+"</td><td>"+data[st_arr[0]]+"</tr>");
+
+        $.each(st_arr,function(i,key){
+            $("#result").append("<tr><td>" + key + "</td><td>" + data[st_arr[i]] + "</td></tr>");
+        });
+       
+    });
+    $(function(){
+        $("#bt").click(function(){
+            var search = $("#keyword").val();
+
+        $("#result>tr").filter(function(){
+            var a= $(this).text().indexOf(search) > -1;
+            $(this).toggle(a);
+         })
+       });
+    });
+</script>
