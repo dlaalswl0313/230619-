@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+        *{box-sizing: border-box;margin:10px auto;}
+        #wrap{width:900px;}
+        #input_box{width:900px;}
+        #diary{width:900px;border:1px solid whitesmoke;}
+        #diary th{border-collapse: collapse;background: #eee;}
+        #result{border:1px solid #eee;text-align: center;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="input_box">
+            <input type="date" name="date" id="date">
+            <input type="checkbox" name="weather" value="sunny">맑음
+            <input type="checkbox" name="weather" value="cloud">흐림
+            <input type="checkbox" name="weather" value="thunder">천둥
+        </div>
+        <div id="list">
+            <table id="diary">
+                <thead>
+                    <th>작성일</th><th>제목</th>
+                    <th>날씨</th><th>내용</th>
+                </thead>
+                <tbody id="result">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function(){
+        $.getJSON("./data/fastfor.json",function(data){
+            //console.log(data.diary);
+            $.each(data.diary,function(i,item){
+                $("#result").append("<tr><td class='note'>"+item.작성일+"</td><td>"
+                    +item.제목+"</td><td class='weat'>"+item.날씨+"</td><td>"+item.내용+"</td></tr>");
+            });
+        });
+        
+        $("#date").change(function(){
+            var search = $(this).val(); 
+            
+            $("#result tr").filter(function(){
+                $(this).toggle($(this).find(".note").text().indexOf(search) > -1);
+            });
+            $("input[name=date]:checked").each(function(){
+                search.push($(this).val());
+            });
+            console.log(search);//날짜는 뜨긴뜸..
+            
+        });
+    
+        $("input[name=weather]").change(function(){
+            var wth = new Array();
+            $("input[name=weather]:checked").each(function(){
+                wth.push($(this).val());
+            });
+            //console.log(wth);
+
+            $("#result tr").filter(function(){
+                $(this).toggle($(this).find(".weat").text().indexOf(wth) > -1);               
+            });
+        });
+    });    
+</script>
