@@ -1,0 +1,21 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#wrap{
+    width:200px;
+    border: 1px solid black;
+    display: flex;
+    background:black; 
+    color:white;
+}
+#side{margin:20px;}
+#icon{width:100%;}
+h3{margin:10px auto;border-top: 1px solid #eee;}
+#category li{list-style-type: none;}
+#main{
+    border: 1px solid #B8B8B8;
+    background: #B8B8B8;
+}
+
