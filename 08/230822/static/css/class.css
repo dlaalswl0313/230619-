@@ -13,8 +13,10 @@
     width: 100%;
     display:flex;
     justify-content: center;
-    align-items: center;
+    align-items:center;
+    flex-direction: row-reverse;
     margin: 10px 0;
+    position: relative;
 }
 .search_input{margin: 50px;}
 #word{
@@ -64,6 +66,14 @@ input, #cls{
     font-size: 15px;
 }
 .name{font-weight: 800;}
+.chartmakeBt{
+    position: relative;
+}
+#chartBt{
+    background:#D95961;
+    border:none;
+    color:white;   
+}
 
 
 
