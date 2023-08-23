@@ -68,12 +68,20 @@ input, #cls{
 .name{font-weight: 800;}
 .chartmakeBt{
     position: relative;
+    margin:10px;
 }
 #chartBt{
     background:#D95961;
     border:none;
-    color:white;   
+    color:white;  
+    width:30px;
+    height: 30px;
+    border-radius: 50px;
+    font-size: 10px;
 }
-
+#student_chart{
+    width:900px;
+    height: 500px;
+}
 
 

@@ -1,5 +1,15 @@
-let school = new Object();//json 전체 데이터 저장
+//변수이름, 함수이름 등등 이름을 정할때 대표적인 표기방법
+//카멜표기법(camelCase): studentChartDraw 중간글자가 대문자
+//스네이크 표기법(snake_case) : student_chart_draw
+//케밥 표기법 : student-chart-draw
+//파스칼 표기법 : StudentCharDraw 시작글자가 대문자
 
+let school = new Object();//json 전체 데이터 저장
+let swt = true; //차트와 목록 전환 판단용
+let std_chart='';//차트 객체 담아주기
+
+const chartColor =["#EFA125","#2E58F2","#DB35CD","#F27F2E","#EFE236"
+,"#2C9FE8","#562EF2","#DB35CD","#F2522E","#2CE88F"];
 $(function(){
     $("#detail_bt").click(function(){
         $(".search_detail").slideToggle(500);
@@ -30,13 +40,78 @@ $(function(){
     $("#word").next().click(default_search);
 
     $(".search_detail input").on("keyup", detail_search);
-    $("#cls").change(detail_search);
+    //$("#cls").change(detail_search);
+    $("#cls").change(function(){
+        if(swt){ //반을 변경했을때 detail_search함수실행이냐, 차트업데이트냐
+            detail_search();
+        }else{
+            var ban = $("#cls").val();
+            if(std_chart != '')std_chart.destroy();
+            drawChart(ban);
+        }
+    });
 
-    $("#chartBt").click(drawChart);//상세 검색 시 반을 선택했을때 차트생성
+    $("#chartBt").click(switchScreen);//상세 검색 시 반을 선택했을때 차트생성
 });
-function drawChart(){
+function switchScreen(){
     var ban = $("#cls").val();
     if(ban==''){alert("반을 선택해주세요!!"); return;}
+    if(swt){
+        $(this).text("목록");
+        $("#list_wrap").hide();
+        $("#student_chart").show();
+        $(".search_input").hide();
+        $(".tall_range").hide();
+        $(".eyes_range").hide();
+        if(std_chart != '')std_chart.destroy();
+        drawChart(ban);  
+        swt=false;
+    }else{
+        $(this).text("차트");
+        $("#list_wrap").show();
+        $("#student_chart").hide();
+        
+        $(".search_input").show();
+        $(".tall_range").show();
+        $(".eyes_range").show();
+        swt=true;
+    }
+}
+function drawChart(ban){// drawChart(ban)
+    var ctx = $("#student")[0];
+//선택한 반의 키를 구하기
+    var tall=[];
+    var name=[];
+    var avg=0, tot=0;//전체 학생의 평균키에 사용할 변수
+    $.each(school.학생,function(idx,std){//학생은 배열
+        tot += std.키;
+
+        if(std.반==ban){
+            tall.push(std.키); 
+            name.push(std.이름);
+        }
+    });
+    avg = tot/school.학생.length; //평균 키
+
+    std_chart = new Chart(ctx,{
+        type:"bar",
+        data:{
+            labels: name,
+            datasets:[
+                {
+                    label:ban+"반 키",
+                    data: tall, //예시 2반을 선택하면 2반의 정보가 들어가야함
+                    backgroundColor:chartColor,
+                    base:avg
+                }
+            ]
+        },
+        options:{
+            scales:{
+                y:{min:150,max:190}
+            }
+        }
+    })
 }
 function detail_search(){
     var minT=0, maxT=0, minE=0,maxE=0;
@@ -69,7 +144,7 @@ function detail_search(){
         }
         //반 검색
         if(isShow){
-            if($(this).find(".ban").find().indexOf(ban) == -1)
+            if( $(this).find(".ban").text().indexOf(ban) == -1 )
                 isShow=false;
         }
         $(this).toggle(isShow);
