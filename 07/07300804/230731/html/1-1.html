@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="text" maxlength='12' name="ip1" id="ip1">
+    <input type="text"  maxlength='12' name="ip2" id="ip2">
+    <button id="bt">계산</button> 
+    <div id="res"></div>
+</body>
+<script>
+    /*문자열을 입력받아 두 개의 문자 수가 12이상이면 다시입력, 아니면 실패*/
+    const maxlength=12;
+    $(function(){
+        $("#bt").click(function(){
+            var str1=$("#ip1").val();
+            var str2=$("#ip2").val();
+            var res=str1+str2;
+
+            if(res.length>=maxlength){
+                $("#res").html("다시 입력해주세요");
+            }else{
+                $("#res").html("실패");
+                $("#ip1").val("");
+                $("#ip1").focus();
+                $("#ip2").val("");
+            }
+        });
+    });
+</script>
+</html>

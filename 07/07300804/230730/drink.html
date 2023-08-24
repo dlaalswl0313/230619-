@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("#soju").click(function(){
+                $("#soju_list").slideToggle();
+            });
+            $("#beer").click(function(){
+                $("#beer_list").slideToggle(1000);
+            });
+            $("#liquor").click(function(){
+                $("#liquor_list").slideToggle("slow");
+            });
+            $(".image").mouseover(function(){
+                $(this).find('.big').show();
+            });
+            $("#liquor").click(function(){
+                $(this).find('.big').hide();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="side">
+         <div id="soju">
+            <div id="soju_list">
+                <ul>
+                    <li>참이슬</li>
+                    <li>새로</li>
+                    <li>처음처럼</li>
+                    <li>린</li>
+                    <li>좋은데이</li>
+                </ul>
+            </div>
+            <div id="beer">
+                <div id="beer_list">
+                    <ul>
+                        <li>테라</li>
+                        <li>카스</li>
+                        <li>켈리</li>
+                        <li>하이트</li>
+                        <li>칭따오</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="liquor">
+                <div id="liquor_list">
+                    <ul>
+                        <li>잭다니엘</li>
+                        <li>임페리얼</li>
+                        <li>발렌타인</li>
+                        <li>맥컬란</li>
+                        <li>시바스리갈</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="middle">
+                <div class="gallery">
+                    <div class="image">
+                        <img class="small" src="loremflickr.com/200/200/alcholic?random=1">
+                        <img class="big" src="loremflickr.com/500/500/alcholic?random=1">
+                    </div>
+                </div>
+                <div class="gallery">
+                    <div class="image">
+                        <img class="small" src="loremflickr.com/200/200/alcholic?random=2">
+                        <img class="big" src="loremflickr.com/500/500/alcholic?random=2">
+                    </div>
+                </div>
+                <div class="gallery">
+                    <div class="image">
+                        <img class="small" src="loremflickr.com/200/200/alcholic?random=3">
+                        <img class="big" src="loremflickr.com/500/500/alcholic?random=3">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        ul{list-style-type: none;}
+        #wrap{
+            width:1200px;
+            margin:0 auto;
+            display: flex;
+        }
+        #side{
+            width:300px;
+            padding:100px 10px;
+        }
+        #soju, #beer, #liquor{
+            background:teal;
+            color:white;
+            text-align: center;
+            padding:10px 0;
+        }
+        #soju_list, #beer_list, #liquor_list{
+            text-align: center;
+            background:sandybrown;
+            display:none;
+        }
+        #side ul li{
+            padding:5px 0; 
+            font-size: 19px;
+        }
+        #middle{
+            width:900px;
+        }
+        .gallery{
+            margin-top:200px;
+            width:700px;
+            display:flex;
+            justify-content: space-between;
+            position:relative;
+        }
+        .image{
+            width:200px;
+            position:relative;
+        }
+        .big{
+            position:absolute; /*position이 있어야 z-index가능*/
+            top:-100px;
+            left:200px;
+            z-index:10; /*숫자가 높을수록 상단에 위치 낮을수록 하단에 위치*/
+            display: none;
+        }
+    </style>
+</body>
+</html>

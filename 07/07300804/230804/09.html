@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+     <input type="text" name="number" id="number">
+     <button id="bt">등록</button>
+     <div id="list"></div>
+</body>
+</html>
+<script>
+    const num = [777,334,517,618,910,111,237,194];
+    const name =["김첨지","설렁탕","나운수","나지게","차현식","달수빈","육펜스","오동잎"];
+    const age = [20,21,22,23,24,25,26,27,28];
+
+    $(function(){
+        $("#bt").click(function(){
+            var a = parseInt($("#number").val());
+            var idx = num.indexOf(a);
+            var rec=$("<div class=rec>"+name[idx]+"<br>"+age[idx]+"</div>").css({width:"100px",height:"50px",border:"1px solid black"});
+
+            if(idx!=-1){
+                $("#list").append(rec);
+            }else{
+                alert("없다");
+            }   
+        });
+    })
+</script>
+<style>
+    #list{
+        display:flex;
+    }
+</style>

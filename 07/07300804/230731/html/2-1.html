@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="wrap"></div>
+    <input type="text" name="num" id="num">
+    <button id="bt">적용</button>
+</body>
+<script>
+    /*1번 div가 짝수면 빨강 ,홀수면 1번 3번 흰색,2번이 블루*/
+    $(function(){    
+        $("#bt").click(function(){
+            var a =parseInt($("#num").val());
+            if(a%2==0){
+             $("#wrap").css({background:"red",width:"100px",height:"100px"});
+            }else{
+             $("#wrap").css({background:"blue",width:"100px",height:"100px"});
+            }
+      
+        });
+         
+    });
+</script>
+</html>

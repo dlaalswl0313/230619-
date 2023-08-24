@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="text" id="ip">
+    <button id="bt">등록</button>
+    <div id="list"></div>
+    <!--배열을 화면에 다 출력하고 , 입력한 도시이름이 화면에 출력된 도시이름이면 굵게표시하라-->
+</body>
+</html>
+<body> 
+<script>
+    const city=["서울","대전","대구","부산","전주","울산","강릉","경주"];
+        
+        $(function(){
+            for(var i in city){
+                $("#list").append("<span>"+city[i]+"</span>");
+            }
+             $("#bt").click(function(){ 
+                var a= $("#ip").val();
+                var idx=city.indexOf(a);
+                    if( idx!=-1){                      
+                        $("span").eq(idx).css("font-weight","900");
+                    }else{
+                        $("#list").text("없다");
+                    }            
+            });
+        })
+</script>

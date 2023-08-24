@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+    $(function(){
+        $("#bt").click(function(){
+            var a=parseInt($("#avg1").val());
+            var b=parseInt($("#avg2").val());
+            var c=parseInt($("#avg3").val());
+
+            var res=(a+b+c)/3;
+            
+            if(res>=90){
+                $("#result").html("매우 좋다");
+            }else if(res>=80){
+                $("#result").html("좋다");
+            }else{
+                $("#result").html("별로");
+            }
+        });
+    });
+</script>
+</head>
+<body> 
+    <!--
+    input 태그 3개, 버튼 1개, input에 숫자3개 입력하고
+    숫자들의 평균값이 80이상이면 좋다, 90이상이면 매우좋다,70이상이면 별로, 출력은 div태그안에
+    -->
+    <fieldset>
+        <legend>평균값</legend>
+            <label>점수1</label><input type="text" name="avg" id="avg1">
+            <label>점수2</label><input type="text" name="avg" id="avg2">
+            <label>점수3</label><input type="text" name="avg" id="avg3">
+        <button id="bt">구하기</button>
+            <div id="result"></div>
+    </fieldset>
+</body>
+</html>

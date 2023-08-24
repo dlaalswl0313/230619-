@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+    $(function(){
+        $("#bt").click(function(){
+            var a=parseInt($("#num").val());
+            if(a%2==0){
+                $("#wrap").css({background:"red"});
+            }else{
+                $("#wrap").css({background:"blue"});
+            }
+        });
+    });
+</script>
+<style>
+    #wrap{width:100px;height:100px;}
+</style>
+</head>
+<body>
+    <div id="wrap"></div>
+    <input type="text" name="num" id="num">
+    <button id="bt">적용</button>
+</body>
+</html>

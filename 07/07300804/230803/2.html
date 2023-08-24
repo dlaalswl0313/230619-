@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="text" name="input" id="ip">
+    <button id="bt">등록</button>
+    <div id="list"></div>
+</body>
+</html>
+<script>
+    const item=["돈","신발","모자","선풍기","우산","옷","자동차","가방"];
+
+    $(function(){
+        $("#bt").click(function(){
+            var a = $("#ip").val();  
+            var idx = item.indexOf(a);
+            if(idx!=-1){
+                alert("등록된 아이템 입니다.");
+            } else{
+                item.push(a);
+            }       
+            $.each(item,function(i,data){
+                $("#list").append("<div>"+data+"<b onclick='del(this)'> 삭제</b></div>");
+                
+            });
+            
+        });
+     
+    })
+    function del(obj){
+        var i=0;
+        for(var b=0; b<item.length; b++){
+           if( document.getElementsByTagName("b")[b]==obj )
+           {
+                i=b; break;
+           }
+        }
+        item.splice(i,1);
+        
+        $("#list div").eq(i).remove();
+    }
+    //$("#list").empty();
+
+        // $.each(item,function(i,data){
+        //     $("#list").append("<div>"+data+"</div>");
+        // })
+
+</script>

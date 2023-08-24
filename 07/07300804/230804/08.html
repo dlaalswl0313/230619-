@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+        table tr td{
+            width:50px;
+            height:50px;
+            border:1px solid black;
+            text-align: center;
+            color:white;
+        }
+        table tr:first-child td:nth-child(1){background:red;}
+        table tr:first-child td:nth-child(2){background:blue;}
+        table tr:first-child td:nth-child(3){background:yellow;}
+        table tr:first-child td:nth-child(4){background:green;}
+        table tr:first-child td:nth-child(5){background:black;}
+        table tr td:nth-child(1){background: purple;}
+        table tr td:nth-child(2){background: navy;}
+        table tr td:nth-child(3){background: #66FFB2;}
+        table tr td:nth-child(4){background: gold;}
+        table tr td:nth-child(5){background: skyblue;}
+    </style>
+</head>
+<body>
+    <div id="color">
+        <table>
+            <tr>
+                <td class="cell" data-name="red">빨강</td>
+                <td class="cell" data-name="blue">파랑</td>
+                <td class="cell" data-name="yellow">노랑</td>
+                <td class="cell" data-name="green">초록</td>
+                <td class="cell" data-name="black">검정</td>
+            </tr>
+            <tr>
+                <td class="cell" data-name="purple">보라</td>
+                <td class="cell" data-name="navy">남색</td>
+                <td class="cell" data-name="#66FFB2">민트</td>
+                <td class="cell" data-name="gold">골드</td>
+                <td class="cell" data-name="skyblue">하늘색</td>
+            </tr>
+        </table>
+    </div>
+    <div id="list">
+        <div class='rec' style="height:30px;"></div>
+    </div>
+</body>
+</html>
+<script>
+   
+    $(function(){
+        $(".cell").click(function(){
+            var color = $(this).data("name");
+            var rectangle =$("<div class='rec'></div>").css({width:"50px",height:"50px",border:"1px solid black",background:color});
+          $("#list").prepend(rectangle); 
+          create();
+        });
+        
+    });
+    function create(){
+        $(".rec").click(function(){
+            
+                $(this).remove(); //$(태그이름).remove(id나 class명)
+            });
+        }
+</script>

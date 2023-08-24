@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+    $(function(){
+        $("#bt").click(function(){
+            /*var a= (parseInt($("#ip").val()));
+            switch(a){
+                case 10: alert("집에 간다"); break;
+                case 20: alert("못간다"); break;
+                case 50: alert("내일 간다"); break;
+                default: alert("d");
+            };*/
+            var a=parseInt($("#ip").val());
+            switch(a){
+                case 1: $("#div1").css({background:"red"});break;
+                case 3: $("#div2").css({background:"blue"});break;
+                default: $("div").css({background:"white"});
+            };
+        });
+    });
+</script>
+<style>#div1{width:100px; height:100px;}#div2{width:100px; height:100px;}</style>
+</head>
+<body>
+    <input type="text" name="ip" id="ip">
+    <button id="bt">출력</button>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

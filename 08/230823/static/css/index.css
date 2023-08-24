@@ -4,18 +4,74 @@
     box-sizing: border-box;
 }
 #wrap{
-    width:200px;
-    border: 1px solid black;
-    display: flex;
-    background:black; 
-    color:white;
+    width:100%;
+    max-width:1000px;
+    min-width:700px;
+    margin:0 auto;
 }
-#side{margin:20px;}
-#icon{width:100%;}
-h3{margin:10px auto;border-top: 1px solid #eee;}
-#category li{list-style-type: none;}
+#word, #money{
+    border-radius: 5px; 
+    outline: none;
+    border:0;
+    font-size:17px;
+    margin:10px;
+}
+
+.sideclose{/*side  접혀있는 모습  */
+    position:absolute;
+    left:-300px; top:0;
+    padding:100px 50px;
+    display:flex;
+    flex-direction: column;
+    background:#222845;    color:#fff;
+    height:100%;    row-gap:20px;    width:300px;
+    transition: left 1s ease;
+}
+.close{ /* 접혀있을때 아이콘 모습 */
+    position:absolute;
+    top:45px;left:300px;color:#222845;
+    font-size:30px;    cursor:pointer;
+    transition: left 1s ease 0.5s;
+}
+.open{    left:50px;color:#fff;} /*  펼쳐 질때 아이콘 모습 */
+.sideopen{    left:0;  }   /* side 펼치면  */
+
+
+#side h3{
+    border-top:2px solid #aaa; 
+    padding:10px;
+}
+#category{margin:10px auto;}
+#category li{
+    display:flex; 
+    align-items: center;
+    column-gap: 10px;
+    margin: 10px;
+}
+#category input[type=checkbox]{
+    height:17px;
+    width:17px;
+}
+#money{
+    width:120px;
+}
 #main{
-    border: 1px solid #B8B8B8;
-    background: #B8B8B8;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    background: #eee;
+    font-size: large;
+    text-align: center;
 }
+#make_bt{width:100%;display:flex;gap:20px;}
+#chart,#menu{
+    width:80px;
+    height:50px;
+    font-size:18px;
+    border-radius: 8%;
+    border:none;
+    background: aliceblue;
+}
+#board{width:800px;height:500px;}
+
 

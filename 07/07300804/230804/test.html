@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            또는 다음과 같이 쌍 따옴표" 안에서는 단 따옴표를 사용하면 안된다.
+                var x =  "나는 \"홍길동\"입니다.";
+                document.write(x);
+                
+                출력 : 나는 "홍길동"입니다.
+
+                var x =3;
+                var y=x**2;
+                document.write(y); //9
+                document.write("<br>");
+                y++;
+                document.write(y);//10
+                document.write("<br>");
+                x--;
+                document.write(x);//2 
+                
+                var scores = {kor:80, eng:90,math:100}
+                total = scores.kor + scores.eng+scores.math; 
+                avg=total/3;
+
+                document.write("합계:"+total);
+                document.write("<br>");
+                document.write("평균:"+avg);  
+        */
+         /*var userid = prompt("아이디를 입력하세요");
+            if(userid=="admin"){
+              document.getElementById("a").innerHTML= "<button>글쓰기</button>";
+            }*/
+    </script>
+</head>
+<body>
+    <div id="madal">
+      <div id="modal_bg"></div>
+       <div id ="list">
+          <label>이름</label><input type ="text" id="name">
+          <label>나이</label><input type ="text" id="age">
+          <button id="bt">등록</button>
+      </div>
+    </div>
+</body>
+</html>
+<style>
+  #modal{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+  #modal_bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+  }
+  #list{
+    transform: translate(-50%,-50%);
+    position:relative;
+    left:50%;
+    top:50%;
+    display: flex;
+    justify-content: center;
+    margin-top:100px;
+  }
+</style>
