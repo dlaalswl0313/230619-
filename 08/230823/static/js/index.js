@@ -38,7 +38,8 @@ $(function(){
                 $(this).toggle($(this).text().indexOf(money) > -1);   
             });
     });
-//체크박스     
+//체크박스    
+    //체크한분류를저장할배열을 안넣고, filter처리도 안함...
     $("#icon").click(function(){
         $(this).toggleClass("open");
         $("#side").toggleClass("sideopen");

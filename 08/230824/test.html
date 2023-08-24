@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <!--부트 스트랩-->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+ <!-- jquery-->
+ <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+ 
+ <!--chart.js -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  
+ </head>
+ <body>
+     <div id="wrap" class="noneactive">
+         <div id="side" class="sideclose">
+             <b id="icon" class="close"><i class="bi bi-list"></i></b>
+             <input type="text" id="word">
+             <h3>분류</h3>
+             <ul id="category">
+                          
+             </ul>
+             <h3>금액</h3>
+             <div><input type="number" id="money"> 이하</div>
+             <div id="bt_box">
+                    <a href="javascript:showList();">List</a>
+                    <a href="javascript:showChart();">Chart</a>
+            </div>
+         </div>
+         <div id="main"></div>
+         <div id="mychart" style="display: none;">
+            <canvas id="mycanvas" width="500" height="400"></canvas>
+            <canvas id="incomeChart" width="500" height="400"></canvas>
+         </div>
+     </div>
+ </body>
+ </html>
+ 
+<script>
+    let house=new Object(); //전체 데이터 저장용
+    let colors =["#AD99FF","#DE85A7","#F5CBA0","#E0DEBA","#E1FAE7"
+    ,"#CDC5F9","#E3AFC5","#F5CA9F","#99FFB5","#FF8582","#9F71DE"];
+$(function(){
+    $.getJSON("./data/index.json", function(data){
+        house=data; //전체 데이터 저장
+        var set = new Set(); // 분류만 골라내기 위한 set
+        $("#main").append('<div class="expenBox title"><h3>지출내역</h3>'+
+        '<span class="categoryText">분류</span>'+
+        '<span class="moneyText">금액</span>'+
+        '<span class="detailText">내용</span></div>');
+        $.each(house.지출,function(i,d){  // 지출 부분 화면 출력
+            set.add(d.분류);
+            $("#main").append('<div class="detail">'+
+            '<span class="categoryText">'+d.분류+'</span>'+
+            '<span class="moneyText">'+d.금액.toLocaleString()+'원</span>'+
+            '<span class="detailText">'+d.내용+'</span>'+
+            '</div>');
+        })
+        $("#main").append('<div class="incomeBox title"><h3>수입내역</h3>'+
+        '<span class="categoryText">분류</span>'+
+        '<span class="moneyText">금액</span>'+
+        '<span class="detailText">내용</span></div>');
+        $.each(house.수입,function(i,d){ // 수입 부분 화면 출력
+            set.add(d.분류);
+            $("#main").append('<div class="detail">'+
+            '<span class="categoryText">'+d.분류+'</span>'+
+            '<span class="moneyText">'+d.금액.toLocaleString()+'원</span>'+
+            '<span class="detailText">'+d.내용+'</span>'+
+            '</div>');
+        })
+
+        var cg = Array.from(set);  
+        $.each(cg,function(i,c){   // 분류 ul 태그 추가
+            $("#category").append('<li><input type="checkbox" name="category" value="'+c+'">'+c+'</li>')
+        });
+        $("input[name=category]").change(categorySearch);//체크박스 선택시 나오도록
+        //console.log(cg);
+    });
+    $("#icon").click(function(){  // 사이드 접펼
+        $(this).toggleClass("open");
+        $("#side").toggleClass("sideopen");
+        $("#wrap").toggleClass("sideactive");
+    });
+
+    $("#word").on("keyup",keywordSearch);// input 입력
+    $("#money").on("keyup",moneyBelow); // 금액 입력 부분 
+    $("input[name=category]").click(categorySearch);//체크할때마다 동작되도록
+});
+//체크박스
+function categorySearch(){
+    var ctg = []; //선택(체크)한 분류를 저장 할 배열
+    //체크한것만가져오기
+    $("input[name=category]:checked").each(function(){
+        ctg.push($(this).val());
+    });
+    $(".detail").filter(function(){
+        var isShow = true; 
+        //배열에 존재하는 값인지 아닌지 확인 하는 방법?
+        var text = $(this).find(".categoryText").text();
+        //전체 글에서 분류 적힌 부분 찾기 
+        if(ctg.indexOf(text)== -1 && ctg.length!=0) isShow=false;
+        $(this).toggle(isShow);
+    });
+
+}
+
+
+function moneyBelow(){//입력한 금액보다 낮은 금액이 출력된다.
+    var moneyB= $(this).val(); //입력한 금액 가져오기 
+    if(moneyB !=''){ //금액 입력했다면
+        $(".detail").filter(function(){ //필터처리
+            var isShow=true;
+            var m = $(this).find(".moneyText").text().replace("원","").replace(/,/g,"");
+            //화면에 천단위(,)해놓아서,제거하는것까지했음
+            if( Number(moneyB) < m) isShow=false;
+            $(this).toggle( isShow );
+        });
+    }
+}
+
+function keywordSearch(){
+    var word = $(this).val();
+    
+    $(".detail").filter(function(){
+        $(this).toggle( $(this).text().indexOf(word) > -1);
+    });
+}
+function showList(){
+    $("main").show();
+    $("#mychart").hide();
+}
+let house_chart='';
+function showChart(){
+    $("#main").hide();
+    $("#mychart").show();
+    if(house_chart==''){//차트가 이미 그려졌다면 실행 안하기
+        var ctx1 = $("#mycanvas")[0];
+        var ctx2 = $("#incomeChart")[0];
+//분류와 분류별 금액 총액 구하기를 하겠습니다.
+  var setE = new Set(); //지출 분류
+  var totalE = new Array(); //지출 분류별 총금액
+
+  var setE2 = new Set();
+  var totalE2 = new Array();
+  
+
+    $.each(house.지출, function(idx,data){
+        var 분류 = data.분류;
+        var 금액 = Number(data.금액);
+        if(setE.has(data.분류)){//set에 해당 분류가 저장되어있다면 true
+            totalE[분류]+=금액; //분류 별 금액 누적
+        }else{//set에 안들어있다면
+            totalE[분류]=금액; 
+        }
+        setE.add(data.분류);
+    });      
+        new Chart(ctx1,{
+            plugins:[ChartDataLabels],
+            type:"pie",
+            data:{
+                labels:Array.from(setE),
+                datasets:[{
+                    data:Object.values(totalE),
+                    backgroundColor:colors,
+                    datalabels:{
+                        color:"white",
+                        backgroundColor:"gray",
+                        padding:10,
+                        borderRadius:5
+                    }
+                }]
+            },
+            options:{
+                plugins:{
+                    title:{
+                        display:true,
+                        text:"지출"
+                    }
+                }
+            }  
+      })
+    }
+    $.each(house.수입, function(idx,data){
+        var 분류 = data.분류;
+        var 금액 = Number(data.금액);
+        if(setE2.has(data.분류)){//set에 해당 분류가 저장되어있다면 true
+            totalE2[분류]+=금액; //분류 별 금액 누적
+        }else{//set에 안들어있다면
+            totalE2[분류]=금액; 
+        }
+        setE2.add(data.분류);
+    });      
+        new Chart(ctx2,{
+            plugins:[ChartDataLabels],
+            type:"pie",
+            data:{
+                labels:Array.from(setE2),
+                datasets:[{
+                    data:Object.values(totalE2),
+                    backgroundColor:colors,
+                    rotation:45,
+                    datalabels:{
+                        color:"white",
+                        backgroundColor:"gray",
+                        padding:10,
+                        borderRadius:5
+                    }
+                    
+                }]
+            },
+            options:{
+                plugins:{
+                    title:{
+                        display:true,
+                        text:"수입"
+                    }
+                }
+            }  
+        })
+    }
+</script>
+<style>
+    *{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+ul{list-style-type: none;}
+#wrap{
+    width:100%;
+    max-width:1000px;
+    min-width:700px;
+    
+}
+.noneactive{ margin:0 auto;}
+.sideclose{/*side  접혀있는 모습  */
+    position:absolute;
+    left:-300px; top:0;
+    padding:100px 50px;
+    display:flex;
+    flex-direction: column;
+    background:#222845;    color:#fff;
+    height:100%;    row-gap:20px;    width:300px;
+    transition: left 1s ease;
+}
+.close{ /* 접혀있을때 아이콘 모습 */
+    position:absolute;
+    top:45px;left:300px;color:#222845;
+    font-size:30px;    cursor:pointer;
+    transition: left 1s ease 0.5s;
+}
+.open{    left:50px;color:#fff;} /*  펼쳐 질때 아이콘 모습 */
+.sideopen{    left:0;  }   /* side 펼치면  */
+@media screen and (max-width:1600px){
+    .sideactive{
+        margin-left:300px;
+    }
+}
+#word, #money{
+    height:30px; 
+    border-radius: 5px; 
+    padding:0 5px; 
+    outline: none;
+    border:0;
+    font-size:17px;
+}
+#side h3{border-top:2px solid #aaa; padding-top:10px;}
+#category li{
+    display:flex; align-items: center;
+    column-gap: 10px;
+    padding:2px 0;
+}
+#category input[type=checkbox]{
+    height:17px;width:17px;
+}
+#money{
+    width:150px;
+}
+
+
+#main{
+    width:100%;
+}
+.title{
+    margin-top:30px ;
+}
+.title span{text-align: center; font-size:17px; font-weight:800;border-bottom:2px solid #aaa;}
+.categoryText{display:inline-block; width:20%;padding:3px 10px; border-right:1px solid #aaa;}
+.moneyText{display:inline-block; text-align:right;width:20%;padding:3px 10px; border-right:1px solid #aaa;}
+.detailText{display:inline-block; width:60%;padding:3px 10px;}
+.detail{
+
+}
+.detail:nth-child(even){
+    background:#ddd;
+}
+#bt_box{display: flex;justify-content: space-between;}
+#bt_box a {
+    color:black;
+    text-decoration: none;
+    background:white;
+    border-radius:5px;
+    width:100px;
+    margin:10px;
+    text-align: center;
+}
+#bt_box a:hover{background:#222845; color:white;border:1px solid white;}
+#mychart{
+    width:700px;
+    height:400px;
+    display: flex;
+}
+#incomChart{width:500px;height:400px;}
+
+</style>
