@@ -36,7 +36,7 @@ function draw(){
 //보드 그리기
     var gidx=Object.values(gamer)//참가자 번호 만 배열로 가져오기
     $.each(gidx,function(){
-        $(".pan").eq(0).append("<svg><circle cx='150' cy='150' r='50'></svg>");
+        $(".pan").eq(0).append("<svg></svg>");
     });
 }
 function setOpen(){
