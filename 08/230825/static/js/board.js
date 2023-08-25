@@ -9,9 +9,13 @@ $(function(){
     initBoard();
     draw();
     $("#setBt").click(setOpen);
-    t=setInterval(()=>{
+    $("#dice_bt").click(dice_turn);
+    
+    t=setInterval(()=>{ //참가자 등록 완료될때까지 감시하기
         if(gamer.length>0){
-            console.log(gamer);
+            //console.log(gamer);
+            $("#dice_bt").attr('disabled',false);
+            draw(); //참가수 만큼 
             clearInterval(t);
         }
     },50);
