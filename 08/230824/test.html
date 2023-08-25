@@ -179,7 +179,15 @@ function showChart(){
                     title:{
                         display:true,
                         text:"지출"
-                    }
+                    }, 
+                    datalabels:{
+                        formatter:function(value,context){
+                        var idx = context.dataIndex;
+                        var lb = context.chart.data.labels[idx];//해당 데이터 이름
+                        var total = context.chart.getDatasetMeta(0).total;
+                        return Math.round(value/total*100)+"%";
+                    } 
+                  }
                 }
             }  
       })
@@ -203,13 +211,6 @@ function showChart(){
                     data:Object.values(totalE2),
                     backgroundColor:colors,
                     rotation:45,
-                    datalabels:{
-                        color:"white",
-                        backgroundColor:"gray",
-                        padding:10,
-                        borderRadius:5
-                    }
-                    
                 }]
             },
             options:{
@@ -217,6 +218,20 @@ function showChart(){
                     title:{
                         display:true,
                         text:"수입"
+                    },
+                    datalabels:{
+                        color:"white",
+                        backgroundColor:"gray",
+                        padding:10,
+                        borderRadius:5,
+                        formatter:function(value,context){ 
+                            var idx = context.dataIndex;
+                            var lb = context.chart.data.labels[idx]; //해당 데이터 이름
+    
+                            var total = context.chart.getDatasetMeta(0).total;
+    
+                            return Math.round(value/total*100)+"%";
+                        }
                     }
                 }
             }  
