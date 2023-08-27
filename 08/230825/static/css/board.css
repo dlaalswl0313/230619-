@@ -1,8 +1,7 @@
 #board_container{
     display:grid;
     grid-template-columns:repeat(9,1fr);
-    grid-template-rows: repeat(7, calc(1400px/9));
-    
+    grid-template-rows: repeat(7, calc(1400px/9));   
 }
 .pan{border:0px solid black;display: flex;align-items: end;}
 .center{
@@ -22,32 +21,43 @@
     position:absolute;
     top:50%; left:50%;
     transform: translate(-50%,0);
-    height:300px;
-    width:500px;
-    background: none;
+    height:300px;width:500px;
 }
 #items #dice_bt{
     position:absolute;
-    bottom:0; left:50%; transform: translate(-50%,0);
+    bottom:0;left:50%;transform: translate(-50%,0);
+    padding:5px 30px; font-size:25px;font-weight:800;
+    border:0; border-radius: 5px;
     background:#0B1C40;
-    padding:5px 30px;
-    border: 0;
-    border-radius: 5px;
     color:white;
+    cursor: pointer;
+}
+#dice_wrap{
+    position:relative;
+    width:100px;    height:100px;
+    margin:0 auto; perspective: 700px;
+}
+#dice_wrap:after{
+    position:absolute;
+    left:50%; bottom:-60px;
+    transform: translateX(-50%);
+    display: block;
+    content:""; width:120px; height:15px;
+    filter: blur(5px);
+    background: rgb(0,0,0,0.7);
 }
 #dice_wrap .dice{
-    position:absolute;
-    top:0;left:0;
+    position:absolute; top:0; left:0;
     width:100%; height:100%;
     transition: all 1.5s;
     transform-style: preserve-3d;
+    /* animation: turn 3s linear infinite; */
 }
 #dice_wrap .dice > div{
-    position:absolute;
-    top:0;left:0;
-    display: flex;justify-content: center;align-items: center;
-    width:100%;height: 100%;font-size: 30px;
-    border: 5px solid black;
+    position: absolute; top:0; left:0;
+    display:flex; justify-content: center; align-items: center;
+    width:100%; height:100%; font-size:30px;
+    border:5px solid #444;
     background: rgba(54, 77, 153, 0.432);
 }
 #dice_wrap .dice>div:nth-child(1){transform: translateZ(50px);}
@@ -56,23 +66,8 @@
 #dice_wrap .dice>div:nth-child(4){transform: translateY(50px) rotateX(-270deg);}
 #dice_wrap .dice>div:nth-child(5){transform: translateX(50px) rotateY(90deg);}
 #dice_wrap .dice>div:nth-child(6){transform: translateZ(-50px) rotateY(-180deg);}
-@keyframes turn{
-    0%{transform:rotateX(0deg),rotateY(0deg),rotateZ(0deg);}
-    100%{transform:rotateX(360deg),rotateY(360deg),rotateZ(360deg);}
-}
-#dice_wrap{
-    position:relative;
-    width:100px;
-    height:100px;
-    margin: 0px auto;
-    perspective:700px;
-}
-#dice_wrap:after{
-    position:absolute;
-    left:50%;
-    bottom:-60px;
-    transform: translate(-50%);
-    content:"";width:120px;height:10px;
-    filter:blur(5px);
-    background: rgba(0,0,0,0.7);
+
+@keyframes turn {
+    0%{transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+    100%{transform: rotateX(360deg) rotateY(720deg) rotateZ(720deg);}
 }

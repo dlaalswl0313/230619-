@@ -65,17 +65,19 @@
 </html>
 <script>
     $(function(){
-        $("#reg").click(function(){
-           $(".name").each(function(idx){/*const gamer=[]; //참가자 정보 저장*/
-            opener.gamer.push({[$(this).val()]:(idx+1)});
-           });
-           window.close();
+    $("#reg").click(function(){
+// 본 페이지의 gamer 배열에 입력한 참가자들 이름을 저장 하시오.
+// 저장 구조는 { 김유신:1 } , { 이순신:2} , {김춘추:3}
+        $(".name").each(function(idx){
+            opener.gamer.push( { [$(this).val()]:(idx+1)});
         });
-        $("#add").click(function(){
-            var top= Number($(this).css("top").split("px")[0]);
-            $(this).css("top", top + 40 +"px"); //+버튼의 top값을 구해서 40씩 증가
-            $("#people").append('<input type="text" class="name">');
-            $(".name").last().focus();
-        });     
+        window.close();
     });
+    $("#add").click(function(){
+        var top= Number($(this).css("top").split("px")[0]);
+        $(this).css("top",top+40+"px"); // + 버튼의 top값 구해서 40씩 증가
+        $("#people").append('<input type="text" class="name">');
+        $(".name").last().focus();
+    });
+});
 </script>  
