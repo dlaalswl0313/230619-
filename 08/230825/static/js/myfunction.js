@@ -36,12 +36,12 @@ function draw(){
 //보드 그리기
     var gidx=Object.values(gamer)//참가자 번호 만 배열로 가져오기
     $.each(gidx,function(){
-        $(".pan").eq(0).append("<svg><circle cx='150' cy='100' r='50'>"+gcolor+"</circle></svg>");
+        
+        $(".pan").eq(0).prepend();
     });
 }
 function setOpen(){
-    var child = window.open("set_gamer.html",'참가자설정',
-    'width=300,height=300,top=400,left=750');
+    var child = window.open("set_gamer.html",'참가자설정','width=300,height=300,top=400,left=750');
 }
 function dice_turn(){
     $(".dice").css('animation','turn 3s linear infinite');
