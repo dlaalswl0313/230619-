@@ -35,9 +35,10 @@ const gcolor=["#F5B022","#EBC128","#DE8D2A","#F57422","#EB4F21"];
 function draw(){
 //보드 그리기
     var gidx=Object.values(gamer)//참가자 번호 만 배열로 가져오기
-    $.each(gidx,function(){
-        
-        $(".pan").eq(0).prepend();
+    $.each(gidx,function(i,p){
+        $(".pan").eq(0).prepend('<svg width="50" height="50" viewBox="0 0 50 50" style="position:absolute">'+
+        '<circle cx="20" cy="10" r="10" fill="'+gcolor[i]+'"/>'+
+        '<rect width="40" height="10" x="18" y="25">'+'</svg>');
     });
 }
 function setOpen(){

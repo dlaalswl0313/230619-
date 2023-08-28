@@ -10,8 +10,6 @@
     margin:0;
     box-sizing:border-box;
     font-family: 'Grandiflora One', serif;
-    background:#590209;
-    color:white;
 }
 #wrap{width:1400px;margin:0 auto;}
 #wrap .main_title{
