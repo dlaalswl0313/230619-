@@ -47,14 +47,15 @@
     function getCookie(name){
         var cookies = document.cookie.split(";");
         for(var i in cookies){
-            var cookie = cookies[i].trim();//trim 공백 제거
-            if(cookie.startsWith(name='=')){
-                return cookie.substring(name.length+1,cookie.length);
+            var cookie = cookies[i].trim();
+            if( cookie.startsWith(name+"=") ) {
+                return cookie.substring(name.length+1, cookie.length);
             }
         }
         return '';
     }
     var isLogin = getCookie("isLogin");
-    var id = getCookie('id');
-    document.write(isLogin+'  '+id);
+    var id = getCookie("id");
+
+    document.write(isLogin+"  "+ id);
 </script>

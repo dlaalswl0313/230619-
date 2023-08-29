@@ -26,8 +26,8 @@ var app = http.createServer(function(request,response){
     var query = tempUrl.parse(url,true).query;
     //console.log(query.part);//로그인해야 query.part에 login_check가 뜬다, 아니면 undefined
 
-    if(query.part ==undefined){
-        if(request.url=='/')//url이 일치해야지만 열림
+    if(query.part == undefined){
+        if(request.url=='/')
             url='/src/index.html';
         if(request.url=='/sign')
             url='/src/signup.html';
@@ -36,33 +36,32 @@ var app = http.createServer(function(request,response){
         if(request.url=='/login')
             url='/src/login.html';
          response.writeHead(200);
-    }else{
-        var page = query.part;
-        var isLogin ='false';
-        var id='';
-        if(page=='login_input'){
-            for(var i in data){
-                if(data[i].sdmId === query.sdmId && data[i].sdmPw ===query.sdmPw){
-                    isLogin='true';
-                    id=query.sdmID;
-                    break;
-                    //아이디, 비번 일치하면 쿠키 생성
+        }else{
+            var page = query.part;
+            var isLogin='false';
+            var id='';
+            if(page==='login_check'){
+                for(var i in data){
+                    if( data[i].sdmId === query.sdmId && data[i].sdmPw===query.sdmPw){
+                        isLogin='true';//아이디비번 일치하면 쿠키 생성
+                        id=query.sdmId;
+                        break;
+                    }
                 }
+                url='/src/'+page+'.html';
             }
-            url='/src/'+page+'.html';
+            response.writeHead(200,{
+                'Set-Cookie':['isLogin='+isLogin, 'id='+id]
+            });
+    
         }
-        
-    }
-    response.writeHead(200,{
-        'Set-Cookie':['isLogin='+isLogin,'id='+id]
-    });
     
         // if(request.url=='login_check')
         //     url='/src/login_check.html';
 
-    if(request.url =='/favicon.ico'){
-        return response.writeHead(404);
-    }
+        if(request.url =='/favicon.ico'){
+            return response.writeHead(404);
+        }
     //console.log(request.headers.cookie);//내 pc에 저장되어있는 쿠키를 가져올수있다.
     //var cookies = {};
     //cookies = cookie.parse(request.headers.cookie);
