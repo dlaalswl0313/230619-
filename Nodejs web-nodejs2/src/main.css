@@ -9,29 +9,29 @@
     position:relative;
 }
 #header{
-    width:1000px;
+    width:100%;
     padding:30px 0;
-    display:flex;
+    display:flex; 
     justify-content: space-between;
     align-items: center;
 }
-#header .logo{width: 150px;}
+#header .logo{width:150px;}
 #header .logo img{width:100%;}
 #header .nav{width:850px;}
 #header .nav .menuList{
-    width:100%;
-    display: flex;
+    list-style: none;
+    width:100%; 
+    display:flex;
     justify-content: space-evenly;
-    list-style-type: none;
-    font-size: 20px;
+    font-size:20px;
 }
 #header .nav .menuList .menu a{
     color:black;
-    text-decoration:none;
+    text-decoration: none;
     font-weight:800;
 }
+
 #main{
     display:grid;
-    grid-template-columns:4fr,1fr;
+    grid-template-columns: 4fr 1fr;
 }
-
