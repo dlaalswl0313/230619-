@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스드메의 모든것</title>
+<link rel="stylesheet" href="./src/main.css">   
+<link rel="stylesheet" href="./src/sign.css">
+</head>
+<body>
+   <div id="wrap">
+        <header id="header">
+            <div class="logo"><a href="/"><img src="./src/logo.jpg"></a></div>
+            <div class="nav">
+                <ul class="menuList">
+                    <li class="menu"><a href="/studio">스튜디오</a></li>
+                    <li class="menu"><a href="/dress">드레스</a></li>
+                    <li class="menu"><a href="/makeup">메이크업</a></li>
+                    <li class="menu"><a href="/wedding">예식장</a></li>
+                    <li class="menu"><a href="/qa">Q&A</a></li>
+                </ul>
+            </div>
+        </header>
+        <main id="main">
+            <section id="content">
+                <h3>스드메 회원가입</h3>
+                <table id="list">
+                    <tr>
+                        <td>
+                            <label>아이디</label>
+                        </td>
+                        <td>
+                            <input type="text" name="id" id="id">
+                            <button id="ck">중복확인</button>
+                        </td>
+                    </tr>  
+                    <tr></tr> 
+                        <td>
+                            <label>비밀번호</label>
+                        </td>
+                        <td>
+                            <input type="password" name="pw" id="pw">
+                        </td> 
+                    <tr>                      
+                        <td>
+                            <label>비밀번호 확인</label>
+                        </td>  
+                        <td> 
+                            <input type="password" name="pwck" id="pwck">
+                        </td>
+                    </tr> 
+                    <tr> 
+                        <td>
+                            <label>이름</label>
+                        </td>
+                        <td>
+                            <input type="text" name="name" id="name">
+                            
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            <label>전화번호</label>
+                        </td>
+                        <td>
+                            <input type="number" name="tel" id="tel">
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            <label>주소</label>
+                        </td>
+                        <td>
+                            <input type="text" name="add" id="add">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>결혼예정일</label>
+                        </td>
+                        <td>
+                            <input type="date" name="wDate" id="wDate">
+                        </td>
+                    </tr>
+                </table>
+                <div id="bt_list">
+                    <button id="send">등록</button>
+                    <button id="cencal">취소</button>
+                </div>
+            </section>
+           
+        </main> 
+   </div>
+</body>
+</html>
