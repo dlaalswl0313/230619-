@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인처리</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script src="./src/func.js"></script>
 
 </head>
 <body>
-    <h3>로그인 처리하는 페이지</h3>
+   <div id="login_result"></div>
 </body>
 </html>
 <script>    
@@ -44,18 +45,42 @@
     //     if(isSuccess)document.write("로그인 성공");
     //     else document.write("로그인 실패");
     // });  
-    function getCookie(name){
-        var cookies = document.cookie.split(";");
-        for(var i in cookies){
-            var cookie = cookies[i].trim();
-            if( cookie.startsWith(name+"=") ) {
-                return cookie.substring(name.length+1, cookie.length);
-            }
+    // function getCookie(name){
+    //     var cookies = document.cookie.split(";");
+    //     for(var i in cookies){
+    //         var cookie = cookies[i].trim();
+    //         if( cookie.startsWith(name+"=") ) {
+    //             return cookie.substring(name.length+1, cookie.length);
+    //         }
+    //     }
+    //     return '';
+    // }
+    $(function(){
+        var isLogin = getCookie("isLogin");
+        var id = getCookie("id");
+        if( isLogin=="false"){
+            $("#login_result").append('<h2>로그인 실패</h2>'+
+                '<a href="/login">다시 로그인하기</a>');
+        }else{
+            $("#login_result").append('<h2>로그인 성공</h2>');
+            setTimeout(function(){  // 로그인성공하면 3초뒤에 첫페이지이동
+                location.href="/"; 
+            },3000);
         }
-        return '';
-    }
-    var isLogin = getCookie("isLogin");
-    var id = getCookie("id");
-
-    document.write(isLogin+"  "+ id);
+    });
+    //document.write(isLogin+"  "+ id);
 </script>
+<style>
+    #login_result{
+        width:500px;
+        position:relative;
+        left:50%; top:50%;
+        transform:translate(-50%,-50%);
+        color:white;
+        text-align:center;
+        
+    }
+    #login_result h2{font-size: 30px; font-weight: 800;}
+    #login_result a{color:white;}
+    body{background:#A64444;height:100vh;}
+</style>

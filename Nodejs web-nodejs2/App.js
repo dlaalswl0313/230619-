@@ -10,13 +10,12 @@
         : 메인 - http://localhost:3000
         : 회원가입 - http://localhost:3000/sign
         : 문의 - http://localhost:3000/qs
-
        
 */
 var http= require('http');
-var fs = require('fs'); //filesystem , 파일을 읽어올수있다.
+var fs = require('fs');
 var tempUrl=require('url');
-var cookie = require('cookie');
+var cookie =require('cookie');
 
 const data = JSON.parse(fs.readFileSync('./data/member.json','utf8'));
 //console.log(data);
@@ -24,7 +23,8 @@ const data = JSON.parse(fs.readFileSync('./data/member.json','utf8'));
 var app = http.createServer(function(request,response){
     var url = request.url;
     var query = tempUrl.parse(url,true).query;
-    //console.log(query.part);//로그인해야 query.part에 login_check가 뜬다, 아니면 undefined
+    //console.log(query.part);
+
 
     if(query.part == undefined){
         if(request.url=='/')
@@ -35,44 +35,47 @@ var app = http.createServer(function(request,response){
             url='/src/question.html';
         if(request.url=='/login')
             url='/src/login.html';
-         response.writeHead(200);
-        }else{
-            var page = query.part;
-            var isLogin='false';
-            var id='';
-            if(page==='login_check'){
-                for(var i in data){
-                    if( data[i].sdmId === query.sdmId && data[i].sdmPw===query.sdmPw){
-                        isLogin='true';//아이디비번 일치하면 쿠키 생성
-                        id=query.sdmId;
-                        break;
-                    }
+
+        response.writeHead(200);
+    }else{
+        var page = query.part;
+        var isLogin='false';
+        var id='';
+        if(page==='login_check'){
+            for(var i in data){
+                if( data[i].sdmId === query.sdmId && data[i].sdmPw===query.sdmPw){
+                    isLogin='true';//아이디비번 일치하면 쿠키 생성
+                    id=query.sdmId;
+                    break;
                 }
-                url='/src/'+page+'.html';
             }
-            response.writeHead(200,{
-                'Set-Cookie':['isLogin='+isLogin, 'id='+id]
-            });
-    
+            url='/src/'+page+'.html';
+        
         }
-    
-        // if(request.url=='login_check')
+        if(page==='logout'){
+            url='/src/index.html';
+        }
+        response.writeHead(200,{
+            'Set-Cookie':['isLogin='+isLogin, 'id='+id]
+        });
+         // if(request.url=='login_check')
         //     url='/src/login_check.html';
 
-        if(request.url =='/favicon.ico'){
-            return response.writeHead(404);
-        }
-    //console.log(request.headers.cookie);//내 pc에 저장되어있는 쿠키를 가져올수있다.
-    //var cookies = {};
-    //cookies = cookie.parse(request.headers.cookie);
+    }
+    if(request.url =='/favicon.ico'){
+        return response.writeHead(404);
+    }
+
+    //console.log(request.headers.cookie); 
+    //var cookies ={};
+    //cookies = cookie.parse(request.headers.cookie);// 내PC에 저장된 쿠키가져와 객체로저장
     //console.log(cookies.id);
     
     response.end(fs.readFileSync(__dirname+url));
-    // response.writeHead(200,{
+        // response.writeHead(200,{
     //     'Set-Cookie':['id=sky','pw=1234']// 'Set-Cookie':['키=값']
     // });
     // //response.end(fs.readFileSync(__dirname+url));
     // response.end('aa');
 });
 app.listen(3000);
-
