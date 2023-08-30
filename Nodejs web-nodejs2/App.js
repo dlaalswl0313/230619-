@@ -20,6 +20,7 @@ var cookie =require('cookie');
 const data = JSON.parse(fs.readFileSync('./data/member.json','utf8'));
 //console.log(data);
 
+
 var app = http.createServer(function(request,response){
     var url = request.url;
     var query = tempUrl.parse(url,true).query;
@@ -36,32 +37,30 @@ var app = http.createServer(function(request,response){
         if(request.url=='/login')
             url='/src/login.html';
 
-        response.writeHead(200);
-    }else{
-        var page = query.part;
-        var isLogin='false';
-        var id='';
-        if(page==='login_check'){
-            for(var i in data){
-                if( data[i].sdmId === query.sdmId && data[i].sdmPw===query.sdmPw){
-                    isLogin='true';//아이디비번 일치하면 쿠키 생성
-                    id=query.sdmId;
-                    break;
+            response.writeHead(200);
+        }else{
+            var page = query.part;
+            var isLogin='false';
+            var id='';
+            if(page==='login_check'){
+                for(var i in data){
+                    if( data[i].sdmId === query.sdmId && data[i].sdmPw===query.sdmPw){
+                        isLogin='true';//아이디비번 일치하면 쿠키 생성
+                        id=query.sdmId;
+                        break;
                 }
             }
             url='/src/'+page+'.html';
-        
         }
         if(page==='logout'){
-            url='/src/index.html';
+            url='/src/index.html'; 
         }
         response.writeHead(200,{
             'Set-Cookie':['isLogin='+isLogin, 'id='+id]
         });
+    }
          // if(request.url=='login_check')
         //     url='/src/login_check.html';
-
-    }
     if(request.url =='/favicon.ico'){
         return response.writeHead(404);
     }
