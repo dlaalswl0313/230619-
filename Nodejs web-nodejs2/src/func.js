@@ -3,7 +3,7 @@ function getCookie(name){
     for(var i in cookies){
         var cookie = cookies[i].trim();
         if( cookie.startsWith(name+"=") ) {
-            return cookie.substring(name.length+1, cookie.length);
+            return cookie.substring(name.length + 1 + 1, cookie.length);
         }
     }
     return '';

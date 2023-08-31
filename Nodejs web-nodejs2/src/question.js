@@ -41,13 +41,14 @@ function qsSave(){
     $("#qsModal").hide(); //문의글 작성 모달창 닫기
     //json 형식으로 값 전달하기 만들기 
 }
-function questionWrite(){
+function questionWrite(){ //문의하기 버튼 클릭 시 실행되는 함수 
     if(isLogin){//로그인 성공
         $("#qsModal").show();
     }else{//로그인 안한 상태
         var isOk = confirm("로그인 후 문의 할 수 있습니다."); //로그인을 할거니 안할거니
         if(isOk){
-            location.href="/login"; //주소영역변경
+            //location.href="/login"; //주소영역변경
+            location.href="/?sub=question"; //다른페이지에서로그인을해야하는경우
         }
     }
 }
