@@ -1,10 +1,18 @@
 {
     "main":{
-        "logo":"logo.png",
+        "logo":"logo.jpg",
         "menu":{
                 "studio":"스튜디오", "dress":"드레스",
                 "makeup":"메이크업", "wedding":"예식장", "qs":"Q&A"
         },
-        "main_img":"main.png"
+        "main_img":"main.jpg"
+    },
+    "login_before":{
+        "url":"login",
+        "text":"로그인"
+    },
+    "login_after":{
+        "url":"logout",
+        "text":"로그아웃"
     }
 }
