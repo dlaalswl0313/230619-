@@ -43,6 +43,7 @@ module.exports = { //객체형식,modul.exportss는 모듈에서 외부로 내�
         </section>
         <section id="side">
             <div class="login_bt">
+                ${login.url=='logout'?`<p>${login.id}</p>`:''}
                 <a href="/${login.url}">${login.text}</a>
             </div>
         </section>`;

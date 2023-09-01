@@ -21,6 +21,7 @@ const app = http.createServer(function(request, response){
                 for(var m of member){
                     if(m.sdmId==query.sdmId && m.sdmPw==query.sdmPw){
                         cookie_arr=['isLogin=true','id='+query.sdmId];
+                        dataParse.login_after.id=query.sdmId;
                         break;
                     }
                 }
