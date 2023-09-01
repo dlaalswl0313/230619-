@@ -36,7 +36,7 @@ module.exports = { //객체형식,modul.exportss는 모듈에서 외부로 내�
             </section>`;
             return ( commonHTML(main,mainHTML,"question") );
      },
-    mainHTML:function(main, login){
+    homeHTML:function(main, login){
     var mainHTML=` 
         <section id="content">
             <img src="./image/${main.main_img}">
@@ -163,7 +163,7 @@ function commonHTML(main,html,css){//commonHTML 문서의 공통구조 생성(�
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>스드메의 모든것</title>
-    
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./lib/main.css">
         <link rel="stylesheet" href="./lib/${css}.css">
     </head>

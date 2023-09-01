@@ -2,58 +2,65 @@ const http= require('http');
 const fs =require('fs');
 const url=require('url');
 const template = require('./lib/template.js');
+let JStemp = require("./lib/JStemplate.js");
 const dataParse = JSON.parse(fs.readFileSync('./lib/page.json','utf8'));
+const member = JSON.parse(fs.readFileSync('./lib/member.json','utf8'));
+let cookie_arr=[];
 
 const app = http.createServer(function(request, response){
     const pageURL=request.url;
     const query = url.parse(pageURL,true).query;// 쿼리 스트링
     const path = url.parse(pageURL,true).pathname; //루트도메인 뒤 주소
+
     if(path.indexOf(".")==-1){
         var html='';
         if( path ==="/"){
-            html = template.homeHTML(dataParse.main, dataParse.login_before);
+            if(query.sdmId==undefined){
+                html = template.homeHTML(dataParse.main, dataParse.login_before);
+            }else{//파라미터에 id가 있다면, 
+                for(var m of member){
+                    if(m.sdmId==query.sdmId && m.sdmPw==query.sdmPw){
+                        cookie_arr=['isLogin=true','id='+query.sdmId];
+                        break;
+                    }
+                }
+                html = template.homeHTML(dataParse.main, dataParse.login_after);
+            }
+            
         }
         if(path==='/login'){
             html = template.loginHTML(dataParse.main);
+            html += JStemp.login();
         }
         if(path==='/sign'){
             html = template.signupHTML(dataParse.main, dataParse.sign);
         }
         if(path==='/qs'){
             var qdata = JSON.parse(fs.readFileSync('./lib/question.json','utf8'));
-            html = template.questionHTML(dataParse.main,dataParse,login_before,qdata);
+            html = template.questionHTML(dataParse.main, dataParse.login_before, qdata );
+
         }
-        response.writeHead(200);
+        response.writeHead(200,{'Set-Cookie':cookie_arr});
         response.write(html);
         response.end();
     }
-    if( path ==="/"){ //루트 경로 처리 로직, page.json 파일을 읽어와서 템플릿생성하고 응답
-        fs.readFile('./lib/page.json', 'utf8',function(err,data){
-            const dataParse = JSON.parse(data);
-            const html = template.mainHTML(dataParse.main,dataParse.login_before);
-            //console.log(html);
-            response.writeHead(200);
-            response.write(html);
-            response.end();
-        });
-    }
-   
-    if(path.indexOf('.css')>-1){//css 파일 처리 로직, 요청된 css 파일을 읽어와서 응답
-        var css_name=path.slice('/lib/'.length);
+    if(path.indexOf('.css') > -1){
+        var css_name = path.slice('/lib/'.length);
         fs.readFile('./lib/'+css_name,function(err,data){
             response.writeHead(200);
             response.write(data);
             response.end();
         });
     }
-    if(path.indexOf('/image')>-1){//이미지 파일 처리 로직, 요청된 이미지 파일을 읽어와서 응답
+    if(path.indexOf('/image') > -1){
         var img_name = path.slice('/image/'.length);
         fs.readFile('./image/'+img_name,function(err,data){
-            response.writeHead(200); 
+            response.writeHead(200);
             response.write(data);
             response.end();
         });
     }
+
 });
 app.listen(3000);
  
