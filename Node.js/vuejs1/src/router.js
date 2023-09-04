@@ -10,6 +10,16 @@ const routes = [
         path:"/login",
         name:"SdmLogin",
         component : () => import('@/components/SdmLogin.vue')
+    },
+    {
+        path:"/sign",
+        name:"signup",
+        component: () => import('@/components/SignUp.vue')
+    },
+    {
+        path:"/qs",
+        name:"qs",
+        component: () => import('@/components/QuesAns.vue')
     }
 ];
 const router = createRouter({

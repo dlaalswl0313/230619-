@@ -1,0 +1,150 @@
+<template>
+ <main id="main">
+            <section id="content">
+                <div id="qsList">
+                    <div class="qsTitle">
+                        <h2>문의</h2>
+                        <a href="javascript:questionWrite();">문의하기</a>
+                    </div>
+                    <div class="search_wrap">
+                        <input type="text" name="word" id="word">
+                    </div>
+                    <div class="qsList_box">
+                        <table>
+                            <thead>
+                                <th>번호</th><th>제목</th><th>작성자</th>
+                                <th>작성일</th><th>답변</th>
+                            </thead>
+                                <tbody id="qs">
+                                    <tr v-for="q in qdata" :key="q.id" >
+                                        <td class="num">{{q.id}}</td>
+                                        <td class="title">{{q.title}}</td>
+                                        <td class="writer">{{q.write}}</td>
+                                        <td class="date">{{q.date}}</td>
+                                        <td class="ans">{{q.to}}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="side">
+                <div class="login_bt"><a href="/login">로그인</a></div>
+            </section>
+        </main> 
+</template>
+<script>
+import data from '@/assets/question.json';
+const qdata = data;
+
+
+export default {
+    data(){
+        return { qdata, };
+    },
+    name: 'QuesAns',
+}
+</script>
+<style>
+#side .login_bt{
+    padding:5px 10px;
+}
+#side .login_bt a{
+    color:white;
+    text-decoration:none;
+    background:#A64444;
+    padding:10px 0;
+    width:100%;
+    font-size:20px;
+    font-weight: 800;
+    display:inline-block;
+    border-radius: 5px;
+    text-align: center;
+}
+#main{box-sizing: border-box;}
+#content{width:100%;padding:0;margin:0;}
+.qsTitle{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+}
+.qsTitle a {
+    text-decoration: none;
+    border: none;
+    background-color:#142619;
+    color:white;
+    border-radius: 5px;
+    padding:10px ;
+    font-weight: 600;
+}
+.qsTitle a:hover{background:#F2C49B;}
+.search_wrap{
+    padding: 10px 0;
+}
+#word{padding:5px;width:60%;}
+.qsList_box{
+    width:100%;
+    border-collapse: collapse;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;  
+    font-size: 15px;
+}
+table tr td{height:50px;}
+th{
+    padding:10px 50px;
+    border-bottom:1px solid #aaa; 
+}
+#qsModal{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    top:0; left:0;
+}
+#qsModal .modalBackground{
+    background:rgba(70, 55, 63, 0.7);
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+#qsModal .qsInputBox{
+    background:#F9919B;
+    position:absolute;
+    width:500px;
+    padding:50px 80px;
+    border-radius: 10px;
+    color:white;
+    top:50%;left:50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.qsInput{
+    display: flex; 
+    align-items: center;
+}
+.qsInput label{width:20%; font-size: 17px; opacity: 0.4;}
+#title{
+    height:30px; font-size: 17px; padding:3px 15px;
+    width:80%; border:0; border-radius:5px; order:2;
+}
+
+#title:focus + label{opacity: 1; font-weight: 800;}
+#qsContent{
+    order:2; resize:none; width: 80%;height:300px; border:0; 
+    padding:3px 10px; font-size: 17px;
+}
+#qsContent:focus + label{ opacity: 1; font-weight: 800; }
+.qsRegBt{
+    text-align: center;
+}
+.qsRegBt a{
+    display: inline-block;
+    padding:10px 60px;
+    text-decoration: none;
+    background: #A64444;
+    color:white; border-radius: 5px;
+}
+</style>
