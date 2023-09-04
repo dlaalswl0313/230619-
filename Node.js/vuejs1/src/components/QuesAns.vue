@@ -46,5 +46,5 @@ export default {
 }
 </script>
 <style>
-@import '@/assets/question.css'; /*css파일 따로 만들고 불러오기*/
+@import '@/assets/question.css'; /*css파일 따로 만들고 불러오기 @절대경로*/
 </style>
