@@ -1,4 +1,26 @@
-*{box-sizing: border-box;margin:0 auto;}
 #content{width:100%;padding:0;margin:0;}
 h1{padding:30px;}
-#content img{width:50%;}
+#main{box-sizing: border-box;}
+#side .login_bt{
+    padding:5px 10px;
+}
+#side .login_bt a{
+    color:white;
+    text-decoration:none;
+    background:#A64444;
+    padding:10px 0;
+    width:100%;
+    font-size:20px;
+    font-weight: 800;
+    display:inline-block;
+    border-radius: 5px;
+    text-align: center;
+}
+#image_box{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap:50px;
+    justify-content: space-evenly;
+}
+#image_box img{width:300px;}
