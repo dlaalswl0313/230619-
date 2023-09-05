@@ -20,6 +20,26 @@ const routes = [
         path:"/qs",
         name:"qs",
         component: () => import('@/components/QuesAns.vue')
+    },
+    {
+        path:"/studio",
+        name:"studio",
+        component: () => import('@/components/StuPhoto.vue')
+    },
+    {
+        path:"/dress",
+        name:"dress",
+        component: () => import('@/components/DressUp.vue')
+    },
+    {
+        path:"/makeup",
+        name:"makeup",
+        component: () => import('@/components/MakeUp.vue')
+    },
+    {
+        path:"/wedding",
+        name:"wedding",
+        component: () => import('@/components/WeddingHall.vue')
     }
 ];
 const router = createRouter({
