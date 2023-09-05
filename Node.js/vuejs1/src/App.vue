@@ -1,4 +1,5 @@
 <template>
+ <b-button>버튼</b-button>
   <header id="header">
     <div class="logo"><a href="/"><img src="./assets/logo.png"></a></div>
         <nav class="nav">
@@ -16,9 +17,8 @@
 
 <script>
 export default {
-  name: 'App',
-  components: {
-    
+    name: 'App',
+    components: {
   }
 }
 </script>
