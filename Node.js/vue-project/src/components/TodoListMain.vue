@@ -26,8 +26,8 @@ export default {
     TodoList,TodoListMenu
   },
   setup() {
-    const { getPendingTodos, getActiveToday, getCompletedToday, getAllTodayTodo, getAllTodo } =
-      useFilter
+    const { getPendingTodos, getActiveToday, getCompletedToday, getAllTodayTodo, getAllTodo } = useFilter
+    
     const filter = ref(0)
     const filter_todos = ref(0)
     const pending_todos = ref([])

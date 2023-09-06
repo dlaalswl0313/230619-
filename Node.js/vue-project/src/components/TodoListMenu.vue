@@ -9,14 +9,38 @@
                 <button class="btn btn-sm dropdown-toggle" type="button"
                 data-bs-toggle="dropdown">리스트 필터</button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li></li>
+                    <li v-for="key in Object.keys(filters)" :key="key">
+                        <a class="dropdown-item" @click="filter=key">
+                            {{filters[key].str}}
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </template>
 <script>
+    import { ref, watch, computed, inject} from 'vue';
 
+    export default{
+        name:'TodoListMenu',
+        emits : [ 'change-filter'], //emits는 자식이 부모에게 데이터 보낼 때 사용
+        setup(props,context){
+            const filters = inject('filters')
+            const filter = ref(0)
+
+            const state = computed(()=>{
+                return filters[filter.value].str
+            })
+            watch(
+                ()=>filter.value,
+                (filter) => {
+                    context.emit('change-filter',filter)
+                }
+            )
+            return {state,filter,filters}
+        }
+    }
 </script>
 <style>
 
