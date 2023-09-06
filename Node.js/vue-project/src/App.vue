@@ -1,13 +1,12 @@
 <script>
-import { inject } from 'vue'
-import { RouterView } from 'vue-router'
+  import { inject } from 'vue';
 
-export default {
-  setup() {
-    const today = inject('today')
-    return { today }
-  },
-  components: { RouterView }
+export default{
+  name:"App",
+setup(){
+  const today = inject('today')
+  return { today}
+}
 }
 </script>
 
@@ -17,8 +16,9 @@ export default {
       <h1>나의 할 일</h1>
       <em>{{ today }}</em>
     </hgroup>
-    <RouterView />
+    
   </header>
+  <RouterView/>
 </template>
 
 <style scoped>

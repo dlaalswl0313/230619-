@@ -13,7 +13,7 @@ import { useStorage } from '../stores/storage'
 import TodoListMain from '../components/TodoListMain.vue'
 import TodoListNew from '../components/TodoListNew.vue'
 export default {
-  name: 'TodoListContainer',
+  name: 'todolist',
   components: {
     TodoListNew,
     TodoListMain
@@ -38,7 +38,7 @@ export default {
     }
     const removeTodo = (id) => {
       //할일 삭제
-      todos.value.splice(id, i)
+      todos.value.splice(id, 1)
       todos.value.forEach((todo, idx) => {
         todo.id = idx
       })
