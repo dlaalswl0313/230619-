@@ -31,6 +31,7 @@ import TopMenu from './components/TopMenu.vue'
     position:relative;
   }
   header{
+    border-bottom:1px solid #ddd;
     width:100%;
     position:relative;
   }
@@ -40,6 +41,7 @@ import TopMenu from './components/TopMenu.vue'
     display: flex;
     align-items: center;
     padding: 50px 0 25px 0;
+
   }
   #header_wrap .logo{width:200px;} 
   #header_wrap .logo img{width:100%;}
@@ -48,6 +50,8 @@ import TopMenu from './components/TopMenu.vue'
     width:100%;
     display:flex;
     justify-content: space-evenly;
+    font-size: 20px;
+    font-weight: 800;
   }
 
   
