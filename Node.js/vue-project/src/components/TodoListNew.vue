@@ -45,8 +45,7 @@ export default {
       }
     }
     return {
-      ...toRefs(val_obj),
-      onAddTodo
+      ...toRefs(val_obj),onAddTodo
     }
   }
 }
