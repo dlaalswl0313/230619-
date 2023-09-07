@@ -2,21 +2,35 @@
 <template>
     <div class="signup">
         <p>회원가입</p>
-        <input type="text" placeholder="email"><br>
-        <input type="password" placeholder="password"><br>
-        <button>가입하기</button>
-        <span>로그인으로 돌아가기</span>
+        <input type="text" v-model="email" placeholder="email"><br>
+        <input type="password" v-model="password" placeholder="password"><br>
+        <button v-on:click="signup">가입하기</button>
+        <span><RouterLink to="/login">로그인</RouterLink>으로 돌아가기</span>
     </div>
 </template>
 <script>
-export default{
-        name:'signup',
-        data(){
-            return {
-                
+import{ RouterLink }from 'vue-router'
+import firebase from 'firebase'
+
+    export default{
+            name:'signup',
+            data(){
+                return { email:'',password:''}
+            },methods:{
+                signup(){//authentication 사용자 만들기 
+                    firebase.auth().createUserWithEmailAndPassword(this.email,this.password)
+                    .then(
+                        function(user){
+                            alert('회원가입완료')
+                        },
+                        function(err){
+                            alert('에러:'+err.message)
+                        }
+                    )
+                    
+                }
             }
-        },methods:{}
-    }
+        }
 </script>
 <style>
 

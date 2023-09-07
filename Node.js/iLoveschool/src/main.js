@@ -6,6 +6,11 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import firebase from 'firebase'
+import VueSession from 'vue-session/index'
+
+var sessionOptions={
+    persist:true
+}
 
 const firebaseConfig = {
     apiKey: "AIzaSyD8PkB9MWa14wVdSrj-pLkBzskXyp6caOg",
@@ -16,10 +21,11 @@ const firebaseConfig = {
     appId: "1:823294660339:web:6e31e842256c84323bf186",
     measurementId: "G-MMK079KP3K"
 };
-firebase.initialzeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig)
 
 const app = createApp(App)
 
+app.use(VueSession, sessionOptions)
 app.use(createPinia())
 app.use(router)
 
