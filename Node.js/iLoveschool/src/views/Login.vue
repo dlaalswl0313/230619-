@@ -24,6 +24,7 @@ provider.addScope('public_profile')
 provider.setCustomParameters({
     'display':'popup'
 })
+const sessionStorage = window.sessionStorage 
 
     export default{
         name:'Login',
@@ -40,12 +41,13 @@ provider.setCustomParameters({
                 ).catch( (err) => { alert('에러:' +err.message)})
             },  
             login(){
-               
                 firebase.auth().signInWithEmailAndPassword(this.email,this.password)
                 .then((user) =>{
                     this.$session.set('user_id',user.user.uid)
-                    this.$router.replace('msg');
-                }).catch((err) => {
+                    this.$router.replace('msg'); //로그인성공
+                    sessionStorage.setItem('user_id',user.user.id);//(키,값)
+
+                }).catch((err) => { //로그인 실패
                     alert('에러:'+err.message)
                 })
             
