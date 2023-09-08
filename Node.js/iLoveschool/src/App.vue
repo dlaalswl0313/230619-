@@ -1,6 +1,11 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
-
+const sessionStorage = window.sessionStorage;
+const uid = sessionStorage.getItem('user_id')
+export default{
+  name:'App',
+  data(){return{uid}}
+}
 </script>
 
 <template>
@@ -9,7 +14,10 @@ import { RouterLink, RouterView } from 'vue-router'
       <img class="logo" src="@/assets/main.jpg">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
+
+        <RouterLink  v-if="uid==null" to="/login">Login</RouterLink>
+        <RouterLink  v-if="uid==null" to="/logout">Logout</RouterLink>
+
         <RouterLink to="/msg">축하메시지</RouterLink>
       </nav>
     </div>
