@@ -9,6 +9,7 @@
     <h1>이미지불러오기</h1>
     <input type = "file" id="fileInput"/>
     <div id="pictures"></div>
+  
 </body>
 </html>
 <style>
@@ -47,6 +48,7 @@
         photoFrame.style = `background : url(${reader.result}); background-size : cover`;
         photoFrame.className = "photoFrame";
         document.getElementById("pictures").appendChild(photoFrame);
+        
         e.target.value = ""; //input clear
 
         photoFrame.addEventListener("click",function(){//삭제
