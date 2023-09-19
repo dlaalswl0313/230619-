@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전화번호인증</title>
+</head>
+<body>
+  <button id="googleLogin">구글 아이디로 로그인</button>
+
+  <form>
+    핸드폰 번호 : <input id="phoneNumber" />
+    <button id="phoneNumberButton">핸드폰 번호 전송</button>
+  </form>
+
+  <form>
+    확인 코드 : <input id="confirmCode" />
+    <button id="confrimCodeButton">확인 코드 전송</button>
+  </form>
+</body>
+</html>
+<script type="module">
+     /*
+       파이어베이스 웹 설정정보
+        API Key (apiKey): Firebase 프로젝트를 식별하는 고유한 API 키입니다. 이 키를 사용하여 Firebase 서비스에 연결합니다.
+
+        Auth Domain (authDomain): Firebase 인증 서비스와 연결하는 데 사용되는 도메인입니다. 일반적으로 Firebase 프로젝트의 서브도메인 형태로 제공됩니다.
+
+        Project ID (projectId): Firebase 프로젝트의 고유 ID입니다. Firebase 프로젝트를 식별하는 데 사용됩니다.
+
+        Storage Bucket (storageBucket): Firebase 스토리지 서비스와 연결하는 데 사용되는 버킷(bucket) 정보입니다. 파일 저장소와 관련이 있습니다.
+
+        Messaging Sender ID (messagingSenderId): Firebase 클라우드 메시징 서비스와 연결하는 데 사용되는 발신자(Sender) ID입니다. 푸시 알림과 관련이 있습니다.
+
+        App ID (appId): Firebase 애플리케이션의 고유 ID입니다. Firebase 서비스를 초기화할 때 사용됩니다.
+    */
+      
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-analytics.js";
+      import {
+        getAuth,
+        signInWithPopup,
+        GoogleAuthProvider,
+        signInWithPhoneNumber,
+        RecaptchaVerifier,
+      } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
+
+     const firebaseConfig = {
+       apiKey: "AIzaSyD19wQC3WJrANFIGcc5_lmPvLBLZax8YaM",
+       authDomain: "carret-3130d.firebaseapp.com",
+       projectId: "carret-3130d",
+       storageBucket: "carret-3130d.appspot.com",
+       messagingSenderId: "38849019239",
+       appId: "1:38849019239:web:9a29135164bbb8bc2c43c2"
+     };
+  // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth();
+      auth.languageCode = "ko";
+
+      document.getElementById("googleLogin").addEventListener("click", () => {//구글 아이디 로그인
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            console.log(result);
+            // ...
+          })
+          .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            console.log(error);
+            // ...
+          });
+      });
+      window.recaptchaVerifier = new RecaptchaVerifier(//핸드폰번호로 인증번호 전송하기 
+        "phoneNumberButton",
+        {
+          size: "invisible",
+          callback: (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            onSignInSubmit();
+          },
+        },
+        auth
+      );
+
+      document.getElementById("phoneNumberButton").addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const phoneNumber = document.getElementById("phoneNumber").value;
+          const appVerifier = window.recaptchaVerifier;
+
+          signInWithPhoneNumber(auth, "+82" + phoneNumber, appVerifier)
+            .then((confirmationResult) => {
+              // SMS sent. Prompt user to type the code from the message, then sign the
+              // user in with confirmationResult.confirm(code).
+              window.confirmationResult = confirmationResult;
+              console.log(confirmationResult);
+              // ...
+            })
+            .catch((error) => {
+              console.log(error);
+              // Error; SMS not sent
+              // ...
+            });
+        });//핸드폰번호로 인증번호 전송하기 
+        document.getElementById("confrimCodeButton").addEventListener("click", (event) => {
+          event.preventDefault();
+          const code = document.getElementById("confirmCode").value;
+          confirmationResult
+            .confirm(code)
+            .then((result) => {
+              // User signed in successfully.
+              const user = result.user;
+              console.log(result);
+              // ...
+            })
+            .catch((error) => {
+              console.log(error);
+              // User couldn't sign in (bad verification code?)
+              // ...
+            });
+        });
+    </script>
+  </body>
+</html>
