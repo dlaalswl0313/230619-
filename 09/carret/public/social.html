@@ -1,3 +1,4 @@
+<!--소셜로그인, 전화번호 인증-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +42,7 @@
       import { getAuth,signInWithPopup, GoogleAuthProvider,signInWithPhoneNumber,RecaptchaVerifier,} 
       from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
 
-     const firebaseConfig = {
+     const firebaseConfig = { //프로젝트 , 파이어베이스 웹 설정 정보 / *위 주석에 설명있음 */
        apiKey: "AIzaSyD19wQC3WJrANFIGcc5_lmPvLBLZax8YaM",
        authDomain: "carret-3130d.firebaseapp.com",
        projectId: "carret-3130d",
@@ -49,21 +50,24 @@
        messagingSenderId: "38849019239",
        appId: "1:38849019239:web:9a29135164bbb8bc2c43c2"
      };
-  // Initialize Firebase
+  // Initialize Firebase : firebase 초기화
       const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
+      const analytics = getAnalytics(app); 
+      //getAnalytics() : firebaseAnalytics 서비스 초기화
 
       const provider = new GoogleAuthProvider();
+      //Firebase에서 제공하는 Google OAuth2 인증 공급자
       const auth = getAuth();
-      auth.languageCode = "ko";
+      //Firebase Authentication 서비스를 초기화
+      auth.languageCode = "ko";//사용할 언어 코드(korea)
 
-      document.getElementById("googleLogin").addEventListener("click", () => {//구글 아이디 로그인
-        signInWithPopup(auth, provider)
+      document.getElementById("googleLogin").addEventListener("click", () => {//구글 아이디 로그인, 파이어베이스 개발자도구에서 가져옴
+        signInWithPopup(auth, provider)//새창이 뜬다 
           .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
+            //  Google Access Token를 통해 Google API접근 가능
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-            // The signed-in user info.
+            // 로그인한 사용자 정보
             const user = result.user;
             console.log(result);
             // ...
@@ -80,8 +84,8 @@
             // ...
           });
       });
-      window.recaptchaVerifier = new RecaptchaVerifier(//핸드폰번호로 인증번호 전송하기 
-        "phoneNumberButton",
+      window.recaptchaVerifier = new RecaptchaVerifier("phoneNumberButton", 
+      //캡챠(로봇이 아닙니다)가 안보이도록 설정, 파이어베이스 개발자도구에서 가져옴
         {
           size: "invisible",
           callback: (response) => {
@@ -92,39 +96,39 @@
         auth
       );
 
-      document.getElementById("phoneNumberButton").addEventListener("click", (event) => {
+      document.getElementById("phoneNumberButton").addEventListener("click", (event) => {//핸드폰 번호 전송 버튼
           event.preventDefault();
 
           const phoneNumber = document.getElementById("phoneNumber").value;
           const appVerifier = window.recaptchaVerifier;
 
-          signInWithPhoneNumber(auth, "+82" + phoneNumber, appVerifier)
-            .then((confirmationResult) => {
-              // SMS sent. Prompt user to type the code from the message, then sign the
+          signInWithPhoneNumber(auth, "+82" + phoneNumber, appVerifier).then((confirmationResult) => {
+              // SMS sent. Prompt user to type the code from the message, then sign the, 파이어베이스 개발자도구에서 가져옴
               // user in with confirmationResult.confirm(code).
               window.confirmationResult = confirmationResult;
-              console.log(confirmationResult);
+              //console.log(confirmationResult);
+              alert("전송완료");
               // ...
-            })
-            .catch((error) => {
-              console.log(error);
+            }).catch((error) => {
+              //console.log(error);
+              alert("핸드폰 번호를 다시 확인해주세요");
               // Error; SMS not sent
               // ...
             });
-        });//핸드폰번호로 인증번호 전송하기 
-        document.getElementById("confrimCodeButton").addEventListener("click", (event) => {
+        });//---------------------핸드폰번호로 인증번호 전송하기 끝
+
+        document.getElementById("confrimCodeButton").addEventListener("click", (event) => { //확인코드전송버튼 
           event.preventDefault();
           const code = document.getElementById("confirmCode").value;
-          confirmationResult
-            .confirm(code)
-            .then((result) => {
+          confirmationResult.confirm(code).then((result) => {//파이어베이스 개발자도구에서 가져옴
               // User signed in successfully.
               const user = result.user;
-              console.log(result);
+              //console.log(result);
+              alert("인증번호 전송완료");
               // ...
-            })
-            .catch((error) => {
-              console.log(error);
+            }).catch((error) => {
+              //console.log(error);
+              alert("인증번호를 다시 확인해주세요");
               // User couldn't sign in (bad verification code?)
               // ...
             });
