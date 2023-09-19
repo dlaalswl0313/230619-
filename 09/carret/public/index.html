@@ -79,16 +79,14 @@ const firebaseConfig = {
   db.collection('product').get().then((결과)=>{
     //console.log(결과) 결과에 document 여러개가 들어있음
     결과.forEach((doc)=>{ //안에 든게 3개면 안의 코드도 3회반복
-      console.log(doc)
+      //console.log(doc);
       var 템플릿 = `<div class="product">
         <p class="title">${doc.data().제목}</p>
         <p class="price">${doc.data().가격}</p>
         <p class="float-end">${doc.data().내용}</p>
-        <p class="float-end">${currentDate}</p>   
+        <p class="float-end">${currentDate}</p></div></div>`;
         
-      </div>
-      </div>`;
-      $('.container').append(템플릿)
+      $('.container').append(템플릿);
     });
   });
 
