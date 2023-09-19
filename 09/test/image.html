@@ -36,23 +36,25 @@
     // fileInput.addEventListener('change',function(e){//갑이 변경될때 호출되는 이벤트 리스너
     //     console.log(e.target.files)
     // })
+
     var fileInput = document.getElementById("fileInput");
     //값이 변경될때 호출 되는 이벤트 리스너
-    fileInput.addEventListener('change',function(e){
+    fileInput.addEventListener('change',function(e){ //이벤트 핸들러 내용
         var file = e.target.files[0]; //선택된 파일
         var reader = new FileReader();
         reader.readAsDataURL(file); //파일을 읽는 메서드 
 
         reader.onload = function(){//파일리더객체에 readAsDataURL()메서드 호출
         var photoFrame = document.createElement("div");
-        photoFrame.style = `background : url(${reader.result}); background-size : cover`;
+        photoFrame.style = `background : url(${reader.result}); background-size : cover`;//${reader.result} 파일을 읽어내는 부분
         photoFrame.className = "photoFrame";
-        document.getElementById("pictures").appendChild(photoFrame);
+        document.getElementById("pictures").appendChild(photoFrame);//생성한 photoFrame에 picutres라는 요소에 추가한다
         
         e.target.value = ""; //input clear
 
         photoFrame.addEventListener("click",function(){//삭제
             document.getElementById("pictures").removeChild(photoFrame);
+            //photoFrame을 부모 엘리먼트에서 제거해 , 선택한 이미지 삭제
         })
       }
     })
