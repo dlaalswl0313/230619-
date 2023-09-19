@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script type="module" src="your-module-file.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+  <link rel ="stylesheet" href="./main.css">
+
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="		https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">당근마켓</a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+<script>
+// Import the functions you need from the SDKs you need
+//import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+//https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD19wQC3WJrANFIGcc5_lmPvLBLZax8YaM",
+  authDomain: "carret-3130d.firebaseapp.com",
+  projectId: "carret-3130d",
+  storageBucket: "carret-3130d.appspot.com",
+  messagingSenderId: "38849019239",
+  appId: "1:38849019239:web:9a29135164bbb8bc2c43c2"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  const currentDate = new Date();
+  // const dateWithoutTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+
+  const db = firebase.firestore();//db소환술
+  db.collection('product').get().then((결과)=>{
+    //console.log(결과) 결과에 document 여러개가 들어있음
+    결과.forEach((doc)=>{ //안에 든게 3개면 안의 코드도 3회반복
+      console.log(doc)
+      var 템플릿 = `<div class="product">
+        <p class="title">${doc.data().제목}</p>
+        <p class="price">${doc.data().가격}</p>
+        <p class="float-end">${doc.data().내용}</p>
+        <p class="float-end">${currentDate}</p>   
+        
+      </div>
+      </div>`;
+      $('.container').append(템플릿)
+    });
+  });
+</script>
+<div class="container mt-3">
+  <div class="product">
+    <div class="thumbnail"
+     style="background-image: url('https://via.placeholder.com/350')"></div>
+    <div class="flex-grow-1 p-4">
+      <h5 class="title">아기다스 신발</h5>
+      <p class="date">2030년 1월 8일</p>
+      <p class="price">20000원</p>
+      <p class="float-end">?0</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

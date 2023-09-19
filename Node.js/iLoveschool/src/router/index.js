@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
-const sessionStorage = window.sessionStorage 
+const sessionStorage = window.sessionStorage;
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -34,6 +34,17 @@ const router = createRouter({
          alert('로그인해랏');
          //sessionStorage.removeitem() : 삭제 하는거 - logout에 사용
       } 
+    },
+    {
+      path:'/logout',
+      name:'logout',
+      component : HomeView,
+      beforeEnter:(to,from,next) => {
+        if(sessionStorage.getItem('user_id')!==null){
+          sessionStorage.removeItem('user_id')
+        }
+        return next();
+      }     
     }
   ]
 })

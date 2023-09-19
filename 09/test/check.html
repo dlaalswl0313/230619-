@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체동의선택/해제</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    
+<script>
+        $(function() {
+            $("#checkAll").click(function() {
+                if ($(this).prop("checked")) { //prop() 함수는 속성을 조작하거나 가져올때 사용되는 메소드
+                    $(".test").prop("checked", true);
+                } else {
+                    $(".test").prop("checked", false);
+                }
+            });
+
+            $(".test").click(function() {
+                if ($(".test:checked").length == 5) {
+                    $("#checkAll").prop("checked", true);
+                } else {
+                    $("#checkAll").prop("checked", false);
+                }
+            });
+        });
+
+</script>
+</head>
+<body>
+    <input type="checkbox" class="test" name="checkAll" id="checkAll">
+    <span>전체</span>
+    <input type="checkbox" class="test" name="item1">
+    <span>1</span>
+    <input type="checkbox" class="test" name="item2">
+    <span>2</span>
+    <input type="checkbox" class="test" name="item3">
+    <span>3</span>
+    <input type="checkbox" class="test" name="item4">
+    <span>4</span>
+</body>
+</html>

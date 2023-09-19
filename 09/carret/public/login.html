@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand">당근마켓</a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    <div class="container mt-3">
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="email" id="email-new">
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" placeholder="pw" id="pw-new">
+        </div>
+        <button type="submit" class="btn btn-primary" id="register">가입하기</button>
+     </div>
+     <script type="module" src="your-module-file.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+     
+     <link rel ="stylesheet" href="./main.css">
+     
+     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+     
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+     
+    
+     
+     <script>
+     // Your web app's Firebase configuration
+     const firebaseConfig = {
+       apiKey: "AIzaSyD19wQC3WJrANFIGcc5_lmPvLBLZax8YaM",
+       authDomain: "carret-3130d.firebaseapp.com",
+       projectId: "carret-3130d",
+       storageBucket: "carret-3130d.appspot.com",
+       messagingSenderId: "38849019239",
+       appId: "1:38849019239:web:9a29135164bbb8bc2c43c2"
+     };
+       // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+     </script>
+     <script>
+       const db = firebase.firestore();//db소환술
+       const storage = firebase.storage();//storage 소환술
+       //회원가입시켜주는코드
+       $(function(){
+         $('#register').click(function(){
+            //console.log("저장?");
+            var 이메일 = $('#email-new').val();
+            var 패스워드 = $('#pw-new').val();
+            
+             firebase.auth().createUserWithEmailAndPassword(이메일,패스워드).then((result)=>{
+                console.log(result);
+            });
+            alert("가입완료");
+            });
+         });
+       
+     </script>
+     
+</body>
+</html>
