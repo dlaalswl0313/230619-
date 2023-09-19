@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 이미지</title>
+</head>
+<body>
+    <h1>이미지불러오기</h1>
+    <input type = "file" id="fileInput"/>
+    <div id="pictures"></div>
+</body>
+</html>
+<style>
+    .photoFrame{
+      width: 100%;
+      height: 500px;
+    }
+    .photoFrame:hover{
+      cursor: pointer;
+    }
+</style>
+<script>
+    // var file = e.target.files[0];//선택된 파일
+    // var reader = new FileReader();
+    // reader.readAsDataURL(file);//파일을 읽는 메서드
+
+    // reader.onload = function(){
+    //     var photoFrame = document.createElement("div");
+    //     photoFrame.style = `background:url(${reader.result});background-size:cover`;
+    //     photoFrame.className = "photoFrame";
+    //     document.getElementById("pictures").appendChild(phtoFrame);
+    // }
+    // var fileInput = document.getElementById("fileInput");
+    // fileInput.addEventListener('change',function(e){//갑이 변경될때 호출되는 이벤트 리스너
+    //     console.log(e.target.files)
+    // })
+    var fileInput = document.getElementById("fileInput");
+    //값이 변경될때 호출 되는 이벤트 리스너
+    fileInput.addEventListener('change',function(e){
+        var file = e.target.files[0]; //선택된 파일
+        var reader = new FileReader();
+        reader.readAsDataURL(file); //파일을 읽는 메서드 
+
+        reader.onload = function(){//파일리더객체에 readAsDataURL()메서드 호출
+        var photoFrame = document.createElement("div");
+        photoFrame.style = `background : url(${reader.result}); background-size : cover`;
+        photoFrame.className = "photoFrame";
+        document.getElementById("pictures").appendChild(photoFrame);
+        e.target.value = ""; //input clear
+
+        photoFrame.addEventListener("click",function(){//삭제
+            document.getElementById("pictures").removeChild(photoFrame);
+        })
+      }
+    })
+</script>
