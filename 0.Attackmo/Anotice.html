@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지관리>공지작성</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<style>
+    body{
+        display: flex;
+        width: 1920px;
+        height: 1080px;
+        padding: 0px 460px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    #wrap{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        height: 1009px;
+        width:1920px;
+        padding:0;
+        margin:0px;
+    }
+    #header{
+        font-size: 23px;
+        font-weight: 700;
+        gap:10px;
+        display: flex;
+        align-items: flex-end;
+        flex-shrink: 0;
+        padding: 20px 0px;
+        width:100%;
+    }
+    .exit{
+        text-decoration: none;
+        display: inline-block;
+       
+    }
+    #nav{
+        width:100%;
+        display: inline-flex;
+        height: 40px;
+        padding: 0px 30px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .list{
+        list-style-type: none;
+        display: flex;
+        width: 1920px;
+        padding: 0px 50px;
+        justify-content: center;
+        align-items: center;
+        gap: 75px;
+        font-weight: 800;
+        font-size: 17px;
+    }
+    .title{
+        display: inline-flex;
+        height: 40px;
+        padding: 0px 30px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+        width:100%;
+        border-bottom: 2px solid var(--black, #000);
+        gap:20px;
+    }
+    svg{
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        margin-right: 50px;
+    }
+   
+    .logo{
+        display: flex;
+        width:675px;
+        align-items: flex-end;
+        flex-shrink: 0;
+    }
+    
+    #content{
+        width: 1920px;
+        display: flex;
+        height: 668px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        flex-shrink: 0;
+        font-size: 23px;
+        font-weight:700;
+    }
+    #title{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+       
+    }
+    #title input{
+        display: flex;
+        width: 1890px;
+        padding: 20px;
+        align-items: center;
+        font-size: 17px;
+    }
+    #notice{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    #notice input{
+        width: 1920px;
+        height: 436px;
+    }
+    #button_box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        width:100%;
+    }
+    #cancel{
+        background-color: white;
+        border-radius: 8px;
+        border: 1px solid red;
+        color:red;
+        display: flex;
+        width: 100px;
+        padding: 7px 0px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    #sucess{
+        background-color: red;
+        border-radius: 8px;
+        border: 1px solid red;
+        color:white;
+        display: flex;
+        width: 100px;
+        padding: 7px 0px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+</style>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <img src="./image/로고.png" class="logo">
+            <label>관리자페이지</label>
+            <a href="" class="exit"><label>나가기<i class="bi bi-box-arrow-right"></i></label></i></a>
+        </header>
+        <div id="nav">
+            <ul class="list">
+                <li>회원관리</li>|&nbsp;
+                <li>신고내역</li>|&nbsp;
+                <li>공지관리</li>|&nbsp;
+                <li>문의</li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="name">공지작성</div>
+            <div id="title">
+                <label>제목</label>
+                <input type="text" placeholder="제목을 입력해주세요">
+            </div>
+            <div id="notice">
+                <label>내용</label>
+                <input type="text">
+            </div>
+            <div id="button_box">
+                <button id="cancel">취소</button>
+                <button id="sucess">등록하기</button>
+            </div>
+        </div>
+</body>
+</html>
+

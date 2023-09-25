@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="login_box">
+             <div id="title">회원가입</div>
+             <div id="email">
+                <label>이메일</label><input type="email">
+             </div>
+             <div id="pw">
+                <label>비밀번호</label><input type="password">
+             </div>
+             <div id="pw_ck">
+                <label>비밀번호 확인</label><input type="password">
+                <p>비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</p>
+             </div>
+             <div id="nickname">
+                <label>활동명</label><input type="text">
+             </div>
+             <div id="phone">
+                <label>휴대폰번호</label><input type="number">-<input type="number">-<input type="number">
+             </div>
+             <div id="button_box">
+                <button>가입하기</button>
+                <button>취소</button>
+             </div>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+   #wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        border:1px solid black; 
+    }
+ 
+</style>

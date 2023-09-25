@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+</head> 
+<body>
+    <div id="wrap">
+        <div id="login_box">
+            <div id="title">
+                <label>로그인</label>
+            </div>
+            <div id="content">
+                <input type="email" placeholder="이메일">
+                <input type="password" placeholder="비밀번호">
+                <button id="login_bt">로그인</button>  
+                <div id="find">
+                    <label>ID/PW 찾기</label>
+                    <label>회원가입</label>
+                </div>
+            </div>
+        <div id="socail_login">
+            <a href="">페이스북</a>
+            <a href="">트위터</a>
+            <a href="">인스타그램</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<style>
+    #wrap{
+        display: flex;
+        padding-top: 150px;
+        flex-direction: column;
+        align-items: center;
+        gap: 150px;
+    }
+    #title{
+        display: flex;
+        width: 1000px;
+        height: 136px;
+        padding: 41px 0px 41px 40px;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--black, #000);
+        background: #F9C041;
+    }
+    #login_box{
+        display: flex;
+        padding-bottom: 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        border: 1px solid black;
+        height: 719px;
+    }
+    #content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    #content input{
+        display: flex;
+        width: 831px;
+        height: 85px;
+        padding: 10px 40px;
+        align-items: center;
+        gap: 10px;
+    }
+    #login_bt{
+        display: flex;
+        width: 831px;
+        height: 85px;
+        padding: 25px 368px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    #social_login{
+        display: flex;
+        padding-bottom: 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    #find{
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+    }
+</style>
