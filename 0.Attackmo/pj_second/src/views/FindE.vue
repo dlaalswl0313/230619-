@@ -1,0 +1,99 @@
+<template>
+    <div id="wrap">
+        <div id="find_box">
+             <h1>이메일 찾기</h1>
+                <div id="num">
+                    <label>휴대폰번호</label>
+                    <input type="number">-<input type="number">-<input type="number">
+                </div>
+                <div id="button_box">
+                    <button id="find_e" class="fe_bt">이메일 찾기</button>
+                </div>
+                <div id="find">
+                    <label>본인인증찾기</label>
+                    <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
+                </div>
+                <div id="find_bt">
+                    <button id="mine">본인인증찾기</button>
+                </div>  
+             </div>    
+        </div> 
+</template>
+<script>
+</script>
+<style>
+    #wrap{
+        display: flex;
+        margin-top: 150px;
+        margin-bottom:150px;
+        flex-direction: column;
+        align-items: center;
+    }
+    #find_box{
+        border: 1px solid black;
+        padding: 73px 80px;
+        flex-direction: column;
+        align-items: center;
+        gap: 53px;
+        display: flex;
+    }
+    #num label{font-size: 23px;}
+    #num input{
+        width: 230px;
+        height: 60px;   
+    }
+    #button_box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        display: flex;   
+    }
+    #find_e{
+        display: flex;
+        width: 831px;
+        height: 85px;
+        padding: 25px 318px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+        background: #F9C041;
+        border:none;
+        color:white; 
+        font-weight:700;
+        font-size:23px;
+    }
+    #find{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    #find label{font-size:30px;font-weight: 700;}
+    #find p{font-size:17px;font-weight: 400;color:#7A7979;}
+    #find_bt{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        display: flex;    
+    }
+    #mine{
+        display: flex;
+        width: 335px;
+        height: 85px;
+        padding: 24px 84px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border:none;
+        color:white; 
+        border-radius: 10px;
+        background: #F9C041;
+        font-size:23px;
+        font-weight: 700;
+    }
+   
+
+</style>
