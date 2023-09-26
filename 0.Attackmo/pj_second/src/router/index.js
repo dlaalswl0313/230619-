@@ -52,6 +52,11 @@ const router = createRouter({
       name:"finde",
       component:()=>import('@/views/FindE.vue')
     },
+    {
+      path:"/notice",
+      name:"notice",
+      component:()=>import('@/views/notice.vue')
+    },
   ]
 })
 
