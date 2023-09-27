@@ -67,11 +67,6 @@ const router = createRouter({
       name:"askme",
       component:()=>import('@/views/AskMe.vue')
     },
-    {
-      path:"/LoginTest",
-      name:"logintest",
-      component:()=>import('@/views/LoginTest.vue')
-    },
   ]
 })
 

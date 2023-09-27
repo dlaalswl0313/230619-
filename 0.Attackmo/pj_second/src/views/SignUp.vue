@@ -7,10 +7,10 @@
                 <label><i class="bi bi-asterisk"></i>이메일</label><input type="email">
              </div>
              <div id="pw">
-                <label><i class="bi bi-asterisk"></i>비밀번호</label><input type="password">
+                <label><i class="bi bi-asterisk"></i>비밀번호</label><input type="password" v-model="new_user_pw" minlength="8" maxlength="20">
              </div>
              <div id="pw_ck">
-                <label><i class="bi bi-asterisk"></i>비밀번호 확인</label><input type="password">
+                <label><i class="bi bi-asterisk"></i>비밀번호 확인</label><input type="password" v-model="user_pw_ck" minlength="8" maxlength="20">
                 <p>비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</p>
              </div>
              <div id="nickname">

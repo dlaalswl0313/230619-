@@ -15,9 +15,9 @@
                 </div>
             </form>
                 <div id="social_login">
-                    <a href="" id="facebook" class="social_bt"><img src="../images/facebook.png"></a>
-                    <a href="" id="twitter" class="social_bt"><img src="../images/twitter.png"></a>
-                    <a href="" id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
+                    <a href="https://www.facebook.com/?locale=ko_KR" id="facebook" class="social_bt"><img src="../images/facebook.png"></a>
+                    <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D" id="twitter" class="social_bt"><img src="../images/twitter.png"></a>
+                    <a href="https://www.instagram.com/accounts/login/" id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
                 </div>
         </div>
     </div>
