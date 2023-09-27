@@ -2,10 +2,13 @@
     <div id="wrap">
         <div id="find_box">
              <h1>이메일 찾기</h1>
-                <div id="num">
+                <div id="phone">
                     <label>휴대폰번호</label>
-                    <input type="number">-<input type="number">-<input type="number">
+                    <div id="num">
+                        <input type="number" placeholder="010">-<input type="number">-<input type="number">
+                    </div>  
                 </div>
+                
                 <div id="button_box">
                     <button id="find_e" class="fe_bt">이메일 찾기</button>
                 </div>
@@ -20,8 +23,14 @@
         </div> 
 </template>
 <script>
+    
 </script>
 <style>
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
     #wrap{
         display: flex;
         margin-top: 150px;
@@ -37,10 +46,27 @@
         gap: 53px;
         display: flex;
     }
-    #num label{font-size: 23px;}
+    #phone{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        
+    }
+    #phone label{font-size: 23px;font-weight: 700;}
+    #num{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        justify-content: space-between;
+    }
     #num input{
         width: 230px;
-        height: 60px;   
+        height: 60px;
+        padding: 13px 26px;
+        border-radius: 10px;
+        font-size: 23px;
+        color:#7A7979;
     }
     #button_box{
         display: flex;

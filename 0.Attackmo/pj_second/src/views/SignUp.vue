@@ -33,6 +33,11 @@
 
 </script>
 <style>
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
     #wrap{
         display: flex;
         padding-top: 103px;
@@ -61,7 +66,7 @@
     }
     #email input{
         width: 916px;
-        height: 75px;
+        height: 75px;   
     }
     #pw{
         display: flex;

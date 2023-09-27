@@ -1,18 +1,19 @@
 <template>
       <div id="wrap">
-        <div id="login_box">
+        <div id="login_box">          
             <div id="title">
                 <label>로그인</label>
             </div>
-            <div id="content">
-                <input type="email" placeholder="이메일">
-                <input type="password" placeholder="비밀번호">
-                <button id="login_bt">로그인</button>  
+                <form id="content" @submit.prevent="Login">
+                    <input type="email" placeholder="이메일" v-model="user_email">
+                    <input type="password" placeholder="비밀번호" v-model="user_pw">
+                    <button v-on:clcick="togo" v-on:keyup="togo" id="login_bt">로그인</button>  
+                
                 <div id="find">
-                    <label><a href="">ID/PW 찾기</a></label>
-                    <label><a href="">회원가입</a></label>
+                    <label><a href="./FindE">ID</a><a href="./FindP">/PW찾기</a></label>
+                    <label><a href="./SignUp">회원가입</a></label>
                 </div>
-            </div>
+            </form>
                 <div id="social_login">
                     <a href="" id="facebook" class="social_bt"><img src="../images/facebook.png"></a>
                     <a href="" id="twitter" class="social_bt"><img src="../images/twitter.png"></a>
@@ -22,7 +23,32 @@
     </div>
 </template>
 <script>
-
+    export default{
+        data(){
+            return{
+                user_email:'',
+                user_pw:''
+            };
+        }, 
+        methods:{
+            Login(){
+                if(this.user_email ===''){
+                    alert('이메일을 입력하세요');
+                    return;
+                }
+                if (this.user_pw === '') {
+                    alert('비밀번호를 입력하세요.');
+                    return;
+                }
+                alert('로그인 되었습니다.');
+                this.togo();
+            },
+            togo(){
+                this.$router.push('/');
+            }
+            
+        }
+    }
 </script>
 <style>
     #wrap{
@@ -84,6 +110,7 @@
         border:none;
         color:white;
     }
+    #login_bt:hover{cursor: pointer;}
     #social_login{
         display: flex;
         align-items: flex-start;
