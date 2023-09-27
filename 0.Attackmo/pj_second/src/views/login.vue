@@ -16,7 +16,7 @@
             </form>
                 <div id="social_login">
                     <a href="https://www.facebook.com/?locale=ko_KR" id="facebook" class="social_bt"><img src="../images/facebook.png"></a>
-                    <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D" id="twitter" class="social_bt"><img src="../images/twitter.png"></a>
+                    <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D" id="twitter" class="social_bt"><img src="../images/twitter.svg"></a>
                     <a href="https://www.instagram.com/accounts/login/" id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
                 </div>
         </div>
@@ -25,6 +25,7 @@
 <script>
     export default{
         data(){
+            // 빈 문자열 데이터 init
             return{
                 user_email:'',
                 user_pw:''
@@ -126,7 +127,6 @@
         height: 130px;
         margin:-11px;
     }
-    #instagram img{width:106.013px;height: 106.013px;margin:0px;}
     #find{
         display: flex;
         align-items: flex-start;
