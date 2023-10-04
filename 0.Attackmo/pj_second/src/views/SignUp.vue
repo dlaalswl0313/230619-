@@ -1,73 +1,41 @@
 <template>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
   <div id="wrap">
-    <form @submit.prevent="registerUser" id="sign_box">
-      <h1>회원가입</h1>
-      <div id="email">
-        <label><i class="bi bi-asterisk"></i>이메일</label>
-        <input type="email" name="mail" v-model="user_email" id="mail">
-      </div>
-      <div id="pw">
-        <label><i class="bi bi-asterisk"></i>비밀번호</label>
-        <input type="password" name="password1" v-model="user_pw" id="pw">
-      </div>
-      <div id="pw_ck">
-        <label><i class="bi bi-asterisk"></i>비밀번호 확인</label>
-        <input type="password" name="password2" v-model="user_pw_confirm">
-        <p>비밀번호는 6자리 이상의 영문과 숫자 조합이어야 합니다</p>
-      </div>
-      <div id="nickname">
-        <label><i class="bi bi-asterisk"></i>활동명</label>
-        <input type="text" name="n_name" v-model="user_nickname" id="aname">
-      </div>
-      <div id="phone">
-        <label><i class="bi bi-asterisk"></i>휴대폰번호</label>
-          <div id="num">
-             <input type="number" name="number" v-model="formData.number1" id="number2" placeholder="010">
-             -<input type="number" name="number" v-model="formData.number2" id="number3">
-            -<input type="number" name="number" v-model="formData.number3" id="number4">
-        </div>  
-        <div id="button_box">
-          <button type="submit" id="sign" class="bt">가입하기</button>
-          <button type="button" id="cancel" class="bt">취소</button>
-        </div>
-      </div>     
-    </form>
-  </div>
+        <form @submit.prevent="submitForm" id="sign_box">
+             <h1>회원가입</h1>
+             <div id="email">
+                <label><i class="bi bi-asterisk"></i>이메일</label>
+                <input type="email" name="mail" v-model="formData.mail" id="mail">
+             </div>
+             <div id="pw">
+                <label><i class="bi bi-asterisk"></i>비밀번호</label>
+                <input type="password" name="password1"  v-model="formData.password1" id="pw">
+             </div>
+             <div id="pw_ck">
+                <label><i class="bi bi-asterisk"></i>비밀번호 확인</label>
+                <input type="password" name="password2" v-model="formData.password2">
+                <p>비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</p>
+             </div>
+             <div id="nickname">
+                <label><i class="bi bi-asterisk"></i>활동명</label>
+                <input type="text" name="n_name" v-model="formData.n_name" id="aname">
+             </div>
+             <div id="phone">
+                <label><i class="bi bi-asterisk"></i>휴대폰번호</label>
+                <div id="num">
+                  <!-- <input type="number" name="number" v-model="formData.number1" id="number1" @input="limitCharacters('number1')" placeholder="010">
+                  -<input type="number" name="number" v-model="formData.number2" id="number2" @input="limitCharacters('number2')">
+                  -<input type="number" name="number" v-model="formData.number3" id="number3" @input="limitCharacters('number3')"> -->
+                  <input type="number" name="number" v-model="formData.number" id="number" @input="limitCharacters('number')" placeholder="01012341235">
+                </div>       
+             </div>
+             <div id="button_box">
+                <button type="submit" id="sign" class="bt">가입하기</button>
+                <button type="button" id="cancel" class="bt">취소</button>
+             </div>
+        </form>
+    </div>
 </template>
-
-<!-- <script>
-export default {
-  data() {
-    return {
-      user_email: '',
-      user_pw: '',
-      user_pw_confirm: '',
-      //user_nickname: '',
-    };
-  },
-  methods: {
-    registerUser() {
-      if (this.user_pw !== this.user_pw_confirm) {
-        alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-        return;
-      }
-
-      firebase.auth().createUserWithEmailAndPassword(this.user_email, this.user_pw)
-        .then((result) => {
-          console.log("등록 성공:", result);
-          alert("가입완료");
-        })
-        .catch((error) => {
-          console.error("등록 실패:", error);
-          alert("가입 실패: " + error.message);
-        });
-    },
-  },
-};
-</script> -->
-
 <script>
 export default {
   data(){
@@ -80,41 +48,44 @@ export default {
         // number1:"",
         // number2:"",
         // number3:"",
+        number:"",
       },
       submittedData: [], // 입력된 데이터를 저장할 배열
     };
   },
   methods: {
     checkAll() {
-      const mail = document.forms["sign_box"]["mail"].value;
-      const password1 = document.forms["sign_box"]["password1"].value;
-      const password2 = document.forms["sign_box"]["password2"].value;
-      const n_name = document.forms["sign_box"]["n_name"].value;
-      //const phone = document.forms["sign_box"]["phone"].value;
-
+      // const mail = document.forms["sign_box"]["mail"].value;
+      // const password1 = document.forms["sign_box"]["password1"].value;
+      // const password2 = document.forms["sign_box"]["password2"].value;
+      // const n_name = document.forms["sign_box"]["n_name"].value;
+      // const phone = this.formData.number1 + this.formData.number2 + this.formData.number3; // 전화번호 합치기
       
-      // const mail = this.formData.mail;
-      // const password1 = this.formData.password1;
-      // const password2 = this.formData.password2;
-      // const n_name = this.formData.n_name;
-
+      const mail = this.formData.mail;
+      const password1 = this.formData.password1;
+      const password2 = this.formData.password2;
+      const n_name = this.formData.n_name;
+      //const phone = this.formData.number1 + this.formData.number2 + this.formData.number3;
+      const phone = this.formData.number;
+      
       if (!this.checkMail(mail)) {
         //console.log("이메일 값: " + this.formData.mail);
         return false;
       }
       if (!this.checkPassword(password1, password2)) {
-        console.log("비밀번호 값: " + this.formData.password1);
-        console.log("비밀번호 값: " + this.formData.password2);
+        //console.log("비밀번호 값: " + this.formData.password1);
+        //console.log("비밀번호 값: " + this.formData.password2);
         return false;
       }
       if (!this.checkName(n_name)) {
        // console.log("활동명 값: " + this.formData.n_name);;
         return false;
       }
-      // if (!this.phone(phone)) {
-      //   //console.log("휴대폰번호 값: " + this.formData.phone);
-      //   return false;
-      // }
+      if (!this.checkPhone(phone)) {
+        //console.log("휴대폰번호 값: " + this.formData.number1 + this.formData.number2 + this.formData.number3);
+        console.log("휴대폰번호 값: " + this.formData.number);
+        return false;
+      }
       return true;
     },
     checkMail(mail) {
@@ -143,21 +114,18 @@ export default {
         alert("활동명을 입력해주세요!");
         return false;
       }
-      var nameRegExp = /^[가-힣]{2,4}$/;
+      const nameRegExp = /^[가-힣]{2,4}$/;
        if (!nameRegExp.test(n_name)) {
             alert("이름이 올바르지 않습니다.");
             return false;
         }
       return true; // 확인이 완료되었을 때 
     },
-    // checkphone(phone) {
-    //   const phoneNumberPattern = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/;
-    //   if (!phoneNumberPattern.test(phone)) {
-    //     alert("휴대폰 번호 형식이 올바르지 않습니다");
-    //     return false;
-    //   }
-    //   return true;
-    // },
+    checkPhone(phone) {
+      const phoneNumberPattern = /^[0-9]{11}$/;
+      return phoneNumberPattern.test(phone);
+    },
+   
     submitForm() {
       if (this.checkAll()) {
         // 폼 제출 시 formData를 submittedData 배열에 추가
@@ -168,9 +136,7 @@ export default {
           n_name: this.formData.n_name,
           //number: this.formData.phone,
         });
-
-        setTimeout(() => {// 시간 지연 후 폼 데이터 초기화
-          this.formData = {
+        this.formData = {
             mail: '',
             password1: '',
             password2: '',
@@ -178,18 +144,11 @@ export default {
             // number1: "",
             // number2: "",
             // number3: "",
-          };
-        }, 5000); // 여기서 2000은 2초를 나타냅니다. 원하는 시간 (밀리초 단위)을 설정할 수 있습니다.
-
+            number:"",
+          },
           console.log(this.submittedData);
-          }
-        },
-        sign(){
-          // if (this.checkAll()) {
-          //   document.getElementById('sign_box').submit();
-          // }
-          alert("가입이 완료되었습니다.");
-        }  
+        }
+      },
     },
 };
 </script>
@@ -275,17 +234,22 @@ export default {
         gap:20px;
         width: 916px;
     }
-    #phone input{
+    /* #phone input{
         width: 250px;
         height: 60px;
         padding: 13px 26px;
-    }
+    } */
     #num{ 
         width: 915px;
         height: 60px;
         display: flex;
         align-items: center;
         gap:50px;
+    }
+    #num input{
+        width: 918px;
+        height: 75px;
+        padding: 13px 26px;
     }
     label{font-size: 23px;font-weight: 700;}
     label i {font-size: 23px;color:#B91646;}

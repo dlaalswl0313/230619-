@@ -1,36 +1,97 @@
 <template>
-    <div id="wrap">
-      <div id="find_box">
-        <h1>비밀번호 찾기</h1>
-        <div id="email">
-          <input type="email" placeholder="이메일" v-model="email">
+  <div id="wrap">
+    <form @submit.prevent="submitForm" id="find_box">
+      <h1>비밀번호 찾기</h1>
+      <div id="email">
+        <input type="email" placeholder="이메일" v-model="formData.email" name="mail">
+      </div>
+      <div id="phone">
+        <label>휴대폰번호</label>
+        <div id="num">
+          <input type="number" v-model="formData.number1" name="number1">- 
+          <input type="number" v-model="formData.number2" name="number2">-
+          <input type="number" v-model="formData.number3" name="number3">
         </div>
-        <div id="phone">
-          <label>휴대폰번호</label>
-          <div id="num">
-            <input type="number" v-model="phone1">- <input type="number" v-model="phone2">-<input type="number" v-model="phone3">
-          </div>
-          <div id="button_box">
-            <button type="submit" id="find_p" class="bt" @click="findPassword">비밀번호 찾기</button>
-          </div>
-        </div>
-        <div id="find">
-          <label>본인인증찾기</label>
-          <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
-          <div id="num">
-            <input type="number" v-model="verification1">-<input type="number" v-model="verification2">-<input type="number" v-model="verification3">
-          </div>
-        </div>
-        <div id="find_bt">
-          <button type="submit"  id="mine" class="bt" @click="verifyIdentity">본인인증찾기</button>
+        <div id="button_box">
+          <button type="submit" id="find_p" class="bt" @click="findPassword">비밀번호 찾기</button>
         </div>
       </div>
-    </div>
-  </template>
+      <div id="find">
+        <label>본인인증찾기</label>
+        <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
+        <div id="num">
+          <input type="number" v-model="verification1" name="verification1">-
+          <input type="number" v-model="verification2" name="verification2">-
+          <input type="number" v-model="verification3" name="verification3">
+        </div>
+      </div>
+      <div id="find_bt">
+        <button type="submit"  id="mine" class="bt" @click="verifyIdentity">본인인증찾기</button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+data() {
+  return {
+    formData: {
+      email: '',
+      number1: '',
+      number2: '',
+      number3: '',
+    },
+    submittedData: [], // 입력된 데이터를 저장할 배열
+  };
+},
+methods: {
+  checkAll() {
+    const email = this.formData.email;
+    const number = this.formData.number1 + this.formData.number2 + this.formData.number3;
+    
+    if (!this.checkMail(email)) {
+      alert("이메일 형식이 올바르지 않습니다!");
+      return false;
+    }
+    if (!this.checkPhone(number)) {
+      alert("휴대폰번호 형식이 올바르지 않습니다!");
+      return false;
+    }
+   
+    return true;
+  },
+  checkMail(email) {
+    const emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+    return emailRegExp.test(email);
+  },
+  checkPhone(number) {
+    const phoneNumberPattern = /^[0-9]{11}$/;
+    return phoneNumberPattern.test(number);
+  },
   
-  <script>
+
+    submitForm() {
+      if (this.checkAll()) {
+        this.submittedData.push({
+          email: this.formData.email,
+          number: this.formData.number1 + this.formData.number2 + this.formData.number3,
+        });
+        this.formData.email = '';
+        this.formData.number1 = '';
+        this.formData.number2 = '';
+        this.formData.number3 = '';
+      
+        console.log(this.submittedData);
+      }
+    },
+    verifyIdentity(){
+      alert("완료되었습니다.");
+      this.$router.push('/');
+    }
+  },
+};
 </script>
-  
 <style>
     #wrap{
         display: flex;
