@@ -59,11 +59,6 @@ export default {
             const end = start + this.itemsPerPage;
             return this.sortedData.slice(start, end);
         }, 
-        visiblePosts() {
-            const start = (this.currentPage - 1) * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            return this.sortedData.slice(start, end);
-        },
         blocks() {
             const blocks = [];
             for (let i = 1; i <= this.totalPage; i++) {
@@ -83,7 +78,6 @@ export default {
         aread_list(){
            //alert("클릭미");
             this.$router.push({path:"/Aread"});
-
         },
         changePage(page) {
             this.currentPage = page;

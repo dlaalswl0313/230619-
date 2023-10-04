@@ -15,9 +15,9 @@
                 </tr>
             </table> 
             <table id="list2">
-                <tr v-for="(value,i) in visiblePosts" :key="value.id" @click="gonote">
+                <tr v-for="(value,i) in visiblePosts" :key="value.id" >
                     <td>{{ i + 1 }}</td>
-                    <td>{{ value.title }}</td>
+                    <td @click="gonote">{{ value.title }}</td>
                     <td>{{ value.writer }}</td>
                     <td>{{ getCurrentDate() }}</td>
                 </tr>
@@ -61,11 +61,6 @@ export default {
             const end = start + this.itemsPerPage;
             return this.sortedData.slice(start, end);
         }, 
-        visiblePosts() {
-            const start = (this.currentPage - 1) * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            return this.sortedData.slice(start, end);
-        },
         blocks() {
             const blocks = [];
             for (let i = 1; i <= this.totalPage; i++) {
@@ -129,13 +124,13 @@ export default {
     align-items: center;
 }
 .floating_button{
-    display:inline-block;
-    width: 50px;
-    height: 50px;
+    display:flex;
+    width: 30px;
+    height: 30px;
     background:gold;
     border-radius: 100%;
-}
 
+}
 #list{
     width:1000px;
     text-align: center;
