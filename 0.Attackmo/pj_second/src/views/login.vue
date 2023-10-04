@@ -4,9 +4,9 @@
           <div id="title">
               <label>로그인</label>
           </div>
-              <form v-on:submit.prevent="Login()" id="content">
-                  <input type="email" placeholder="이메일" v-model="user_email">
-                  <input type="password" placeholder="비밀번호" v-model="user_pw">
+              <form v-on:submit.prevent="registerUser" id="content">
+                  <input type="email" placeholder="이메일" v-model="user_email" id="email-new">
+                  <input type="password" placeholder="비밀번호" v-model="user_pw" id="pw-new">
                   <button @clcick="togo" @keyup="togo" id="login_bt">로그인</button>  
               
                     <div id="find">
@@ -58,34 +58,7 @@ export default {
 }
 </script>
 
-<!-- <script>
-  export default{
-      data(){
-          // 빈 문자열 데이터 init
-          return{
-              user_email:'',
-              user_pw:''
-          };
-      }, 
-      methods: {
-          Login() {
-              if(this.user_email ===''){
-                  alert('이메일을 입력하세요');
-                  return;
-              }
-              if (this.user_pw === '') {
-                  alert('비밀번호를 입력하세요.');
-                  return;
-              }
-              alert('로그인 되었습니다.');
-              this.togo();
-          },
-          togo(){
-              this.$router.push('/');
-          } 
-      }
-  }
-</script> -->
+ 
 <style>
     #wrap{
         display: flex;

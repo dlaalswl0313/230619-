@@ -31,7 +31,8 @@ export default {
             data: data,
             writer: "",
             title: "",
-            content: ""
+            content: "",
+            file: null  // 'file' 속성을 정의합니다.
         }
     },
     methods: {
@@ -46,6 +47,10 @@ export default {
                 path:"/AskMe"
             })
         },
+        handleFileChange(event) {
+            // 파일 변경 이벤트를 처리하고 선택한 파일을 저장합니다.
+            this.file = event.target.files[0];
+        }
     }
 }      
 </script>

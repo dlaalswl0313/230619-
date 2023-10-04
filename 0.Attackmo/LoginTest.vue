@@ -9,10 +9,6 @@
           <form @submit.prevent="fnLogin"> 
             <p>
               <input class="w3-input" name="uid" placeholder="ID를 입력해주세요" v-model="user_id"><br>
-  
-  
-  
-  
             </p>
             <p>
               <input name="password" class="w3-input" placeholder="PW를 입력해주세요" v-model="user_pw" type="password">

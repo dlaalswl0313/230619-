@@ -1,40 +1,73 @@
 <template>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
   <div id="wrap">
-        <form @submit.prevent="submitForm" id="sign_box">
-             <h1>회원가입</h1>
-             <div id="email">
-                <label><i class="bi bi-asterisk"></i>이메일</label>
-                <input type="email" name="mail" v-model="formData.mail" id="mail">
-             </div>
-             <div id="pw">
-                <label><i class="bi bi-asterisk"></i>비밀번호</label>
-                <input type="password" name="password1"  v-model="formData.password1" id="pw">
-             </div>
-             <div id="pw_ck">
-                <label><i class="bi bi-asterisk"></i>비밀번호 확인</label>
-                <input type="password" name="password2" v-model="formData.password2">
-                <p>비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</p>
-             </div>
-             <div id="nickname">
-                <label><i class="bi bi-asterisk"></i>활동명</label>
-                <input type="text" name="n_name" v-model="formData.n_name" id="aname">
-             </div>
-             <!-- <div id="phone">
-                <label><i class="bi bi-asterisk"></i>휴대폰번호</label>
-                <div id="num">
-                    <input type="number" name="number" v-model="formData.number1" id="number2">
-                    -<input type="number" name="number" v-model="formData.number2" id="number3">
-                    -<input type="number" name="number" v-model="formData.number3" id="number4">
-                </div>       
-             </div> -->
-             <div id="button_box">
-                <button type="submit" id="sign" class="bt">가입하기</button>
-                <button type="button" id="cancel" class="bt">취소</button>
-             </div>
-        </form>
-    </div>
+    <form @submit.prevent="registerUser" id="sign_box">
+      <h1>회원가입</h1>
+      <div id="email">
+        <label><i class="bi bi-asterisk"></i>이메일</label>
+        <input type="email" name="mail" v-model="user_email" id="mail">
+      </div>
+      <div id="pw">
+        <label><i class="bi bi-asterisk"></i>비밀번호</label>
+        <input type="password" name="password1" v-model="user_pw" id="pw">
+      </div>
+      <div id="pw_ck">
+        <label><i class="bi bi-asterisk"></i>비밀번호 확인</label>
+        <input type="password" name="password2" v-model="user_pw_confirm">
+        <p>비밀번호는 6자리 이상의 영문과 숫자 조합이어야 합니다</p>
+      </div>
+      <div id="nickname">
+        <label><i class="bi bi-asterisk"></i>활동명</label>
+        <input type="text" name="n_name" v-model="user_nickname" id="aname">
+      </div>
+      <div id="button_box">
+        <button type="submit" id="sign" class="bt">가입하기</button>
+        <button type="button" id="cancel" class="bt">취소</button>
+      </div>
+      <div id="phone">
+        <label><i class="bi bi-asterisk"></i>휴대폰번호</label>
+          <div id="num">
+             <input type="number" name="number" v-model="formData.number1" id="number2">
+             -<input type="number" name="number" v-model="formData.number2" id="number3">
+            -<input type="number" name="number" v-model="formData.number3" id="number4">
+        </div>  
+      </div>     
+    </form>
+  </div>
 </template>
+
+<!-- <script>
+export default {
+  data() {
+    return {
+      user_email: '',
+      user_pw: '',
+      user_pw_confirm: '',
+      //user_nickname: '',
+    };
+  },
+  methods: {
+    registerUser() {
+      if (this.user_pw !== this.user_pw_confirm) {
+        alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+        return;
+      }
+
+      firebase.auth().createUserWithEmailAndPassword(this.user_email, this.user_pw)
+        .then((result) => {
+          console.log("등록 성공:", result);
+          alert("가입완료");
+        })
+        .catch((error) => {
+          console.error("등록 실패:", error);
+          alert("가입 실패: " + error.message);
+        });
+    },
+  },
+};
+</script> -->
+
 <script>
 export default {
   data(){
