@@ -1,14 +1,10 @@
 <template>
     <div id="wrap">
         <form @submit.prevent="write" id="admin">
-            <label>작성하기</label>
+            <label>공지사항(관리자)</label>
             <div id="title">
                 <label>제목</label>
                 <input type="text" v-model="title" placeholder="제목을 입력해주세요">
-            </div>
-            <div class="file_box">
-                <label>첨부파일</label>
-                <input type="file" name="file" id="file" @change="handleFileChange">
             </div>
             <div id="notice">
                 <label>내용</label>
@@ -19,6 +15,7 @@
                 <button @click="write" id="check" class="bt">등록하기</button>
             </div>
         </form>
+      
     </div>
 </template>
 <script> 
@@ -40,12 +37,11 @@ export default {
                 Number:this.Number,
                 title: this.title,
                 writer: this.writer,
-                file:this.file,
             })
             this.$router.push({
                 path:"/AskMe"
             })
-        },
+        }
     }
 }      
 </script>
@@ -81,21 +77,6 @@ export default {
         align-self: stretch;
         display: flex;
         font-size: 26px;
-    }
-    .file_box{
-        display: flex;
-        width: 1000px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        font-size: 17px;
-        width:100%;
-    }
-    input[type=file]::file-selector-button {
-        width: 99px;
-        height: 33px;
-        background: #fff;
-        border-radius: 30px;
     }
     #notice{
         display: flex;

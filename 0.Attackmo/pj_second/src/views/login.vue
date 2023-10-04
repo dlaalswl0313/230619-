@@ -1,56 +1,91 @@
 <template>
-      <div id="wrap">
-        <div id="login_box">          
-            <div id="title">
-                <label>로그인</label>
-            </div>
-                <form id="content" @submit.prevent="Login">
-                    <input type="email" placeholder="이메일" v-model="user_email">
-                    <input type="password" placeholder="비밀번호" v-model="user_pw">
-                    <button v-on:clcick="togo" v-on:keyup="togo" id="login_bt">로그인</button>  
-                
-                <div id="find">
-                    <label><a href="./FindE">ID</a><a href="./FindP">/PW찾기</a></label>
-                    <label><a href="./SignUp">회원가입</a></label>
-                </div>
-            </form>
-                <div id="social_login">
-                    <a href="https://www.facebook.com/?locale=ko_KR" id="facebook" class="social_bt"><img src="../images/facebook.png"></a>
-                    <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D" id="twitter" class="social_bt"><img src="../images/twitter.svg"></a>
-                    <a href="https://www.instagram.com/accounts/login/" id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
-                </div>
-        </div>
-    </div>
+    <div id="wrap">
+      <div id="login_box">          
+          <div id="title">
+              <label>로그인</label>
+          </div>
+              <form v-on:submit.prevent="Login()" id="content">
+                  <input type="email" placeholder="이메일" v-model="user_email">
+                  <input type="password" placeholder="비밀번호" v-model="user_pw">
+                  <button @clcick="togo" @keyup="togo" id="login_bt">로그인</button>  
+              
+                    <div id="find">
+                        <label><a href="./FindE">ID</a><a href="./FindP">/PW찾기</a></label>
+                        <label><a href="./SignUp">회원가입</a></label>
+                    </div>
+              </form>
+              <div id="social_login">
+                  <a href="https://www.facebook.com/?locale=ko_KR" id="facebook" class="social_bt"><img src="../images/facebook.png"></a>
+                  <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D" id="twitter" class="social_bt"><img src="../images/twitter.svg"></a>
+                  <a href="https://www.instagram.com/accounts/login/" id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
+              </div>
+      </div>
+  </div>
 </template>
 <script>
-    export default{
-        data(){
-            // 빈 문자열 데이터 init
-            return{
-                user_email:'',
-                user_pw:''
-            };
-        }, 
-        methods:{
-            Login(){
-                if(this.user_email ===''){
-                    alert('이메일을 입력하세요');
-                    return;
-                }
-                if (this.user_pw === '') {
-                    alert('비밀번호를 입력하세요.');
-                    return;
-                }
-                alert('로그인 되었습니다.');
-                this.togo();
-            },
-            togo(){
-                this.$router.push('/');
-            }
-            
-        }
+import axios from 'axios';
+
+export default {
+  data: function() {
+    return {
+      user_email: '',
+      user_pw: ''
     }
+  },
+  methods: {
+    Login: function() {
+      //event.preventDefault();
+      console.log(this.user_email, this.user_pw);
+      const url = 'https://jsonplaceholder.typicode.com/users';
+      const data = {
+        email: this.user_email,
+        password: this.user_pw
+      }
+      axios.post(url, data)
+        .then(function(response) {
+          console.log('로그인 성공', response);
+          alert("로그인 성공");
+          //this.togo();
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+     }
+    // togo() {
+    //   this.$router.push('/');
+    // }
+  }
+}
 </script>
+
+<!-- <script>
+  export default{
+      data(){
+          // 빈 문자열 데이터 init
+          return{
+              user_email:'',
+              user_pw:''
+          };
+      }, 
+      methods: {
+          Login() {
+              if(this.user_email ===''){
+                  alert('이메일을 입력하세요');
+                  return;
+              }
+              if (this.user_pw === '') {
+                  alert('비밀번호를 입력하세요.');
+                  return;
+              }
+              alert('로그인 되었습니다.');
+              this.togo();
+          },
+          togo(){
+              this.$router.push('/');
+          } 
+      }
+  }
+</script> -->
 <style>
     #wrap{
         display: flex;
@@ -123,9 +158,8 @@
         margin-bottom:40px;
     }
     .social_bt img{ 
-        width: 130px;
-        height: 130px;
-        margin:-11px;
+        width: 106.013px;
+        height: 106.013px;
     }
     #find{
         display: flex;

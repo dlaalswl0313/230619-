@@ -2,22 +2,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <div id="wrap">
         <div id="nwrite">
-            <p>문의사항</p>
-            
+            <p>신고관리</p>
+            <span>목록{{ sortedData.length}}</span>
             <table id="list">
                 <tr>
-                    <td>번호</td>
-                    <td>제목</td>
-                    <td>작성자</td>
-                    <td>날짜</td>
+                    <td>사유</td>
+                    <td>신고대상</td>
+                    <td>일자</td>
                 </tr>
-            </table>
+            </table> 
             <table id="list2">
-                <tr v-for="(value,i) in visiblePosts" :key="value.id" @click="aread_list">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ value.title }}</td>
-                    <td>{{ value.writer }}</td>
-                    <td>{{ getCurrentDate()}}</td>
+                <tr v-for="(value) in visiblePosts" :key="value.id" @click="gonote">
+                    <td>{{ value.option}}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ getCurrentDate() }}</td>
                 </tr>
             </table>
             <div id="totalPage">
@@ -30,18 +28,19 @@
                 <i @click="next()" class="bi bi-chevron-bar-right"></i>
             </div>
         </div>
+        
     </div>
 </template>
 <script>
-import data from '../data/data.js'
+import data from '../data/siren.js'
 
 export default {
     name: 'Read',
     data() {
         return {
             data: data,
-            itemsPerPage: 10,
-            currentPage: 1,
+            itemsPerPage: 10, //목록 몇개까지 표시할것인가
+            currentPage: 1, //페이지 이동 수 
         }
     },
     computed: {
@@ -50,7 +49,7 @@ export default {
                 // 날짜를 기준으로 내림차순 정렬
                 return new Date(b.Date) - new Date(a.Date);
             });
-        },
+        }, 
         totalPage() {
             return Math.ceil(this.data.length / this.itemsPerPage);
         }, 
@@ -71,7 +70,7 @@ export default {
         }
          return blocks;
         },
-    },
+  },
     methods: {
         getCurrentDate() { //날짜 형식 YYYY-MM-DD
             const currentDate = new Date();
@@ -80,10 +79,9 @@ export default {
             const day = String(currentDate.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         },
-        aread_list(){
-           //alert("클릭미");
-            this.$router.push({path:"/Aread"});
-
+        gonote(){
+           alert("클릭미");
+            
         },
         changePage(page) {
             this.currentPage = page;
@@ -98,7 +96,6 @@ export default {
             //alert("다음");
             if(this.currentPage < this.totalPage){
                 this.currentPage++;
-                   
             }
         }
     },
@@ -132,9 +129,10 @@ export default {
 #list2{
     width:1000px;
     text-align: center;
+    gap:20px;
 }
 #list2:hover{cursor: pointer;}
-table tr td{width:200px;}
+table tr td{width:200px;padding:15px;}
 table tr td:nth-child(2){width:480px;}
 #totalPage{
     display: flex;

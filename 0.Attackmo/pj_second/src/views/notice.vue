@@ -4,7 +4,7 @@
             <p>공지사항</p>
             <label>공지 확인 부탁드립니다.</label>        
         <div class="writer">
-            <h3>관리자</h3><h3>YYYY.MM.DD</h3>
+            <h3>관리자</h3><h3>{{ getCurrentDate() }}</h3>
         </div>
         <div id="admin">
             <div class="note">
@@ -17,8 +17,28 @@
         </div>
       </div>
     </div>
+
 </template>
 <script>
+import data from '../data/notice.js'
+
+export default {
+    name: 'Read',
+    data() {
+        return {
+            data: data
+        }
+    },
+    methods: {
+        getCurrentDate() { //날짜 형식 YYYY-MM-DD
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        },
+    }
+}
 </script>
 <style>
 #wrap{

@@ -8,13 +8,25 @@
             </div>
             <div id="button_bt">
                 <button id="cancel" class="bt">취소</button>
-                <button id="check" class="bt">확인</button> 
+                <button @click="move" type="submit" id="check" class="bt">확인</button> 
             </div>
         </div>
     </div>
 </template>
 <script>
-
+export default{
+    data(){
+          // 빈 문자열 데이터 init
+          return{
+            input_pw:'',
+          };
+      }, 
+      methods: {
+          move(){
+              this.$router.push('/InfoEdit');
+          } 
+      }
+  }
 </script>
 <style>
     #wrap{

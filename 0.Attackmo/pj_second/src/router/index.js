@@ -67,6 +67,26 @@ const router = createRouter({
       name:"askme",
       component:()=>import('@/views/AskMe.vue')
     },
+    {
+      path:"/AdSign",
+      name:"AdSign",
+      component:()=>import('@/views/AdSign.vue')
+    },
+    {
+      path:"/AdSiren",
+      name:"AdSiren",
+      component:()=>import('@/views/AdSiren.vue')
+    },
+    {
+      path:"/Adnotice",
+      name:"Adnotice",
+      component:()=>import('@/views/Adnotice.vue')
+    },
+    {
+      path:"/Test",
+      name:"Test",
+      component:()=>import('@/views/Test.vue')
+    },    
   ]
 })
 
