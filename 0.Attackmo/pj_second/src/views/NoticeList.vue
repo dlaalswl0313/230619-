@@ -4,7 +4,7 @@
         <div id="nwrite">
             <div id="title">
                 <p>공지사항</p>
-                <a href="/Anotice" class="floating_button"></a>
+                <a href="/Anotice" class="floating_button"><i class="bi bi-pencil-square"></i></a>
             </div>
             <table id="list">
                 <tr>
@@ -122,14 +122,20 @@ export default {
 }
 #nwrite p{font-size: 23px;font-weight: 700;}
 
+#title{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .floating_button{
     display:inline-block;
     width: 50px;
     height: 50px;
     background:gold;
     border-radius: 100%;
-
 }
+
 #list{
     width:1000px;
     text-align: center;
@@ -165,5 +171,4 @@ table tr td:nth-child(2){width:480px;}
     border:none;
     background: white;
 }
-
 </style>

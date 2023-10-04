@@ -21,17 +21,17 @@
         <label><i class="bi bi-asterisk"></i>활동명</label>
         <input type="text" name="n_name" v-model="user_nickname" id="aname">
       </div>
-      <div id="button_box">
-        <button type="submit" id="sign" class="bt">가입하기</button>
-        <button type="button" id="cancel" class="bt">취소</button>
-      </div>
       <div id="phone">
         <label><i class="bi bi-asterisk"></i>휴대폰번호</label>
           <div id="num">
-             <input type="number" name="number" v-model="formData.number1" id="number2">
+             <input type="number" name="number" v-model="formData.number1" id="number2" placeholder="010">
              -<input type="number" name="number" v-model="formData.number2" id="number3">
             -<input type="number" name="number" v-model="formData.number3" id="number4">
         </div>  
+        <div id="button_box">
+          <button type="submit" id="sign" class="bt">가입하기</button>
+          <button type="button" id="cancel" class="bt">취소</button>
+        </div>
       </div>     
     </form>
   </div>

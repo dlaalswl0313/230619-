@@ -4,7 +4,7 @@
              <h1>이메일 찾기</h1>
                 <div id="num">
                     <label>휴대폰번호</label>
-                    <input type="number">-<input type="number">-<input type="number">
+                    <input type="number" placeholder="010">-<input type="number">-<input type="number">
                 </div>
                 <div id="button_box">
                     <button id="find_e" class="fe_bt">이메일 찾기</button>
