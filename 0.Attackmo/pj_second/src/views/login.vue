@@ -169,4 +169,73 @@ export default {
     }
     #find label{font-size: 17px;color:#7A7979;}
     a{text-decoration: none;}
+    
+    /*반응형*/
+    @media screen and (min-width: 768px) and (max-width: 991px) { 
+    #wrap {
+      display: flex;
+      width: 834px;
+      height: 1194px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #login_box{
+      display: flex;
+      width: 536px;
+      padding-bottom: 40px;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    #title{
+      display: flex;
+      width: 534px;
+      height: 76px;
+      padding: 41px 0px 41px 40px;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+    }
+    #content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    #content input{
+      display: flex;
+      width: 430px;
+      height: 67px;
+      padding: 10px 40px;
+       
+    }
+    #login_bt{
+      display: flex;
+      width: 430px;
+      height: 67px;
+      padding: 10px 40px;
+    }
+    #login_bt:hover{cursor: pointer;}
+    #social_login{
+      display: flex;
+      width: 278px;
+      height: 77px;
+      align-items: flex-start;
+      gap: 25px;
+    }
+    .social_bt img{ 
+      width: 76px;
+      height: 77px;
+      
+    }
+    #find{
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      align-self: stretch;
+    }
+    #find label{font-size: 17px;color:#7A7979;}
+    a{text-decoration: none;}
+  }
 </style>
